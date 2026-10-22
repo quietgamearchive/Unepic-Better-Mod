@@ -1,0 +1,1604 @@
+# id	category	nameIndex	internalName   (category codes: g_cat_names in unepic_core.c)
+100	0	156	espada 0
+101	0	159	espada 3
+102	0	163	espada 7
+103	0	157	espada 1
+104	0	161	espada 5
+105	0	158	espada 2
+107	0	160	espada 4
+108	0	162	espada 6
+109	0	164	espada 8
+111	0	165	espada elfica
+112	0	166	espada arcana
+113	0	167	espada eduardo
+114	0	168	espada roja
+115	0	169	excalibur
+116	0	897	espada harnakon
+117	0	905	espada fuego sewer
+118	0	933	batlez
+119	0	953	garra lobezno
+120	0	957	hattori Hanzo
+121	0	969	espada guay nivel 2
+122	0	1051	espada guay nivel 6
+123	0	1251	espada guay nivel 10
+124	0	1426	daga orco
+125	0	1438	marcus sword 1
+126	0	1531	espada guadanya
+127	0	1533	espada corentin
+128	0	1587	Bgef
+129	0	1593	Scarlet Mercy
+130	0	1594	Scarlet Wrath
+200	0	182	hueso
+201	0	183	garrote
+202	0	184	garrote con clavo
+203	0	187	maza 0
+204	0	192	maza 5
+205	0	185	mayal
+206	0	194	maza 7
+208	0	189	maza 2
+209	0	190	martillo de herrero
+210	0	186	baston de trasgo curandero
+211	0	196	martillo golem
+212	0	188	maza 1
+213	0	191	maza 4
+214	0	193	maza 6
+215	0	195	maza 8
+217	0	197	llave gigante
+218	0	198	cetro fuego
+219	0	199	cetro hielo
+220	0	200	quebrantahuesos
+221	0	201	baston mago
+222	0	202	martillo de paladin
+223	0	901	garrote ent
+224	0	899	maza harnakon
+225	0	902	maza hielo sewer
+226	0	908	maza undead
+227	0	954	mano hellboy
+228	0	970	maza guay nivel 2
+229	0	1052	maza guay nivel 6
+230	0	1252	maza guay nivel 10
+231	0	1313	joystick
+232	0	1536	maza corentin
+233	0	1561	Healing idol
+234	0	1563	Hammer of Justice
+235	0	1572	Demolisher
+236	0	1591	Salrain's Warhammer
+300	0	175	hacha 4
+301	0	177	hacha 6
+302	0	178	hacha 7
+303	0	179	hacha 8
+304	0	171	hacha 0
+306	0	173	hacha 2
+307	0	170	hacha de cocina
+308	0	172	hacha 1
+309	0	174	hacha 3
+310	0	176	hacha 5
+314	0	180	hacha grande
+315	0	181	hacha del fecundador
+316	0	898	hacha harnakon
+317	0	907	hacha tripe bilbio
+318	0	971	hacha guay 2
+319	0	1053	hacha guay 6
+320	0	1253	hacha guay 10
+321	0	1537	hacha corentin
+322	0	1557	Axe of the crypt keeper
+323	0	1588	Arcane Gash
+324	0	1600	hacha grande replica
+400	0	146	daga 0
+401	0	150	daga 4
+402	0	152	daga 6
+403	0	148	daga 2
+404	0	154	daga 8
+405	0	147	daga 1
+406	0	149	daga 3
+407	0	151	daga 5
+408	0	153	daga 7
+410	0	155	daga adyanti
+411	0	906	daga lifesteal bilbio
+412	0	972	daga guay 2
+413	0	1054	daga guay 6
+424	0	1254	daga guay 10
+425	0	1272	garra werewolf
+426	0	1535	daga corentin
+427	0	1548	stivens rib
+428	0	1578	Golden Knife
+429	0	1586	Desecrator
+500	2	203	lanza 0
+501	2	205	lanza 2
+502	2	207	lanza 4
+503	2	209	lanza 6
+504	2	211	lanza 8
+505	2	212	tridente
+507	2	204	lanza 1
+508	2	206	lanza 3
+509	2	208	lanza 5
+510	2	210	lanza 7
+514	2	213	Slicering
+515	2	214	lanza verde
+516	2	900	lanza harnakon
+517	2	909	lanza halls
+518	2	973	lanza guay 2
+519	2	1055	lanza guay 6
+520	2	1255	lanza guay 10
+521	2	1534	lanza corentin
+522	2	1558	spear of gendurion
+523	2	1574	LanceLoth
+524	2	1585	GreenSpear
+525	2	1589	Blight's Spark
+600	1	215	espadón
+601	1	216	espada bastarda
+602	1	217	espada de pyros
+700	0	993	baston elemetal 0
+701	0	994	baston elemetal 1
+702	0	995	baston elemetal 2
+703	0	996	baston elemetal 3
+704	0	997	baston elemetal 4
+705	0	998	baston elemetal 5
+706	0	999	baston elemetal 6
+707	0	1000	baston elemetal 7
+708	0	1001	baston elemetal 8
+715	0	1002	baston fuego 0
+716	0	1003	baston fuego 1
+717	0	1004	baston fuego 2
+718	0	1005	baston fuego 3
+719	0	1006	baston fuego 4
+720	0	1007	baston fuego 5
+721	0	1008	baston fuego 6
+722	0	1009	baston fuego 7
+723	0	1010	baston fuego 8
+730	0	1011	baston hielo 0
+731	0	1012	baston hielo 1
+732	0	1013	baston hielo 2
+733	0	1014	baston hielo 3
+734	0	1015	baston hielo 4
+735	0	1016	baston hielo 5
+736	0	1017	baston hielo 6
+737	0	1018	baston hielo 7
+738	0	1019	baston hielo 8
+745	0	1020	baston curacion 0
+746	0	1021	baston curacion 1
+747	0	1022	baston curacion 2
+748	0	1023	baston curacion 3
+749	0	1024	baston curacion 4
+750	0	1025	baston curacion 5
+751	0	1026	baston curacion 6
+752	0	1027	baston curacion 7
+753	0	1028	baston curacion 8
+760	0	1029	baston nigromante 0
+761	0	1030	baston nigromante 1
+762	0	1031	baston nigromante 2
+763	0	1032	baston nigromante 3
+764	0	1033	baston nigromante 4
+765	0	1034	baston nigromante 5
+766	0	1035	baston nigromante 6
+767	0	1036	baston nigromante 7
+768	0	1037	baston nigromante 8
+775	0	1038	baston luz 0
+776	0	1039	baston luz 1
+777	0	1040	baston luz 2
+778	0	1041	baston luz 3
+779	0	1042	baston luz 4
+780	0	1043	baston luz 5
+781	0	1044	baston luz 6
+782	0	1045	baston luz 7
+783	0	1046	baston luz 8
+784	0	1369	baston ahorro
+785	0	1437	marcus staff 1
+786	0	1482	baston master key
+787	0	1483	baston toy key
+788	0	1524	great staff of alchemist
+789	0	1566	Vampire hand
+790	0	1571	Ancient elemental staff
+791	0	1579	Drakonite
+792	0	1580	Glacius
+793	0	1581	Chaos
+794	0	1582	Celestus
+795	0	1583	Miraculum
+796	0	1592	Distortion Key
+901	0	220	martillo de plastico
+1000	4	221	candelabro 3 velas
+1001	4	222	antorcha
+1002	4	223	farol
+1003	4	224	vela
+1004	4	225	vela prot fuego
+1005	4	226	esfera azul
+1006	4	227	esfera roja
+1007	4	228	esfera arcana
+1008	4	229	esfera luz
+1009	4	230	zippo
+1010	4	231	vela roja
+1011	4	232	vela azul
+1012	4	941	calabaza farol
+1013	4	1493	voodoo head
+1014	4	1526	crystal of archmage
+1015	4	1527	lantern
+1016	4	1528	diving suit helmet
+1017	4	1529	holly cross
+1018	4	1546	latern miracle healing
+1019	4	1567	Brain Lamp
+1020	4	1575	Hex-clock
+2004	11	2	curar
+2008	11	3	curacion total
+2009	11	4	inmunidad melee
+2010	11	5	inmunidad fuego
+2011	11	6	inmunidad hielo
+2012	11	7	inmunidad arcano
+2014	11	9	inmunidad polimorfismo
+2018	11	8	inmunidad veneno
+2022	11	10	inmunidad speed
+2025	11	11	inmunidad mental
+2027	11	12	inmunidad total
+2028	11	13	polimorfismo gallina
+2029	11	14	polimorfismo arma
+2030	11	15	sleep
+2033	11	16	confusion
+2034	11	17	fear
+2035	11	18	blindness
+2036	11	19	paralysis
+2037	11	20	slow
+2038	11	21	teleportFar
+2039	11	22	teleportNear
+2040	11	23	fast
+2041	11	24	fuerza
+2044	11	25	infravision
+2045	11	26	trapdetection
+2046	11	27	invis
+2049	11	28	seeinv
+2050	11	29	ethereal
+2051	11	30	rege
+2054	11	31	poison
+2057	11	32	teleportHome
+2058	11	42	weakness
+2059	11	43	phaseDoor
+2060	11	44	resetSkills
+2061	11	45	protMelee
+2063	11	46	protFire
+2064	11	47	protFrost
+2065	11	48	protArcane
+2068	11	49	fireAura
+2069	11	50	slowPoison
+2070	11	51	reducPoison
+2071	11	52	antidote
+2072	11	53	arcaneShock
+2073	11	54	melee master
+2074	11	55	proy master
+2075	23	56	inmolation
+2076	11	33	teleportZoran
+2077	11	34	teleportOlla
+2078	11	57	phaseAdvance
+2079	11	35	teleportQuest
+2080	11	36	damBug
+2081	11	37	corrosion
+2082	11	38	drainLife
+2083	11	39	giveLife
+2084	11	40	burn
+2085	11	41	frosty
+2089	11	58	lightsOn
+2090	11	59	killAllBarrels
+2091	11	60	invocarHielo
+2092	11	61	augurio
+2093	11	62	petEnergy
+2094	11	63	damage
+2095	11	64	giveLevelPoints
+2096	11	65	extintor
+2097	11	66	midas
+2098	11	67	walldetection
+2099	11	68	arcaneDam
+2100	11	69	controlSkeleton
+2200	13	81	caca
+2201	13	82	dardo ligero
+2202	13	83	dardo magico
+2203	13	84	onda arcana
+2204	13	85	dardo de fuego
+2205	13	86	bola de fuego
+2206	13	87	onda de fuego
+2207	13	88	area de bola de fuego
+2208	13	89	aliento de fuego
+2209	13	90	columna de fuego
+2210	13	91	dardo de hielo
+2211	13	92	aliento de hielo
+2212	13	93	cono de hielo
+2213	13	94	estalactita
+2214	13	95	dardo de luz
+2215	13	96	dardo polimorfismo
+2216	13	97	dardo polimorfismo arma
+2217	13	98	sleepBolt
+2218	13	99	sleepBolt15sec
+2220	13	100	confusionBolt
+2221	13	101	fearBolt
+2222	13	102	blindnessBolt
+2223	13	103	paralysisBolt
+2224	13	104	slowBolt
+2225	13	105	teleportFarBolt
+2226	13	106	teleportNearBolt
+2227	13	107	dardo de fuego 2
+2228	13	108	dardo de fuego 3
+2229	13	109	dardo de hielo 2
+2230	13	110	dardo de hielo 3
+2231	13	1107	ghost axe
+2232	13	1075	knive far 4
+2233	13	1100	dardo polimorfismo armadura
+2234	13	1235	proy earthUp
+2235	13	1427	ray bolt
+2236	13	1467	stunning hammer
+2237	13	1472	jabalina
+2300	13	111	dardo de hielo ene1
+2301	13	112	dardo magico ene1
+2302	13	113	dardo de fuego ene1
+2303	13	114	dardo paralizante
+2304	13	115	dardo debilitador
+2305	13	116	dardo lentitud
+2306	13	117	homing firebolt ene1
+2307	13	119	homing frostbolt ene1
+2308	13	121	homing arcanebolt ene1
+2309	13	123	dardo estrellitas ene1
+2310	13	124	flecha
+2311	13	118	homing firebolt ene2
+2312	13	120	homing frostbolt ene2
+2313	13	122	homing arcanebolt ene2
+2314	13	127	flecha ene1
+2315	13	128	vida1
+2316	13	129	homing poison ene2
+2317	13	130	bengala
+2318	13	131	homing wisp
+2319	13	132	stinking cloud
+2320	13	133	dardo magico ene2
+2321	13	134	firebolt cria dragon
+2322	13	135	flecha acida
+2323	13	136	dardo de hielo pet hielo
+2324	13	137	torpedo de fotones
+2325	13	138	homing firebolt undead
+2326	13	139	undead boss bolt
+2327	13	140	dardo de luz pet
+2328	13	141	flecha fuego
+2329	13	142	nube de muerte
+2330	13	143	rayo vertical
+2331	13	144	bola de fuego ene
+2332	13	880	bola catapulta
+2333	13	881	aro momoko
+2334	13	882	flecha venenosa
+2335	13	145	flecha elfica
+2336	13	883	dardo de luz elfica
+2337	13	928	laser pistola
+2338	13	929	dardo romulano
+2339	13	940	truco bolt
+2340	13	125	flecha larga
+2341	13	126	flecha magica
+2342	13	966	disparo syder
+2343	13	1049	bola venenosa
+2344	13	1449	flecha espiritu
+2345	13	1494	rod poison bolt
+2500	3	233	palo con caca
+2501	3	234	ballesta ligera
+2550	3	235	arco 0
+2551	3	236	arco 1
+2552	3	237	arco 2
+2553	3	238	arco 3
+2554	3	239	arco 4
+2555	3	240	arco 5
+2556	3	242	arco 7
+2557	3	243	arco 8
+2559	3	244	arco ene1
+2560	3	241	arco 6
+2561	3	245	arco largo elfico
+2562	3	246	arco largo doble
+2563	3	903	arco acido lab
+2564	3	904	arco veneno jardines
+2565	3	1514	arco galious 1
+2566	3	1515	arco galious 2
+2567	3	1538	arco corentin
+2568	3	1547	hellfire bow
+2569	3	1569	Acidic tear
+2570	3	1573	Ranged Anger
+2571	3	1590	Wind's Weave
+2600	3	501	varita mágica
+2601	3	502	varita dardos de fuego
+2602	3	503	varita bolas de fuego
+2603	3	504	varita polimorfismo
+2604	3	505	varita polimorfismo arma
+2605	3	506	wand sleep
+2606	3	507	wand sleep leve
+2608	3	508	wand confusion
+2609	3	509	wand fear
+2610	3	510	wand blindness
+2611	3	511	wand paralysis
+2612	3	512	wand slow
+2613	3	513	wand teleportFar
+2614	3	514	wand teleportNear
+2615	3	515	varita dardos de hielo
+2616	3	516	varita bengalas
+2617	3	517	wand firebolt undead
+2618	3	518	wand rayos ene
+2619	3	930	pistola laser
+2620	3	931	disruptor romulano
+2621	3	943	wand trucotrato
+2622	3	1056	arco guay 6
+2623	3	1098	varita polimorfismo arma pvp
+2624	3	1101	baston polimorfismo armadura pvp
+2625	3	1238	wand mp arcane bolt
+2626	3	1239	rod arcane bolt
+2627	3	1240	rod firebolt
+2628	3	1241	rod frostbolt
+2629	3	1242	rod fireball
+2630	3	1256	arco guay 10
+2631	3	1428	varita ray bolt
+2632	3	1495	rod poison
+2634	15	1345	tomo keepBuffs
+2635	3	1513	rod cruz light
+2636	3	1584	Cross
+2637	3	1596	Amon's Fervor
+2638	3	1597	Focalor's Acquiescence
+2639	3	1598	Orias' Radiance
+2640	3	1599	Bifrons' Insight
+3000	10	273	spell dardo magico
+3001	10	274	spell onda arcana
+3002	10	275	spell dardo de fuego
+3003	10	276	spell bola de fuego
+3004	10	277	spell onda de fuego
+3005	10	278	spell aliento de fuego
+3006	10	279	spell destruccion
+3007	10	280	spell dardo de hielo
+3008	10	281	spell aliento de hielo
+3009	10	282	spell cono de hielo
+3010	10	283	spell estalactitas
+3011	10	284	spell dardo de luz
+3012	10	285	spell curar heridas
+3013	10	286	spell curar heridas serias
+3015	10	287	spell curar heridas criticas
+3016	10	288	spell curacion total
+3017	10	289	spell inmunidad melee
+3018	10	290	spell inmunidad fuego
+3019	10	291	spell inmunidad hielo
+3020	10	292	spell inmunidad arcano
+3021	10	293	spell polimorfismo gallina
+3022	10	294	spell polimorfismo arma
+3023	10	295	spell sleep
+3024	10	296	spell veneno lento
+3026	10	297	spell confusion
+3027	10	298	spell fear
+3028	10	299	spell blindness
+3029	10	300	spell paralysis
+3030	10	301	spell slow
+3031	10	302	spell teleportFar
+3032	10	303	spell teleportNear
+3033	10	304	spell fast
+3034	10	305	spell fuerza1
+3035	10	306	spell fuerza2
+3036	10	307	spell fuerza3
+3037	10	308	spell infravision
+3038	10	309	spell trapdetection
+3039	10	310	spell invis1
+3040	10	311	spell invis2
+3041	10	312	spell invis3
+3042	10	313	spell seeinv
+3043	10	314	spell ethereal
+3044	10	315	spell rege1
+3045	10	316	spell rege2
+3046	10	317	spell rege3
+3047	10	318	spell dardo de fuego 2
+3048	10	319	spell dardo de fuego 3
+3049	10	320	spell dardo de hielo 2
+3050	10	321	spell dardo de hielo 3
+3051	10	892	spell curar ene1
+3052	10	893	spell curar ene2
+3053	10	894	spell aro momoko
+3054	10	895	spell inmunidad fuego
+3055	10	896	spell estrellazas
+3056	10	936	spell warp
+3057	10	937	spell teleport warp
+3058	10	960	spell aviso pared falsa
+3100	10	322	spell dardo de hielo ene1
+3101	10	323	spell dardo de fuego ene1
+3102	10	324	spell dardo magico ene1
+3103	10	325	spell homing firebolt ene1
+3104	10	326	spell homing frostbolt ene1
+3105	10	327	spell homing arcanebolt ene1
+3106	10	331	spell estrellitas ene1
+3107	10	328	spell homing firebolt ene2
+3108	10	329	spell homing frostbolt ene2
+3109	10	330	spell homing arcanebolt ene2
+3110	10	332	spell inmolation
+3111	10	333	spell slowbolt
+3112	10	334	spell dardo magico ene2
+3113	10	335	spell lengua sapo
+3114	10	336	spell firebolt cria dragon
+3115	10	337	spell drain life
+3116	10	338	spell give life
+3117	10	339	spell dardo de hielo pet hielo
+3118	10	340	spell tentaculo verde
+3119	10	341	spell lengua sapo azul
+3120	10	342	spell homing arcanebolt triple
+3121	10	343	spell extintor
+3122	10	344	spell torpedo de fotones
+3123	10	345	spell phaser
+3124	10	346	spell invocar hielo
+3125	10	347	spell drain life ene1
+3126	10	348	spell control esqueleto
+3127	10	349	spell void arcano
+3128	10	350	spell aura de calor
+3129	10	351	spell drain life pet
+3130	10	352	spell lightbolt pet
+3131	10	353	spell fire weapon
+3132	10	354	spell frost weapon
+3133	10	355	spell light weapon
+3134	10	356	spell acid weapon
+3135	10	357	spell skeleton curse
+3136	10	358	spell life sphere
+3137	10	359	spell nube de muerte
+3138	10	360	spell reduc poison
+3139	10	361	spell cast speed
+3140	10	362	spell stun
+3141	10	363	spell rubi to dust
+3142	10	364	spell zafiro to dust
+3143	10	365	spell esmeralta to dust
+3144	10	366	spell phaseAdvance
+3145	10	367	spell rayo
+3146	10	368	spell metal to gold
+3147	10	369	spell curar heridas aliados
+3148	10	370	spell antidoto
+3149	10	371	spell telekinesis
+3150	10	372	spell improve weapon
+3151	10	373	spell improve armor
+3152	10	374	spell protMelee
+3153	10	375	spell frostbolt triple
+3154	10	376	spell lengua cangrejo
+3156	10	377	spell protFrost
+3157	10	378	spell protArcane
+3158	10	379	spell protFire
+3159	10	380	spell inmuVeneno
+3160	10	381	spell inmuSpeed
+3161	10	382	spell inmuMental
+3162	10	383	spell inmuPolimorf
+3163	10	384	spell rebote
+3164	10	385	spell rayo paralizador
+3165	10	386	spell teleport caja 1
+3166	10	387	spell teleport caja 2
+3167	10	388	spell teleport caja 3
+3168	10	389	spell teleport caja 4
+3169	10	390	spell teleport caja 5
+3170	10	391	spell teleport caja 6
+3171	10	392	spell teleport caja 7
+3172	10	393	spell teleport caja 8
+3173	10	394	spell invocar espiritu fuego
+3174	10	395	spell locura
+3175	10	396	spell curar grupo
+3176	10	397	spell bola de fuego ene
+3177	10	398	spell invocar esbirro
+3178	10	399	spell control mental
+3179	10	400	spell salvacion
+3180	10	401	spell void mental
+3181	10	878	spell void alter
+3182	10	879	spell salto
+3183	10	959	spell laser deathstar
+3184	10	967	spell disparo syder
+3185	10	1050	spell bola venenosa
+3186	10	1108	spell ghost axe
+3187	10	1110	spell sword cut
+3188	10	1076	spell knive far 4
+3189	10	1078	spell mace stun
+3190	10	1080	spell asta teleport
+3191	10	1082	spell triple arrow
+3192	10	1084	spell sleep dardo
+3193	10	1085	spell aura vampirica
+3194	10	1087	spell aura de luz
+3195	10	1089	spell lightShock
+3196	10	1227	spell sword storm
+3197	10	1229	spell dagger teleport
+3198	10	1231	spell flecha microexplosiva
+3199	10	1233	spell alcance
+3200	10	402	spell teleportHome
+3201	10	403	spell phaseDoor
+3202	10	404	spell resetSkills
+3210	10	1236	spell earthUp
+3211	10	1270	spell muerteHacha
+3212	10	1276	spell incDaga 1
+3213	10	1278	spell incEspada 1
+3214	10	1280	spell incMaza 1
+3215	10	1282	spell incHacha 1
+3216	10	1284	spell incAsta 1
+3217	10	1286	spell incArco 1
+3218	10	1288	spell incDaga 2
+3219	10	1290	spell incEspada 2
+3220	10	1292	spell incMaza 2
+3221	10	1294	spell incHacha 2
+3222	10	1296	spell incAsta 2
+3223	10	1298	spell incArco 2
+3224	10	1300	spell incDaga 3
+3225	10	1302	spell incEspada 3
+3226	10	1304	spell incMaza 3
+3227	10	1306	spell incHacha 3
+3228	10	1308	spell incAsta 3
+3229	10	1310	spell incArco 3
+3230	10	1344	spell keepBuffs
+3231	10	1367	spell ethereal yelmo juan
+3232	10	1396	spell invocar spawn
+3233	10	1412	spell fast allies
+3234	10	1413	spell fuerza allies
+3235	10	1441	spell enrage
+3236	10	1443	spell battle cry
+3237	10	1445	spell impale
+3238	10	1447	spell spirit arrow
+3239	10	1450	spell poison arrow
+3240	10	1452	spell split arrow
+3241	10	1454	spell lunge
+3242	10	1456	spell parry wall
+3243	10	1458	spell mine
+3244	10	1460	spell web trap
+3245	10	1462	spell explosion web
+3246	10	1463	spell explosion mina
+3247	10	1464	spell exorcismo
+3248	10	1468	spell stunning hammer
+3249	10	1470	spell holebag
+3250	10	1473	spell jabalina
+3251	10	1475	spell justicia
+3252	10	1486	spell muerte contacto
+3253	10	1487	spell mobilize cry
+3254	10	1489	spell critical strike
+3255	10	1491	spell charge
+3256	10	1516	spell desviar muerte
+3257	10	1518	spell improve skeleton
+3258	10	1520	spell arcane shock
+3300	10	884	spell invocar trasgo
+3301	10	885	spell invocar trasgo curandero
+3302	10	886	spell invocar esqueleto
+3303	10	887	spell invocar esqueleto arquero
+3304	10	888	spell invocar esqueleto mago
+3305	10	889	spell invocar armadura azul
+3306	10	890	spell invocar armadura roja
+3307	10	891	spell invocar armadura verde
+3500	15	405	tomo dardo magico
+3501	15	406	tomo onda arcana
+3502	15	407	tomo dardo de fuego
+3503	15	408	tomo bola de fuego
+3504	15	409	tomo onda de fuego
+3505	15	410	tomo aliento fuego
+3506	15	411	tomo destruccion
+3507	15	412	tomo dardo hielo
+3508	15	413	tomo aliento hielo
+3509	15	414	tomo cono hielo
+3510	15	415	tomo estalactitas
+3511	15	416	tomo dardo luz
+3512	15	417	tomo curar heridas
+3513	15	418	tomo curar heridas serias
+3515	15	419	tomo curar heridas criticas
+3516	15	420	tomo curacion total
+3517	15	421	tomo inmunidad melee
+3518	15	422	tomo inmunidad fuego
+3519	15	423	tomo inmunidad hielo
+3520	15	424	tomo inmunidad arcano
+3521	15	425	tomo polimorfismo gallina
+3522	15	426	tomo polimorfismo arma
+3523	15	427	tomo sleep
+3526	15	428	tomo confusion
+3527	15	429	tomo fear
+3528	15	430	tomo blindness
+3529	15	431	tomo paralysis
+3530	15	432	tomo slow
+3531	15	433	tomo teleport far
+3532	15	434	tomo teleport near
+3533	15	435	tomo fast
+3534	15	436	tomo fuerza1
+3535	15	437	tomo fuerza2
+3536	15	438	tomo fuerza3
+3537	15	439	tomo infravision
+3538	15	440	tomo trapdetection
+3539	15	441	tomo invis1
+3540	15	442	tomo invis2
+3541	15	443	tomo invis3
+3542	15	444	tomo seeinv
+3543	15	445	tomo ethereal
+3544	15	446	tomo rege1
+3545	15	447	tomo rege2
+3546	15	448	tomo rege3
+3547	15	449	tomo dardo de fuego 2
+3548	15	450	tomo extintor
+3549	15	451	tomo invocar hielo
+3550	15	452	tomo veneno lento
+3551	15	453	tomo control esqueleto
+3552	15	454	tomo aura de calor
+3553	15	455	tomo fire weapon
+3554	15	456	tomo frost weapon
+3555	15	457	tomo light weapon
+3556	15	458	tomo acid weapon
+3557	15	459	tomo skeleton curse
+3558	15	460	tomo life sphere
+3559	15	461	tomo nube de muerte
+3560	15	462	tomo reduc poison
+3561	15	463	tomo cast speed
+3562	15	464	tomo stun
+3563	15	465	tomo rubi to dust
+3564	15	466	tomo zafiro to dust
+3565	15	467	tomo esmeralda to dust
+3566	15	468	tomo phaseAdvance
+3567	22	469	romo rayo
+3568	15	470	tomo metal to gold
+3569	15	471	tomo curar heridas aliados
+3570	15	472	tomo antidoto
+3571	15	473	tomo telekinesis
+3572	15	474	tomo improve weapon
+3573	15	475	tomo improve armor
+3574	15	476	tomo protMelee
+3575	15	477	tomo protFrost
+3576	15	478	tomo protArcane
+3577	15	479	tomo protFire
+3578	15	480	tomo inmuVeneno
+3579	15	481	tomo inmuSpeed
+3580	15	482	tomo inmuMental
+3581	15	483	tomo inmuPolimorf
+3582	15	484	tomo rebote
+3583	15	485	tomo teleportacion caja 1
+3584	15	486	tomo teleportacion caja 2
+3585	15	487	tomo teleportacion caja 3
+3586	15	488	tomo teleportacion caja 4
+3587	15	489	tomo teleportacion caja 5
+3588	15	490	tomo teleportacion caja 6
+3589	15	491	tomo teleportacion caja 7
+3590	15	492	tomo teleportacion caja 8
+3591	15	493	tomo invocar espiritu fuego
+3592	15	494	tomo locura
+3593	15	495	tomo dardo de fuego 3
+3594	15	496	tomo curar grupo
+3595	15	497	tomo dardo hielo 2
+3596	15	498	tomo dardo hielo 3
+3597	15	499	tomo control mental
+3598	15	500	tomo salvacion
+3599	15	1109	tomo ghost axe
+3600	15	938	tomo warp
+3601	15	939	tomo teleport warp
+3602	15	1111	tomo sword cut
+3603	15	1077	tomo knive far 4
+3604	15	1079	tomo mace stun
+3605	15	1081	tomo asta teleport
+3606	15	1083	tomo triple arrow
+3607	15	1086	tomo aura vampirica
+3608	15	1088	tomo aura de luz
+3609	15	1090	tomo lighShock
+3610	15	1228	tomo sword storm
+3611	15	1230	tomo dagger teleport
+3612	15	1232	tomo flecha microexplosiva
+3613	15	1234	tomo alcance
+3614	15	1237	tomo earthUp
+3615	15	1271	tomo muerteHacha
+3616	15	1277	tomo incDaga 1
+3617	15	1279	tomo incEspada 1
+3618	15	1281	tomo incMaza 1
+3619	15	1283	tomo incHacha 1
+3620	15	1285	tomo incAsta 1
+3621	15	1287	tomo incArco 1
+3622	15	1289	tomo incDaga 2
+3623	15	1291	tomo incEspada 2
+3624	15	1293	tomo incMaza 2
+3625	15	1295	tomo incHacha 2
+3626	15	1297	tomo incAsta 2
+3627	15	1299	tomo incArco 2
+3628	15	1301	tomo incDaga 3
+3629	15	1303	tomo incEspada 3
+3630	15	1305	tomo incMaza 3
+3631	15	1307	tomo incHacha 3
+3632	15	1309	tomo incAsta 3
+3633	15	1311	tomo incArco 3
+3634	15	1442	tomo enrage
+3635	15	1444	tomo battle cry
+3636	15	1446	tomo impale
+3637	15	1448	tomo spirit arrow
+3638	15	1451	tomo poison arrow
+3639	15	1453	tomo split arrow
+3640	15	1455	tomo lunge
+3641	15	1457	tomo parry wall
+3642	15	1459	tomo mine
+3643	15	1461	tomo web trap
+3644	15	1465	tomo exorcismo
+3645	15	1469	tomo stunning hammer
+3646	15	1471	tomo holebag
+3647	15	1474	tomo jabalina
+3648	15	1476	tomo justicia
+3649	15	1488	tomo mobilize cry
+3650	15	1490	tomo critical strike
+3651	15	1492	tomo charge
+3652	15	1517	tomo desviar muerte
+3653	15	1519	tomo improve skeleton
+3654	15	1521	tomo arcane shock
+3700	15	519	pagina dardo magico
+3701	15	520	pagina dardo de fuego
+3702	15	521	pagina bola de fuego
+3703	15	522	pagina onda de fuego
+4001	5	530	cota de malla
+4002	5	523	ropajes
+4003	5	535	armadura stormtrooper
+4004	5	534	placas metal
+4005	5	524	tela verde
+4006	5	526	armadura de cuero ligero
+4007	5	527	armadura de cuero
+4008	5	528	armadura de cuero tachonado
+4009	5	529	armadura de cuero endurecido
+4010	5	531	cota de malla reforzada
+4011	5	532	cota de escamas
+4012	5	525	armadura acolchada
+4013	5	533	cota de escamas reforzada
+4014	5	536	cota de escamas serp azul
+4015	5	537	cota de escamas serp roja
+4016	5	538	cota de escamas serp negra
+4018	5	539	cota de escamas serp lila
+4020	5	540	cota de escamas dragon azul
+4021	5	541	cota de escamas dragon rojo
+4022	5	542	cota de escamas dragon negro
+4024	5	543	cota de escamas dragon mágico
+4025	5	544	ropajes arcanos
+4026	5	545	coraza bronce
+4027	5	546	coraza plata
+4028	5	547	coraza oro
+4029	5	548	cota aislada
+4035	5	549	toga mago rojo
+4036	5	550	toga mago rojo 2
+4037	5	551	toga mago rojo 3
+4038	5	552	toga mago azul
+4039	5	553	toga mago azul 2
+4040	5	554	toga mago azul 3
+4041	5	555	toga mago lila
+4042	5	556	toga mago lila 2
+4043	5	557	toga mago lila 3
+4044	5	558	toga mago blanco
+4045	5	559	toga mago blanco 2
+4046	5	560	toga mago blanco 3
+4047	5	561	toga mago verde
+4048	5	562	toga mago verde 2
+4049	5	563	toga mago verde 3
+4050	5	564	camiseta
+4051	5	922	bata cientifico
+4052	5	932	armor TNG
+4053	5	934	armor romulano
+4054	5	935	armor klingon
+4055	5	944	armor esqueleto
+4056	5	951	traje austin powers
+4057	5	955	mono bride
+4058	5	963	tarzan
+4059	5	964	momia
+4060	5	1091	traje blues brothers
+4061	5	1099	tutu
+4062	5	1312	camiseta gog
+4063	5	1314	toga concentracion mago rojo
+4064	5	1315	toga concentracion mago rojo 2
+4065	5	1316	toga concentracion mago rojo 3
+4066	5	1317	toga concentracion mago azul
+4067	5	1318	toga concentracion mago azul 2
+4068	5	1319	toga concentracion mago azul 3
+4069	5	1320	toga concentracion mago lila
+4070	5	1321	toga concentracion mago lila 2
+4071	5	1322	toga concentracion mago lila 3
+4072	5	1323	toga concentracion mago blanco
+4073	5	1324	toga concentracion mago blanco 2
+4074	5	1325	toga concentracion mago blanco 3
+4075	5	1326	toga concentracion mago verde
+4076	5	1327	toga concentracion mago verde 2
+4077	5	1328	toga concentracion mago verde 3
+4078	5	1329	toga defensa mago rojo
+4079	5	1330	toga defensa mago rojo 2
+4080	5	1331	toga defensa mago rojo 3
+4081	5	1332	toga defensa mago azul
+4082	5	1333	toga defensa mago azul 2
+4083	5	1334	toga defensa mago azul 3
+4084	5	1335	toga defensa mago lila
+4085	5	1336	toga defensa mago lila 2
+4086	5	1337	toga defensa mago lila 3
+4087	5	1338	toga defensa mago blanco
+4088	5	1339	toga defensa mago blanco 2
+4089	5	1340	toga defensa mago blanco 3
+4090	5	1341	toga defensa mago verde
+4091	5	1342	toga defensa mago verde 2
+4092	5	1343	toga defensa mago verde 3
+4093	5	1372	traje papanoel
+4094	5	1409	baller armor
+4095	5	1430	marcus armor 1
+4096	5	1431	marcus armor 2
+4097	5	1432	marcus armor 3
+4098	5	1433	marcus armor 4
+4099	5	1434	marcus armor 5
+4100	5	1435	marcus armor 6
+4101	5	1436	marcus armor 7
+4102	5	1497	amror archer
+4103	5	1500	cota popolon
+4104	5	1501	cota afrodita
+4105	5	1502	Golem Armor
+4106	5	1523	armor: devoted paladin
+4107	5	1525	peignoir of ocultist
+4108	5	1532	armadura banda roja
+4109	5	1549	armor dark archer
+4110	5	1559	armor of gendurion
+4111	5	1562	Executor armor
+4112	5	1577	Eclipse Guard
+5000	9	70	polvo rojo
+5001	9	71	polvo azul
+5002	9	74	polvo violeta
+5004	9	76	polvo blanco
+5005	9	72	polvo verde
+5006	9	75	polvo amarillo
+5007	9	73	polvo naranja
+5008	9	77	favor divino
+5010	9	1063	killpoint
+5011	9	1064	muerte espada
+5012	9	1065	muerte hacha
+5013	9	1066	muerte maza
+5014	9	1067	muerte asta
+5015	9	1068	muerte baston
+5016	9	1069	muerte arco
+5100	9	247	ala de murcielago
+5110	9	248	visceras de satiro
+5111	9	249	visceras de kroll
+5120	9	250	ojo de serpiente
+5121	9	251	ojo de satiro
+5122	9	252	ojo de kroll
+5123	9	253	ojo de cuervo
+5124	9	254	ojo de pulpo
+5125	9	255	ojo de sapo
+5130	9	256	lengua de serpiente
+5140	9	257	babas rojas
+5141	9	258	babas azules
+5142	9	259	babas verdes
+5143	9	260	babas amarillas
+5144	9	261	babas naranjas
+5145	9	262	babas lilas
+5150	9	263	cuerno de satiro
+5160	9	264	polvo de cuerno de sátiro
+5170	9	265	cola de serpiente
+5180	9	266	pata de hormiga
+5181	9	267	pata de cuervo
+5190	9	268	trozo de tentaculo
+5191	22	269	esporas luminosas
+5192	9	270	aguijon
+5193	9	271	materia fantasmal
+5194	9	272	llama vital
+6000	16	565	pocion peq vacia
+6001	16	566	pocion mediana vacia
+6002	16	567	pocion grande vacia
+6003	16	575	pocion reduccion de veneno
+6004	16	576	antidoto
+6005	16	568	pocion curacion de heridas
+6006	16	569	pocion curacion de heridas serias
+6008	16	570	pocion curacion de heridas criticas
+6009	16	571	pocion curacion total
+6010	16	573	pocion de paralisis
+6011	16	572	pocion de lentitud
+6012	16	574	pocion veneno lento
+6013	16	577	pocion de velocidad
+6014	16	578	pocion de fuerza
+6015	16	579	pocion de fuerza gigante
+6016	16	580	pocion de fuerza titanica
+6017	16	582	pocion de infravision
+6018	16	581	pocion de trapdetection
+6019	16	584	pocion de invis1
+6020	16	585	pocion de invis2
+6021	16	586	pocion de invis3
+6022	16	583	pocion de seeinv
+6023	16	587	pocion de ethereal
+6024	16	588	pocion de rege1
+6025	16	589	pocion de rege2
+6026	16	590	pocion de rege3
+6027	16	591	pocion de poison1
+6028	16	592	pocion de poison2
+6029	16	593	pocion de poison3
+6030	16	594	pocion curar verde
+6031	16	595	pocion detectar muros falsos
+6032	16	596	pocion de resurreccion
+6033	16	1104	pocion de disfraz
+6100	15	597	pergamino prot melee
+6102	15	598	pergamino prot fire
+6103	15	599	pergamino prot frost
+6104	15	600	pergamino prot arcane
+6106	15	601	pergamino inmunidad melee
+6108	15	602	pergamino inmunidad fire
+6109	15	603	pergamino inmunidad frost
+6110	15	604	pergamino inmunidad arcane
+6111	15	605	pergamino de aura de calor
+6112	15	606	pergamino de shock arcano
+6113	15	607	pergamino de melee master
+6114	15	608	pergamino de proy master
+6115	15	609	pergamino de teleportación a Zoran
+6116	15	610	pergamino de teleportación a la cocina
+6117	15	611	pergamino de avance instantáneo
+6128	15	612	pergamino iluminación
+6129	15	613	pergamino barriles
+6130	15	614	pergamino invocar hielo
+6131	15	615	pergamino augurio
+6132	15	616	pergamino regreso
+6133	15	617	pergamino de energia
+6134	15	618	pergamino de sueno leve
+6135	15	619	pergamino midas
+6136	15	620	pergamino improve weapon
+6137	15	621	pergamino locura
+6138	15	910	pergamino de inmunidad rayo
+6139	15	911	pergamino de prot rayo
+6140	15	912	pergamino de teleportación 1
+6141	15	913	pergamino de teleportación 2
+6142	15	914	pergamino de teleportación 3
+6143	15	915	pergamino de teleportación 4
+6144	15	916	pergamino de teleportación 5
+6145	15	917	pergamino de teleportación 6
+6146	15	918	pergamino de teleportación 7
+6147	15	919	pergamino de teleportación 8
+6148	15	920	pergamino invocar bender
+6149	15	921	pergamino de teleportación final
+6150	15	947	pergamino teleport robos
+6151	15	976	pergamino mp slow
+6152	15	977	pergamino mp poison
+6153	15	978	pergamino mp stun
+6154	15	979	pergamino mp invertir controles
+6155	15	980	pergamino mp death
+6156	15	1103	pergamino invocar runa explosiva
+6157	15	1259	vol pergamino inmunidad melee
+6158	15	1260	vol pergamino inmunidad fire
+6159	15	1261	vol pergamino inmunidad frost
+6160	15	1262	vol pergamino inmunidad arcane
+6161	15	1263	vol pergamino de aura de calor
+6162	15	1264	vol pergamino de shock arcano
+6163	15	1265	vol pergamino de melee master
+6164	15	1266	vol pergamino de proy master
+6165	15	1267	vol pergamino iluminación
+6166	15	1268	vol pergamino midas
+6167	15	1269	vol pergamino improve weapon
+6168	15	1373	pergamino telekinesis
+6169	15	1429	pergamino teleportacion compi
+6170	15	1466	pergamino exorcismo
+6171	15	1484	pergamino inicio
+6172	15	1603	pergamino telekinesis
+6200	6	622	anillo dam daga
+6201	6	623	anillo dam espada
+6202	6	624	anillo dam maza
+6203	6	625	anillo dam hacha
+6204	6	626	anillo dam asta
+6205	6	627	anillo dam arco
+6206	6	628	anillo dam filo
+6207	6	629	anillo dam bardo
+6208	6	630	anillo dam paladin
+6209	6	631	anillo dam barbaro
+6210	6	632	anillo dam fuego
+6211	6	633	anillo dam hielo
+6212	6	634	anillo dam arcano
+6213	6	635	anillo dam luz
+6214	6	636	anillo dam elementos
+6215	6	637	anillo dam magia
+6216	6	638	anillo de fuerza unico
+6250	6	639	anillo speed daga
+6251	6	640	anillo speed espada
+6252	6	641	anillo speed maza
+6253	6	642	anillo speed hacha
+6254	6	643	anillo speed asta
+6255	6	644	anillo speed arco
+6256	6	645	anillo speed filo
+6257	6	646	anillo speed bardo
+6258	6	647	anillo speed paladin
+6259	6	648	anillo speed barbaro
+6300	6	649	anillo critico daga
+6301	6	650	anillo critico espada
+6302	6	651	anillo critico maza
+6303	6	652	anillo critico hacha
+6304	6	653	anillo critico asta
+6305	6	654	anillo critico arco
+6306	6	655	anillo critico fuego
+6307	6	656	anillo critico hielo
+6308	6	657	anillo critico arcano
+6309	6	658	anillo critico melee
+6310	6	659	anillo critico luz
+6311	6	660	anillo critico elementos
+6312	6	661	anillo critico magia
+6313	6	662	anillo critico filo
+6314	6	663	anillo critico bardo
+6315	6	664	anillo critico paladín
+6316	6	665	anillo critico barbaro
+6350	6	666	anillo prot melee
+6351	6	667	anillo prot proyectiles
+6353	6	668	anillo prot fuego
+6354	6	669	anillo prot hielo
+6355	6	670	anillo prot arcano
+6356	6	671	anillo prot sombras
+6359	6	672	anillo prot elementos
+6360	6	673	anillo prot magia
+6400	6	674	anillo vida
+6401	6	675	anillo vida 20
+6420	6	676	anillo experiencia
+6440	6	677	anillo heal
+6460	6	678	anillo reduct veneno
+6480	6	679	anillo de regeneración
+6490	6	680	anillo nigromante
+6491	6	681	anillo salto
+6492	6	946	anillo calavera
+6493	6	952	anillo ruso
+6494	6	956	anillo de salvacion
+6495	6	961	anillo Royale
+6496	6	1057	anillo guay fuego 7
+6497	6	1058	anillo guay hielo 7
+6498	6	1059	anillo guay arcano 7
+6499	6	1060	anillo guay curaion 7
+6500	22	682	seta velocidad
+6501	22	942	caramelo
+6502	22	974	seta variada 1
+6503	22	975	queso
+6504	6	1061	anillo guay proteccion 7
+6505	22	1275	queso 2
+6506	6	1477	anillo affinity red
+6507	6	1478	anillo affinity blue
+6508	6	1479	anillo affinity green
+6509	6	1480	anillo affinity purple
+6510	6	1481	anillo affinity white
+6511	6	1485	anillo del loco
+6512	6	1496	ring of slow
+6513	6	1498	anillo prot galious
+6514	6	1499	anillo velocidad galious
+6515	6	1530	anillo poison
+6516	6	1539	anillo daga
+6517	6	1540	anillo espada
+6518	6	1541	anillo maza
+6519	6	1542	anillo hacha
+6520	6	1543	anillo asta
+6521	6	1544	anillo baston
+6522	6	1545	anillo arco
+6523	6	1550	Ring of fire mastery
+6524	6	1551	Ring of ice mastery
+6525	6	1552	Ring of arcane mastery
+6526	6	1553	Ring of light mastery
+6527	6	1554	Ring of heal mastery
+6528	6	1555	Ring of alteration mastery
+6529	6	1556	Ring of Inmortal
+6530	6	1560	Ring of gendurion
+6531	6	1564	Ring of the assassin
+6532	6	1565	Ring of Archmage
+6533	6	1570	Ring of Ancient Lord
+6534	6	1576	Kanmuru
+6535	6	1595	Beber Pact
+6550	22	683	chispa de la vida
+7000	22	717	papel en blanco
+7001	22	718	pluma negra
+7002	22	719	sangre negra
+7003	22	720	marmol poseidon
+7004	22	721	zafiro poseidon
+7005	22	722	corona poseidon
+7006	22	723	baculo
+7007	22	724	abono
+7008	22	725	maceta
+7009	22	726	mandragora
+7010	22	727	trozo escudo
+7011	22	728	cara medusa
+7012	22	729	cabeza de serpiente
+7013	22	730	trozo columna corintia
+7014	22	731	helecho
+7015	22	732	plato bronce
+7016	22	733	pirita
+7017	22	734	azufre
+7018	22	735	simbolo oro
+7019	22	736	cofre hera
+7020	22	737	candado hera
+7021	17	738	llave hera
+7022	22	739	yunque pyros
+7023	22	740	madera
+7024	22	741	fuelle
+7025	22	742	sangre de medusa
+7026	22	743	aceite de quemar
+7027	22	744	mercurio
+7028	17	745	llave negra
+7029	22	746	rodamiento roto
+7030	22	747	doll
+7031	22	748	plumero
+7032	21	749	vaso agua lleno
+7033	21	750	vaso agua vacio
+7034	6	751	anillo plata
+7035	21	752	totem fecundacion
+7036	21	753	huevo dragon
+7037	21	754	elemental frio herido
+7038	15	755	libro en blanco
+7039	21	756	llave gran fuego
+7040	21	757	semen de orco
+7041	21	758	calavera
+7042	21	759	llave calavera
+7043	21	760	necronomicon
+7044	21	761	amuleto negro
+7045	21	762	llave celdas
+7046	17	763	llave celda secreta
+7047	21	764	hacha trasgo
+7048	21	765	llave bola
+7049	21	766	medalla
+7050	21	767	garra
+7051	21	768	foto carnet
+7052	21	769	carnet
+7053	21	770	doc 1
+7054	21	771	doc 2
+7055	21	772	doc 3
+7056	21	773	doc 4
+7057	21	774	doc 5
+7058	21	775	doc 6
+7059	21	776	doc 7
+7060	21	777	doc 8
+7061	22	778	certificado compra sellado
+7062	21	779	llave destino
+7063	22	780	destino 1
+7064	22	781	destino 2
+7065	22	782	destino 3
+7066	17	1092	llave trio de pedernal
+7067	22	1093	bolsa magica 2
+7068	22	1094	bolsa magica 4
+7069	22	1095	bolsa magica 6
+7070	22	1096	bolsa magica 8
+7071	22	1102	orbe teleportar bandera enemiga
+7072	22	1106	bomba
+7073	19	1112	pico
+7074	19	1113	pico up
+7075	19	1114	pico down
+7076	19	1115	stair up
+7077	19	1116	stair destroy
+7078	19	1118	create sai light
+7079	19	1117	destroy sai
+7080	19	1119	create door
+7081	18	1120	edit bicho gusano rojo
+7082	18	1121	edit bicho gusano azul
+7083	18	1122	edit bicho gusano verde
+7084	18	1123	edit bicho gusano amarillo
+7085	18	1124	edit bicho gusano naranja
+7086	18	1125	edit bicho gusano violeta
+7087	18	1126	edit bicho satiro
+7088	18	1127	edit bicho satiro 2
+7089	18	1128	edit bicho serpiente
+7090	18	1129	edit bicho serpiente 2
+7091	18	1130	edit bicho serpiente marina
+7092	18	1131	edit bicho trasgo dormilon
+7093	18	1132	edit bicho trasgo
+7094	18	1133	edit bicho trasgo curandero
+7095	18	1134	edit bicho pulpo
+7096	18	1135	edit bicho sapo
+7097	18	1136	edit bicho bola pinchos
+7098	18	1137	edit bicho bola pinchos venenosa
+7099	18	1138	edit bicho cangrejo
+7100	22	783	halo
+7101	22	784	orbe rebirth
+7102	15	785	libro de la sabiduria
+7103	22	786	caracola
+7104	22	787	concha
+7105	22	788	cajita dorada
+7106	22	789	bolsa magica
+7107	22	945	calabaza invocadora
+7108	22	950	pluma magica
+7110	22	962	orbe rebirth
+7200	22	790	fuelle roto
+7201	20	791	tela1
+7202	20	792	tela2
+7203	20	793	tela3
+7204	20	794	tela4
+7205	20	795	tela5
+7206	20	796	tela6
+7207	20	797	tela7
+7208	20	798	tela8
+7209	20	799	tela9
+7210	20	800	muneco 1
+7211	20	801	muneco 2
+7212	20	802	hueso1
+7213	20	803	hueso2
+7214	20	804	hueso3
+7215	20	805	hueso4
+7216	20	806	hueso5
+7217	20	807	hueso6
+7218	20	808	hueso7
+7219	20	809	hueso8
+7220	20	810	hueso9
+7221	20	811	hueso10
+7222	20	812	cuerda1
+7223	20	813	cuerda2
+7224	20	814	cuerda3
+7225	20	815	cuerda4
+7226	20	816	cuerda5
+7227	20	817	metal1
+7228	20	818	metal2
+7229	20	819	metal3
+7230	20	820	metal4
+7231	20	821	metal5
+7232	20	822	metal6
+7233	20	823	metal7
+7234	20	824	metal8
+7235	20	825	varios1
+7236	20	826	animal1
+7237	20	827	animal2
+7238	20	828	animal3
+7239	20	829	animal4
+7240	20	830	animal5
+7241	20	831	animal6
+7242	20	832	animal7
+7243	20	833	animal8
+7244	22	925	oreja de elfo
+7245	22	926	gallumbos de elfo
+7250	20	78	rubi 1
+7251	20	79	zafiro 1
+7252	20	80	esmeralda 1
+7300	17	834	llave mina
+7301	17	835	llave cloacas
+7302	17	836	llave jardines
+7303	17	837	llave bilbioteca
+7304	17	838	llave catacumbas
+7305	17	839	llave laboratorio
+7306	17	840	llave salon
+7307	17	841	llave magos
+7308	17	842	llave spiders
+7309	17	843	llave magos 2
+7310	17	949	llave banco
+7311	17	1250	llave prision
+7312	17	1366	llave pueblo
+7313	17	1503	key World 1
+7314	17	1504	key World 2
+7315	17	1505	key World 3
+7316	17	1506	key World 4
+7317	17	1507	key World 5
+7318	17	1508	key World 6
+7319	17	1509	key World 7
+7320	17	1510	key World 8
+7321	17	1511	key World 9
+7322	17	1512	key World 10
+7323	17	1601	Rusty Key
+7324	17	1602	Magic Key
+7400	12	844	receta pocion vida peq
+7401	12	845	receta pocion de rege1
+7402	12	846	receta pocion veneno lento
+7403	12	849	receta pocion reduccion de veneno
+7404	12	847	receta pocion de fuerza
+7405	12	848	receta pocion de trapdetection
+7406	12	850	receta pocion de velocidad
+7407	12	851	receta pocion de infravision
+7408	12	852	receta pocion de seeinv
+7409	12	853	receta antidoto
+7410	12	854	receta pocion vida 2
+7411	12	855	receta pocion de rege2
+7412	12	856	receta pocion de fuerza 2
+7413	12	857	receta pocion de ethereal
+7414	12	858	receta pocion de invisibilidad
+7415	12	859	receta pocion detectar muros falsos
+7416	12	860	receta pocion de resurreccion
+7500	12	861	libro receta pocion vida peq
+7501	12	862	libro receta pocion rege1
+7502	12	863	libro receta pocion veneno lento
+7503	12	866	libro receta pocion reducicon de veneno
+7504	12	864	libro receta pocion fuerza
+7505	12	865	libro receta pocion trap detection
+7506	12	867	libro receta pocion de velocidad
+7507	12	868	libro receta pocion de infravision
+7508	12	869	libro receta pocion de seeinv
+7509	12	870	libro receta antidoto
+7510	12	871	libro receta pocion vida med
+7511	12	872	libro receta pocion fuerza 2
+7512	12	873	libro receta pocion rege2
+7513	12	874	libro receta pocion ethereal
+7514	12	875	libro receta pocion de invisibilidad
+7515	12	876	libro receta pocion de detectar muros
+7516	12	877	libro receta pocion de resurrección
+7600	7	708	mascota ojo
+7601	7	709	mascota dragon verde
+7602	7	710	mascota sapo globo
+7603	7	711	mascota planta
+7604	7	712	mascota hielo
+7605	7	713	mascota enterprise
+7606	7	714	mascota skull
+7607	7	715	mascota alma
+7608	7	716	mascota gatchan
+7609	7	958	mascota deathstar
+7610	7	965	mascota syder
+7700	18	1139	edit bicho hormiga roja
+7701	18	1140	edit bicho cucaracha
+7702	18	1141	edit bicho tentaculo
+7703	18	1142	edit bicho hormiguero
+7704	18	1143	edit bicho esqueleto debil
+7705	18	1144	edit bicho esqueleto
+7706	18	1145	edit bicho esqueleto 2
+7707	18	1146	edit bicho esqueleto arquero
+7708	18	1147	edit bicho esqueleto mago
+7709	18	1148	edit bicho tumba con esqueleto
+7710	18	1149	edit bicho esqueleto enterrado
+7711	18	1150	edit bicho fantasma
+7712	19	1151	edit activar mazmorra
+7713	19	1152	edit remove bicho
+7714	18	1153	edit bicho armadura azul
+7715	18	1154	edit bicho armadura roja
+7716	18	1155	edit bicho armadura verde
+7717	18	1156	edit bicho yelmo rojo 1
+7718	18	1157	edit bicho yelmo azul 1
+7719	18	1158	edit bicho yelmo arcano 1
+7720	18	1159	edit bicho yelmo rojo 2
+7721	18	1160	edit bicho yelmo azul 2
+7722	18	1161	edit bicho yelmo arcano 2
+7723	18	1162	edit bicho trampa cazador
+7724	18	1163	edit bicho trampa lanzas
+7725	18	1164	edit bicho trampa fuego alta
+7726	18	1165	edit bicho trampa fuego baja
+7727	18	1166	edit bicho roca cuadrada
+7728	18	1167	edit bicho trollgoneta
+7729	18	1168	edit bicho cristal rayos
+7730	19	1169	edit girar bicho
+7731	19	1170	edit create palanca
+7732	19	1171	edit create tumba
+7733	19	1172	edit palanca wall
+7734	19	1173	edit palanca floor
+7735	19	1174	edit palanca ladder
+7736	19	1175	edit false wall
+7737	19	1176	edit ladder K
+7738	19	1177	edit ladder Z
+7739	19	1178	edit palanca bicho
+7740	19	1179	edit surtidor
+7741	18	1180	edit bicho trampa surtidor
+7742	18	1181	edit bicho barril
+7743	18	1182	edit bicho barril polvos
+7744	18	1183	edit bicho barril flechas
+7745	18	1184	edit bicho bufon
+7746	18	1185	edit bicho cientifico
+7747	18	1186	edit bicho hombre fuego
+7748	18	1187	edit bicho golem
+7749	18	1188	edit bicho gallina
+7750	18	1189	edit bicho cubo
+7751	18	1190	edit bicho orco carcelero
+7752	18	1191	edit bicho fantasma ladron
+7753	18	1192	edit bicho mago azul
+7754	18	1193	edit bicho planta carnivora
+7755	18	1194	edit bicho mago rojo
+7756	18	1195	edit bicho orco lancero
+7757	18	1196	edit bicho orco
+7758	18	1197	edit bicho bloque hielo
+7759	18	1198	edit bicho mage lila
+7760	18	1199	edit bicho ent
+7761	18	1200	edit bicho ratman
+7762	19	1201	edit enciende todo
+7763	19	1202	edit fuelle magico
+7764	19	1203	edit bandera
+7765	19	1204	edit meta
+7766	19	1205	edit fondo mazmorra
+7767	19	1206	edit fondo cloacas
+7768	19	1207	edit fondo mina
+7769	19	1208	edit fondo torre
+7770	19	1209	edit fondo salones
+7771	19	1210	edit fondo catacumbas
+7772	19	1211	edit fondo telaranyas
+7773	19	1212	edit fondo magos
+7774	19	1213	edit pinchos
+7775	19	1214	edit create chest
+7776	17	1215	llave mp 1
+7777	17	1216	llave mp 2
+7778	17	1217	llave mp 3
+7779	17	1218	llave mp 4
+7780	17	1219	llave mp 5
+7781	19	1220	edit create llave 1
+7782	19	1221	edit create llave 2
+7783	19	1222	edit create llave 3
+7784	19	1223	edit create llave 4
+7785	19	1224	edit create llave 5
+7786	19	1225	edit crear puerta
+7787	19	1226	edit crear cerradura
+7788	19	1243	create sai light permanent
+7789	19	1244	create sai edit teleport
+7790	19	1245	reset palancas
+7791	19	1246	edit palanca platform
+7792	19	1247	edit dialog
+7793	19	1248	edit dialog wall
+7794	19	1249	edit dialog ladder
+7795	19	1257	edit create chest sorpresa
+7796	16	1273	frasco invocar babosa acida
+7797	22	1274	condensador de materia
+7798	19	1346	edit night googles
+7799	19	1347	edit start P1
+7800	19	1348	edit start P2
+7801	19	1349	edit start P3
+7802	19	1350	edit start P4
+7803	19	1351	edit mass
+7804	19	1352	edit teleport mouse
+7805	19	1353	edit dialog checkpoint
+7806	19	1354	edit dialog platform
+7807	19	1355	edit dialog floor
+7808	19	1356	edit K platform
+7809	19	1357	edit K floor
+7810	19	1358	edit K wall
+7811	19	1359	edit Z platform
+7812	19	1360	edit light platform
+7813	19	1361	edit light ladder
+7814	19	1362	edit light wall
+7815	19	1363	edit light floor
+7816	19	1364	edit loc activation
+7817	19	1365	edit dialog wallin
+7818	18	1368	edit bicho yelmoverde 1
+7819	18	1370	edit bicho boss custom
+7820	19	1371	edit create invocador
+7821	18	1374	edit bicho humanoid 1
+7822	18	1375	edit bicho humanoid 2
+7823	18	1376	edit bicho humanoid 3
+7824	18	1377	edit bicho humanoid 4
+7825	18	1378	edit bicho humanoid 5
+7826	18	1379	edit bicho humanoid 6
+7827	18	1380	edit bicho humanoid 7
+7828	18	1381	edit bicho humanoid 8
+7829	18	1382	edit bicho humanoid 9
+7830	18	1383	edit bicho humanoid 10
+7831	18	1384	edit bicho humanoid 11
+7832	18	1385	edit bicho humanoid 12
+7833	18	1386	edit bicho humanoid 13
+7834	18	1387	edit bicho humanoid 14
+7835	18	1388	edit bicho humanoid 15
+7836	18	1389	edit bicho humanoid 16
+7837	18	1390	edit bicho humanoid 17
+7838	18	1391	edit bicho humanoid 18
+7839	18	1392	edit bicho humanoid 19
+7840	18	1393	edit bicho humanoid 20
+7841	19	1394	edit create llave un uso 1
+7842	19	1395	edit crear cerradura lapida
+7843	18	1397	edit bicho barril 1
+7844	18	1398	edit bicho barril 2
+7845	18	1399	edit bicho barril 3
+7846	18	1400	edit bicho barril 4
+7847	18	1401	edit bicho barril 5
+7848	18	1402	edit bicho barril 6
+7849	18	1403	edit bicho barril 7
+7850	18	1404	edit bicho barril 8
+7851	18	1405	edit bicho barril 9
+7852	18	1406	edit bicho barril 10
+7853	18	1407	edit bicho barril 11
+7854	18	1408	edit bicho barril 12
+7855	18	1410	edit bicho bee
+7856	19	1411	edit ambient light night
+7857	18	1414	edit bicho bat
+7858	18	1415	edit bicho vampiro
+7859	19	1416	create prison door
+7860	19	1417	create rusty door
+7861	18	1418	edit bicho barril 13
+7862	18	1419	edit bicho barril 14
+7863	18	1420	edit bicho barril 15
+7864	18	1421	edit bicho barril 16
+7865	18	1422	edit bicho barril 17
+7866	18	1423	edit bicho barril 18
+7867	18	1424	edit bicho barril 19
+7868	18	1425	edit bicho barril 20
+7869	18	1439	edit bicho rock falling
+7870	18	1440	edit bicho rock rolling
+7871	19	1522	edit exit
+7872	19	1568	edit teleport mouse marfolog
+8000	22	923	sanguijuela
+8001	22	924	vampiro
+9000	14	684	arma
+9001	14	685	random
+9002	14	686	proyectiles
+9003	14	687	arma azul
+9004	14	688	comChest
+9005	14	689	libro
+9006	14	690	libro fuego
+9007	14	691	libro hielo
+9008	14	692	libro arcano
+9009	14	693	libro curacion
+9010	14	694	anillo
+9011	14	695	armadura
+9012	14	696	toga
+9013	14	697	especial humanoide
+9014	14	698	varita
+9015	14	699	arma basica melee
+9016	14	700	dropBug
+9017	14	701	dropKroll
+9018	14	702	arma verde
+9019	14	703	pasta
+9020	14	704	arco
+9021	14	705	gema
+9022	14	948	lostItem
+9023	14	968	boss loot unic
+9024	14	981	comodin pergamino antideportivo
+9025	14	982	libro nivel 4
+9026	14	983	libro nivel 6
+9027	14	984	libro nivel 8
+9028	14	985	libro nivel 10
+9029	14	986	libro nivel 12
+9030	14	987	libro nivel 14
+9031	14	988	libro nivel 16
+9032	14	989	libro nivel 18
+9033	14	990	libro nivel 20
+9034	14	991	libro nivel 22
+9035	14	992	esencia magica
+9036	14	1047	baston
+9037	14	1048	receta nivel 1
+9038	14	1062	anillo unico
+9039	14	1097	comodin conquest
+9040	14	1105	comodin deathmatch
+9041	14	1258	comodin cofre sorpresa
+9100	22	706	oro
+9101	8	1	coin
+9102	8	218	unepic credit
+9103	8	219	copa mp
+9200	22	707	pieza placas metal
+9999	23	927	void item
+10000	22	1070	moneda 1
+10001	22	1071	moneda 2
+10002	22	1072	moneda 3
+10003	22	1073	moneda 4
+10004	22	1074	moneda 5
