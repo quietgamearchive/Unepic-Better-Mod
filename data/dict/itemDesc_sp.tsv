@@ -1,0 +1,333 @@
+﻿0	-
+1	Concentra el poder arcano en un dardo mágico que sale despedido a gran velocidad.
+2	Crea una onda que atraviesa a cualquier ser, incluso a ti mismo, removiendo sus entrañas.\nRebota en las paredes por lo que resulta muy dañina en habitaciones pequeñas.
+3	Un dardo de fuego sale disparado causando quemaduras a la infeliz víctima.
+4	Genera una gigantesca bola de fuego que calcina cualquier cosa que se encuentre envuelto por ella.
+5	Forma una onda de fuego que avanza lentamente chamuscando cualquier cosa que ose cruzarse en su camino.
+6	Creas una bocanada de fuego de corto alcance semejante al aliento de un dragón rojo.
+7	Potente conjuro que crea un área de destrucción en torno al conjurador, haciendo que el único lugar seguro sea junto a este.
+8	Un dardo gélido sale disparado congelando al primer ser que encuentre en su camino.
+9	Creas una bocanada de frío intenso de corto alcance semejante al aliento de un dragón de los hielos.
+10	Creas un cono de frío que congela a cualquier ser que tenga el infortunio de encontrarse dentro de este.
+11	Una rociada de agua que queda congelada al instante transformándose en afiladas estalactitas que salen disparadas en todas direcciones.
+12	Dispara un dardo de luz que daña y aturde a los muertos vivientes.
+13	Cierra pequeñas heridas y hace recobrar un poco de vida perdida.
+14	Cierra heridas serias y recobra vida perdida por estas.
+15	Cierra heridas críticas y recobra vida perdida por estas.
+16	Potentísimo hechizo de curación que cierra todas las heridas, restaura todo el cuerpo y recobra toda la vida perdida.
+17	Crea una barrera mágica que hace al portador inmune a cualquier ataque cuerpo a cuerpo.
+18	Materializa una barrera mágica que hace al portador inmune a las altas temperaturas.
+19	Genera una barrera mágica que hace al portador inmune a los fríos intensos.
+20	Forma una barrera mágica que hace al portador inmune a los ataques arcanos que puedan causar heridas.
+21	Transforma permanentemente a la víctima en una gallina.
+22	Transforma el arma de un adversario en algo menos dañino.
+23	-
+24	Induce al sueño a una criatura haciendo que duerma incluso estando en alerta.\nCualquier golpe la hará despertar.
+25	-
+26	Revuelve los pensamientos de la víctima dejándola en un estado de confusión durante unos momentos.
+27	Le produce una fuerte sensación de terror a una criatura haciendo que huya desorientada en cualquier dirección.
+28	Nubla la visión de una criatura permitiendo que tan solo pueda percibir aquello que esté muy cerca.
+29	Paraliza completamente a una criatura durante unos momentos.
+30	Reduce la velocidad de la víctima del hechizo durante unos momentos, tornándola lenta.
+31	Teleporta a una criatura hasta un lugar más lejano del conjurador.
+32	Teleporta a una criatura junto al conjurador.
+33	Imbuye la velocidad de un felino.\nDurante unos momentos el ser afectado se moverá con más presteza.
+34	Potencia los músculos del conjurador, haciendo que sus ataques con armas sean más efectivos.
+35	Potencia los músculos del conjurador, haciendo que sus ataques con armas sean más dañinos.
+36	Potencia los músculos del conjurador, haciendo que sus ataques con armas sean más destructivos.
+37	Durante unos momentos hechiza los ojos del conjurador con la capacidad de ver criaturas en la más completa oscuridad.
+38	Durante unos momentos hechiza los ojos del conjurador con la capacidad de detectar trampas.
+39	Imbuye invisibilidad durante unos momentos.\nEl hechizo se romperá si se es herido o si se ataca con armas o conjuros de ataque.
+40	Torna a un ser en completamente invisible durante unos momentos.\nSolo se interrumpe en caso de ser herido.
+41	Torna a un ser en completamente invisible durante unos momentos.\nNi el uso de armas y magia ni el ser herido disipan el hechizo.
+42	Durante unos momentos el conjurador puede ver criaturas invisibles al ojo común.
+43	Tu carne y pertenencias pierden su solidez.\nCualquier arma normal te atravesará como si fueras una niebla. Del mismo modo, tus ataques no causarán daño y no podrás interactuar con objetos sólidos.
+44	Mientras este hechizo esté activo, las heridas leves de tu cuerpo se irán cerrando poco a poco.
+45	Las heridas serias de tu cuerpo se van cerrando poco a poco mientras este hechizo está activo.
+46	Va cerrando poco a poco las heridas críticas de tu cuerpo mientras el hechizo permanece activo.
+47	Teleporta al conjurador bajo la caja dorada del espíritu de la inmortalidad.\nPuede usarse tantas veces como se desee.
+48	Teleporta al conjurador a un lugar cercano a su posición.
+49	Borra todos tus puntos de habilidades para poder volver a reasignarlos en tu hoja de personaje.
+50	El portador y su equipo se vuelven inmunes ante cualquier tipo de hechizo de petrificación o transformación.
+51	Hace al portador inmune a cualquier hechizo de sueño.
+52	Crea una barrera mágica que protege la mente del portador ante cualquier tipo de confusión.
+53	Crea un aura de valor sobre el portador que lo protege de cualquier tipo de terror.
+54	Crea un escudo mágico que evita que cualquier veneno entre en el cuerpo del portador. No funciona como antídoto para los venenos que ya estén haciendo efecto.
+55	Otorga una barrera mágica que impide al portador caer enfermo. No funciona como medicina para las enfermedades que ya se padezcan.
+56	Crea un escudo divino que protege de cualquier intento de maldición sobre el portador.
+57	Protege los ojos del portador ante cualquier tipo de ceguera.
+58	Materializa una capa protectora que repele cualquier tipo de hechizo que tenga como propósito paralizar a la víctima.
+59	Crea un escudo mágico que protege al portador de cualquier intento de lentitud.
+60	Protege al portador ante cualquier hechizo de teleportación.
+61	Genera una poderosísima barrera protectora que protege al portador de cualquier tipo de ataque, tanto físico como mágico. Durante el efecto el portador es inmune a todo.
+62	-
+63	Aumenta la fuerza del portador haciendo más efectivos los ataques con armas.
+64	El hechizado se torna invisible.
+65	Va cerrando poco a poco las heridas de tu cuerpo mientras el hechizo permanece activo.
+66	Un veneno va abriendo heridas internas en el cuerpo de la víctima.
+67	Crea una capa protectora sobre el hechizado que absorbe un tercio de los golpes recibidos cuerpo a cuerpo.
+68	Crea un escudo mágico sobre el hechizado que absorbe un tercio de los impactos recibidos de flechas y proyectiles no mágicos.
+69	Imbuye una capa protectora sobre el hechizado que absorbe un tercio del daño recibido por fuego.
+70	Materializa una capa protectora sobre el hechizado que absorbe un tercio del frío recibido por ataques de hielo.
+71	Genera una barrera mágica que absorbe un tercio del daño producido por ataques arcanos.
+72	Genera una barrera divina que absorbe un tercio del daño producido por ataques de oscuridad.
+73	Crea un aura de calor alrededor del portador que daña poco a poco a los enemigos cercanos.
+74	Mientras el hechizo está activo, los venenos actúan más lentamente sobre la víctima, dejando más tiempo para curaciones y regeneraciones.
+75	Reduce la cantidad de venenos en la víctima disminuyendo el efecto.
+76	Libera a la víctima de cualquier veneno que esté perjudicándola.
+77	Genera un golpe arcano en toda la estancia dañando a todos los enemigos del conjurador.
+78	Aumenta el daño producido por armas de melee en +50, la posibilidad de crítico en un 15% y la velocidad de ataque en un 15%.
+79	Aumenta el daño producido por arcos en +40, la posibilidad de crítico en un 25% y la velocidad de ataque en un 25%.
+80	Teleporta al conjurador a la tienda de Zoran.
+81	Teleporta al conjurador directamente a la cocina.
+82	Teleporta al conjurador directamente hasta la parte más alejada a la que pueda caminar sin caer o tener que saltar.
+83	Teleporta al conjurador directamente hasta donde se encuentra el espíritu del fuego.
+84	Teleporta al conjurador directamente hasta donde se encuentra el espíritu del hielo.
+85	Teleporta al conjurador directamente hasta donde se encuentra el espíritu de la curación.
+86	Teleporta al conjurador directamente hasta donde se encuentra el espíritu de la mente.
+87	Teleporta al conjurador directamente hasta donde se encuentra el espíritu de la magia arcana.
+88	Teleporta al conjurador directamente hasta donde se encuentra el espíritu de la luz.
+89	Teleporta al conjurador directamente hasta donde se encuentra el espíritu de la protección.
+90	Teleporta al conjurador directamente hasta donde se encuentra el espíritu de la alteración.
+91	Teleporta al conjurador directamente hasta donde se encuentra el espíritu X.
+92	Teleporta al conjurador directamente hasta donde se encuentra el espíritu X.
+93	Enciende todas las luces de la habitación.
+94	Destroza todos los barriles de la habitación.
+95	Invoca un bloque de hielo flotante que sirve de escudo contra proyectiles.
+96	La única llave que sirve para abrir cabezas.
+97	Otorga un conocimiento excepcional al conjurador sobre la quest que está activa, ofreciendo, en algunos casos, la localización de los objetos a encontrar, y, en otros casos, pistas para resolver situaciones complicadas.
+98	Teleporta al conjurador junto a quien confió la quest que se está siguiendo en el marcador.
+99	Mitad sapo mitad globo, usa su lengua para atrapar pequeñas criaturas como murciélagos y avispas.
+100	Pequeña cría huérfana de dragón. Lanza proyectiles de fuego contra cualquier criatura, excepto contra aquellas que no puedan ser dañadas por él.
+101	Devuelve a la vida a cualquier mascota que haya muerto.
+102	Otorga energías a la mascota que esté siguiéndote.
+103	Entra en juego con la mitad de la vida. Drena la vida de tus enemigos para aumentar la suya. Cuando su salud es máxima y tú estás herido, te transfiere parte de su vida.
+104	Ofrece invisibilidad por un tiempo limitado. El hechizo se romperá si el ser afectado hace cualquier ataque, conjuro o es herido.
+105	Ofrece invisibilidad por un tiempo limitado. El hechizo se romperá si el ser afectado hace cualquier ataque o conjuro.
+106	Puede venderse a buen precio.
+107	Otorga sabiduría incrementando en 5 los puntos de nivel para mejorar habilidades.
+108	Todas las páginas de este libro han quedado en blanco.
+109	Crea una ráfaga de frío sobre el conjurador que apaga cualquier fuego sobre él. Además crea una capa de escarcha que protege contra más ataques de fuego.
+110	Duerme a la víctima durante 15 segundos.
+111	Transmuta a la víctima en monedas. Cuantos más puntos de vida tenga la criatura, en más monedas se convertirá.
+112	Teleporta al conjurador directamente a la cocina.\nPuede usarse tantas veces como se desee.
+113	Teleporta al conjurador directamente a la tienda de Zoran.\nPuede usarse tantas veces como se desee.
+114	Resucita a una mascota muerta.\nEn el inventario, busca la mascota muerta y selecciona la opción "Resucitar".
+115	Para llegar intrépidamente a donde ninguna galleta pinchada en un puro ha estado jamás.
+116	Detecta trampas, entradas secretas y muros falsos.
+117	Toma el control de un esqueleto para que luche a tu lado. Cada 5 niveles en nigromancia se puede controlar un esqueleto extra.
+118	Engulle mágicamente la energía vital de cualquier criatura, excepto muertos vivientes y seres mecánicos.
+119	Lanza dardos de luz contra los muertos vivientes.\nEs inmune a cualquier tipo de ataque excepto los ataques arcanos.
+120	Imbuye fuego al arma durante un tiempo, causando heridas extra por quemaduras.\nSolo funciona en espadas y arcos.
+121	Imbuye frío al arma durante un tiempo, causando heridas extra por congelación.\nSolo funciona en espadas y dagas.
+122	Imbuye luz divina al arma durante un tiempo, causando heridas extra a los muertos vivientes.\nSolo funciona en mazas.
+123	Imbuye ácido al arma durante un tiempo, causando heridas extra por corrosión.\nSolo funciona en arcos y armas de asta.
+124	Localiza la caja con el espíritu puro de la zona del castillo donde estés.\nEl icono aparecerá en el mapa.\nPuede usarse tantas veces como se desee.
+125	Lo concede el Dios de la Luz para formular plegarias de Luz a cambio de destruir muertos vivientes.
+126	Cuando la víctima muere su esqueleto queda a tu servicio.\nCada 5 niveles en nigromancia se puede controlar un esqueleto extra.\nSolo en humanoides vivos.
+127	Arranca la mitad de la vida del conjurador. Cuando el conjurador muere, la vida que fue arrancada retorna a él.
+128	Crea una nube que avanza lentamente consumiendo la vida a su paso.
+129	Ilumina tu mente durante un tiempo acortando el tiempo de lanzamiento de todos tus conjuros.
+130	Aturde a la víctima dejándola fuera de combate durante unos segundos. Durante este tiempo la víctima es incapaz de reaccionar ante nada.
+131	Transmuta un rubí en 20 esencias mágicas rojas.
+132	Transmuta un zafiro en 20 esencias mágicas azules.
+133	Transmuta una esmeralda en 20 esencias mágicas verdes.
+134	Cota de metal con el interior revestido de un cuero especial para aislar ante golpes de rayo.
+135	Incrementa la capacidad de tu inventario pudiendo llevar 10 objetos más.
+136	Altera permanentemente la forma del arma que se está empuñando mejorándola para que produzca más daño al atacar.
+137	Transforma parte del cuerpo metálico de un enemigo en monedas.\nSolo se puede usar contra enemigos hechos de metal.
+138	Sana a seres aliados como mascotas.\nEl objetivo debe estar a la vista.\nNo funciona con muertos vivientes.
+139	Acerca todos los objetos hasta el conjurador por muy lejos que estén.
+140	Altera permanentemente el material de la armadura que se está llevando mejorándola para que resista mejor los golpes.
+141	Inmuniza al conjurador contra cualquier ataque mental, como aturdir, dormir, cegar o control.
+142	Crea una barrera deflectora.\nLos proyectiles que impacten saldrán rebotados contra el enemigo atacante.
+143	Protege al conjurador de cualquier hechizo de alteración que perjudique el movimiento, como lentitud, paralización o teleportación.
+144	Espada legendaria que causa daño mágico extra y aumenta la experiencia.
+145	Este cerfiticado se sella en la ventanilla calavera-calavera-calavera.
+146	Presentando este modelo firmado en la ventanilla calavera-calavera-hueso se obtiene el certificado de compra.
+147	Este modelo se firma en la ventanilla calavera-hueso-calavera.
+148	Presentando esta solicitud en la ventanilla calavera-hueso-hueso se obtiene el modelo de orden de contravalor AN-200.
+149	Presentando esta aprobación en la ventanilla hueso-calavera-calavera se obtiene una solicitud de modelo de orden de contravalor AN-200.
+150	Presentando este sello en la ventanilla hueso-calavera-hueso se obtiene una aprobación legislada de contravalores.
+151	Presentando este carné en la ventanilla hueso-hueso-calavera se obtiene el sello oficial de Harnakon.
+152	Presentando esta solicitud en la ventanilla hueso-hueso-hueso se obtiene el carné oficial de súbdito de Harnakon.
+153	Lanza un rayo de sus antenas que paraliza a la víctima durante unos segundos.
+154	Teleporta al conjurador a la tienda de la mina.
+155	Teleporta al conjurador a la tienda de las cloacas.
+156	Teleporta al conjurador a la tienda de los jardines.
+157	Teleporta al conjurador a la tienda de la biblioteca.
+158	Teleporta al conjurador a la tienda de las catacumbas.
+159	Teleporta al conjurador a la tienda del laboratorio.
+160	Teleporta al conjurador a la tienda de los salones.
+161	Teleporta al conjurador a la tienda de la torre abandonada.
+162	Invoca un espíritu de fuego que atacará a tus enemigos.
+163	Crea un pulso mental que altera las mentes de todos los seres que estén en tu misma habitación.\nLos afectados se vuelven locos y atacan a quien sea.
+164	Te cura a ti mismo y a todos tus aliados que estén en tu misma habitación.
+165	Incrementa tus saltos ayudándote a llegar con más facilidad a plataformas más alejadas.
+166	Altera la lealtad de la víctima haciendo que se vuelva contra sus semejantes.
+167	Hace una plegaria que hechiza a todos los muertos vivientes.\nSi son destruidos, sus almas son salvadas consiguiendo 4 favores divinos por cada una.
+168	Levanta un esqueleto guerrero.\nTan solo se pueden controlar 3 de este tipo a la vez.
+169	Levanta un esqueleto arquero.\nTan solo se pueden controlar 3 de este tipo a la vez.
+170	Levanta un esqueleto mago que dispara dardos de fuego con una varita.\nTan solo se pueden controlar 3 de este tipo a la vez.
+171	Invoca una armadura roja inmune al fuego.\nTan solo se pueden controlar 3 de este tipo a la vez.
+172	Invoca una armadura verde cuya lanza envenena a sus víctimas.\nTan solo se pueden controlar 3 de este tipo a la vez.
+173	Invoca un goblin curandero que sana a los aliados que se encuentren cerca.\nTan solo se pueden controlar 3 de este tipo a la vez.
+174	Si se mastica bien, se puede usar su jugo para crear pociones mágicas.
+175	Extraño material usado para crear pociones mágicas avanzadas.
+176	Esencia mágica primaria usada para conjurar hechizos y crear pociones mágicas.
+177	Con él se han encendido cientos de porros en cientos de partidas de rol.
+178	Esta llave abre portones que dan acceso a otras zonas del castillo.
+179	Este objeto pertenece a una de tus quests.
+180	Puedes usar este frasco de cristal vacío para crear otras pociones.
+181	Abre la puerta de tu destino tras acabar el juego.
+182	Se dispara con un arco. También se puede usar para sacarse la cera de las orejas o rascarse la espalda.
+183	Elemental de hielo permanentemente reducido.\nLanza frío a sus víctimas ralentizándolas.
+184	Crea una barrera mágica que hace al portador inmune a los rayos.
+185	Crea una capa protectora sobre el hechizado que absorbe un tercio del daño recibido por rayos.
+186	Se conservan como trofeo de batalla contra los elfos y se pagan unas cuantas monedas por ellas.
+187	Invoca un poderoso gólem de hierro, un ser mecánico que no conoce dolor ni piedad.
+188	Crea un portal de retorno.
+189	Te teleporta al último portal de retorno que hayas creado.
+190	Parece un pergamino de teleportación.
+191	Abre la Cámara de Seguridad de HarnaBank, un lugar seguro donde dejar tus cosas.
+192	Te teleporta a HarnaBank.\nUso ilimitado.
+193	Vuelve locas a las nenas, ¡sííí!\nTal vez consigas un descuento si te atiende una chica.
+194	Save and Deliver Us.
+195	Te avisa cuando la partida se guarda.
+196	Ataca con un destructivo láser que hace 2000 de daño por fuego, pero necesita mucha energía.\nNo ataca a enemigos débiles.
+197	Aumenta tu musculatura mientras lo llevas.
+198	El espíritu de un faraón momificado regenera tu cuerpo.
+199	Nave espacial de Syder Arcade. Dispara una ráfaga rápida de disparos.
+200	Los efectos de comérselo son impredecibles.
+201	Lanza un hacha fantasma que atraviesa a su paso a todos tus enemigos.
+202	Durante 30 segundos a tus ataques con espada se suma un tajo en el aire con más alcance que tu espada pero que daña una tercera parte.
+203	Lanza un cuchillo que causa cuatro veces más daño a la víctima si le da por la espalda. Solo funciona en humanoides.
+204	Durante 10 segundos tus ataques con maza aturden a la víctima pero causa la mitad de daño.
+205	Cargas velozmente atravesando instantáneamente todos los enemigos que tengas delante.
+206	Durante 10 segundos disparas 3 flechas a la vez.
+207	Crea un aura que drena lentamente la energía vital de cualquier ser vivo que esté cerca.
+208	Crea un aura de luz divina que hiere a los muertos vivientes que se encuentren cerca.
+209	Una explosión de luz que daña a todos los muertos vivientes y los incapacita durante 3 segundos.
+210	Transforma la armadura de un adversario en algo con menos protección.
+211	Te teleporta directamente a una bandera que esté sin conquistar o conquistada por el enemigo.
+212	Invoca una runa explosiva invisible que explota cuando un rival se acerque demasiado.
+213	Los oponentes te ven como a otro miebro de su equipo (siempre que el oponente tenga algún compañero).
+214	Enlentence al contrincante más cercano.
+215	Envenena al contrincante más cercano.
+216	Aturde al contrincante más cercano.
+217	Invierte los controles izquierda-derecha del contrincante más cercano.
+218	Mata directamente al contrincante más cercano.
+219	Crea/Destruye un muro justo enfrete de tí.
+220	Crea/Destruye el techo justo sobre tu cabeza.
+221	Crea/Destruye el suelo que hay justo bajo tus piés. Para crearlo tienes que estar muy al borde.
+222	Crea/Destruye unas escaleras justo en tu posición para poder subir un nivel.
+223	-
+224	Crea/Destruye una antorcha para iluminar el pasadizo.\nNo pueden haber 2 antorchas demasiado cerca.
+225	Crea/Destruye una antorcha que siempre está encendida.\nNo pueden haber 2 antorchas demasiado cerca.
+226	Crea/Destruye una puerta que conduce a otra habitación.
+227	Crea/Destruye un monstruo como el del icono en el lugar donde estás.
+228	Activa/Desactiva tu mazmorra tal y como la verán los jugadores, activando bichos, trampas y diálogos.
+229	Destruye la etiqueta de bicho o trampa sobre la que estés.
+230	Crea/Destruye una trampa como la del icono en el lugar donde estás.
+231	Gira la etiqueta del bicho o trampa sobre el que estés de izquierda a derecha o viceversa. El bicho o trampa que aparezca mirará o disparará hacia donde apunte la flecha de la etiqueta.
+232	Crea/Destruye una palanca en tu posición que activa "sorpresitas" para los sufridos jugadores.
+233	Crea/Destruye una tumba en tu posición donde los sufridos jugadores aparecen si les matan.
+234	Crea/Destruye un muro que desaparecerá si se activa una palanca.
+235	Crea/Destruye un suelo que desaparecerá si se activa una palanca.
+236	Hace/Deshace que una escalera aparecezca si se activa una palanca.
+237	Crea/Destruye un muro justo enfrente de tí que desaparece si se le golpea.
+238	Hace/Deshace que una escalera aparecezca cuando se destruyan todos los enemigos de la pantalla.
+239	Hace/Deshace que una escalera aparecezca cuando se destruyan todos los enemigos de la zona.
+240	Hace/deshace que un bicho o trampa aparezca cuando se activa una palanca.
+241	Crea/Destruye un surtidor de gas.
+242	Crea/Destruye una loseta que activa todos los surtidores de gas de la pantalla.
+243	Crea/Destruye un objeto destruible como el del icono.
+244	Te teleporta de un soplido al inicio de la fase.
+245	Crea/Destruye una bandera de conquista.
+246	Crea/Destruye la meta de una carrera.
+247	Cambia el ambiente de la habitación.
+248	Crea/Destruye pinchos. Cualquier bicho que entre en contacto con ellos morirá directamente.
+249	Crea/Destruye un cofre. Para insertar un objeto dentro tan solo déjalo caer cerca.
+250	Crea este objeto.
+251	Crea/Destruye un portón levadizo enfrente de tí. El portón se abre usando una cerradura que esté en la misma habitación.
+252	Crea/Destruye un cerrojo que abre todos los portones levadizos que estén en la misma habitación.\nPara asignarle una llave, déjala caer cerca.
+253	Enciende/Apaga todas las luces de la habitación.
+254	Crea una tormenta de espadas a tu alrededor que hiere a quien tenga la osadía de acercarsea tí.
+255	Crea una nube de humo que despista al enemigo que tengas en frente y te coloca justo detrás de él para atacarle por la espalda.
+256	Las flechas disparadas que alcanzan su objetivo crean una onda expansiva que dañan otros objetivos cercanos. Efecto permanente.
+257	Alarga el alcance de tus ataques con armas de asta. Efecto permanente.
+258	Genera una onda de choque que atraviesa a quien tengas frente a tí. No funciona en superfícies de lodo o madera.
+259	Crea/Destruye un portal en tu posición. Para teleportarte a este portal desde otra pantalla, accede al mapa del castillo y clica sobre la pantalla donde esté el portal.
+260	Reinicia todas las palancas y dialogos de la pantalla, como si no se hubieran usado todavía.
+261	Crea/destruye una plataforma que solo aparece si se activa una palanca.
+262	Crea/Destruye un punto de diálogo. Cuando todos los personajes están sobre este punto se activará el diálogo de esta pantalla. Edita el diálogo en MENU > DIALOGOS.
+263	Crea/Destruye un muro que desaparecerá si se activa un diálogo.
+264	Hace/Deshace que una escalera aparecezca si se activa un diálogo.
+265	Crea/Destruye un cofre que incluye un objeto dentro al azar. Ese objeto sólo se podrá usar en esa sesión.
+266	Abre en canal a la próxima criatura que golpees matándola instantáneamente. No funciona en criaturas de tamaño superior a 2 metros.
+267	El frasco contiene una especie de moco verdoso florescente que se mueve.
+268	Si se activa, durante unos segundos convierte la electricidad en materia.
+269	Incrementa el daño. Se puede usar [DAMAGE] veces acumulando el daño. Dura hasta tu muerte.
+270	Incrementa el daño. Se puede usar hasta 4 veces acumulando el daño. Dura hasta tu muerte.
+271	Incrementa el daño. Se puede usar hasta 6 veces acumulando el daño. Dura hasta tu muerte.
+272	Se activa tras tu muerte para evitar que la muerte se lleve cosigo los hechizos que te benefician.
+273	Te permite ver en la oscuridad
+274	Designa la posición inicial de un jugador en modo cooperativo, es decir, donde aparecerá al empezar a jugar.
+275	Crea/Destruye muros en la sección de la habitación seleccionada con el ratón.
+276	Te teleporta a cualquier lugar de la habitación (indicada por el ratón).
+277	Convierte los diálogos en checkpoints. Al invocar diálogos se graban la posición de todos los jugadores, como en un ataúd.
+278	The ladder will appear when all lights are lit.
+279	The wall will disappear when all lights are lit.
+280	The floor will disappear when dialog is shown.
+281	The floor will disappear when all enemies in the screen are killed.
+282	The floor will disappear when all lights are lit.
+283	The platform will appear when dialog is shown.
+284	The platform will appear when all enemies in the screen are killed.
+285	The platform will appear when all enemies in the zone are killed.
+286	The platform will appear when all lights are lit.
+287	The wall will disappear when all enemies in the screen are killed.
+288	An invisible lever is activated when a player pass nearby.
+289	A wall will appear when dialog is shown.
+290	+2 en carisma al comprar. Las esencias te salen más baratas.
+291	Creates an invoker. A boss is needed in the same room.
+292	Creates a boss. The boss must be customized.
+293	+5 a vacilar. Armadura con joyas incrustadas para molar más.
+294	Una varita que suelta descargas eléctrostáticamente eléctricas. Puede dañar aquello que es indañable.
+295	Te teleporta junto a un compañero que esté agachado. No funciona si hay un boss en la misma habitación.
+296	Incrementa tu velocidad al correr y el daño con dagas. Este efecto se puede acumular [DAMAGE] veces. Dura hasta tu muerte.
+297	Incrementa tu velocidad al correr y el daño con dagas. Este efecto se puede acumular 4 veces. Dura hasta tu muerte.
+298	Incrementa tu velocidad al correr y el daño con dagas. Este efecto se puede acumular 6 veces. Dura hasta tu muerte.
+299	Incrementa tu daño y crítico con espadas. Este efecto se puede acumular [DAMAGE] veces. Dura hasta tu muerte.
+300	Incrementa tu daño y crítico con espadas. Este efecto se puede acumular 4 veces. Dura hasta tu muerte.
+301	Incrementa tu daño y crítico con espadas. Este efecto se puede acumular 6 veces. Dura hasta tu muerte.
+302	Incrementa tu velocidad de disparo y daño con arcos. Este efecto se puede acumular [DAMAGE] veces. Dura hasta tu muerte.
+303	Incrementa tu velocidad de disparo y daño con arcos. Este efecto se puede acumular 4 veces. Dura hasta tu muerte.
+304	Incrementa tu velocidad de disparo y daño con arcos. Este efecto se puede acumular 6 veces. Dura hasta tu muerte.
+305	Incrementa el daño y da probabilidad de aturdir. Este efecto se puede acumular [DAMAGE] veces. Dura hasta tu muerte.
+306	Incrementa el daño y da probabilidad de aturdir. Este efecto se puede acumular 4 veces. Dura hasta tu muerte.
+307	Incrementa el daño y da probabilidad de aturdir. Este efecto se puede acumular 6 veces. Dura hasta tu muerte.
+308	Incrementa el daño y causa daño extra a otro enemigo cercano. Este efecto se puede acumular [DAMAGE] veces. Dura hasta tu muerte.
+309	Incrementa el daño y causa daño extra a otro enemigo cercano. Este efecto se puede acumular 4 veces. Dura hasta tu muerte.
+310	Incrementa el daño y causa daño extra a otro enemigo cercano. Este efecto se puede acumular 6 veces. Dura hasta tu muerte.
+311	Incrementa el daño y alcance durante 30 segundos, pero reduce la velocidad de ataque.
+312	Grita en voz alta, incrementando tu velocidad de ataque y la de tus aliados.
+313	Dispara una flecha que daña el alma, produciendo la mitad de daño a seres vivos y el doble a muertos vivientes.
+314	Tus flechas también envenenan al objetivo. El número de flechas envenenadas es tu nivel en arcos.
+315	Furante 10 segundos, las flechas al impactar se dividen en un par de flechas que ocasionan un 25% del daño a los objetivos siguientes.
+316	Se mueve rápidamente hacia delante atacando al primer enemigo con un ataque doble.
+317	Crea una burbuja de espadas que detiene cualquier ataque cuerpo a cuerpo durante unos segundos.
+318	Instala una bomba que explota cuando se pisa o cuando se la intenta destruir.
+319	Instala una bomba que paraliza a las víctimas al pisarla.
+320	Expulsa cualquie posesión o transformación en un amigo. No se puede aplicar a uno mismo.
+321	Lanza un martillo que, al impactar contra un enemigo, crea una explosión que aturde a todas las criaturas cercanas.
+322	Pasas rápidamente entre los enemigos agujereando sus bolsas de dinero (si tienen). Irán perdiendo monedas hasta quedarse sin.
+323	Lanza 2 javalinas contra un enemigo causando cada una el doble de daño que el arma de asta que lleves.
+324	Durante 10 segundos, cualquier criatura que te ataque cuerpo a cuerpo será sentenciada por el martillo de la justícia a recibir el mismo daño.
+325	Gritas fuerte, incrementando la velocidad de todo el grupo.
+326	Los 3 siguientes ataques tienen crítico garantizado.
+327	Carga contra el enemigo que tengas delante aturdiéndolo.
+328	Cuando un enemigo te ataca hay una posibilidad de que se enlentezca durante 10 segundos.
+329	Si mueres, la muerte será dirigida a alguien de tu grupo que esté en la misma habitación, permitiéndote vivir.
+330	Hace crecer los esqueletos que controlas, siendo más fuertes, rápidos y duros.
+331	Inserta la puerta de salida (solo cooperativo), por donde los jugadores salen de la mazmorra.
+332	Este cristal emite una extraña luz verde. No te sientes seguro mientras la llevas.
