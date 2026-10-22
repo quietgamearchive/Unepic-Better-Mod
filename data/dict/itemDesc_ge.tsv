@@ -1,0 +1,332 @@
+﻿0	-
+1	-
+2	Erzeugt eine Welle, die jedes Lebewesen durchdringt und dessen Innereien zerstört.\nWird von Wänden zurückgeworfen, was sehr gefährlich in kleinen Räumen ist.
+3	Verschießt einen Feuerbolzen, der das Ziel brennen lässt.
+4	Verschießt einen großen Feuerball der jeden verbrennt, der damit in Berührung kommt.
+5	-
+6	Erzeugt einen Feueratem mit kurzer Reichweite, ähnlich dem eines Roten Drachen.
+7	-
+8	Verschießt einen Frostbolzen, der das erste Opfer in Reichweite gefrieren lässt.
+9	Erzeugt einen Frostatem mit kurzer Reichweite, ähnlich dem eines Blauen Drachen.
+10	Erzeugt einen Ring aus Frost, der jeden darin gefrieren lässt.
+11	Wasser friert augenblicklich ein, dabei scharfe Stacheln formend die in alle Richtungen davon fliegen.
+12	Verschießt einen Lichtbolzen der Untote schädigt und betäubt.
+13	Heilt kleine Wunden.
+14	Heilt mittlere Wunden.
+15	Heilt kritische Wunden.
+16	Machtvoller Zauber der alle Wunden heilt, den gesamten Körper wiederherstellt und alles Leben wieder auffüllt.
+17	Erzeugt eine magische Barriere, die das Ziel immun gegen Nahkampfangriffe macht.
+18	Materialisiert eine magische Barriere, die das Ziel immun gegen extreme Hitze macht.
+19	Generiert eine magische Barriere, die das Ziel immun gegen intensive Kälte macht.
+20	Erzeugt eine magische Barriere, die das Ziel immun gegen jedweden arkanen Angriff macht, der Wunden erzeugen kann.
+21	Transformiert das Opfer permanent in ein Huhn.
+22	Transformiert die Waffe eines Opfers in etwas Harmloses.
+23	-
+24	Versetzt eine Kreatur in Schlaf, auch wenn sie alarmiert ist oder gerade angreift.\nJedweder Schaden weckt sie wieder auf.
+25	-
+26	Verdreht den Verstand des Opfers und lässt es für einen Moment im Zustand der Verwirrung.
+27	-
+28	Vernebelt die Sicht einer Kreatur und verhindert damit, dass sie weit sehen kann.
+29	Lähmt eine Kreatur für einen Moment.
+30	Verringert die Geschwindigkeit einer Kreatur für einen Moment.
+31	Teleportiert eine Kreatur weit weg von dir.
+32	Teleportiert eine Kreatur in deine Nähe.
+33	Verleiht die Geschwindigkeit eines Geparden.\nDas Ziel bewegt sich für einer Weile schneller.
+34	Erhöht deine Stärke, macht deine Angriffe damit mächtiger.
+35	Erhöht deine Stärke, macht deine Angriffe damit mächtiger.
+36	Erhöht deine Stärke, macht deine Angriffe damit mächtiger.
+37	Kurzzeitig werden deine Augen magisch verstärkt und erlauben es dir, im Dunkeln zu sehen.
+38	Kurzzeitig werden deine Augen magisch verstärkt und erlauben es dir, Fallen zu erkennen.
+39	Macht dich kurzzeitig unsichtbar.\nWirst du verletzt oder du greifst an, wirst du wieder sichtbar.
+40	Macht dich kurzzeitig unsichtbar.\nDu wirst sichtbar, wenn du verletzt wirst. Deine Angriffe lassen den Zauber verfliegen.
+41	Macht dich kurzzeitig unsichtbar.\nWeder Verletzungen noch deine Angriffe lassen den Zauber verfliegen.
+42	Kurzzeitig werden deine Augen magisch verstärkt und erlauben es dir, unsichtbare Kreaturen zu sehen.
+43	Dein Fleisch, und dein Hab und Gut verlieren ihre Festigkeit.\nJede normale Waffe geht durch dich hindurch. Allerdings verursachen deine Angriffe auch keine Schäden.
+44	Solange dieser Zauber aktiv ist, werden Wunden in deinem Körper langsam geheilt.
+45	Solange dieser Zauber aktiv ist, werden Wunden in deinem Körper normal geheilt.
+46	Solange dieser Zauber aktiv ist, werden Wunden in deinem Körper schneller geheilt.
+47	Teleportiert dich unter die goldene Box des heilenden Geistes.\nKann so oft verwendet werden, wie du es wünscht.
+48	-
+49	Entfernt alle Fertigkeitspunkte, so dass du sie erneut verteilen kannst.
+50	Du und deine Ausrüstung werden immun gegen Versteinerung oder Transformation.
+51	-
+52	-
+53	-
+54	Erschafft eine magische Barriere, die jedes Gift neutralisiert, dass in deinen Körper eindringt. Allerdings funktioniert das nicht für Gifte, die bereits im Körper sind.
+55	-
+56	-
+57	-
+58	Erschafft eine magische Barriere, die jeden Zauber zurückwirft, der sein Ziel paralysiert.
+59	-
+60	-
+61	Erzeugt eine mächtige Barriere, die alle Arten von Angriffen, normale und magische, abwehrt. Du bist praktisch unverwundbar.
+62	-
+63	Erhöht deine Stärke und macht so deine Angriffe effektiver.
+64	Das Ziel wird unsichtbar.
+65	Während der Zauber aktiv ist, werden Wunden an deinem Körper langsam geheilt.
+66	Tödliches Gift, dass deine Gesundheit schädigt.
+67	Erzeugt eine Schutzschicht, die den Schaden aller Nahkampfangriffe um ein Drittel verringert.
+68	-
+69	Erzeugt eine Schutzschicht, die ein Drittel des Schadens von Angriffen mit Feuer absorbiert.
+70	Erzeugt eine Schutzschicht, die ein Drittel des Schadens von Angriffen mit Kälte absorbiert.
+71	Erzeugt eine Schutzschicht, die ein Drittel des Schadens von arkanen Angriffen absorbiert.
+72	Erzeugt eine Schutzschicht, die ein Drittel des Schadens von dunklen Angriffen absorbiert.
+73	Erzeugt eine Hitze-Aura um den Anwender, die Gegnern in der Nähe Schaden zufügt.
+74	Während dieser Zauber aktiv ist, wird die Wirkung von Gift verringert, so dass du mehr Zeit für Heilungen hast.
+75	Neutralisert etwas Gift in deinem Körper, und reduziert somit die Giftwirkung.
+76	Neutralisert das ganze Gift in deinem Körper.
+77	Erzeugt einen arkanen Schock, der alle Gegner im Raum verletzt.
+78	Erhöht den Schaden bei Nahkampfangriffen um +50, die Chance auf krit. Treffern um +15%, und die Angriffsgeschwindigkeit um 15%.
+79	Erhöht den Schaden von Bögen um +40, die Chance auf krit. Treffer um +25%, und die Angriffsgeschwindigkeit mit Bögen um 25%.
+80	Teleportiert dich direkt in Zoran's Laden.
+81	Teleportiert dich direkt in Zorok's Küche.
+82	Teleportiert dich so weit, wie du selbst gehen könntest, ohne zu fallen oder springen zu müssen.
+83	-
+84	-
+85	-
+86	-
+87	-
+88	-
+89	-
+90	-
+91	-
+92	-
+93	Entzündet alle Fackeln und Lampen in einem Raum.
+94	Zerstört alle Fässer in einem Raum.
+95	Beschwört einen schwebenden Eisblock, der als Schild gegen Projektile dient.
+96	Ein massiver Schlüssel, groß genug, um ihn wie ein Schwert zu schwingen. Deine Haare stehen zu Berge, nur vom Halten des Schlüssels.\nWo ist ein Herzloser wenn du ihn brauchst?
+97	Verschafft dir besonderes Wissen über deine aktive Aufgabe, und gibt dir dabei den Ort der benötigten Gegenstände preis oder Hinweise, wie schwierige Puzzles zu lösen sind.
+98	Teleportiert dich zur Person von der du die aktive Aufgabe bekommen hast.
+99	Halb Frosch, halb Ballon. Nutzt seine Zunge, um kleine Kreaturen zu fangen, wie Fledermäuse, Bienen und kleine Spinnen.
+100	Kleiner verlassener Drachenwelpe. Verschießt Feuerbolzen gegen jedwede Kreatur, mit Ausnahme derer die nicht durch Feuer verletzt werden können.
+101	Belebt jedes tote Haustier wieder.
+102	Gibt dem aktiven Haustier Energie.
+103	Erscheint nur mit halber Lebensenergie. Entzieht Gegnern Lebensenergie, um seine eigene aufzufüllen. Ist seine Lebensenergie voll und du bist verletzt, überträgt es etwas Lebensenergie auf dich.
+104	Gewährt für einen Moment Unsichtbarkeit.\nDer Zauber verschwindet, wenn der Ausprechende verwundet wird oder einen Angriff startet.
+105	Gewährt für einen Moment Unsichtbarkeit.\nDer Zauber verschwindet, wenn du verwundet wirst oder einen Angriff startest.
+106	Kann für einen guten Preis verkauft werden.
+107	Gewährt Weisheit, gibt dir 5 zusätzliche Fertigkeitspunkte.
+108	Alle Seiten dieses Buches sind leer.
+109	Erzeugt einen Kältestrahl, der jedes Feuer an dir verlöschen lässt. Hinterlässt eine Schicht aus Frost, die weitere Angriffe mit Feuer verhindert.
+110	Versetzt eine Kreatur in Schlaf, auch wenn sie alarmiert ist oder angreift.\nVerletzungen wecken sie wieder auf.
+111	Verwandelt das Opfer in Münzen. Je mehr Lebenspunkte die Kreatur hat, um so mehr Münzen erscheinen.
+112	Teleportiert dich direkt in Zorok's Küche.\nVerbraucht sich nicht.
+113	Teleportiert dich direkt in Zoran's Laden.\nVerbraucht sich nicht.
+114	Wiederbelebt ein totes Haustier.\nSchaue im Inventar nach dem toten Haustier und wähle die "Wiederbeleben" Option.
+115	Um in Regionen vorzudringen, die nie zuvor ein Keks gesehen hat.
+116	Entdeckt Fallen, versteckte Türen und falsche Wände.
+117	Übernimmt die Kontrolle über ein feindliches Skelett. Jede 5. Stufe der Nekromantie lässt dich ein zusätzliches Skelett kontrollieren.
+118	Absorbiert die Lebensenergie jeder lebenden Kreatur (was Untote und Konstrukte ausschließt).
+119	Verschießt einen Bolzen aus Licht gegen Untote.\nKann nur durch arkane Angriffe verletzt werden.
+120	Kurzzeitig wird die gehaltene Waffe entzündet und erzeugt zusätzlichen Feuerschaden.\nFunktioniert nur mit Schwertern und Bögen.
+121	Kurzzeitig wird die gehaltene Waffe gefrostet und erzeugt zusätzlichen Frostschaden.\nFunktioniert nur mit Schwertern und Dolchen.
+122	Kurzzeitig erhält die gehaltene Waffe Göttliches Licht und erzeugt zusätzlichen Schaden an Untoten.\nFunktioniert nur mit Streitkolben.
+123	Kurzzeitig wird die gehaltene Waffe mit Säure überzogen und erzeugt zusätzlichen Schaden durch Korrosion.\nFunktioniert nur mit Speeren und Bögen.
+124	Lokalisiert in deiner Umgebung die Box, die den Reinen Geist enthält.\nDas Symbol erscheint auf deiner Karte.\nWird nicht verbraucht.
+125	Gunst, gewährt durch den Gott des Lichtes, als Belohnung für das Zerstören von Untoten.
+126	Erweckt das Skelett eines von dir getöteten Humanoiden.\nJede 5. Stufe der Nekromantie lässt dich ein zusätzliches Skelett kontrollieren.
+127	Entzieht dir die Hälfte deiner Lebenskraft. Stirbst du später, kehrt diese Lebenskraft zurück und verhindert deinen Tod.
+128	Erzeugt eine sich langsam fortbewegende Wolke, die alles Leben in ihrem Weg verschlingt.
+129	Erleuchtet für einen Moment den Verstand, reduziert dabei die Zeit zum Aussprechen aller Zauber.
+130	Betäubt das Opfer für einige Sekunden und macht es bewegungsunfähig.
+131	Verwandelt einen Rubin in 20 rote magische Essenzen.
+132	Verwandelt einen Saphir in 20 blaue magische Essenzen.
+133	Verwandelt einen Smaragd in 20 grüne magische Essenzen.
+134	Metallener Kettenpanzer, mit speziellen Lederstreifen. Bewahrt den Träger for Elekrizität.
+135	Erhöht die Kapazität deines Inventars um 10 weitere Gegenstände.
+136	Ändert permament die Form deiner aktuellen Waffe, so dass sie mehr Schaden verursacht.
+137	Eingesetzt gegen metallene Gegner, verwandelt sich etwas des Metalls in Münzen.
+138	Heilt alle Kreaturen (z.B. Haustiere).\nFunktioniert nicht mit Untoten.
+139	Erlaubt dir das Aufheben von Gegenständen aus der Ferne.
+140	Ändert permament das Material einer Rüstung oder Robe, dabei die schützenden Eigenschaften verbessernd.
+141	Immunisiert dich gegen mentale Angriffe, wie Betäuben, Schlaf oder Kontrolle.
+142	Erzeugt eine reflektierende Barriere.\nAlle Projektile die auf die Barriere treffen, werden auf den Angreifer zurück geworfen.
+143	Schützt dich gegen alle Zauber die deine Beweglichkeit behindern, wie Langsamkeit, Paralyse oder Teleportation.
+144	Ein legendäres Schwert, dass zusätzlichen magischen Schaden verursacht und den Erfahrungsgewinn des Trägers erhöht.
+145	Das AN-200 Anforderungsformular, abgestempelt mit einem großen Gummistempel. Du hast keine Idee was der Stempelabdruck besagt.\nÜbergib es am Schalter mit den drei Schädeln.
+146	Das AN-200 Anforderungsformular, komplett mit Unterschrift. Es ist sogar an den richtigen Stellen verschmiert.\nDer Typ am Schädel-Schädel-Knochen Schalter will das haben.
+147	Das AN-200 Anforderungsformular. Es hat alles, nur die Unterschrift fehlt. Deine zählt nicht.\nÜbergib das am Schädel-Knochen-Schädel Schalter.
+148	Formular 2212/HHK, das Formular-Anforderungsformular. Enthält eine Stelle für deinen Zungenabdruck, und es ist geprüft.\nÜbergib das am Schädel-Knochen-Knochen Schalter.
+149	Nun ist es offiziell: Du wurdest bestätigt.\nÜbergib die Bestätigung am Knochen-Schädel-Schädel Schalter, um endlich das Anforderungsformular zu bekommen.
+150	Das offizielle Siegel von Harnakon. Handelsmarke in fünf Ländern.\nÜbergib das am Knochen-Schädel-Knochen Schalter, um deine offizielle Bestätigung zu bekommen.
+151	Die offizielle Visitenkarte, ausgegeben an Harnakon's Lakaien. Auf ihr ist ein verschwommenes Bild von dir.\nÜbergib sie am Knochen-Knochen-Schädel Schalter.
+152	Formular MC-3805 (Anforderung der offiziellen Visitenkarte für Lakaien).\nÜbergib das am Schalter mit den drei Knochen. Nein, Schädel gelten nicht als Knochen.
+153	Gatchan's Antennen verschießen Strahlen, die Ziele paralysieren.
+154	Teleportiert dich zur Mine.
+155	Teleportiert dich zur Kanalisation.
+156	Teleportiert dich zu den Gärten. 
+157	Teleportiert dich zur Bibliothek.
+158	Teleportiert dich in die Katakomben.
+159	Teleportiert dich in das Laboratorium.
+160	Teleportiert dich in die Hallen.
+161	Teleportiert dich zum Vergessenen Turm.
+162	Ruft einen Feuer-Geist herbei, der deine Gegner angreift.
+163	Erzeugt einen mentalen Impuls, der die Wahrnehmung alle Kreaturen im Raum verändert.\nDie Opfer glauben, dass ihre Verbündeten Feinde sind.
+164	Heilt dich selbst und alle Verbündeten die im gleichen Raum sind.
+165	Erhöht deine Sprungweite.
+166	Ändert die Loyalität des Opfers, so dass es sich gegen seine Verbündeten wendet.
+167	Aktiviert ein Gebet, das alle Untoten beinflusst.\nWurden sie zerstört, werden ihre Seelen eingelöst. Jede Seele gewährt 4x göttliche Gunst.
+168	Beschwört einen Skelett-Krieger.\nDu kannst nur 3 dieser Art kontrollieren.
+169	Beschwört ein Skelett-Bogenschützen.\nDu kannst nur 3 dieser Art kontrollieren.
+170	Beschwört einen Skelett-Magier, der Feuerbolzen verschießt.\nDu kannst nur 3 dieser Art kontrollieren.
+171	Beschwört eine rote Rüstung, die immun gegen Feuer ist.\nDu kannst nur 3 davon kontrollieren.
+172	Beschwört eine grüne Rüstung, dessen Speer den Feind vergiftet.\nDu kannst nur 3 dieser Art kontrollieren.
+173	Beschwört einen Goblin-Heiler, der alle Verbündeten in der Nähe heilt.\nDu kannst nur 3 dieser Art kontrollieren.
+174	Gut gekaut kann der Saft zum Herstellen von magischen Tränken verwendet werden.
+175	Seltsame Materie zum Herstellen von fortgeschrittenen magischen Tränken.
+176	Primäre magische Essenz zum Sprechen von Zaubern und zum Herstellen von magischen Tränken.
+177	Verwendet, um Lichter anzuzünden und Joints zu drehen.
+178	Dieser Schlüssel öffnet Türen zu anderen Bereichen der Burg.
+179	Dieses Objekt gehört zu einer deiner Aufgaben.
+180	Du kannst leere Phiolen verwenden, um andere Tränke herzustellen.
+181	Öffnet die Tür zu deinem Schicksal, nachdem du das Spiel beendet hast.
+182	Wird mit dem Bogen verschossen. Kannst du auch verwenden, um Ohrenschmalz zu entfernen oder deinen Rücken zu kratzen.
+183	Permanent geschwächtes Eis-Elementar.\nSchleudert Kälte gegen seine Opfer.
+184	Formt eine magische Barriere, die das Zeil immun gegen Strahlen macht.
+185	Erzeugt eine Schutzschicht auf dir, die ein Drittel des Strahlenschadens absorbiert.
+186	Trophäen aus Kämpfen gegen Elfen, können für ein paar Münzen verkauft werden.
+187	Beschwört einen mächtigen Eisen-Golem, ein mechanisches Wesen, das keinen Schmerz und kein Erbarmen kennt.
+188	Erzeugt ein Portal.
+189	Teleportiert dich zum letzten, von dir erzeugten Portal.
+190	Sieht aus wie eine Rolle der Teleportation.
+191	Öffnet das HarnaBank Schließfach, ein sicherer Platz an dem du deine Gegenstände lagern kannst.
+192	Teleportiert dich direkt zur HarnaBank.\nVerbraucht sich nicht.
+193	Macht alle Mädels verrückt, yeah!\nVielleicht bekommst du einen Rabatt, wenn du etwas von einer Frau kaufst.
+194	Beschütze und erlöse uns
+195	Benachrichtigt dich, wenn das Spiel gespeichert wird.
+196	Ein Angriff mit einem sehr starken Laser, der 2000 Feuerschaden verursacht, aber eine Menge Energie benötigt.\nGreift keine schwachen Feinde an.
+197	Läßt die Muskeln schwellen solange du es trägst.
+198	Der Geist eines toten Pharaos regeneriert deinen Körper.
+199	Raumschiff aus Syder Arcade. Verschießt schnelles Geschützfeuer.
+200	Das Essen führt zu unvorhersehbaren Ergebnissen.
+201	wirft eine Geisteraxt, die allen Gegnern, in ihrer Flugbahn, schaden zufügt.
+202	Für 30 Sekunden haben Angriffe mit einem Schwert mehr Reichweite, sind aber nur 1/3 so effektiv.
+203	Wirft ein Messer mit 4-fachem Schaden, wenn es einen Gegner in den Rücken trifft. Funktioniert nur bei menschlichen Kreaturen.
+204	Für 10 Sekunden betäubt ein Schlag mit einem Streitkolben das Opfer, halbiert aber den Schaden.
+205	Schlage eine Bahn durch deine Gegner, die alle Schaden bekommen und für 3 sekunden verlangsamt werden.
+206	Für 10 Sekunden verschießt du 3 Pfeile pro Schuss.
+207	Eine Wolke saugt langsam die Lebensenergie aus lebenden Körpern in deiner Nähe.
+208	Eine heilige Wolke schadet allen Untoten in deiner Nähe.
+209	Eine große Explosion göttlichen Lichtes schadet Untoten und betäubt sie für 3 Sekunden.
+210	Verwandelt die Rüstung des Opfers in etwas weniger Schutz bietendes.
+211	Teleportiert dich direkt zu einer Flagge, die unentdeckt oder bereits vom Feind entdeckt ist.
+212	Beschwört eine unsichtbare Rune, die explodiert, wenn ein Opfer zu nahe kommt.
+213	Opfer halten dich für ein Miglied ihres Teams (wenn das Team andere Mitglieder hat).
+214	Verlangsamt das nächststehende Opfer.
+215	Vergiftet das nächststehende Opfer.
+216	Betäubt das nächststehende Opfer.
+217	Vertauscht rechts/links für das nächststehende Opfer.
+218	Tötet sofort das nächststehende Opfer.
+219	Erschafft/Zerstört eine Wand direkt vor dir.
+220	Erschafft/Zerstört die Decke über dir.
+221	Erschafft/Zerstört den Boden unter dir. Dazu mußt du ganz in der Ecke sein.
+222	Erschafft/Zerstört eine Leiter, die dich eine Ebene hinaufklettern läßt.
+223	-
+224	Erschafft eine Lichtquelle, die den Korridor ausleuchtet. \n2 Lichtquellen dürfen nicht zu nahe bei einander sein.
+225	Zerstört den Gegenstand auf deiner Position. \nFunktioniert bei Lichtquellen, Türen, Truhen, Särgen, etc.
+226	Erschafft eine Tür, die in einen parallelen Raum führt.
+227	Erschafft ein Monster wie angezeigt.
+228	Aktiviert/Deaktiviert deinen Kerker, wie ihn die anderen Spieler sehen werden, mit allen Monstern, Fallen, Dialogen.
+229	Zerstört das Monstersymbol auf deiner Position.
+230	Erschafft eine Falle wie angezeigt.
+231	Bewegt das Monstersymbol auf deiner Position nach rechts/links. Das Monster wird beim Erscheinen in diese Richtung schauen.
+232	Erschafft einen Hebel auf deiner Position, der für die leidenden Spieler Überraschungen aktiviert.
+233	Erschafft einen Sarg auf deiner Position, in dem der Spieler wiedergeboren wird, wenn er stirbt. Jeder nur einen Sarg.
+234	Die Wand wird verschwinden, wenn der Hebel aktiviert wird.
+235	Der Boden wird verschwinden, wenn der Hebel aktiviert wird.
+236	Eine Leiter wird erscheinen, wenn der Hebel aktiviert wird.
+237	Die Wand wird verschwinden, wenn ein Spieler sie trifft.
+238	Die Leiter wird erscheinen, wenn alle Feinde im Raum tot sind.
+239	Die Leiter wird erscheinen, wenn alle Feinde im Gebiet tot sind.
+240	Erstellt/Entfernt eine Monsterquelle, wenn der Hebel aktiviert wird.
+241	Erstellt ein Gasleck.
+242	Erstellt eine Fliese, die alle Gaslecks im Raum aktiviert.
+243	Erstellt einen Gegenstand, der zerstört werden kann.
+244	Teleportiert dich an den Anfang des Verlieses.
+245	Fügt eine Flagge hinzu.
+246	Fügt ein Rennziel hinzu.
+247	Ändert den Hintergrund des Raumes (Ambiente).
+248	Fügt tödliche Stacheln hinzu. Jedes Monster, das diese berührt, stirbt.
+249	Erstellt eine Kiste. Um Dinge hineinzupacken mußt du den Gegenstand direkt daneben fallenlassen.
+250	Erschafft einen Gegenstand wie angezeigt.
+251	Erschafft ein großes Gatter direkt vor dir.
+252	Erschafft ein Schloß, das jedes Liftgate im Raum öffnet.\nUm einen Schlüssel zuzuordnen, lasse ihn daneben fallen.
+253	Zündet an bzw. löscht alle Lichter im Raum.
+254	Erschafft einen Sturm der Schwerter, der dich umgibt und jeden verletzt, der sich dir nähert.
+255	Erschafft eine Staubwolke, die Gegner verwirrt und dir die Möglichkeit für einen Verrat gibt.
+256	Verschießt Pfeile, die eine explosive Welle erzeugen und Gegner in der Nähe auch verletzen. Der Effekt ist permanent.
+257	Erhöht die Reichweite der Attacken mit deiner Stangenwaffe. Dieser Effekt hält bis zum Tod.
+258	Erschafft eine Bodenwelle, die durch alle vor dir hindurchdringt. Funktioniert nicht auf Holz-oder Schlammboden.
+259	Erschaftt/Zerstört ein Portal des Architekten. Um zum Portal aus einem anderen Raum zu teleportieren, mußt du die Karte aktivieren und den Raum mit dem Portal anklicken.
+260	Startet alle Hebel und Dialoge im Raum neu, als wären sie kürzlich aktiviert worden.
+261	Die Plattform taucht auf, wenn ein Hebel aktiviert wurde.
+262	Erschaftt/Zerstört einen Dialog-Checkpoint. Wenn alle Charaktere den Punkt passiert haben, wird der Dialog aktiviert. Bearbeite den Dialog unter MENU > DIALOGE.
+263	Die Wand verschwindet, wenn der Dialog aktiviert wurde.
+264	Die Leiter erscheint, wenn der Dialog aktiviert wurde.
+265	Erschaftt/Zerstört eine Kiste mit einem Zufallsgegenstand. Der Gegenstand kann nur im laufenden Spiel verwendet werden.
+266	Verursache eine tiefe Wunde, die deinen Gegner sofort tötet. Funktioniert nicht bei Gegner die größer als 2 Meter sind.
+267	Der Flakon enthält einen grün fluoreszierenden, wabernden Schleim.
+268	Wenn aktiviert, verwandelt es Elektrizität für ein paar Sekunden in Materie.
+269	Erhöht den Schaden mit Äxten.Dieser Effekt ist bis zu [DAMAGE] mal Stappelbar und hält bis zum Tod.
+270	aa
+271	aa
+272	Wird nach deinem Tod automatisch aktiviert und verhindert, daß der Tod dich deiner aktiven Zauber beraubt.
+273	Erlaubt es dir, in der Dunkelheit zu sehen
+274	Erstellt die Startposition eines Spielers.
+275	Erstellt/Entfernt Wände in dem Bereich eines Raumes, der mit der Maus ausgewählt wurde.
+276	Teleportiert dich an jede beliebige Stelle des Raumes (der mit der Maus ausgewählt wurde).
+277	Verwandelt Dialoge in Checkpoints. Wenn ein Dialog aufgerufen wird, wird die Position aller Charaktere gespeichert.
+278	Die Leiter erscheint, wenn alle Lichter angezündet sind.
+279	Die Wand verschwindet, wenn alle Lichter angezündet sind.
+280	Der Boden verschwindet, wenn der Dialog aktiviert wird.
+281	Der Boden verschwindet, wenn alle Feinde auf dem Schirm getötet sind.
+282	Der Boden verschwindet, wenn alle Lichter angezündet sind.
+283	Die Plattform erscheint, wenn der Dialog aktiviert wird.
+284	Die Plattform erscheint, wenn alle Feinde auf dem Schirm getötet sind.
+285	Die Plattform erscheint, wenn alle Feinde in der Zone getötet sind.
+286	Die Plattform erscheint, wenn alle Lichter angezündet sind.
+287	Die Wand verschwindet, wenn alle Feinde auf dem Schirm getötet sind
+288	Ein unsichtbarer Hebel wird aktiviert, wenn ein Spieler daran vorbeiläuft.
+289	Eine Wand erscheint, wenn der Dialog aktiviert wird.
+290	+2 für dein Verhandlungsgeschick, Essenzen kosten weniger.
+291	Creates an invoker. A boss is needed in the same room.
+292	Creates a boss. The boss must be customized.
+293	+5 to Swag. Pimped out armor with ice and jewels cuz its gangsta.
+294	An electrically powered electromagnetic projectile launcher. Can damage even those who are invincible otherwise.
+295	Teleports you next to a friend who is crouched. Does not work if there is a boss nearby.
+296	Erhöht die Laufgeschwindigkeit und den Schaden mit dem Dolch. Dieser Effekt ist bis zu [DAMAGE] mal Stappelbar und hält bis zum Tod.
+297	-
+298	-
+299	Erhöht den Schaden und die kritische trefferchance mit Schwertern. Dieser Effekt ist bis zu [DAMAGE] mal Stappelbar und hält bis zum Tod.
+300	-
+301	-
+302	Erhöht den Schaden und die Angriffsgeschwindigkeit mit Bögen. Dieser Effekt ist bis zu [DAMAGE] mal Stappelbar und hält bis zum Tod.
+303	-
+304	-
+305	Erhöht den Schaden und den Bonusschaden bei betäubten Gegnern mit Streitkolben. Dieser Effekt ist bis zu [DAMAGE] mal Stappelbar und hält bis zum Tod.
+306	-
+307	-
+308	Erhöht den Schaden und die Anzahl der gleichzeitig zu treffenden Ziele mit Stangenwaffen.Dieser Effekt ist bis zu [DAMAGE] mal Stappelbar und hält bis zum Tod.
+309	-
+310	-
+311	Für [DURATION] Sekunden wird der ausgeteilte Schaden mit Äxten erhöht, dafür wird die Angriffsgeschwindigkeit verringert.
+312	Ein Schrei der die Angriffsgeschwindigkeit von dir und deinen Verbündeten für 30 Sekunden erhöht.
+313	Taucht 2 Pfeile in heiliges Licht. Diese Pfeile ignorieren alle lebendige Kreaturen und verursachen heiligen Schaden bei Untoten.
+314	Für die nächsten Angriffe werden ein Pack Pfeile in Gift getaucht. Die Anzahl der vergifteten Pfeile ist dein Fähigkeitslevel für Bogen.
+315	Für [DURATION] Sekunden spaltet sich jeder Pfeil beim Aufprall in ein Paar Pfeile, die jeder 25%igen Waffenschaden anrichtet.
+316	Greift den nächsten Feind mit einen Ausfallangriff an, der doppelt trifft.
+317	Für [DURATION] Sekunden kannst du dein Schwert so schnell bewegen, das du alle Nahangriffe abwenden kannst.
+318	Legt eine Bombe die explodiert sobald sie berührt wird oder Schaden bekommt.
+319	Lege eine Falle die nahe gelegene Wesen einfängt, sobald sie aktiviert wird.
+320	Removes any possession or transformation from a friend. It cannot be cast on yourself.
+321	Wirft einen Hammer der Schaden am Ziel verursacht. Der Aufprall lähmt alle Gegner im Einflußbereich.
+322	A quick dash that passes by creatures. If any of them have coin purses, the dagger cuts it causing coins to drop until empty.
+323	Wirf 2 Speere die Schaden machen und dein Ziel für ? Sekunden Bewegungsunfähig machen.
+324	Für [DURATION] Sekunden wird jedes Wesen, das dich angreift dazu verurteilt, durch den Hammer der Gerechtigkeit Schaden zu erhalten.
+325	Verursache einen inspirierenden Schrei der die Laufgeschwindigkeit von dir und deinen Verbündeten für 30 Sekunden erhöht.
+326	Für die nächsten 3 Angriffen sehen deine Augen die Schwachstelle des Gegners so das du ihn garantiert kritischen Schaden zufügst.
+327	Charges at the first enemy ahead of you, striking and stunning it.
+328	When an enemy strikes you, there is a chance to be slowed down for 10 seconds.
+329	If you die, death is missdirected to someone else of your group in the same room, letting you survive.
+330	Enlarges all skeletons you control, becoming stronger, faster and harder.
+331	Places the exit door (only coop), where players leave the dungeon.
