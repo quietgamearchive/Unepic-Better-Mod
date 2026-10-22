@@ -1,0 +1,1523 @@
+﻿0	||
+1	moneta||
+2	||
+3	||
+4	immune alle armi||
+5	immune al fuoco||
+6	immune al gelo||
+7	immune all'arcano||
+8	immune al veleno||
+9	immune al polimorfismo||
+10	immune alla paralisi||
+11	immune agli attacchi mentali||
+12	immune a tutto||
+13	||
+14	||
+15	addormentato||
+16	confuso||
+17	spaventato||
+18	cieco||
+19	paralizzato||
+20	rallentato||
+21	||
+22	||
+23	veloce||
+24	forza dell'ogre||
+25	infravisione||
+26	rilevazione trappole||
+27	invisibile||
+28	vedere l'invisibile||
+29	etereo||
+30	rigenerazione||
+31	avvelenato||
+32	teleport||
+33	teleport||
+34	teleport||
+35	teleport||
+36	||
+37	acido||
+38	||
+39	||
+40	fuoco||
+41	ghiaccio||
+42	debolezza||
+43	porta di mezzo||
+44	dimentica||
+45	protezione corpo a corpo||
+46	protezione fuoco||
+47	protezione ghiaccio||
+48	protezione arcana||
+49	aura di calore||
+50	rallenta veleno||
+51	riduci veleno||
+52	antidoto||
+53	shock arcano||
+54	maestria corpo a corpo||
+55	maestria arco||
+56	||
+57	||
+58	illuminazione||
+59	distruggi tutti i barili||
+60	evocazione di ghiaccio||
+61	presagio||
+62	energia||
+63	danno||
+64	punti abilità||
+65	esplosione di ghiaccio||
+66	trasmutazione di Re Mida||Mida
+67	rilevare trappole e muri||
+68	danni arcani||
+69	controllo arcano||controllo
+70	essenza rossa|red essence|
+71	essenza blu|blue essence|
+72	essenza verde|green essence|
+73	essenza oro|golden essence|
+74	essenza arcana|arcane essence|
+75	essenza gialla|yellow essence|
+76	essenza cristallo|crystalline essence|
+77	favore divino|divine favor|
+78	piccolo rubino||gemma
+79	piccolo zaffiro||gemma
+80	piccolo smeraldo||gemma
+81	caca||
+82	dardo ligero||
+83	||
+84	||
+85	||
+86	||
+87	||
+88	||
+89	||
+90	||
+91	||
+92	||
+93	||
+94	||
+95	||
+96	||
+97	||
+98	||
+99	||
+100	||
+101	||
+102	||
+103	||
+104	||
+105	||
+106	||
+107	||
+108	||
+109	||
+110	||
+111	||
+112	||
+113	||
+114	dardo paralizzante||
+115	dardo indebolente||
+116	dardo rallentante||
+117	dardo infuocato||
+118	dardo infuocato||
+119	dardo di ghiaccio||
+120	dardo di ghiaccio||
+121	dardo arcano||
+122	dardo arcano||
+123	||
+124	freccia corta||
+125	freccia lunga||
+126	freccia arcana||
+127	freccia||
+128	vita||
+129	dardo infuocato||
+130	fuoco d'artificio||artif
+131	wisp||
+132	||
+133	||
+134	dardo infuocato||
+135	freccia||
+136	||
+137	||
+138	dardo infuocato||
+139	||
+140	||
+141	freccia||
+142	||
+143	||
+144	||
+145	freccia||
+146	pugnale leggero||
+147	pugnale largo||
+148	poniard||
+149	coltello largo||
+150	pugnale penetrante||
+151	pugnale a onda||
+152	pugnale d'argento||
+153	pugnale ricurvo||
+154	pugnale indurito||
+155	pugnale incrociato di Adjanti||
+156	spada corta||
+157	gladio||
+158	spada larga||
+159	scimitarra||
+160	spada d'assalto||
+161	falchion||
+162	spada bastarda||
+163	spadone||
+164	katana||
+165	spada elfica||
+166	spada del Necromante||
+167	Spada maledetta di Edward||
+168	spada rossa||
+169	Excalibur||
+170	ascia da cucina||
+171	piccola ascia||
+172	ascia a mano||
+173	ascia d'assalto||
+174	doppia ascia||
+175	disossatore||
+176	ascia da combattimento||
+177	ascia bipenne||
+178	ascia da guerra||
+179	doppia ascia da guerra||
+180	xxx||
+181	ascia di Horga'hn||
+182	osso||
+183	garrote||
+184	garrote con clavo||
+185	mayal||
+186	bastón de trasgo curandero||
+187	mazza||
+188	martello||
+189	mazza da combattimento||
+190	Martello del Fabbro||
+191	mazza da guerra||
+192	morningstar||
+193	martello da guerra||
+194	grande martello||
+195	grande morningstar||
+196	martello del golem||
+197	chiave gigante||
+198	scettro di fuoco||
+199	scettro del ghiaccio||
+200	Spaccaossa||
+201	Staffa del Mago||
+202	Martello del Paladino||
+203	Lancia leggera||
+204	Lancia leggera||
+205	lancia pesante||
+206	picca||
+207	picca con artigli||
+208	tridente||
+209	alabarda||
+210	doppia picca||
+211	grande tridente||
+212	tridente||
+213	Affettatutto||
+214	lanza envenenada||
+215	espadón||
+216	espada bastarda||
+217	espada de pyros||
+218	maza calavera||
+219	fiori||
+220	martello giocattolo||
+221	candelabro||luce
+222	torcia||luce
+223	lanterna||luce
+224	candela||luce
+225	candela magica||luce
+226	sfera luminosa del cielo||luce
+227	sfera luminosa del fuoco||luce
+228	sfera luminosa arcana||luce
+229	sfera luminosa||luce
+230	encendino||luce
+231	candela magia rossa||luce
+232	candela magia blu||luce
+233	bastone con cacca||
+234	balestra leggera||
+235	arco corto leggero||
+236	arco corto||
+237	arco corto rinforzato||
+238	arco corto composito||
+239	arco lungo leggero||
+240	arco lungo||
+241	arco lungo rinforzato||
+242	arco lungo composito||
+243	grande arco lungo||
+244	arco largo||
+245	arco lungo elfico||
+246	Windbreaker||
+247	ala di pipistrello||
+248	intestino di Satiro||
+249	intestino di Goblin||
+250	occhi di serpente||
+251	occhi di satiro||
+252	occhi di goblin||
+253	occhi di corvo||
+254	occhi di piovra||
+255	occhi di rana||
+256	lingua di serpente||
+257	bava rossa||
+258	bava blu||
+259	bava verde||
+260	bava gialla||
+261	bava arancione||
+262	bava viola||
+263	corno di satiro||
+264	polvo de cuerno de sátiro||
+265	coda di serpente||
+266	zampa di formica||
+267	zampa di corvo||
+268	pezzo di tentacolo||
+269	spore luccicanti||
+270	pungiglione avvelenato||
+271	materiale ectoplasmatico||
+272	Scintilla di vita||
+273	dardo magico||
+274	onda arcana||
+275	dardo infuocato||
+276	palla di fuoco||
+277	onda infuocata||
+278	soffio infuocato||
+279	||
+280	dardo gelido||
+281	respiro gelido||
+282	cono gelido||
+283	stalattiti||
+284	dardo di luce||
+285	cura||cura
+286	cura avanzata||cura 2
+287	cura superiore||cura 3
+288	cura totale||
+289	immunità dalle armi||
+290	immunità dal fuoco||
+291	immunità dal ghiaccio||
+292	immunità dall'arcano||
+293	polimorfismo||hen
+294	trasmutazione armi||weapon
+295	magia del sonno||sonno
+296	rallenta veleno||rallenta
+297	confusione||confus
+298	terrore||
+299	cecità||
+300	paralisi||
+301	lentezza||lentezza
+302	teletrasporto||
+303	approssimazione||
+304	velocità||speed
+305	forza dell'ogre||str
+306	forza del gigante||str
+307	forza del titano||str
+308	infravisione||infra
+309	individua trappole||traps
+310	invisibilità||invis
+311	invisibilità||invis
+312	invisibilità||invis
+313	vedere l'invisibile||see inv
+314	corpo immateriale||ghost
+315	rigenerazione||rege
+316	rigenerazione avanzata||rege2
+317	rigenerazione suprema||rege3
+318	palla di fuoco migliorata||
+319	palla di fuoco avanzata||
+320	dardo gelido migliorato||
+321	dardo gelido avanzato||
+322	||
+323	||
+324	||
+325	||
+326	||
+327	||
+328	||
+329	||
+330	||
+331	||
+332	||
+333	dardo rallentante||
+334	||
+335	||
+336	||
+337	succhia vita||
+338	||
+339	||
+340	||
+341	||
+342	||
+343	shock gelido||blast
+344	||
+345	||
+346	evoca blocco di ghiaccio||ice
+347	||
+348	controllo arcano||control
+349	||
+350	aura di calore||aura
+351	||
+352	||
+353	imbevi col fuoco||fire
+354	imbevi col ghiaccio||frío
+355	imbevi di luce divina||light
+356	imbevi di acido||acid
+357	maledizione dei morti||curse
+358	magia di vita latente||life
+359	nuvola di morte||
+360	riduzione veleno||reduc
+361	mente brillante||mind
+362	stordimento||stun
+363	trasmutazione rubini||rubi
+364	trasmutazione zaffiri||sapph
+365	trasmutazione smeraldi||emmer
+366	sincronizzazione||phase
+367	||
+368	trasmutazione metallo||metal
+369	cura alleati||heal
+370	antidoto||antid
+371	telecinesi||tele
+372	arma migliorata||weapon
+373	armatura migliorata||armor
+374	protezione fisica||melee
+375	||
+376	||
+377	scudo dal freddo||cold
+378	scudo dalle ombre||shadow
+379	scudo dal fuoco||fire
+380	immunità al veleno||poison
+381	libertà dei movimenti||mov
+382	barriera mentale||mind
+383	immunità al polimorfismo||poly
+384	scudo dai proiettili||return
+385	||
+386	teletrasporto alle miniere||mine
+387	teletrasporto alle fogne||sewer
+388	teletrasporto ai giardini||garden
+389	teletrasporto alla libreria||library
+390	teletrasporto alle catacombe||catac
+391	teletrasporto al laboratorio||lab
+392	teletrasporto alla hall||halls
+393	teletrasporto alla torre||tower
+394	evoca fiamma||fire
+395	magia di follia||madness
+396	cura di massa||heal
+397	||
+398	||
+399	controllo mentale||control
+400	magia di salvezza||salva
+401	||
+402	teletrasporto||
+403	magia della porta nascosta||
+404	magia di memoria||
+405	tomo del dardo magico||
+406	tomo di onda arcana||
+407	tomo di dardo infuocato||
+408	tomo di palla di fuoco||
+409	tomo di onda infuocata||
+410	tomo di respiro di fuoco||
+411	tomo di distruzione di massa||
+412	tomo di dardo gelido||
+413	tomo di respiro gelido||
+414	tomo di cono gelido||
+415	tomo di stalattiti||
+416	tomo di dardo di luce||
+417	tomo di cura||
+418	tomo di cura avanzata||
+419	tomo di cura suprema||
+420	tomo di cura totale||
+421	||
+422	||
+423	||
+424	||
+425	tomo di polimorfismo||
+426	tomo di trasmutazione arma||
+427	tomo del sonno||
+428	||
+429	||
+430	tomo della cecità||
+431	tomo della paralisi||
+432	tomo di rallenta||
+433	tomo del teletrasporto||
+434	tomo di approssimazione||
+435	tomo della velocità||
+436	tomo di forza dell'ogre||
+437	tomo di forza del gigante||
+438	tomo di forza del titano||
+439	tomo di infravisione||
+440	tomo di individua trappole||
+441	tomo di invisibilità||
+442	||
+443	||
+444	tomo di vedere l'invisibile||
+445	tomo di corpo di fantasma||
+446	tomo di rigenerazione||
+447	tomo di rigenerazione avanzata||
+448	tomo di rigenerazione suprema||
+449	tomo di dardo infuocato migliorato||
+450	tomo di shock gelido||
+451	tomo di evoca blocco di ghiaccio||
+452	tomo di rallenta veleno||
+453	tomo di controllo arcano||
+454	tomo di aura di calore||
+455	tomo di imbevi col fuoco||
+456	tomo di imbevi col ghiaccio||
+457	tomo di imbevi con luce divina||
+458	tomo di imbevi con acido||
+459	tomo di maledizione dei morti||
+460	tomo di vita latente||
+461	tomo di nuvola di morte||
+462	tomo di riduzione veleno||
+463	tomo di mente brillante||
+464	tomo di stordimento||
+465	tomo di trasmutazione rubini||
+466	tomo di trasmutazione zaffiri||
+467	tomo di trasmutazione smeraldi||
+468	tomo di porta nascosta||
+469	||
+470	tomo di trasmutazione metalli||
+471	tomo di cura alleati||
+472	tomo di antidoto||
+473	tomo di telecinesi||
+474	tomo di arma migliorata||
+475	tomo di armatura migliorata||
+476	tomo di protezione in combattimento||
+477	tomo di protezione dal gelo||
+478	tomo di protezione dalle ombre||
+479	tomo di protezione dal fuoco||
+480	tomo di immunità al veleno||
+481	tomo di movimenti liberi||
+482	tomo di barriera mentale||
+483	tomo di immunità al polimorfismo||
+484	tomo di antiproiettile||
+485	tomo di teletrasporto alle miniere||
+486	tomo di teletrasporto alle fogne||
+487	tomo di teletrasporto ai giardini||
+488	tomo di teletrasporto alla libreria||
+489	tomo di teletrasporto alle catacombe||
+490	tomo di teletrasporto al laboratorio||
+491	tomo di teletrasporto alla hall||
+492	tomo di teletrasporto alla torre||
+493	tomo di evoca fiamma||
+494	tomo di pazzia||
+495	tomo di dardo di fuoco migliorato||
+496	tomo di cura di massa||
+497	tomo di dardo gelido migliorato||
+498	tomo di dardo gelido avanzato||
+499	tomo di controllo mentale||
+500	tomo di salvezza||
+501	bacchetta magica||bolt
+502	bacchetta dardo infuocato||f bolt
+503	bacchetta palla di fuoco||d ball
+504	bacchetta polimorfismo||polimorf
+505	asta del burlone||polimorf
+506	bacchetta del sonno||dormir
+507	bacchetta del sonno||dormir
+508	bacchetta di confusione||confus
+509	bacchetta della paura||fear
+510	bacchetta di cecità||blind
+511	bacchetta di paralisi||paraly
+512	bacchetta di lentezza||slow
+513	bacchetta di teletrasporto lungo||far
+514	bacchetta di teletrasporto corto||near
+515	bacchetta di dardo gelido||frost
+516	lancia razzi||flare
+517	bacchetta di dardo infuocato||fire
+518	bacchetta di raggi||ray
+519	||
+520	||
+521	||
+522	||
+523	vestiti da città||cloth
+524	abito da ranger||cloth
+525	armatura trapuntata||cloth
+526	armatura di pelle leggera||leather
+527	armatura di pelle leggera||leather
+528	armatura di pelle costellata||leather
+529	armatura di pelle rinforzata||leather
+530	armatura di maglia||mail
+531	armatura di maglia rinforzata||mail
+532	armatura a scaglie||scale
+533	armature a scaglie rinforzata||scale
+534	armatura di piastre||plate
+535	Armatura di plastica bianca||plastica
+536	armature a scaglie di serpente verde||scale
+537	armatura a scaglie di serpente rosso||scale
+538	armatura a scaglie di cobra||scale
+539	armatura a scaglie di serpente scarlatto||scale
+540	armatura a scaglie di drago marino||scale
+541	armatura a scaglie di drago del fuoco||scale
+542	armatura a scaglie di drago nero||scale
+543	armatura a scaglie di drago scarlatto||scale
+544	Vestiti del necromante||cloth
+545	corazza di bronzo||plate
+546	corazza di argento||plate
+547	corazza di oro||plate
+548	armatura isolante di azurite||mail
+549	veste del mago del fuoco novizio||robe
+550	veste del mago del fuoco||robe
+551	veste del grande mago del fuoco||robe
+552	veste del mago del gelo novizio||robe
+553	veste del mago del gelo novizio||robe
+554	veste del grande mago del gelo||robe
+555	veste del warlock novizio||robe
+556	veste del warlock||robe
+557	veste del grande warlock||robe
+558	veste del mago bianco novizio||robe
+559	veste del mago bianco||robe
+560	veste del mago bianco infuocato novizio||robe
+561	veste del chierico novizio||robe
+562	veste del chierico||robe
+563	veste del grande chierico||robe
+564	T-shirt & jeans||cloth
+565	fiala piccola vuota||
+566	fiala media vuota||
+567	fiala grande vuota||
+568	pozione di cura minore||heal
+569	pozione di cura||heal
+570	pozione di cura maggiore||heal
+571	pozione di cura totale||heal
+572	pozione di lentezza||
+573	pozione di paralisi||
+574	pozione di rallenta veleno||slow
+575	pozione di riduzione veleno||reduc
+576	antidoto||anti
+577	pozione di velocità||speed
+578	pozione di forza dell'ogre||str
+579	pozione di forza del gigante||str
+580	pozione di forza del titano||str
+581	pozione di individua trappole||trap
+582	pozione di infravisione||infrav
+583	pozione di vedere l'invisibile||see
+584	pozione di invisibilità||invi
+585	pozione di invisibilità||invi
+586	pozione di invisibilità||invi
+587	pozione di corpo etereo||ghost
+588	pozione di rigenerazione minore||rege
+589	pozione di rigenerazione||rege
+590	pozione di rigenerazione maggiore||rege
+591	pozione di veleno||
+592	pozione di veleno forte||
+593	pozione di veleno letale||
+594	tintura di cura||
+595	pozione di inviduazione migliorata||walls
+596	elisir di resurrezione||
+597	pergamena di protezione fisica||prot
+598	pergamena di protezione dal fuoco||prot
+599	pergamena di protezione dal gelo||prot
+600	pergamena di protezione arcana||prot
+601	pergamena di immunità fisica||immu
+602	pergamena di immunità dal fuoco||immu
+603	pergamena di immunità dal gelo||immu
+604	pergamena di immunità arcana||immu
+605	pergamena di aura di calore||heat
+606	pergamena di shock arcano||shock
+607	pergamena di abilità corpo a corpo||melee
+608	pergamena di abilità con archi||bow
+609	pergamena di teletrasporto da Zoran||zoran
+610	pergamena di teletrasporto nella cucina||cook
+611	pergamena di porta nascosta||phase
+612	pergamena di illuminazione||light
+613	pergamena di distruzione barili||barrels
+614	pergamena di blocco di ghiaccio||ice
+615	pergamena dell'auspicio||clue
+616	pergamena del ritorno||return
+617	pergamena di energia positiva||energy
+618	pergamena del sonno||sleep
+619	pergamena di Trasmutazione di Re Mida||midas
+620	pergamena di arma migliorata||improve
+621	pergamena di follia||madness
+622	anello dell'assassino||damage
+623	anello del guerriero||damage
+624	anello del fabbro||damage
+625	anello del macellaio||damage
+626	anello del soldato||damage
+627	anello dell'arciere||damage
+628	anello della mutilazione||damage
+629	anello del ranger||damage
+630	anello del paladino||damage
+631	anello del barbaro||damage
+632	anello del fuoco||damage
+633	anello del ghiaccio||damage
+634	anello dei maghi||damage
+635	anello dei chierici||damage
+636	anello degli elementi||damage
+637	anello del potere||damage
+638	anello della forza di Kol'Zarek||str
+639	anello di destrezza dell'assassino||speed
+640	anello di destrezza del guerriero||speed
+641	anello di destrezza del fabbro||speed
+642	anello di destrezza del macellaio||speed
+643	anello di destrezza del soldato||speed
+644	anello di destrezza dell'arciere||speed
+645	anello di destrezza del mutilatore||speed
+646	anello di destrezza del ranger||speed
+647	anello di destrezza del paladino||speed
+648	anello di destrezza del barbaro||speed
+649	anello di precisione dell'assassino||critic
+650	anello di precisione del guerriero||critic
+651	anello di precisione del fabbro||critic
+652	anello di precisione del macellaio||critic
+653	anello di precisione del soldato||critic
+654	anello di precisione dell'arciere||critic
+655	anello di precisione del fuoco||critic
+656	anello di precisione del ghiaccio||critic
+657	anello di precisione dei maghi||critic
+658	anello di precisione dei cavalieri||critic
+659	anello di precisione dei chierici||critic
+660	anello di precisione degli elementi||critic
+661	anello di precisione del potere||critic
+662	anello di precisione della mutilazione||critic
+663	anello di precisione del ranger||critic
+664	anello di precisione del paladino||critic
+665	anello di precisione del barbaro||critic
+666	anello di protezione del guerriero||prot
+667	anello di protezione dell'arciere||prot
+668	anello di protezione del fuoco||prot
+669	anello di protezione del ghiaccio||prot
+670	anello di protezione del mago||prot
+671	anello di protezione del necromante||prot
+672	anello di protezione degli elementi||prot
+673	anello di protezione del potere||prot
+674	anello della vita||vida
+675	anello degli spiriti||vida
+676	anello dello studente||exp
+677	anello del quark||heal
+678	anello di riduzione del veleno||poison
+679	anello di rigenerazione||rege
+680	anello dell'oltretomba||nigro
+681	anello dei cieli||jump
+682	funghetto della velocità||fast
+683	scintilla di vita||life
+684	||
+685	||
+686	||
+687	||
+688	||
+689	||
+690	||
+691	||
+692	||
+693	||
+694	||
+695	||
+696	||
+697	||
+698	||
+699	||
+700	||
+701	||
+702	||
+703	||
+704	||
+705	||
+706	oro||
+707	||
+708	occhio volante||eye
+709	cucciolo di drago verde||dragon
+710	ranapallone||frog
+711	piantina volante||plant
+712	Coldax||ice
+713	Biscotto e Sigaro Spaziali||Biscotto
+714	teschio||skull
+715	spirito di luce||light
+716	Gatchan||gatchan
+717	foglio bianco||papel
+718	piuma nera perfetta|black feather|feather
+719	inchiostro nero||ink
+720	pezzo della statua di Poseidone|piece of statue|statue
+721	grande zaffiro rotondo||sapphire
+722	corona di corallo||crown
+723	||
+724	fertilizzante||compost
+725	vasetto di marmo bianco|pot|quest
+726	mandragora in vasetto di marmo|mandragora|quest
+727	pezzo di scudo d'oro|piece of shield|piece
+728	||
+729	||
+730	||
+731	felce||fern
+732	||
+733	grande pirite||pyrite
+734	zolfo||sulfur
+735	||
+736	||
+737	||
+738	||
+739	incudine||anvil
+740	legno||wood
+741	soffietto||bellows
+742	||
+743	||
+744	mercurio||merc
+745	chiave nera||key
+746	ingranaggio rotto||bearing
+747	bambola||doll
+748	spolverino||duster
+749	bicchiere con acqua||quest
+750	bicchiere vuoto||quest
+751	anello argento||
+752	Horga'hn totem||quest
+753	uovo||quest
+754	Coldax morente||quest
+755	libro bianco||
+756	chiave di Munskpa||quest
+757	sperma di Grohm||quest
+758	teschio||quest
+759	chiave teschio||quest
+760	Necronomicon||quest
+761	amuleto nero||quest
+762	chiave delle celle||quest
+763	chiave sconosciuta||
+764	ascia dei goblin||quest
+765	chiave di ferro||quest
+766	medaglia della scienza||quest
+767	artigli di orco||quest
+768	fototessera||quest
+769	carnet divino||quest
+770	certificato di acquisto B-10||quest
+771	Modello AN-200 firmato||quest
+772	modello AN-200||quest
+773	richiesta modello AN-200||quest
+774	approvazione amministrativa||quest
+775	sigillo ufficiale di Harnakon||quest
+776	carnet dell'ufficiale di Harnakon||quest
+777	richiesta per il carnet dell'ufficiale di Harnakon||quest
+778	certificato di acquisto firmato|signed certificate|quest
+779	chiave del destino||quest
+780	fato della morte orrenda||fate
+781	fato dell'eterna agonia||fate
+782	fato dell'eterna schiavitù||fate
+783	halo||halo
+784	sfera della rinascita||
+785	libro della saggezza||level
+786	conchiglia||cook
+787	conchiglia del pellegrino||zoran
+788	cassa d'oro||map
+789	fagotto magico||bag
+790	fuelle deteriorado||fuelle
+791	pañuelo usado||tela
+792	trozo de tela||tela
+793	tela ensangrentada||tela
+794	trozo de venda marrón||tela
+795	calcetín maloliente||tela
+796	restos de un guante||tela
+797	grebas de cuero rotas||tela
+798	trozo de capa||tela
+799	gallumbos con manchas marrones||tela
+800	pequeño tótem de madera||muñeco
+801	muñeco de trapo||muñeco
+802	hueso de pollo||hueso
+803	hueso de cerdo||hueso
+804	esqueleto de rata||hueso
+805	calavera||hueso
+806	huesesito||hueso
+807	costilla||hueso
+808	trozo de cráneo||hueso
+809	cuerno roto de cabra||hueso
+810	fémur roto||hueso
+811	hueso mordisqueado||hueso
+812	trozo de cuerda||cuerda
+813	cordón deshilachado||cuerda
+814	trozo de soga anudada||cuerda
+815	pequeño ovillo de hilo||cuerda
+816	restos de una cuerda||cuerda
+817	anillo chafado de metal||metal
+818	cucharita metálica||metal
+819	mango de una daga||metal
+820	bolita de metal||metal
+821	pendiente metálico roto||metal
+822	tubito de metal||metal
+823	argolla||metal
+824	eslavón abierto de cadena||metal
+825	cera||cera
+826	un ojo sangriento||ojo
+827	gusano pinchado en un palo||gusano
+828	cucaracha mordisqueada||animal
+829	rabo de rata||rabo
+830	rata muerta||rata
+831	dedo seccionado||dedo
+832	trozo de serpiente||animal
+833	oreja de elfo||oreja
+834	chiave delle miniere||
+835	chiave delle fogne||
+836	chiave dei giardini||
+837	chiave della libreria||
+838	chiave delle catacombe||
+839	chiave del laboratorio||
+840	chiave della hall||
+841	chiave della torre||
+842	llave de la torre abandonada||
+843	llave de la torre de los magos||
+844	||recipe
+845	||recipe
+846	||recipe
+847	||recipe
+848	||recipe
+849	||recipe
+850	||recipe
+851	||recipe
+852	||recipe
+853	||recipe
+854	||recipe
+855	||recipe
+856	||recipe
+857	||recipe
+858	||recipe
+859	||recipe
+860	||recipe
+861	ricetta per pozione di cura minore||book
+862	ricetta per pozione di rigenerazione minore||book
+863	ricetta per pozione di rallenta veleno||book
+864	ricetta per pozione di forza dell'ogre||book
+865	ricetta per pozione di individua trappole||book
+866	ricetta per pozione di riduzione veleno||book
+867	ricetta per pozione di velocità||book
+868	ricetta per pozione di infravisione||book
+869	ricetta per pozione di vedere l'invisibile||book
+870	ricetta per antidoto||book
+871	ricetta per pozione di cura minore||book
+872	ricetta per pozione di forza del gigante||book
+873	ricetta per pozione di rigenerazione||book
+874	ricetta per pozione di corpo di fantasma||book
+875	ricetta per pozione di invisibilità||book
+876	ricetta per pozione di individuazione migliorata||book
+877	ricetta per elisir di resurrezione||book
+878	||
+879	||
+880	||
+881	||
+882	||
+883	||
+884	evoca goblin||goblin
+885	evoca goblin curatore||healer
+886	evoca scheletro||skel
+887	evoca scheletro arciere||archer
+888	evoca scheletro mago||mage
+889	evoca armatura animata||blue
+890	evoca armatura animata rossa||red
+891	evoca armatura animata verde||green
+892	magia di cura||heal
+893	magia di cura||heal
+894	||
+895	immunità ai raggi||
+896	||
+897	Spada di Harnakon||
+898	Ascia di Harnakon||
+899	Martello di Harnakon||
+900	Lancia di Harnakon||
+901	||
+902	Kathiel||
+903	Meltroth||
+904	Venoma||
+905	Thimius||
+906	Vitathandis||
+907	Viscer Axis||
+908	Lex Divinius||
+909	Halbertus||
+910	pergamena di immunità ai raggi||ray
+911	pergamena di protezione dai raggi||ray
+912	pergamena di teletrasporto alla miniera||mine
+913	pergamena di teletrasporto alle fogne||sewer
+914	pergamena di teletrasporto ai giardini||garden
+915	pergamena di teletrasporto alla libreria||library
+916	pergamena di teletrasporto alle catacombe||catac
+917	pergamena di teletrasporto al laboratorio||lab
+918	pergamena di teletrasporto alla hall||halls
+919	pergamena di teletrasporto alla torre||tower
+920	pergamena del golem di acciaio||golem
+921	pergamena di teletrasporto ai cristalli||end
+922	abito da scienziato||cloth
+923	sanguisuga||leech
+924	vampiro succhiasangue||vamp
+925	orecchie elfiche||ear
+926	mutande elfiche||underw
+927	||
+928	laser||
+929	Lampo distruttore||
+930	pistola laser||gun
+931	Scompigliatore||scompigliatore
+932	Pigiama Rosso||pigiama
+933	Spada del Guerriero Spaziale||
+934	Uniforme Spaziale Elfica||uniforme
+935	Armatura del Guerriero Spaziale||guerriero
+936	crea portale||
+937	magia di teletrasporto al portale||
+938	tomo del portale||
+939	tomo di teletrasporto al portale||
+940	||
+941	luce a zucca||light
+942	caramella||candy
+943	bacchetta dolcetto o scherzetto||trick
+944	costume da scheletro||skeleton
+945	zucca rimbalzante||pumpkin
+946	anello di teschio||skull
+947	strange scroll||
+948	||
+949	Chiave per HarnaBank||
+950	Piuma Magica||bank
+951	Red English Suit of Power||Power
+952	anello Sadu||Sadu
+953	Braccia e artigli||
+954	Mano del Destino||
+955	Completo da motociclista giallo||completo
+956	Anello della Salvezza||save
+957	Hatto Hanzori's Katana||
+958	mini Spaceball||Spaceball
+959	||
+960	||
+961	anello Royale||Royale
+962	sfera della rinascita||
+963	Perizoma indigeno magico||Perizoma
+964	Bende magiche di Mummia||Mummia
+965	S-116 WASP||S-116
+966	||
+967	||
+968	||
+969	Clamyxia||
+970	Crusher||
+971	Sorix||
+972	Gaetha||
+973	Driniux||
+974	Mushroom||mush
+975	Magic cheese||cheese
+976	Cheating scroll of slow||slow
+977	Cheating scroll of poison||poison
+978	Cheating scroll of stunning||stun
+979	Cheating scroll of confusion||confusion
+980	Cheating scroll of death||death
+981	||
+982	||
+983	||
+984	||
+985	||
+986	||
+987	||
+988	||
+989	||
+990	||
+991	||
+992	||
+993	Bastone magia degli elementi
+994	Bastone magia degli elementi
+995	Bastone magia degli elementi
+996	Bastone magia degli elementi
+997	Bastone magia degli elementi
+998	Bastone magia degli elementi
+999	Bastone magia degli elementi
+1000	Bastone magia degli elementi
+1001	Bastone magia degli elementi
+1002	Bastone magia rossa
+1003	Bastone magia rossa
+1004	Bastone magia rossa
+1005	Bastone magia rossa
+1006	Bastone magia rossa
+1007	Bastone magia rossa
+1008	Bastone magia rossa
+1009	Bastone magia rossa
+1010	Bastone magia rossa
+1011	Bastone magia blu
+1012	Bastone magia blu
+1013	Bastone magia blu
+1014	Bastone magia blu
+1015	Bastone magia blu
+1016	Bastone magia blu
+1017	Bastone magia blu
+1018	Bastone magia blu
+1019	Bastone magia blu
+1020	Bastone magia di guarigione
+1021	Bastone magia di guarigione
+1022	Bastone magia di guarigione
+1023	Bastone magia di guarigione
+1024	Bastone magia di guarigione
+1025	Bastone magia di guarigione
+1026	Bastone magia di guarigione
+1027	Bastone magia di guarigione
+1028	Bastone magia di guarigione
+1029	Bastone negromanzia
+1030	Bastone negromanzia
+1031	Bastone negromanzia
+1032	Bastone negromanzia
+1033	Bastone negromanzia
+1034	Bastone negromanzia
+1035	Bastone negromanzia
+1036	Bastone negromanzia
+1037	Bastone negromanzia
+1038	Bastone luce divina
+1039	Bastone luce divina
+1040	Bastone luce divina
+1041	Bastone luce divina
+1042	Bastone luce divina
+1043	Bastone luce divina
+1044	Bastone luce divina
+1045	Bastone luce divina
+1046	Bastone luce divina
+1047	||
+1048	||
+1049	||
+1050	||
+1051	Rendaria||
+1052	Ortox||
+1053	Gork' Haul||
+1054	Stygma||
+1055	Zelantia||
+1056	Skorpion||
+1057	Red Ring of Kal'Hor||
+1058	Blue Ring of Ras'Kah||
+1059	Ring of the Warlock||
+1060	Healing Ring of Koorah||
+1061	Protective Ring of Maldur||
+1062	||
+1063	kill point||
+1064	sword kill||
+1065	axe kill||
+1066	mace kill||
+1067	polearm kill||
+1068	staff kill||
+1069	bow kill||
+1070	Jade cat||cat
+1071	Amethyst dolphin||dolphin
+1072	Amber eagle||eagle
+1073	Silver lion||lion
+1074	Onyx dragon||dragon
+1075	||
+1076	Throwing knife||knife
+1077	Skill: Throwing knife||
+1078	Stunning Hit||stun
+1079	Skill: Stunning Hit||
+1080	Breakthrough||through
+1081	Skill: Breakthrough||
+1082	Triple shot||triple
+1083	Skill: Triple shot||
+1084	Sleeping spell||sleep
+1085	Vampiric aura||vamp
+1086	tome: Vampiric aura||
+1087	Light aura||light
+1088	tome: Light aura||
+1089	Divine Fury||fury
+1090	tome: Divine Fury||
+1091	Suit of Mr. Red||Mr.Red
+1092	Metallic skull key||key
+1093	little magic bag||bag
+1094	medium magic bag||bag
+1095	big magic bag||bag
+1096	huge magic bag||bag
+1097	||
+1098	Rod of polymorph weapon||morph
+1099	tutu||tutu
+1100	||
+1101	Staff of polymorph armor||morph
+1102	Orb of teleportation||telep
+1103	scroll: explosive rune||rune
+1104	doppelganger potion||doppel
+1105	||
+1106	Bomb||bomb
+1107	||
+1108	Ghost axe||axe
+1109	Skill: ghost axe||
+1110	Wind cut||wind cut
+1111	Skill: wind cut||
+1112	wall||wall
+1113	roof||roof
+1114	floor||floor
+1115	ladder||ladder
+1116	||
+1117	||
+1118	light||light
+1119	door||door
+1120	red slug||slug
+1121	blue slug||slug
+1122	green slug||slug
+1123	yellow slug||slug
+1124	orange slug||slug
+1125	arcane slug||slug
+1126	satyr||satyr
+1127	horned satyr||satyr
+1128	snake||snake
+1129	coral snake||snake
+1130	sea snake||snake
+1131	guard goblin||goblin
+1132	foregoblin||goblin
+1133	healing goblin||goblin
+1134	octopus||octopus
+1135	frog||frog
+1136	spike ball||ball
+1137	poison ball||ball
+1138	crab||crab
+1139	ant||ant
+1140	poison cockroach||cockroach
+1141	tentacle||tentacle
+1142	anthill||anthill
+1143	skeleton 1||skel1
+1144	skeleton 2||skel2
+1145	skeleton 3||skel3
+1146	skeleton archer||archer
+1147	skeleton necromancer||skel
+1148	tomb with skeleton||tomb
+1149	buried skeleton||skel
+1150	spirit in torment||spirit
+1151	activates dungeon||play
+1152	destroy monster||mons.out
+1153	blue armor||armor
+1154	red armor||armor
+1155	green armor||armor
+1156	red helmet||helmet
+1157	blue helmet||helmet
+1158	arcane helmet||helmet
+1159	advanced red helmet||helmet
+1160	advanced blue helmet||helmet
+1161	advanced arcane helmet||helmet
+1162	bear trap||trap
+1163	spear trap||trap
+1164	up firebolt trap||trap
+1165	down firebolt trap||trap
+1166	rock||rock
+1167	mine wagon||wagon
+1168	ray crystal||ray
+1169	turn monster||turn
+1170	lever||lever
+1171	tomb||tomb
+1172	sliding wall||wall
+1173	sliding floor||floor
+1174	sliding ladder||ladder
+1175	destroyable wall||wall
+1176	no monster room ladder||lad R
+1177	no monster zone ladder||lad Z
+1178	enable/disable monster||enable
+1179	gas jet||gas
+1180	gas jet tile||gas
+1181	barrel||barrel
+1182	barrel with essences||barrel
+1183	barrel with arrows||barrel
+1184	graceless joker||joker
+1185	scientist||scien
+1186	walking fire||fire
+1187	stone golem||golem
+1188	hen||hen
+1189	gelatinous cube||cube
+1190	jailer orc||orc
+1191	ghost thief||thief
+1192	blue sorcerer||blue
+1193	carnivorous plant||plant
+1194	red sorcerer||red
+1195	lance orc||orc
+1196	warrior orc||orc
+1197	ice block||ice
+1198	arcane sorcerer||arcane
+1199	ent||ent
+1200	kamikaze rat||rat
+1201	lighting||light
+1202	magic bellows||bellows
+1203	flag||flag
+1204	goal||goal
+1205	background: dungeons||ding
+1206	background: sewer||sewer
+1207	background: mine||mine
+1208	background: tower||tower
+1209	background: halls||halls
+1210	background: catacombs||catac
+1211	background: cobwebs||cobwebs
+1212	background: magic room||magic
+1213	spikes||spikes
+1214	chest||chest
+1215	red key||key
+1216	blue key||key
+1217	green key||key
+1218	yellow key||key
+1219	orange key||key
+1220	create red key||key
+1221	create blue key||key
+1222	create green key||key
+1223	create yellow key||key
+1224	create orange key||key
+1225	liftgate||liftgate
+1226	lock||lock
+1227	Sword Storm||storm
+1228	Skill: Sword Storm||
+1229	Puff of smoke||smoke
+1230	Skill: Puff of smoke||
+1231	Microexplosive arrows||explo
+1232	Skill: Microexplosive arrows||
+1233	Extraordinary scope||scope
+1234	Skill: Extraordinary scope||
+1235	||
+1236	Tremor||tremor
+1237	Skill: Tremor
+1238	magic wand||
+1239	Arkanita||Arkanita
+1240	Pyrita||Pyrita
+1241	Gelita||Gelita
+1242	Incendya||Incendya
+1243	Permanent light||light
+1244	Portal of Architect||portal
+1245	Restart levers and dialogs||restart
+1246	platform||platf
+1247	dialog||dialog
+1248	wall dialog||wall
+1249	ladder dialog||ladder
+1250	key to the prison||
+1251	Zweigart||
+1252	Skeletroyer||
+1253	Devian||
+1254	Ontrixion||
+1255	Eviscerax||
+1256	Deathwind||
+1257	chest with item||chest
+1258	||
+1259	scroll: melee immunity||immu
+1260	scroll: fire immunity||immu
+1261	scroll: cold immunity||immu
+1262	scroll: arcane immunity||immu
+1263	scroll: heat aura||heat
+1264	scroll: arcane shock||shock
+1265	scroll: melee mastery||melee
+1266	scroll: bow mastery||bow
+1267	scroll: illumination||light
+1268	scroll: Midas transmutation||midas
+1269	scroll: improve weapon||improve
+1270	Axe-ecution||axec
+1271	Skill: Axe Execution||
+1272	||
+1273	Acid mucus||acid
+1274	Matter condensator||cond
+1275	Magic bread||bread
+1276	Dagger mastery 1||dagger
+1277	Skill: Dagger mastery 1||
+1278	Sword mastery 1||sword
+1279	Skill: Sword mastery 1||
+1280	Mace mastery 1||mace
+1281	Skill: Mace mastery 1||
+1282	Axe mastery 1||axe
+1283	Skill: Axe mastery 1||
+1284	Polearm mastery 1||polearm
+1285	Skill: Polearm mastery 1||
+1286	Bow mastery 1||bows
+1287	Skill: Bow mastery 1||
+1288	Dagger mastery 2||dagger
+1289	Skill: Dagger mastery 2||
+1290	Sword mastery 2||sword
+1291	Skill: Sword mastery 2||
+1292	Mace mastery 2||mace
+1293	Skill: Mace mastery 2||
+1294	Axe mastery 2||axe
+1295	Skill: Axe mastery 2||
+1296	Polearm mastery 2||polearm
+1297	Skill: Polearm mastery 2||
+1298	Bow mastery 2||bows
+1299	Skill: Bow mastery 2||
+1300	Dagger mastery 3||dagger
+1301	Skill: Dagger mastery 3||
+1302	Sword mastery 3||sword
+1303	Skill: Sword mastery 3||
+1304	Mace mastery 3||mace
+1305	Skill: Mace mastery 3||
+1306	Axe mastery 3||axe
+1307	Skill: Axe mastery 3||
+1308	Polearm mastery 3||polearm
+1309	Skill: Polearm mastery 3||
+1310	Bow mastery 3||bows
+1311	Skill: Bow mastery 3||
+1312	GOG T-Shirt||gog
+1313	Classic Controller||
+1314	Tunica concentrazione mago del fuoco
+1315	Tunica concentrazione mago del fuoco
+1316	Tunica concentrazione mago del fuoco
+1317	Tunica concentrazione mago del ghiaccio
+1318	Tunica concentrazione mago del ghiaccio
+1319	Tunica concentrazione mago del ghiaccio
+1320	Tunica concentrazione mago arcano
+1321	Tunica concentrazione mago arcano
+1322	Tunica concentrazione mago arcano
+1323	Tunica concentrazione mago bianco
+1324	Tunica concentrazione mago bianco
+1325	Tunica concentrazione mago bianco
+1326	Tunica concentrazione curatore
+1327	Tunica concentrazione curatore
+1328	Tunica concentrazione curatore
+1329	Tunica difesa mago del fuoco
+1330	Tunica difesa mago del fuoco
+1331	Tunica difesa mago del fuoco
+1332	Tunica difesa mago del ghiaccio
+1333	Tunica difesa mago del ghiaccio
+1334	Tunica difesa mago del ghiaccio
+1335	Tunica difesa mago arcano
+1336	Tunica difesa mago arcano
+1337	Tunica difesa mago arcano
+1338	Tunica difesa mago bianco
+1339	Tunica difesa mago bianco
+1340	Tunica difesa mago bianco
+1341	Tunica difesa curatore
+1342	Tunica difesa curatore
+1343	Tunica difesa curatore
+1344	Undying magic||
+1345	Tome: Undying magic||
+1346	Night vision||vision
+1347	Start Player 1||ini 1
+1348	Start Player 2||ini 2
+1349	Start Player 3||ini 3
+1350	Start Player 4||ini 4
+1351	Bulldozer||Bulld
+1352	Magic starfish||starf
+1353	Checkpoint||check
+1354	Platform dialog||platf
+1355	Floor dialog||floor
+1356	Room Kill platform||platf
+1357	Room Kill floor||floor
+1358	Room Kill wall||wall
+1359	Zone Kill platform||platf
+1360	Lighting platform||platf
+1361	Lighting ladder||ladder
+1362	Lighting wall||wall
+1363	Lighting floor||floor
+1364	Presence||trap
+1365	Dialog appearing wall||wallin
+1366	Key of the town||key
+1367	||
+1368	green helmet||helmet
+1369	CubanB's Staff||CubanB's
+1370	Boss||boss
+1371	Invoker||Invoker
+1372	Santa clothes||Santa
+1373	scroll: telekinesis||tele
+1374	dummy humanoid 1||h1
+1375	dummy humanoid 2||h2
+1376	dummy humanoid 3||h3
+1377	dummy humanoid 4||h4
+1378	dummy humanoid 5||h5
+1379	dummy humanoid 6||h6
+1380	dummy humanoid 7||h7
+1381	dummy humanoid 8||h8
+1382	dummy humanoid 9||h9
+1383	dummy humanoid 10||h10
+1384	dummy humanoid 11||h11
+1385	dummy humanoid 12||h12
+1386	dummy humanoid 13||h13
+1387	dummy humanoid 14||h14
+1388	dummy humanoid 15||h15
+1389	dummy humanoid 16||h16
+1390	dummy humanoid 17||h17
+1391	dummy humanoid 18||h18
+1392	dummy humanoid 19||h19
+1393	dummy humanoid 20||h20
+1394	create skull key||key
+1395	create skull lock (consumes the key)||lock
+1396	spell of summon monster||summon
+1397	barrel 1||barrel 1
+1398	barrel 2||barrel 2
+1399	barrel 3||barrel 3
+1400	barrel 4||barrel 4
+1401	barrel 5||barrel 5
+1402	barrel 6||barrel 6
+1403	barrel 7||barrel 7
+1404	barrel 8||barrel 8
+1405	barrel 9||barrel 9
+1406	barrel 10||barrel 10
+1407	barrel 11||barrel 11
+1408	barrel 12||barrel 12
+1409	Baller's armor||baller
+1410	wasp||wasp
+1411	Night Ambient Light||night
+1412	speed allies||speed
+1413	str allies||str
+1414	bat||bat
+1415	Vampire Bat||vamp
+1416	prison door||door
+1417	Shack Door||door
+1418	barrel 13||barrel 13
+1419	barrel 14||barrel 14
+1420	barrel 15||barrel 15
+1421	barrel 16||barrel 16
+1422	barrel 17||barrel 17
+1423	barrel 18||barrel 18
+1424	barrel 19||barrel 19
+1425	barrel 20||barrel 20
+1426	orc big dagger||dagger
+1427	||
+1428	Railwand||rail
+1429	scroll: Meeting||meeting
+1430	Chain armor of the Lord||chain
+1431	Blessed platemail of Luxor||plate
+1432	Peices of Demonic armor||clothes
+1433	Light suite of the Champion||clothes
+1434	Blessed thornmail of Cecil||mail
+1435	Great robe of the alchemist||robe
+1436	Blessed armor of Raak||plate
+1437	Demonic staff||
+1438	Cursed edge||
+1439	Bouncing rock||rock
+1440	Rolling rock||rock
+1441	Enrage||enrage
+1442	Skill: Enrage||
+1443	Battle Cry||cry
+1444	Skill: Battle Cry||
+1445	Impale||impale
+1446	Skill: Impale||
+1447	Spirit arrows||spirit
+1448	Skill: Spirit arrows||
+1449	spirit arrow
+1450	Poisoned arrows||poison
+1451	Skill: Poisoned arrows||
+1452	Split shot||split
+1453	Skill: Split shot||
+1454	Lunge||lunge
+1455	Skill: Lunge||
+1456	Parry wall||parry
+1457	Skill: Parry wall||
+1458	Bomb||bomb
+1459	Skill: Bomb||
+1460	Web trap||web
+1461	Skill: Web trap||
+1462	Spell: web explosion||
+1463	Spell: mine explosion||
+1464	Exorcism||exor
+1465	Tome: Exorcism||
+1466	scroll: exorcism||exor
+1467	||
+1468	Wrath||thor
+1469	Skill: Wrath||
+1470	Cut purse||purse
+1471	Skill: Cut purse||
+1472	||
+1473	Javelin||javelin
+1474	Skill: javelin||
+1475	Justice||justice
+1476	Skill: justice||
+1477	Ruby ring of Eternity||etern
+1478	Topaz ring of Eternity||etern
+1479	Emerald ring of Eternity||etern
+1480	Amethist ring of Eternity||etern
+1481	Diamond ring of Eternity||etern
+1482	Master key||
+1483	Toy Key||
+1484	scroll: escape||
+1485	Death Cheater||death
+1486	||
+1487	Move out||move
+1488	Skill: Move out||
+1489	Critical strike||crit
+1490	Skill: Critical strike||
+1491	Charge||charge
+1492	Skill: Charge||
+1493	Voodoo Head||voodoo
+1494	||
+1495	Venomia||Venomia
+1496	Cursed Ring of Slow||slow
+1497	Ranger Deathwearer||
+1498	Ring of protection||prot
+1499	Ring of Speed||speed
+1500	Popolon's armor||
+1501	Aphrodite's armor||
+1502	Golem Armor||
+1503	Key World 1||key 1
+1504	Key World 2||key 2
+1505	Key World 3||key 3
+1506	Key World 4||key 4
+1507	Key World 5||key 5
+1508	Key World 6||key 6
+1509	Key World 7||key 7
+1510	Key World 8||key 8
+1511	Key World 9||key 9
+1512	Key World 10||key 10
+1513	Cross||cross
+1514	Bow||
+1515	Porcelain bow||
+1516	Dodge Death||death
+1517	tome: Dodge Death||
+1518	Unholly growth||growth
+1519	tome: Unholly growth||
+1520	Arcane shock||shock
+1521	tome: Arcane shock||
+1522	Exit Door||exit
