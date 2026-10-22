@@ -1,0 +1,332 @@
+﻿0	-
+1	-
+2	Cria uma onda que atravessa qualquer criatura - o utilizador inclusive - mexendo com o seu interior. \nRessalta nas paredes, mortífero em salas pequenas.
+3	Dispara uma bola de fogo que queima o alvo.
+4	Cria uma bola de fogo gigante que queima todos aqueles que atingir.
+5	-
+6	Cospe fogo a uma curta distância, similar ao sopro de um dragão vermelho.
+7	-
+8	Dispara um raio de gelo, congelando a primeira vítima no seu caminho.
+9	Cospe gelo a uma curta distância, similar ao sopro de um dragão azul.
+10	Cria um cone de gelo que congela tudo no seu alcance.
+11	Água é congelada instantaneamente, formando espinhos afiados que voam em todas as direcções.
+12	Dispara um raio de luz que magoa e atordoa mortos-vivos.
+13	Cura ferimentos pequenos.
+14	Cura ferimentos médios.
+15	Cura ferimentos críticos.
+16	Este poderoso feitiço cura todos os ferimentos, restaura todo o corpo, e recupera toda a vida.
+17	Cria uma barreira mágica que deixa o alvo imune a qualquer ataque físico.
+18	Cria uma barreira mágica que deixa o alvo imune a calor extremo.
+19	Cria uma barreira mágica que deixa o alvo imune ao frio intenso.
+20	Cria uma barreira mágica que deixa o alvo imune a qualquer ataque arcano que possa causar ferimentos.
+21	Transforma permanentemente o alvo numa galinha.
+22	Transforma permanentemente a arma do alvo em algo inofensivo.
+23	-
+24	Adormece uma criatura, mesmo que esteja alerta ou a atacar.\nQualquer dano fá-la-á acordar.
+25	-
+26	Baralha a mente da vítima, deixando-a por um momento em estado de confusão.
+27	-
+28	Turva a visão de uma criatura, evitando que veja qualquer coisa distante.
+29	Paralisa uma criatura temporariamente.
+30	Diminui a velocidade do alvo temporariamente.
+31	Teleporta uma criatura para longe de ti.
+32	Teleporta uma criatura para perto de ti.
+33	Concede velocidade de uma chita.\nO alvo movimenta-se temporariamente mais depressa.
+34	Aumenta a tua força, tornando os teus ataques mais poderosos.
+35	Aumenta a tua força, tornando os teus ataques mais poderosos.
+36	Aumenta a tua força, tornando os teus ataques mais poderosos.
+37	Encanta os teus olhos, permitindo-te ver no escuro temporariamente.
+38	Encanta os seus olhos, permitindo-te temporariamente ver armadilhas escondidas.
+39	Torna-te invisível por uns instantes.\nRegressas ao normal se fores atingido ou atacares.
+40	Torna-te invisível por uns instantes.\nRegressas ao normal se fores atingido, mas ataques não quebram o feitiço.
+41	Torna-te invisível por uns instantes.\nNem dano nem ataque quebram o efeito.
+42	Encanta os teus olhos, permitindo-te temporariamente ver criaturas invisíveis.
+43	A tua pele e pertences tornam-se imateriais.\nQualquer arma comum atravessa-te como se fosses névoa. Da mesma forma, que os teus ataques não causam dano.
+44	Enquanto este feitiço estiver activo, os teus ferimentos curam-se lentamente.
+45	Enquanto este feitiço estiver activo, os teus ferimentos curam-se moderadamente.
+46	Enquanto este feitiço estiver activo, os teus ferimentos curam-se rapidamente.
+47	Teleporta-o para a caixa dourada do espírito de cura.\nPode ser usado quantas vezes quiser.
+48	-
+49	Remove todos os pontos de destreza gastos, Podendo assim realocá-los.
+50	Tu e o teu equipamento ficam imunes a petrificação ou transformação.
+51	-
+52	-
+53	-
+54	Cria uma barreira mágica que neutraliza qualquer veneno que tente entrar no teu corpo. Não funciona com venenos que já estão presentes.
+55	-
+56	-
+57	-
+58	Cria uma barreira mágica que repele qualquer feitiço que paralise o seu alvo.
+59	-
+60	-
+61	Cria uma poderosa barreira que te protege de todos os tipos de ataque, mundanos ou mágicos. Resumidamente, ficas invulnerável.
+62	-
+63	Aumenta a tua força, tornando o teus ataques com armas, mais eficientes.
+64	O alvo torna-se invisível.
+65	Enquanto o feitiço estiver activo, os teus ferimentos são curados lentamente.
+66	Veneno letal diminui a tua saúde.
+67	Cria uma camada protectora sobre ti que absorve um terço dos danos de ataques físicos.
+68	-
+69	Cria uma camada protectora sobre ti que absorve um terço dos danos causados por ataques de fogo.
+70	Cria uma camada protectora sobre ti que absorve um terço dos danos causados por ataques de gelo.
+71	Cria uma camada protectora sobre ti que absorve um terço dos danos causados por ataques arcanos.
+72	Cria uma camada protectora sobre ti que absorve um terço dos danos causados por ataques de escuridão.
+73	Cria uma aura de calor á tua volta que causa danos aos inimigos próximos gradualmente.
+74	Enquanto este feitiço estiver activo, os efeitos dos venenos são diminuídos, dando-te mais tempo para te curares.
+75	Neutraliza parcialmente os venenos dentro de ti, reduzindo os seus efeitos.
+76	Neutraliza completamente qualquer veneno dentro de ti.
+77	Cria uma onda de choque arcano em toda a sala, causando danos em todos os inimigos.
+78	Aumenta o dano de ataques físicos em +50, a chance de ataques críticos em +15% e a velocidade dos ataques em 15%.
+79	Aumenta o dano de arcos em +40, a chance de ataques críticos em +25%, e a velocidade de disparo em 25%.
+80	Teleporta-te directamente para a loja do Zoran.
+81	Teleporta-te directamente para a cozinha do Zorok.
+82	Teleporta-te directamente para o ponto mais distante que possa andar sem cair ou saltar.
+83	-
+84	-
+85	-
+86	-
+87	-
+88	-
+89	-
+90	-
+91	-
+92	-
+93	Acende todas as tochas e lâmpadas na sala.
+94	Destrói todos os barris na sala.
+95	Conjura um bloco de gelo flutuante que serve de escudo contra projécteis.
+96	Uma chave gigante, grande o suficiente para ser usada como espada. O cabelo fica espetado só de segurá-la.\nOnde está um "Heartless" quando precisas de um?
+97	Dá-te conhecimento excepcional sobre a sua demanda activa, revelando a localização dos objectos necessários, ou pistas para resolver os difíceis quebra-cabeças.
+98	Teleporta-o para a pessoa que o enviou na sua demanda activa.
+99	Meio sapo, meio balão. Usa a língua para apanhar pequenas criaturas, como morcegos, abelhas e pequenas aranhas.
+100	Um pequeno dragão órfão. Cospe bolas de fogo contra qualquer criatura, excepto contra aquelas que são imunes a fogo.
+101	Ressuscita qualquer animal de estimação.
+102	Dá energia ao animal de estimação activo.
+103	Aparece com metade da saúde. Absorve vida aos adversários. Quando tem a saúde cheia e estás magoado ele transfere-ta
+104	Temporariamente invisível.\nSe quem lançou o feitiço for atacado ou atacar o efeito desvanecerá.
+105	Temporariamente invisível.\nO feitiço é quebrado caso ataques ou sejas atacado.
+106	Pode ser vendido por um bom preço.
+107	Transmite sabedoria, conferindo-te assim 5 pontos de destreza extra.
+108	As páginas deste livro estão em branco.
+109	Cria uma explosão de frio, apagando qualquer fogo em ti. Deixa uma camada de gelo que impede ataques de fogo.
+110	Adormece uma criatura, mesmo que esteja alerta ou a atacar.\nQualquer dano fá-la-á acordar.
+111	Transforma o alvo em moedas. Quanta mais saúde a criatura tiver, mais moedas irão aparecer.
+112	Teleporta-o directamente para a cozinha do Zorok;\nNão desaparece com o uso.
+113	Teleporta-o directamente para a loja do Zoran.\nNão desaparece com o uso.
+114	Ressuscita um animal de estimação morto.\nNo inventário procura o animal de estimação morto e selecciona a opção "ressuscitar".
+115	Indo com ousadia onde nenhum biscoito jamais foi.
+116	Detecta armadilhas, portas escondidas e paredes falsas.
+117	Controla um esqueleto inimigo. A cada 5 níveis de necromancia podes controlar um esqueleto extra.
+118	Absorve a energia vital de qualquer criatura viva (menos mortos-vivos e máquinas).
+119	Dispara raios de luz contra mortos-vivos.\nSó pode ser magoado por ataques arcanos.
+120	Infunde o poder do fogo à tua arma, causando temporariamente danos de fogo adicionais.\nSó funciona com espadas e arcos.
+121	Infunde o poder do gelo à tua arma, causando temporariamente danos de gelo adicionais.\nSó funciona com espadas e punhais.
+122	Infunde o poder da luz sagrada à sua arma,causando temporariamente danos adicional aos mortos-vivos.\nSó funciona com clavas.
+123	Infunde o poder do ácido à sua arma, causando dano adicional de corrosão.\nSó funciona com lanças e arcos.
+124	Localiza a caixa que contém o espírito puro na sua área.\nO ícone aparecerá no teu mapa.\nNão desaparece com o uso.
+125	Auxílio concedido pelo Deus da Luz, como uma recompensa por ter destruído os mortos-vivos.
+126	Levanta o esqueleto de qualquer humanóide que tenhas matado.\nA cada 5 níveis em necromancia consegues controlar mais um esqueleto extra.
+127	Guarda metade da  tua saúde. Se morreres, essa metade guardada volta, prevenindo a tua morte.
+128	Cria uma nuvem que avança lentamente consumindo toda a vida no seu caminho.
+129	Ilumina temporariamente a mente, reduzindo o tempo de conjuramento de feitiços.
+130	Atordoa a vítima por alguns segundos, deixando-a incapaz de atacar.
+131	Transforma um rubi em 20 essências de magia vermelha.
+132	Transforma uma safira em 20 essências de magia azul.
+133	Transforma uma esmeralda em 20 essências de magia verde.
+134	Cota de malha de metal, trançada com tiras de couro para proteger o utilizador contra electricidade.
+135	Aumenta a capacidade do teu inventário, permitindo-lhe carregar mais 10 objectos.
+136	Altera a forma da arma equipada permanentemente, permitindo que ela cause mais danos.
+137	Quando usada contra inimigos metálicos, transforma alguns pedaços de metal em moedas.
+138	Cura criaturas aliadas (como animais de estimação).\nNão funciona com mortos-vivos.
+139	Permite-te pegar em objectos distantes.
+140	Altera permanentemente o material de uma armadura ou túnica, aumentando a sua capacidade defensiva.
+141	使你免於擊昏、催眠、控制等心靈攻擊
+142	Cria uma barreira refletora.\nTodos os projécteis que atingirem a barreira ressaltam para o agressor.
+143	Protege-te de todas as magias que restringem ou impõem movimentos, como lentidão, paralisia ou teleportação.
+144	Espada lendária que causa danos mágicos adicionais, e aumenta o ganho de experiência.
+145	O formulário de pedido AN-200 com um selo gigante de borracha. Não faz ideia do que o selo diz.\nEntregue no guichê com 3 caveiras.
+146	O formulário de pedido AN-200, completo com assinatura. Está até manchado nos lugares correctos.\nO tipo do guichê caveira/caveira/osso quer isto.
+147	O formulário de pedido AN-200. Tem tudo menos a assinatura. A sua não conta.\nEntregue no guichê caveira/osso/caveira.
+148	Formulário 2212/HHK, o formulário de pedido de formulário. Inclui um espaço em branco para a sua impressão "lingual". O formulário de pedido AN-200 está verificado.\nEntregue no guichê caveira/osso/osso.
+149	Agora é oficial: Está aprovado. Os teus pais ficariam orgulhosos.\nLeve esta carta de aprovação para o guichê osso/caveira/caveira para finalmente receber o formulário de encomenda.
+150	O selo oficial de Harnakon. Marca registrada em cinco países.\nLeve isto para o guichê osso/caveira/osso para receber a aprovação oficial.
+151	O cartão oficial dado aos servos de Harnakon. Tem uma foto esborratada sua.\nEntregue no guichê osso/osso/caveira.
+152	Formulário MC-3805 (Pedido Oficial de Cartão de Servo).\Entregue no guichê com três ossos. Não, caveiras não contam como ossos.
+153	A antena de Gatchan dispara raios que paralisam seus alvos.
+154	Teleporta-te para a Mina.
+155	Teleporta-te para o Esgotos.
+156	Teleporta-te para os Jardins.
+157	Teleporta-te para a Biblioteca.
+158	Teleporta-te para as Catacumbas.
+159	Teleporta-te para o Laboratório.
+160	Teleporta-te para os Salões.
+161	Teleporta-te para a Torre Esquecida.
+162	Invoca um espírito de fogo que ataca os teus inimigos.
+163	Altera a percepção de todas as criaturas na sala.\nVira os teus inimigos uns contra os outros.
+164	Cura-te a ti e todos os aliados na mesma sala.
+165	Aumenta a distancia que consegues saltar.
+166	Altera a lealdade do alvo, virando-o contra os seus aliados.
+167	Invoca uma oração que afecta todos os mortos-vivos.\nRecebendo 4 de favor divino por cada morto-vivo destruído.
+168	Invoca um esqueleto guerreiro.\nSó podes controlar 3 deste tipo.
+169	Invoca um esqueleto arqueiro.\nSó podes controlar 3 deste tipo.
+170	Invoca um esqueleto mago que dispara bolas de fogo.\nSó podes controlar 3 deste tipo.
+171	Invoca uma armadura vermelha imune a fogo.\nSó podes controlar 3 deste tipo.
+172	Invoca uma armadura verde com uma lança que envenena seus inimigos.\nSó podes controlar 3 deste tipo.
+173	Invoca um duende curandeiro que cura todos os aliados que estão por perto.\nSó podes controlar 3 deste tipo.
+174	Se o mastigares, o sumo pode ser usado para criar poções mágicas.
+175	Estranho material usado para criar poções mágicas avançadas.
+176	Essência mágica primária usada para lançar feitiços e criar poções mágicas.
+177	Usada para criar luz e ficar pedrado.
+178	Esta chave permite acesso a outras áreas do castelo.
+179	Este objecto é necessário para uma demanda.
+180	Podes usar este frasco vazio para criar outras poções.
+181	Abre a porta para o seu destino depois de completar o jogo.
+182	É uma vara curvada. Também pode ser usada para remover cera das orelhas e coçar as costas.
+183	Elemento de gelo permanentemente reduzido.\nDispara gelo contra as suas vitimas.
+184	Cria uma barreira mágica que torna o alvo imune a raios.
+185	Cria uma camada protectora que absorve um terço do dano de raios.
+186	São guardados como troféus de batalha contra elfos e podem ser trocados por outras moedas.
+187	Invoca um poderoso golem de ferro, um ser mecânico que não conhece dor nem misericórdia.
+188	Cria um portal.
+189	Teleporta-o para o último portal que criou.
+190	Parece um pergaminho de teleportação.
+191	Abre o cofre do HarnaBank ; Um local seguro onde pode guardar as tuas coisas.
+192	Teleporta-te pra o HarnaBank.\nNão desaparece com o uso.
+193	Enlouquece as chavalas, yah!\nTalvez tenhas um desconto se pagares algo às miúdas.
+194	Guardar e enviar
+195	Notifica-o de quando o jogo é guardado.
+196	Ataca com um poderoso laser que causa 2000 de dano de fogo, mas necessita de muito energia.\nNão ataca inimigos fracos.
+197	Aumenta-te a musculatura enquanto estiver a ser usada.
+198	O espírito do faraó regenera-te as feridas.
+199	Embarcação espacial do Syder Arcade. Dispara rápidas rajadas de fogo.
+200	Os efeitos de o comer são imprevisíveis.
+201	Atira um machado fantasma 2 vezes mais poderoso que aquele que estás a usar, atravessa todos os adversários no seu caminho.
+202	Durante 30 segundos os teus ataques com espadas criam um corte no ar com mais alcance que a espada mas 3 vezes mais fracos.
+203	Atira uma faca que faz 4 vezes o dano normal se acertar nas costas. Só funciona em humanóides.
+204	Durante 10 segundos os teus ataques com clavas atordoam a vítima, mas causam metade do dano.
+205	Corres atravessando todos os inimigos a tua frente.
+206	Durante 10 segundos lanças 3 flechas por disparo.
+207	An aura that slowly drains the vital energy of any living being nearby.
+208	An holy aura that hurts any nearby undead.
+209	A great explosion of divine light that damages undead and stuns them for 3 seconds.
+210	Transforms the armor of a foe to something less protective.
+211	Teleports you directly to a flag that is unconquered or conquered by the enemy.
+212	Summons an invisible rune that explodes when a foe gets too close.
+213	Foes see you as a member of their team (if there are other members in their team).
+214	Slows the closest foe.
+215	Poisons the closest foe.
+216	Stuns the closest foe.
+217	Inverts the left/right controls of the closest foe.
+218	Instantly kills the closest foe.
+219	Creates/destroys a wall in front of you.
+220	Creates/destroys the ceiling above your head.
+221	Creates/destroys the floor under your feet. To create it you must be on the very edge.
+222	Creates/destroys a ladder that allows you to move up one level.
+223	-
+224	Creates a light source to light the corridor.\nThere can not be 2 light sources too close together.
+225	Destroys the item at your position.\nWorks with light sources, doors, chests, coffins, etc.
+226	Creates a door that leads to a parallel room.
+227	Creates a monster like the one on the icon.
+228	Activate/Deactivate your dungeon as other players will see it, activates all monsters, traps and dialog.
+229	Destroys the monster label in your position.
+230	Creates a trap like the one on the icon.
+231	Turns the label of the monster in your position left/right. Monster will appear looking in this direction.
+232	Creates a lever at your position that activates "surprises" for the suffering players.
+233	Creates a coffin at your position where the suffering players will revive if they die. One coffin per player.
+234	The wall will disappear if a lever is activated.
+235	The floor will disappear if a lever is activated.
+236	The ladder will appear if a lever is activated.
+237	The wall will disappear if it is hit by a player.
+238	The ladder will appear when all enemies in the room are killed.
+239	The ladder will appear when all enemies in your zone are killed.
+240	Makes/Unmakes a monster spawn when a lever is activated.
+241	Creates a gas jet.
+242	Creates a tile that activates all gas jets in the room.
+243	Creates an item that can be destroyed.
+244	Teleports you to the beginning of the dungeon.
+245	Inserts a conquest flag.
+246	Inserts a race goal.
+247	Changes the ambient background of the room.
+248	Inserts spikes. Any monster that touches them will die.
+249	Creates a chest. To insert things inside just drop an item nearby.
+250	Creates this item.
+251	Creates a liftgate in front of you.
+252	Creates a lock that opens any liftgate in the room.\nTo assign a key, just drop one nearby.
+253	Turns on/off all lights of the room.
+254	Creates a storm of swords surrounding you that hurts anyone who dares approach.
+255	Creates a cloud of dust that confuses enemies and turns you invisible for [DURATION] seconds.
+256	Fire arrows that create an explosive wave that hurts other nearby enemies. Lasts until death.
+257	Extends the range of your attacks with polearms. Lasts until death.
+258	Smashes the ground and rips up the surfaces ahead of you, dealing damage and stunning all creatures hit.
+259	Create/Destroy an Architect portal. To teleport to this portal from another room, access the castle map and click another room containing a portal.
+260	Reset all levers and dialog in this room.
+261	The platform appears when a lever is activated.
+262	Create/destroy a dialog checkpoint. When all characters are over all dialog checkpoints the room's dialog will appear. Edit the dialog in MENU > DIALOGS.
+263	The wall disappears when dialog is shown.
+264	The ladder will appear when dialog is shown.
+265	Create/destroy a chest that contains a random item. This item can only be used in the current game.
+266	Violently drives your axe through the next creature you attack, killing it instantly. Does not work on large creatures.
+267	The flask contains some sort of moving fluorescent green mucus.
+268	When activated, it transforms any electricity into matter for a few seconds.
+269	Increases damage greatly with axes. This effect can be stacked [DAMAGE] times. Lasts until death.
+270	-
+271	-
+272	It is activated after your death to prevent Death takes with her the active spells that benefits you.
+273	Allows you to see in the darkness.
+274	Sets the initial location of a player.
+275	Create/destroy walls in a part of the room selected with the mouse.
+276	Teleports you to any location in the room (selected by the mouse).
+277	Converts dialogs in checkpoints. When dialogs are called, position of all characters are saved.
+278	The ladder will appear when all lights are lit.
+279	The wall will disappear when all lights are lit.
+280	The floor will disappear when dialog is shown.
+281	The floor will disappear when all enemies in the screen are killed.
+282	The floor will disappear when all lights are lit.
+283	The platform will appear when dialog is shown.
+284	The platform will appear when all enemies in the screen are killed.
+285	The platform will appear when all enemies in the zone are killed.
+286	The platform will appear when all lights are lit.
+287	The wall will disappear when all enemies in the screen are killed.
+288	An invisible lever is activated when a player pass nearby.
+289	A wall will appear when dialog is shown.
+290	+2 To your purchasing charisma. Essences cost less coin.
+291	Creates an invoker. A boss is needed in the same room.
+292	Creates a boss. The boss must be customized.
+293	+5 to Swag. Pimped out armor with ice and jewels cuz its gangsta.
+294	An electrically powered electromagnetic projectile launcher. Can damage even those who are invincible otherwise.
+295	Teleports you next to a friend who is crouched. Does not work if there is a boss nearby.
+296	Increases running speed and damage with daggers. This effect can be stacked [DAMAGE] times. Lasts until death.
+297	-
+298	-
+299	Increases damage and critical chance with swords. This effect can be stacked [DAMAGE] times. Lasts until death.
+300	-
+301	-
+302	Increases damage and attack speed with bows. This effect can be stacked [DAMAGE] times. Lasts until death.
+303	-
+304	-
+305	Increases damage and bonus damage to stunned targets with maces. This effect can be stacked [DAMAGE] times. Lasts until death.
+306	-
+307	-
+308	Increases damage and number of targets hit with polearms. This effect can be stacked [DAMAGE] times. Lasts until death.
+309	-
+310	-
+311	For [DURATION] seconds, your attacks deal increased damage while reducing attack speed.
+312	Scream a battle shout that increases attack speed of yourself and allies for [DURATION] seconds.
+313	Infuses two arrows with a part of your spirit, allowing them to pierce undead but ignore the living.
+314	Coats a batch of arrows in poison for your attacks. Number of poisoned arrows is your level in bows.
+315	For [DURATION] seconds, shots split on impact into a pair of arrows that each deal 25% weapon damage.
+316	Lunges to the first enemy ahead of you, attacking it twice.
+317	For [DURATION] seconds, the sword moves so fast it parries all melee attacks against you.
+318	Drops a bomb that explodes when stepped on or damaged.
+319	Drops a trap that entangles nearby creatures for 5 seconds when it's activated.
+320	Removes any possession or transformation from a friend. It cannot be cast on yourself.
+321	Throws a hammer that damages the target. The impact stuns all nearby creatures.
+322	A quick dash that passes by creatures. If any of them have coin purses, the dagger cuts it causing coins to drop until empty.
+323	Throws 2 javelins that each deal damage and slows the target for [DURATION] seconds.
+324	For [DURATION] seconds, any creature that attacks you in melee is sentenced by the hammer of justice to receive damage in return.
+325	Yells an inspiring shout that increases running speed of yourself and allies for [DURATION] seconds.
+326	For your next 3 attacks, your eyes see the weaknesses of creatures. These attacks deal critical damage.
+327	Charges at the first enemy ahead of you, striking and stunning it.
+328	When an enemy strikes you, there is a chance to be slowed down for 10 seconds.
+329	If you die, death is missdirected to someone else of your group in the same room, letting you survive.
+330	Enlarges all skeletons you control, becoming stronger, faster and harder.
+331	Places the exit door (only coop), where players leave the dungeon.
