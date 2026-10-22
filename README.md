@@ -63,11 +63,10 @@ tables and 19 description tables, and the two PowerShell scripts.
 | `tools/build_release.py` | assembles the release archive; the file list in it is the definition of the package (`build` / `check` / `verify`) |
 
 Everything is plain C (C17, clang/GNU dialect) against the Win32 API and the Universal
-CRT - no C++, no libraries, no generated code. `data/` holds the text tables the archive
-ships: `items.tsv` and the 38 language tables dumped from the game's own dictionaries,
-plus the settings template. They are game-derived text (so not English), published here
-only so the archive can be rebuilt exactly; the language tables can also be regenerated
-in game with the mod's own `[debug] dumpdict` switch.
+CRT - no C++, no libraries, no generated code. `data/` is the text the archive ships:
+`items.tsv`, the 38 language tables and the settings template. The tables are dumped from
+the game's own dictionaries and are what the panel shows when you switch language; they
+can also be regenerated in game with the mod's own `[debug] dumpdict` switch.
 
 ## Installation
 
