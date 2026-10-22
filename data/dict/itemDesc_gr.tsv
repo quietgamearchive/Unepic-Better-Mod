@@ -1,0 +1,273 @@
+﻿0	-
+1	-
+2	Creates a wave that will go through any being - even you - scrambling their insides.\nBounces off walls, making small rooms very dangerous.
+3	Shoots a fire bolt that burns the target.
+4	Creates a giant ball of fire that burns anyone engulfed in it.
+5	-
+6	Cast a short-ranged breath of fire similar to the breath of a red dragon.
+7	-
+8	Fires a bolt of ice, freezing the first victim that gets in its path.
+9	Cast a short-ranged breath of frost similar to the breath of a blue dragon.
+10	Creates a cone of frost that freezes anyone within.
+11	Water is frozen instantly, forming sharp spikes that fly off in all directions.
+12	Shoots a bolt of light that harms and stuns undead.
+13	Heals small wounds.
+14	Heals medium wounds.
+15	Heals critical wounds.
+16	This powerful healing spell heals all wounds, restores the whole body, and recovers all life.
+17	Creates a magic barrier that makes the target immune to any melee attack.
+18	Forms a magic barrier that makes the target immune to extreme heat.
+19	Generates a magic barrier that makes the target immune to intense cold.
+20	Creates a magic barrier that makes the target immune to any arcane attack that can cause wounds.
+21	Permanently transforms the victim into a chicken.
+22	Permanently transforms the victim's weapon into something harmless.
+23	-
+24	Puts a creature to sleep, even if it's alert or attacking.\nAny harm will wake it up.
+25	-
+26	Scramble the victim's mind, leaving it in a state of confusion for a moment.
+27	-
+28	Clouds a creature's vision, preventing them from seeing anything distant.
+29	Paralyzes a creature for a moment.
+30	Reduces the victim's speed for a moment.
+31	Teleports a creature far away from you.
+32	Teleports a creature next to you.
+33	Imbues the speed of a cheetah.\nThe target will move faster for a while.
+34	Increases your strength, making your attacks more powerful.
+35	Increases your strength, making your attacks more powerful.
+36	Increases your strength, making your attacks more powerful.
+37	Briefly enchants your eyes, allowing you to see in the dark.
+38	Briefly enchants your eyes, allowing you to see hidden traps.
+39	Briefly makes you invisible.\nVisibility returns if you are harmed or make an attack.
+40	Briefly makes you invisible.\nVisibility returns if you are harmed, but attacks don't break the spell.
+41	Briefly makes you invisible.\nNeither injury nor attacks break the effect.
+42	Briefly enchants your eyes, allowing you to see invisible creatures.
+43	Your flesh and belongings lose their solidity.\nAny common weapon will go through you as if you were mist. In the same way, your attacks will cause no harm.
+44	While this spell is active, your wounds heal slowly.
+45	While this spell is active, your wounds heal at a moderate rate.
+46	While this spell is active, your wounds heal quickly.
+47	Teleports you under the golden box of the healing spirit.\nCan be used as many times as you wish.
+48	-
+49	Removes all spent skill points, so that you can reassign them.
+50	You and your equipment become immune to petrification or transformation.
+51	-
+52	-
+53	-
+54	Creates a magic barrier that neutralizes any poison entering your body. Does not work on poisons that are already present.
+55	-
+56	-
+57	-
+58	Creates a magic barrier that repels any spells that paralyze their targets.
+59	-
+60	-
+61	Creates a powerful barrier that protects you against all types of attack, whether mundane or magical. Essentially, you become invulnerable.
+62	-
+63	Increases your strength, making your weapon attacks more effective.
+64	The target becomes invisible.
+65	While the spell is active, the wounds in your body are slowly healed.
+66	Lethal venom wears down your health.
+67	Creates a protective layer over you that absorbs one-third of the damage of melee attacks.
+68	-
+69	Creates a protective layer over you that absorbs one-third of the damage of fire-based attacks.
+70	Creates a protective layer over you that absorbs one-third of the damage of cold-based attacks.
+71	Creates a protective layer over you that absorbs one-third of the damage of arcane attacks.
+72	Creates a protective layer over you that absorbs one-third of the damage of darkness-based attacks.
+73	Creates an aura of heat around you that gradually damages nearby enemies.
+74	While this spell is active, the effects of poisons are slowed, granting more time for healing.
+75	Partially neutralizes poisons in your system, reducing their effects.
+76	Completely neutralizes any poisons in your system.
+77	Creates an arcane shock in the whole room harming all enemies.
+78	Increases the damage of melee attacks by +50, the chance of critical hits by +15%, and the speed of attacks by 15%.
+79	Increases the damage of bows by +40, the chance of critical hits by +25%, and the speed of shooting by 25%.
+80	Teleports you straight to Zoran's shop.
+81	Teleports you straight to Zorok's kitchen.
+82	Teleports you to the farthest point you could walk without falling or jumping.
+83	-
+84	-
+85	-
+86	-
+87	-
+88	-
+89	-
+90	-
+91	-
+92	-
+93	Lights all torches and lamps in the room.
+94	Destroys all barrels in the room.
+95	Conjures a floating block of ice that serves as a shield against projectiles.
+96	A massive key, big enough to swing like a sword. Your hair gets spiky just by holding it.\nWhere's a Heartless when you need it?
+97	Gives you exceptional knowledge about your active quest, giving the location of needed items, or clues to solve difficult puzzles.
+98	Teleports you to the person who gave you your active quest.
+99	Half frog, half balloon. Uses its tongue to catch small creatures, like bats, bees and small spiders.
+100	Small orphan dragon whelp. Shoots firebolts against any creature except those who cannot be harmed with fire.
+101	Returns to life any dead pet.
+102	Gives energy to the pet that is following you.
+103	Appears with only half health. Drains enemies' life to increase its own. When its health is full and you're injured, it transfers some of its health to you.
+104	Imbues invisibility for a moment.\nThe spell will disappear if the caster is harmed or if the caster makes any attack.
+105	Imbues invisibility for a moment.\nThe spell will disappear if you are harmed or if you make any attack.
+106	Can be sold at a good price
+107	Grants wisdom, giving you 5 extra skill points.
+108	All pages of this book are blank.
+109	Creates a blast of cold, extinguishing any fire on you. Leaves a layer of frost that prevents further fire-based attacks.
+110	Puts a creature to sleep, even if it is alert or attacking.\nAny injury will wake it up.
+111	Transmute the victim into coins. The more life points the creature has, the more coins will appear.
+112	Teleports you straight to Zorok's kitchen.\nIs not expended upon use.
+113	Teleports you straight to Zoran's shop.\nIs not expended upon use.
+114	Resurrects a dead pet.\nIn the inventory look for the dead pet and select the "resurrect" option.
+115	Boldly goes where no cookie has gone before.
+116	Detect traps, hidden doors and false walls.
+117	Takes the control of an enemy skeleton. Every 5 levels of necromancy you can control an extra skeleton.
+118	Absorbs the vital energy of any living creature (which excludes undead and constructs).
+119	Launches bolts of light against undead.\nCan only be harmed by arcane attacks.
+120	Briefly imbues your weapon with fire, causing additional fire damage.\nOnly works with swords and bows.
+121	Briefly imbues your weapon with ice, causing additional cold damage.\nOnly works with swords and daggers.
+122	Briefly imbues your weapon with holy light, causing additional damage to undead.\nOnly works with maces.
+123	Briefly imbues your weapon with acid, causing additional corrosion damage.\nOnly works with spears and bows.
+124	Locates the box containing the pure spirit in your area.\nThe icon will appear in your map.\nIs not expended upon use.
+125	Favors granted by the God of Light, as a reward for destroying the undead.
+126	Animates the skeleton of any humanoid you kill.\nEvery 5 levels in necromancy gives you control over one extra skeleton.
+127	Draws out half of your life force. If you die later, that stored life returns, preventing death.
+128	Creates a cloud that advances slowly consuming all life in its path.
+129	Illuminates the mind for a moment, reducing the casting-time for all spells.
+130	Stuns the victim for a few seconds, rendering it incapable of acting.
+131	Transmutes a ruby into 20 red magic essences.
+132	Transmutes a sapphire into 20 blue magic essences.
+133	Transmutes an emerald into 20 green magic essences.
+134	Metal mail, laced with leather strips to insulate the wearer from electricity.
+135	Increases the capacity of your inventory letting you carry 10 more items.
+136	Permanently alters the shape of your current weapon, causing it to inflict more damage.
+137	When used against metallic enemies, transmutes some of that metal into coins.
+138	Heals allied creatures (such as pets).\nDoes not work on undead.
+139	Allows you to pick up items from a distance.
+140	Permanently alters the material of a suit of armor or robe, increasing its protective qualities.
+141	Immunizes you against any mental attack, such as stunning, sleep, or control.
+142	Creates a reflective barrier.\nAll projectiles that strike the barrier are returned against the attacker.
+143	Protects you against all spells that restrict or impose movement, such as slowness, paralysis, or teleportation.
+144	A legendary sword that inflicts additional magic damage, and increases the wielder's gained experience.
+145	The AN-200 Request form, stamped with a big rubber stamp. You have no idea what the stamp says.\nHand this over at the window with three skulls.
+146	The AN-200 Request Form, complete with signature. It's even smudged in all the right places.\nThe guy at the skull/skull/bone window will want this.
+147	The AN-200 Request Form. It has everything but the signature. Yours doesn't count.\nHand this over at the skull/bone/skull window.
+148	Form 2212/HHK, the Form Request Form. Includes a blank for your tongue-print. The AN-200 Request Form has been checked.\nTurn this in at the skull/bone/bone window.
+149	Now it's official: You're approved. Your parents would be proud.\nTake this approval letter to the bone/skull/skull window so you can finally get the order form.
+150	The official seal of Harnakon. Trademarked in five countries.\nTake this to the bone/skull/bone window to get your official approval.
+151	The official card given to Harnakon's minions. It has a blurry picture of you.\nTurn this in at the bone/bone/skull window.
+152	Form MC-3805 (Official Minion Card Request).\nTurn this in at the window with three bones. No, skulls don't count as bones.
+153	Gatchan's antennae fire rays that paralyze their targets.
+154	Teleports you to the Mine.
+155	Teleports you to the Sewer.
+156	Teleports you to the Gardens.
+157	Teleports you to the Library.
+158	Teleports you to the Catacombs.
+159	Teleports you to the Laboratory.
+160	Teleports you to the Halls.
+161	Teleports you to the Forgotten Tower.
+162	Invokes a fire spirit that attacks your enemies.
+163	Creates a mental pulse that alters the perceptions of all creatures in the room.\nThe victims believe their allies are their enemies.
+164	Heals yourself and all allies that are in the same room.
+165	Increases your jumping distance.
+166	Alters the victim's loyalties, turning them against their allies.
+167	Invokes a prayer that affects all undead.\nIf they are destroyed, their souls are redeemed, granting 4 divine favors each.
+168	Invokes a skeleton warrior.\nYou can only control 3 of this type.
+169	Invokes a skeleton archer.\nYou can only control 3 of this type.
+170	Invokes a skeleton mage that shoots firebolts with a wand.\nYou can only control 3 of this type.
+171	Invokes a red armor immune to fire.\nYou can only control 3 of this type.
+172	Invokes a green armor whose spear also poison their enemies.\nYou can only control 3 of this type.
+173	Invokes a healer goblin that heals all allies that are nearby.\nYou can only control 3 of this type.
+174	If you chew it, the juice can be used to create magic potions.
+175	Strange material used to create advanced magic potions.
+176	Primary Magic Essence used to cast spells and create magic potions.
+177	Used to light and turn pot.
+178	This key opens doors giving access to other areas of the castle.
+179	This object belongs to one of your quests.
+180	You can use this empty vial to create other potions.
+181	Open the door to your destination after finishing the game.
+182	It is shot with a bow. You can also use it to remove wax from ears or scratch your back.
+183	Elemental of ice permanently reduced.\nThrows coldness against their victims.
+184	Forms a magic barrier that makes the target immune to ray.
+185	Creates a protective layer over you that absorbs one-third of the damage of rays.
+186	They are kept as trophies of battle against elfs and can be sold for some coins.
+187	Invokes a powerful iron golem, a mechanical being that knows no pain and no mercy.
+188	Creates a portal.
+189	Teleports you to the last portal you created.
+190	Looks like a scroll of teleportation.
+191	Opens the HarnaBank Secure Room, a safe place where you can store your items.
+192	Teleports you to HarnaBank.\nIs not expended upon use.
+193	Turn crazy all babies, yeah!\nMaybe you can get a discount if you buy things from any girl.
+194	Save and Deliver Us
+195	Alerts you when the game is saved.
+196	Attacks with a powerful laser that deals 2000 fire damage, but needs a lot of energy.\nDoes not attack weak enemies.
+197	Increase your muscles while wearing it.
+198	The spirit of an ancient pharaon regenerates your body.
+199	Space vessel from Syder Arcade. Shoots a fast burst of gunfire.
+200	The effects of eating it are unpredictable.
+201	Throws a ghost axe two times more powerful that the one you are wielding, that goes through any enemy in its path.
+202	For 30 seconds your sword attacks pressurize the air extending range but attacks are three times less harmful.
+203	Throws a knife that causes 4 times more damage to the victim if hit in the back. Only works on humanoids.
+204	For 10 seconds your mace attacks stun the victim, but deal half damage.
+205	You rapidly charge passing through enemies in front of you.
+206	For 10 seconds you shoot 3 arrows per shot.
+207	An aura that slowly drains the vital energy of any living being nearby.
+208	An holy aura that hurts any nearby undead.
+209	A great explosion of divine light that damages undead and stuns them for 3 seconds.
+210	Transforms the armor of a foe to something less protective.
+211	Teleports you directly to a flag that is unconquered or conquered by the enemy.
+212	Summons an invisible rune that explodes when a foe gets too close.
+213	Foes see you as a member of their team (if there are other members in their team).
+214	Slows the closest foe.
+215	Poisons the closest foe.
+216	Stuns the closest foe.
+217	Inverts the left/right controls of the closest foe.
+218	Instantly kills the closest foe.
+219	Creates/destroys a wall in front of you.
+220	Creates/destroys the ceiling above your head.
+221	Creates/destroys the floor under your feet. To create it you must be on the very edge.
+222	Creates/destroys a ladder that allows you to move up one level.
+223	-
+224	Creates a light source to light the corridor.\nThere can not be 2 light sources too close together.
+225	Destroys the item at your position.\nWorks with light sources, doors, chests, coffins, etc.
+226	Creates a door that leads to a parallel room.
+227	Creates a monster like the one on the icon.
+228	Activate/Deactivate your dungeon as other players will see it, activates all monsters, traps and dialog.
+229	Destroys the monster label in your position.
+230	Creates a trap like the one on the icon.
+231	Turns the label of the monster in your position left/right. Monster will appear looking in this direction.
+232	Creates a lever at your position that activates "surprises" for the suffering players.
+233	Creates a coffin at your position where the suffering players will revive if they die. One coffin per player.
+234	The wall will disappear if a lever is activated.
+235	The floor will disappear if a lever is activated.
+236	The ladder will appear if a lever is activated.
+237	The wall will disappear if it is hit by a player.
+238	The ladder will appear when all enemies in the room are killed.
+239	The ladder will appear when all enemies in your zone are killed.
+240	Makes/Unmakes a monster spawn when a lever is activated.
+241	Creates a gas jet.
+242	Creates a tile that activates all gas jets in the room.
+243	Creates an item that can be destroyed.
+244	Teleports you to the beginning of the dungeon.
+245	Inserts a conquest flag.
+246	Inserts a race goal.
+247	Changes the ambient background of the room.
+248	Inserts spikes. Any monster that touches them will die.
+249	Creates a chest. To insert things inside just drop an item nearby.
+250	Creates this item.
+251	Creates a liftgate in front of you.
+252	Creates a lock that opens any liftgate at the same height.\nTo assign a key, just drop one nearby.
+253	Turns on/off all lights of the room.
+254	Creates a storm of swords surrounding you that hurts anyone who dares approach.
+255	Creates a cloud of dust that confuses the enemy leaving them open for a backstab.
+256	Fire arrows that create an explosive wave that hurts other nearby enemies. Effect is permanent.
+257	Lengthens the range of your attacks with polearms. Effect is permanent.
+258	Creates an earth wave that goes through whoever is in front of you. Does not work over wood or mood surfaces.
+259	Create/Destroy an Architect portal. To teleport to this portal from another room, access the castle map and click another room containing a portal.
+260	Reset all levers and dialog in this room.
+261	Create/destroy a platform that appears when a lever is activated.
+262	Create/destroy a dialog checkpoint. When all characters are past this point the room's dialog will appear. Edit the dialog in MENU > DIALOGS.
+263	Create/destroy a wall that disappears when dialog is shown.
+264	Create/destroy a ladder that appears when dialog is shown.
+265	Create/destroy a chest that contains a random item. This item can only be used in the current game.
+266	Violently drives your axe through the next creature you attack, killing it instantly. Does not work on monster taller that 2 meters.
+267	The flask contains some sort of moving fluorescent green mucus.
+268	When activated, it transforms any electricity into matter for a few seconds.
+269	Increases damage. This effect can be stacked twice. Lasts until death.
+270	Increases damage. This effect can be stacked 4 times. Lasts until death.
+271	Increases damage. This effect can be stacked 6 times. Lasts until death.
+272	It is activated after your death to prevent Death takes with her the active spells that benefits you.
