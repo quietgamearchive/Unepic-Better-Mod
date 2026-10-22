@@ -1,0 +1,332 @@
+﻿0	-
+1	-
+2	Létrehoz egy hullámot, mely áthalad az összes lényen - még rajtad is - összekavarva a belsőségeiket.\nLepattan a falakról, ezáltal a kisebb szobák nagyon veszélyessé válhatnak.
+3	Egy tüzes lövedék lő ki, mely összeégeti a célpontot.
+4	Létrehoz egy hatalmas tűzgömböt, mely összeéget bárkit, aki a hatókörébe kerül.
+5	-
+6	Egy rövidtávú tűzleheletet idéz, mely hasonló hatással bír, mint egy vörös sárkány lehelete.
+7	-
+8	Egy jeges lövedéket lő ki, megfagyasztva az első célpontot, aki az útjába kerül.
+9	Egy rövidtávú fagyleheletet idéz, mely hasonló hatással bír, mint egy vörös sárkány lehelete.
+10	Létrehoz egy fagykúpot, mely megfagyaszt mindenkit, aki a hatókörébe kerül.
+11	A víz azonnal megfagy, hegyes tűket formálva, melyek minden irányban szerteröppennek.
+12	Fénysugarat lövell ki, mely sebzi és elkábítja az élőhalottakat.
+13	Kisebb sebesüléseket gyógyít.
+14	Közepes sebesüléseket gyógyít.
+15	Kritikus sebesüléseket gyógyít.
+16	Ez a nagy erejű gyógyító varázslat meggyógyít minden sérülést, helyreállítja a testet és visszatölti a teljes életerőt.
+17	Létrehoz egy mágikus akadályt, mely immunissá teszi a célpontot minden közelharci sebzésre.
+18	Mágikus akadályt képez a célpont körül, aki így immunis lesz a legnagyobb forróságra is.
+19	Mágikus akadályt képez a célpont körül, aki így immunis lesz a legnagyobb hidegre is.
+20	Mágikus akadályt képez a célpont körül, aki így immunis lesz az összes sebzést okozó misztikus varázslatra.
+21	Véglegesen átváltoztatja a célpontot egy csirkévé.
+22	Véglegesen átváltoztatja a célpont fegyverét valami ártalmatlanra.
+23	-
+24	Elaltat egy lényt, még akkor is, ha támad vagy figyel.\nBármilyen sérülés felébreszti ebből az álomból.
+25	-
+26	Összezavarja a célpont elméjét, időlegesen zavartságot okozva.
+27	-
+28	Elködösíti a lény látását, megakadályozva ezzel, hogy messzire lásson.
+29	Ideiglenesen lebénítja a célpontot.
+30	Ideiglenesen lecsökkenti a célpont sebességét.
+31	Messzire teleportál egy lényt a közeledből.
+32	Melléd teleportál egy lényt.
+33	Megajándékoz a gepárd gyorsaságával.\nA célpont gyorsabban mozoghat egy ideig.
+34	Megnöveli az erődet, ideiglenesen nagyobb sebzést okozva..
+35	Megnöveli az erődet, ideiglenesen nagyobb sebzést okozva..
+36	Megnöveli az erődet, ideiglenesen nagyobb sebzést okozva..
+37	Ideiglenesen megbűvöli a szemeidet, ezáltal láthatsz a sötétben.
+38	Ideiglenesen megbűvöli a szemeidet, ezáltal érzékelheted a csapdákat.
+39	Ideiglenesen láthatatlanná tesz.\nA hatás elmúlik, ha megsebeznek vagy támadást kezdeményezel.
+40	Ideiglenesen láthatatlanná tesz.\nA hatás elmúlik, ha megsebeznek, de a támadás kezdeményezése nem számít bele.
+41	Ideiglenesen láthatatlanná tesz.\nSe sebesülés, se támadás nem mulasztja el a hatást.
+42	Ideiglenesen megbűvöli a szemeidet, ezáltal láthatod a láthatatlan lényeket.
+43	A tested és tulajdonaid elvesztik szilárdságukat.\nAz átlagos fegyverek átsuhannak rajtad, mintha köd lennél. Ugyanígy a te támadásaid sem tehetnek senkiben kárt.
+44	Amíg a varázslat aktív, a sebeid lassan gyógyulnak.
+45	Amíg a varázslat aktív, a sebeid közepes sebességgel gyógyulnak.
+46	Amíg a varázslat aktív, a sebeid gyorsan gyógyulnak.
+47	A gyógyító lélek arany doboza alá teleportál.\nBármennyiszer használhatod.
+48	-
+49	Eltávolítja az összes elköltött képzettségpontot, hogy újra eloszthasd őket.
+50	Te és a felszerelésed immunis lesz a megdermesztésre és átváltoztatásra.
+51	-
+52	-
+53	-
+54	Létrehoz egy mágikus akadályt, mely semlegesít minden mérget, mely a testedet éri. A már aktív mérgek ellen nem hatásos.
+55	-
+56	-
+57	-
+58	Létrehoz egy mágikus akadályt, mely visszaver minden bénító varázslatot.
+59	-
+60	-
+61	Létrehoz egy nagyerejű akadályt, mely megvéd mindenféle típusú támadásoktól, legyen szó evilági vagy mágikusról. Alapvetően sérthetetlenné válsz.
+62	-
+63	Megnöveli az erőt, ezáltal a fegyveres támadásaid hatékonyabbak lesznek.
+64	A célpont láthatatlanná válik.
+65	Amíg a varázslat aktív, a sérüléseid lassan begyógyulnak.
+66	A gyilkos méreg csökkenti az életerődet.
+67	Létrehoz egy védelmező réteget a testeden, ami a közelharci sebzés egyharmadát felfogja.
+68	-
+69	Létrehoz egy védelmező réteget a testeden, ami a tűz alapú sebzés egyharmadát felfogja.
+70	Létrehoz egy védelmező réteget a testeden, ami a hideg alapú sebzés egyharmadát felfogja.
+71	Létrehoz egy védelmező réteget a testeden, ami a misztikus alapú sebzés egyharmadát felfogja.
+72	Létrehoz egy védelmező réteget a testeden, ami a sötétség alapú sebzés egyharmadát felfogja.
+73	Létrehoz egy forró aurát körülötted, mely fokozatosan sebzi a közeli ellenfeleket.
+74	Amíg a varázslat aktív, a mérgek hatása lelassul, így több időt hagyva a gyógyításra.
+75	Részben közömbösíti a mérgeket a szervezetedben, gyengítve ezzel a hatásukat.
+76	Teljesen közömbösíti az összes mérget a szervezetedben.
+77	Létrehoz egy misztikus csapást a teremben, ezzel az összes ellenfelet megsebezve.
+78	Megnöveli a közelharci támadások sebzését +50-nel, a kritikus támadások esélyét +15%-kal és a támadások sebességét 15%-kal.
+79	Megnöveli az íjak sebzését +40-nel, a kritikus támadások esélyét +25%-kal és a tüzelés gyorsaságát 25%-kal.
+80	Egyenesen Zoran boltjába teleportál.
+81	Egyenesen Zorok konyhájába teleportál.
+82	A legtávolabbi olyan pontra teleportál, ahol még nem esel le és ugornod sem kell.
+83	-
+84	-
+85	-
+86	-
+87	-
+88	-
+89	-
+90	-
+91	-
+92	-
+93	Meggyújtja az összes fáklyát a teremben.
+94	Elpusztítja az összes hordót a teremben.
+95	Egy lebegő jégtömböt idéz meg, amely pajzsként véd a lövedékek ellen.
+96	Egy hatalmas kulcs, mérete miatt kardként forgatható. Már az érintésétől is feláll a hajad.\nHol van egy Szívtelen, amikor szükség van rá?
+97	Kivételes ismeretet ad az aktív küldetésedről, megjelölve a szükséges tárgyak helyét vagy a nehéz feladványok megoldásához tippeket ad.
+98	Az aktív küldetést adó személyhez teleportál.
+99	Félig béka, félig léggömb. A nyelvét használja kisebb lények, mint denevérek, méhek és kisebb pókok elkapásához.
+100	Kicsi árva sárkányfióka. Tűzgömböket lő minden lényre, kivéve azokra, akiket nem sebez a tűz.
+101	Feltámasztja bármelyik elpusztult követőt.
+102	Energiát ad az aktív követődnek.
+103	Fele életerővel jelenik meg. Elszívja az ellenfelek életerejét és a sajátjához adja. Amikor teljesen meggyógyult, de te sérült vagy életerejének egy részét átadja.
+104	Láthatatlanságot hoz létre egy pillanat erejéig.\nA varázslat megszűnik, ha az idézőt sebesülés éri vagy az idéző támadásba lendül.
+105	Láthatatlanságot hoz létre egy pillanat erejéig.\nA varázslat megszűnik, ha megsérülsz vagy támadásba lendülsz.
+106	Jó áron adhatsz túl rajta
+107	Bölcsességet ad, 5 képzettségpont lesz a jutalmad.
+108	Ebben a könyvben az összes oldal üres.
+109	Hideget áraszt körülötted, kioltva minden tüzet saját magadon. Fagyréteget von a testedre, így megakadályozva további tűzalapú támadásokat.
+110	Elaltat egy lényt, még akkor is ha figyel vagy támad.\nHa megsérül, felébred.
+111	Átváltoztatja a célszemélyt arannyá. Minél több életereje van a lénynek, annál több arany jelenik meg.
+112	Egyenesen Zorok konyhájába teleportál.\nNem használódik el.
+113	Egyenesen Zoran boltjába teleportál.\nNem használódik el.
+114	Feltámaszt egy halott követőt.\nKeresd meg a felszerelésed között a halott követőt és válaszd a "feltámaszt" opciót.
+115	Vakmerően oda indul, ahol még nem járt ezelőtt ember.
+116	Csapdák, titkos ajtók és álfalak érzékelése.
+117	Vedd át az irányítást egy ellenséges csontváz felett. 5 nekromancia szintenként újabb csontvázat irányíthatsz.
+118	Felszívja bármely élőlény életenergiáját (kizárva ezzel az élőholtakat és gépezeteket).
+119	Fénysugarat lövell ki az élőhalottakra.\nCsak misztikus támadások sebzik.
+120	Rövid időre bevonja a fegyveredet tűzzel, további tűzalapú sebzést okozva ezzel.\nCsak kardok és íjak esetén működik.
+121	Rövid időre bevonja a fegyveredet jéggel, további hidegalapú sebzést okozva ezzel.\nCsak kardok és tőrök esetén működik.
+122	Rövid időre bevonja a fegyveredet szent fénnyel, további sebzést okozva ezzel az élőhalottaknak.\nCsak buzogányok esetén működik.
+123	Rövid időre bevonja a fegyveredet savval, további maró sebzést okozva ezzel.\nCsak lándzsák és íjak esetén működik.
+124	Felfedi a tiszta lelket tartalmazó dobozt a környezetedben.\nAz ikon a térképeden fog megjelenni.\nNem használódik el.
+125	A szívességeket a Fény istene biztosítja neked, jutalomként az élőhalottak elpusztításáért.
+126	Feltámasztja az általad megölt humanoidok csontvázát.\n5 nekromancia szintenként egy újabb csontváz felett veheted át az irányítást.
+127	Elszívja a fél életerődet. Ha később meghalsz, ez az életerő visszatér, megakadályozva ezzel a halált.
+128	Ködöt hoz létre, mely lassan halad előre és magába szívja az összes életerőt, amivel kapcsolatba kerül.
+129	Rövid ideig élesíti az elmét, lecsökkentve ezzel az összes varázslat idézési idejét.
+130	A célpontot pár másodpercre bekábítja, ezáltal képtelen lesz a cselekvésre.
+131	Átalakítja a rubintot 20 vörös mágikus esszenciává.
+132	Átalakítja a zafírt 20 kék mágikus esszenciává.
+133	Átalakítja a smaragdot 20 zöld mágikus esszenciává.
+134	Acél páncéling, bőrcsíkokkal átfűzve, hogy elszigetelje a viselőjét az elektromosságtól.
+135	Megnöveli a leltárad méretét, ezáltal 10-zel több tárgyat cipelhetsz magaddal.
+136	Véglegesen megváltoztatja a jelenlegi fegyvered anyagát, ezáltal nagyobb sebzést okoz.
+137	Fém ellenfelek ellen használva a fém egy részét arannyá változtatja.
+138	Meggyógyítja a szövetséges lényeket (például a követőket).\nÉlőhalottakon nem működik.
+139	Lehetővé teszi, hogy a távolból vegyél fel tárgyakat.
+140	Véglegesen megváltoztatja egy páncél vagy köpeny anyagát, ezáltal megnövelve védelmező tulajdonságait.
+141	Učiní cíl imunním vůči jakémukoli psychickému útoku, jako je omráčení, spánek nebo ovládnutí.
+142	Létrehoz egy visszaverő akadályt.\nAz összes lövedék, mely beleütközik, visszaszáll a támadóra.
+143	Megvéd az összes olyan varázslat ellen, amely akadályozza vagy önkéntelen mozgást eredményez, mint a lassítás, bénítás vagy teleportáció.
+144	Egy legendás kard, mely további mágikus sebzést okoz és megnöveli használója begyűjtött tapasztalati pontjait.
+145	AN-200 űrlap, nagy gumipecséttel. Fogalmad sincs mit jelent a pecsét.\nAdd át a háromkoponyás ablaknál.
+146	AN-200 űrlap, aláírva. A megfelelő helyeken még paca is díszíti.\nA fickó a koponya/koponya/csont ablaknál erre vár.
+147	AN-200 űrlap. Minden rajta van, kivéve az aláírás. A tiéd nem számít bele.\nAdd át a koponya/csont/koponya ablaknál.
+148	2212/HHK űrlap, az Űrlap igénylő űrlap. Üres lappal a nyelvlenyomatodnak. Az AN-200 igénylőlapot aláírták.\nAdd be a koponya/csont/csont ablaknál.
+149	Végre hivatalosan is elismertek. A szüleid büszkék lennének rád.\nVidd ezt az elismerő levelet a csont/koponya/koponya ablakhoz, hogy végre megkaphasd az igénylő űrlapot.
+150	Harnakon hivatalos pecsétje. Öt országban védjegyként bejegyezve.\nVidd a csont/koponya/csont ablakhoz a hivatalos elismervény átvételéhez.
+151	Harnakon alattvalóinak hivatalos igazolványa. Rajta a homályos arcképeddel.\nAdd be a csont/csont/koponya ablaknál.
+152	MC-3805as űrlap (Hivatalos alattvalói igazolvány igénylés).\nAdd be a három csontos ablaknál. Nem, a koponyák nem számítanak csontnak.
+153	Gatchan csápjai sugarakat lőnek az célpontjaikra, megbénítva ezzel őket.
+154	A bányába teleportál.
+155	A csatornákba teleportál.
+156	A kertekbe teleportál.
+157	A könyvtárba teleportál.
+158	A katakombákba teleportál.
+159	A laboratóriumba teleportál.
+160	A csarnokokba teleportál.
+161	Az Elfeledett toronyba teleportál.
+162	Egy tűzszellemet idéz, amely megtámadja az ellenségeidet.
+163	Létrehoz egy mentális hullámot, amely megváltoztatja az azonos teremben tartózkodó lények érzékelését.\nAz áldozatok a szövetségeseiket az ellenségüknek hiszik.
+164	Meggyógyít téged és az azonos teremben tartózkodó szövetségeseidet.
+165	Megnöveli az ugrási távolságot.
+166	Az áldozat hűségét változtatja meg, egymás ellen fordítva a szövetségeseiket.
+167	Az ima az összes élőhalottat érinti.\nHa elpusztulnak, begyűjtöd a lelküket és darabonként 4 isteni szívességet kapsz.
+168	Csontváz harcost idéz meg.\nMaximum 3-at irányíthatsz ebből a típusból.
+169	Csontváz íjászt idéz meg.\nMaximum 3-at irányíthatsz ebből a típusból.
+170	Csontváz mágust idéz meg, ami tűzgolyót lő ki a pálcájából.\nMaximum 3-at irányíthatsz ebből a típusból.
+171	Tűzre immunis vörös páncélt idéz meg.\nMaximum 3-at irányíthatsz ebből a típusból.
+172	Zöld páncélt idéz meg, aminek a dárdája megmérgezi az ellenséget.\nMaximum 3-at irányíthatsz ebből a típusból.
+173	Gyógyító goblint idéz meg, mely a közeli szövetségeseket gyógyítja.\nMaximum 3-at irányíthatsz ebből a típusból.
+174	Ha elrágod, a levéből mágikus ital készíthető.
+175	Furcsa anyag, melyből fejlett mágikus italok hozhatók létre.
+176	Elsődleges mágikus esszencia varázslatok megidézéséhez és mágikus italok létrehozásához.
+177	Fényforrásnak és füvezéshez sem utolsó.
+178	Ez a kulcs ajtókat nyit, ezáltal elérést biztosít a kastély többi részéhez is.
+179	Ez a tárgy az egyik küldetésedhez nélkülözhetetlen.
+180	Ezt az üres fiolát italok létrehozásához használhatod.
+181	A játék befejezése után ajtót nyit a célponthoz.
+182	Íjból lőhető ki. Fültisztításra és hátvakarásra is alkalmas.
+183	Véglegesen lecsökkentett méretű jégelementál.\nFaggyal támad az áldozatokra.
+184	Mágikus akadályt képez, amely a célpontot immunissá teszi a sugarak ellen.
+185	Létrehoz egy védelmező réteget, amely a sugarak sebzésének egyharmadát felfogja.
+186	Az elfek elleni háború trófeáiként tartják és némi pénzmagért túladhatsz rajtuk.
+187	Megidéz egy hatalmas erejű vasgólemet, egy mechanikus lényt, mely nem ismer fájdalmat, se kegyelmet.
+188	Létrehoz egy portált.
+189	A legutolsó, általad létrehozott portálhoz teleportál.
+190	Teleport tekercsnek néz ki.
+191	Megnyitja a HarnaBank biztonságos szobáját, ahol elhelyezheted a tárgyaidat.
+192	A HarnaBankba teleportál.\nNem használódik el.
+193	Az összes csecsemőt őrültté változtatja, ez az!\nEsetleg olcsóbban vásárolhatsz a lányoktól.
+194	Ments meg és szabadíts meg minket
+195	Figyelmeztet, amikor a játék ment.
+196	Erőteljes lézert lő ki, amely 2000 tűzsebzést okoz, de sok energiát használ fel.\nGyenge ellenfeleket nem támad.
+197	A viselése megnöveli az izmaidat.
+198	Egy ősi fáraó szelleme gyógyítja a testedet.
+199	Űrhajó a Syder Arcade játékból. Nagy tűzgyorsasággal tüzel.
+200	Az elfogyasztása kiszámíthatatlan hatással bírhat.
+201	A jelenleg használt fejszénél kétszer erősebb fejszét dob el, amely áthatol az utadban álló bármilyen ellenségen.
+202	30 másodpercig a kardtámadásaid megnövelik a nyomást, megnövelve a hatótávat, de a támadások ereje a harmadára csökken.
+203	Egy kést hajít el, amely négyszeres sebzést okoz, ha hátba találja az áldozatot. Csak humanoidokon működik.
+204	10 másodpercig a buzogányod támadásai elkábítják az ellenfelet, de fele akkora sebzést okoznak.
+205	Szélsebesen átrohamozol az előtted álló ellenfeleken.
+206	10 másodpercig 3 nyílvesszőt lősz ki lövésenként.
+207	Aura, amely lassan elszívja minden közelben tartózkodó élőlény életerejét.
+208	Szent aura, amely sebzi a közelben tartózkodó élőhalottakat.
+209	Isteni fény nagy robbanása, amely megsebzi az élőhalottakat és 3 másodpercre elkábítja őket.
+210	Átváltoztatja az ellenséget páncélját egy kevésbé hatékony változatra.
+211	Közvetlenül egy olyan zászlóhoz teleportál, amelyet nem foglalt el vagy elfoglalt az ellenség.
+212	Megidéz egy láthatatlan rúnát, amely az ellenség közelében felrobban.
+213	Az ellenfél a saját csapattagjaként lát (ha vannak más tagok a csapatában).
+214	Lelassítja a legközelebbi ellenséget.
+215	Megmérgezi a legközelebbi ellenséget.
+216	ELkábítja a legközelebbi ellenséget.
+217	Felcseréli a legközelebbi ellenfél balra/jobbra irányítását.
+218	Azonnal megöli a legközelebbi ellenséget.
+219	Létrehoz/elpusztít egy falat előtted.
+220	Létrehoz/elpusztít egy plafont a fejed felett.
+221	Létrehoz/elpusztít egy padlórészt a lábad alatt. A létrehozáshoz a legszélén kell állnod.
+222	Létrehoz/elpusztít egy létrát, ami lehetővé teszi, hogy egy szinttel feljebb mehess.
+223	-
+224	Létrehoz egy fényforrást a folyosó megvilágításához.\nNem lehet 2 fényforrás egymáshoz túl közel.
+225	Elpusztít egy tárgyad a pozíciódnál.\nFényforrásokkal, ajtókkal, ládákkal, koporsókkal, stb. működik.
+226	Létrehoz egy ajtót, ami egy párhuzamos szobába vezet.
+227	Létrehoz egy, az ikonon található szörnyet.
+228	Aktiválja/kikapcsolja a kriptádat, hogy mások láthatják-e, aktiválja az összes szörnyet, csapdát és párbeszédet.
+229	Elpusztít egy szörny címkét a pozíciódon.
+230	Létrehoz egy, az ikonon található csapdát.
+231	Balra/jobbra fordítja a szörny címkéjét. A szörny megjelenésekor abba az irányba fog nézni.
+232	Létrehoz a kart a pozíciódon, amely "meglepetéseket" aktivál a szenvedő játékosok számára.
+233	Létrehoz egy koporsót a pozíciódon, ahol a szenvedő játékosok feltámadnak, ha meghalnak. Játékosonként egy koporsó.
+234	A fal eltűnik, ha a kart aktiválják.
+235	A padlórész eltűnik, ha a kart aktiválják..
+236	A létrea megjelenik, ha a kart aktiválják.
+237	A fal eltűnik, ha a játékos megüti.
+238	A létra megjelenik, ha az összes ellenség a teremben meghalt.
+239	A létra megjelenik, ha az összes ellenség a zónádban meghal.
+240	Létrehoz/töröl egy szörnyfeltámadási pontot, amikor a kart aktiválják.
+241	Létrehoz egy gázkibocsátót.
+242	Létrehoz egy padlórészt, ami aktiválja az összes gázkibocsátót a teremben.
+243	Létrehoz egy elpusztítható tárgyat.
+244	A kripta kezdőpontjára teleportál.
+245	Beilleszt egy hódító zászlót.
+246	Beilleszt egy versenycélt.
+247	Megváltoztatja a terem környezeti hátterét.
+248	Tüskéket illeszt be. Amelyik szörny megérinti, meghal.
+249	Létrehoz egy ládát. Tárgyak belehelyezéséhez egyszerűen dobd le őket a közelében.
+250	Létrehozza ezt a tárgyat.
+251	Létrehoz a liftkaput előtted.
+252	Létrehoz egy zárat, amely kinyitja az azonos magasságban elhelyezkedő bármelyik liftkaput.\nKulcs hozzárendeléséhez dobd le a közelében.
+253	Felkapcsolja/lekapcsolja az összes fényt a teremben.
+254	Létrehoz egy kardvihart körülötted, amely megsebesít bárkit, aki a közeledbe merészkedik.
+255	Létrehoz egy füstfelhőt, amely megzavarja az ellenséget és lehetőséget teremt a hátbaszúráshoz.
+256	Tüzes nyílvesszők robbanó hulláma sebzi meg a közeli ellenfeleket. A hatás végleges.
+257	Megnöveli a szálfegyverek hatótávolságát. A hatás végleges.
+258	Létrehoz egy földhullámot, ami áthatol mindenkin előtted. Nem működik fa vagy hangulat felületeken.
+259	Létrehoz/elpusztít egy Építész portált. Ehhez a portálhoz egy másik szobából úgy teleportálhatsz, ha megnyitod a kastély térképét és rákattintasz egy másik szobára, amelyben portál található.
+260	Eredeti állapotába állítja vissza az összes kart és párbeszédet ebben a teremben.
+261	Létrehoz/elpusztít egy platformot, ami akkor jelenik meg, ha a kart aktiválják.
+262	Létrehoz/elpusztít egy párbeszéd ellenőrzőpontot. Amikor az összes karakter átlépi ezt a pontot, a terem párbeszéde megjelenik. A párbeszédet a MENÜ > PÁRBESZÉDEK résznél szerkesztheted.
+263	Létrehoz/elpusztít egy falat, amely eltűnik, amikor a párbeszéd megjelenik.
+264	Létrehoz/elpusztít egy létrát, amely megjelenik, amikor a párbeszéd megjelenik.
+265	Létrehoz/elpusztít egy ládát, ami egy véletleszerű tárgyat tartalmaz. Ez a tárgy csak a jelenlegi játékban lesz használható.
+266	Erőszakosan belevágod a fejszédet a következő megtámadott lénybe és azonnal végzel vele. Nem múködik a 2 méternél magasabb szörnyeken.
+267	Ez a flaska valamiféle mozgó, zölden fluoreszkáló nyálkát tartalmaz.
+268	Aktiválásakor bármilyen elektromosságot anyaggá alakít néhány másodpercre.
+269	Megnöveli a sebzést. Ez a hatás kétszer halmozható. Halálig tart.
+270	Megnöveli a sebzést. Ez a hatás négyszer halmozható. Halálig tart.
+271	Megnöveli a sebzést. Ez a hatás hatszor halmozható. Halálig tart.
+272	A halálod esetén aktiválódik és a halál elkerüléséhez eltávolítja a rád pozitív hatással bíró aktív varázslatokat.
+273	Lehetővé teszi a sötétben látást.
+274	Megadja a játékos kezdőpontját.
+275	Falak létrehozása/elpusztítása egy teremben az egér kiválasztásával.
+276	Elteleportál bárhová a szobában (az egérrel kiválasztva)
+277	Átkonvertálja a párbeszédeket az ellenőrzőpontokon. Amikor a párbeszédeket meghívják, minden karakter pozíciója elmentésre kerül.
+278	A létra akkor jelenik meg, ha az összes lámpát felgyújtották.
+279	A fal akkor tűnik el, ha az összes lámpát felgyújtották.
+280	A talaj akkor tűnik el, amikor a párbeszéd megjelenik.
+281	A talaj akkor tűnik el, amikor az összes ellenség a képernyőn meghal.
+282	A talaj akkor tűnik el, ha az összes lámpát felgyújtották.
+283	A platform akkor jelenik meg, amikor a párbeszéd megjelenik.
+284	A platform akkor jelenik meg, amikor az összes ellenség a képernyőn meghal.
+285	A platform akkor jelenik meg, amikor az összes ellenség a zónában meghal.
+286	A platform akkor jelenik meg, ha az összes lámpát felgyújtották.
+287	A fal akkor tűnik el, amikor az összes ellenség a képernyőn meghal.
+288	Egy láthatatlan kapcsoló aktiválódik, amikor a játékos elhalad mellette.
+289	Egy fal jelenik meg, amikor a párbeszéd megjelenik.
+290	+2 To your purchasing charisma. Essences cost less coin.
+291	Creates an invoker. A boss is needed in the same room.
+292	Creates a boss. The boss must be customized.
+293	+5 to Swag. Pimped out armor with ice and jewels cuz its gangsta.
+294	An electrically powered electromagnetic projectile launcher. Can damage even those who are invincible otherwise.
+295	Teleports you next to a friend who is crouched. Does not work if there is a boss nearby.
+296	Increases running speed and damage with daggers. This effect can be stacked [DAMAGE] times. Lasts until death.
+297	-
+298	-
+299	Increases damage and critical chance with swords. This effect can be stacked [DAMAGE] times. Lasts until death.
+300	-
+301	-
+302	Increases damage and attack speed with bows. This effect can be stacked [DAMAGE] times. Lasts until death.
+303	-
+304	-
+305	Increases damage and bonus damage to stunned targets with maces. This effect can be stacked [DAMAGE] times. Lasts until death.
+306	-
+307	-
+308	Increases damage and number of targets hit with polearms. This effect can be stacked [DAMAGE] times. Lasts until death.
+309	-
+310	-
+311	For [DURATION] seconds, your attacks deal increased damage while reducing attack speed.
+312	Scream a battle shout that increases attack speed of yourself and allies for [DURATION] seconds.
+313	Infuses two arrows with a part of your spirit, allowing them to pierce undead but ignore the living.
+314	Coats a batch of arrows in poison for your attacks. Number of poisoned arrows is your level in bows.
+315	For [DURATION] seconds, shots split on impact into a pair of arrows that each deal 25% weapon damage.
+316	Lunges to the first enemy ahead of you, attacking it twice.
+317	For [DURATION] seconds, the sword moves so fast it parries all melee attacks against you.
+318	Drops a bomb that explodes when stepped on or damaged.
+319	Drops a trap that entangles nearby creatures for 5 seconds when it's activated.
+320	Removes any possession or transformation from a friend. It cannot be cast on yourself.
+321	Throws a hammer that damages the target. The impact stuns all nearby creatures.
+322	A quick dash that passes by creatures. If any of them have coin purses, the dagger cuts it causing coins to drop until empty.
+323	Throws 2 javelins that each deal damage and slows the target for [DURATION] seconds.
+324	For [DURATION] seconds, any creature that attacks you in melee is sentenced by the hammer of justice to receive damage in return.
+325	Yells an inspiring shout that increases running speed of yourself and allies for [DURATION] seconds.
+326	For your next 3 attacks, your eyes see the weaknesses of creatures. These attacks deal critical damage.
+327	Charges at the first enemy ahead of you, striking and stunning it.
+328	When an enemy strikes you, there is a chance to be slowed down for 10 seconds.
+329	If you die, death is missdirected to someone else of your group in the same room, letting you survive.
+330	Enlarges all skeletons you control, becoming stronger, faster and harder.
+331	Places the exit door (only coop), where players leave the dungeon.
