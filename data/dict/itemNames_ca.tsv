@@ -1,0 +1,1523 @@
+﻿0	||
+1	Moneda||
+2	||
+3	||
+4	Immune a les armes||
+5	Immune al foc||
+6	Immune al fred||
+7	Immune a l'arcà||
+8	Immune als verins||
+9	Immune al polimorfisme||
+10	Immune a la paràlisi||
+11	Immune a atacs mentals||
+12	Immune a tot||
+13	||
+14	||
+15	Dormit||
+16	Confós||
+17	Espantat||
+18	Encegat||
+19	Paralitzat||
+20	Lent||
+21	||
+22	||
+23	Veloç||
+24	Força d'ogre||
+25	Infravisió||
+26	Detectant trampes||
+27	Invisible||
+28	Veient éssers invisibles||
+29	Forma fantasmal||
+30	Regeneració lleu||
+31	Lleument enverinat||
+32	Teleportació||
+33	Teleportació||
+34	Teleportació||
+35	Teleportació||
+36	||
+37	Àcid||
+38	||
+39	||
+40	Foc||
+41	Gel||
+42	Debilitat||
+43	Teleportació propera||
+44	Oblit||
+45	Protecció davant atacs normals||
+46	Protecció davant foc||
+47	Protecció davant gel||
+48	Protecció davant arcà||
+49	Aura de calor||
+50	Verí lent||
+51	Reducció de verins||
+52	Antídot||
+53	Xoc arcà||
+54	Mestratge en cos a cos||
+55	Mestratge en arcs||
+56	Mestratge en arcs||
+57	Mestratge en arcs||
+58	il·luminació||
+59	Destrossa tots els barrils||
+60	Invoca gel||
+61	Auguri||
+62	Energia||
+63	Damage||
+64	Punts de nivell||
+65	Ràfega de fred||
+66	Transmutació mides||mides
+67	Detectant trampes i murs falsos||
+68	Dany arcà||
+69	Control arcà||control
+70	Essència màgica vermella|essència vermella|
+71	Essència màgica blau|essència blau|
+72	Essència màgica verd|essència verd|
+73	Essència màgica daurada|essència daurada|
+74	Essència màgica arcana|essència arcana|
+75	Essència màgica groga|essència groga|
+76	Essència màgica cristal·lina|essència cristal·lina|
+77	Favor diví|favor diví|
+78	Petit robí||gemma
+79	Petit safir||gemma
+80	Petita maragda||gemma
+81	Caca||
+82	Dard lleuger||
+83	||
+84	||
+85	||
+86	||
+87	||
+88	||
+89	||
+90	||
+91	||
+92	||
+93	||
+94	||
+95	||
+96	||
+97	||
+98	||
+99	||
+100	||
+101	||
+102	||
+103	||
+104	||
+105	||
+106	||
+107	||
+108	||
+109	||
+110	||
+111	||
+112	||
+113	||
+114	Dard paralitzant||
+115	Dard afeblidor||
+116	Dard de lentitud||
+117	Dard de foc||
+118	Dard de foc||
+119	Dard de gel||
+120	Dard de gel||
+121	Dard arcà||
+122	Dard arcà||
+123	||
+124	Fletxa||
+125	Fletxa llarga||
+126	Fletxa arcana||
+127	Fletxa||
+128	Vida||
+129	Dard de foc||
+130	Bengala||llum
+131	WISP||
+132	||
+133	||
+134	Dard de foc||
+135	Fletxa||
+136	||
+137	||
+138	Dard de foc||
+139	||
+140	||
+141	Fletxa||
+142	||
+143	||
+144	||
+145	Fletxa||
+146	Daga lleugera||
+147	Daga ampla||
+148	Punyal||
+149	Ganivet ample||
+150	Daga penetrant||
+151	Daga ondulada||
+152	Daga de plata||
+153	Daga corba||
+154	Daga temperada||
+155	Daga creuada de adyanti||
+156	Espasa curta||
+157	Gladius||
+158	Espasa ampla||
+159	Simitarra||
+160	Espasa d'assalt||
+161	Alfange||
+162	Espasa bastarda||
+163	Gran espasa ampla||
+164	Katana||
+165	Espasa èlfica||
+166	Espasa del nigromant||
+167	Mans maleïdes d'Eduard||
+168	Espasa vermella||
+169	Excalibur||
+170	Destral de cuina||
+171	Destral petita||
+172	Destral de mà||
+173	Destral d'assalt||
+174	Destral doble||
+175	Desossador||
+176	Destral de combat||
+177	Destral de batalla||
+178	Destral de guerra||
+179	Destral doble de guerra||
+180	xxx||
+181	Destral d'Horga'hn||
+182	Os||
+183	Garrot||
+184	Garrot amb clau||
+185	Mayal||
+186	Bastó de fullet guaridor||
+187	Maça||
+188	Martell||
+189	Maça de combat||
+190	Martell del Ferrer||
+191	Maça de guerra||
+192	Estel de l'alba||
+193	Martell de guerra||
+194	Gran martell||
+195	Gran estel de l'alba||
+196	Martell del golem||
+197	Clau gegant||
+198	Ceptre dels focs||
+199	Ceptre dels gels||
+200	Trencalòs||
+201	Bastó de mag||
+202	Martell de paladí||
+203	Llança lleugera||
+204	Llança||
+205	Llança serrada||
+206	Pica||
+207	Roncona||
+208	Trident||
+209	Alabarda||
+210	Pica doble||
+211	Gran trident||
+212	Trident||
+213	Slicering||
+214	Llança enverinada||
+215	Espasa||
+216	Espasa bastarda||
+217	Espasa de Pyros||
+218	Maça calavera||
+219	Flors||
+220	Martell de joguina||
+221	Canelobre amb 3 espelmes||llum
+222	Torxa||llum
+223	Fanal||llum
+224	Vela||llum
+225	Vela màgica||llum
+226	Esfera lluminosa dels gels||llum
+227	Esfera lluminosa del foc||llum
+228	Esfera lluminosa arcana||llum
+229	Esfera lluminosa||llum
+230	Zippo||llum
+231	Espelma màgica vermella||llum
+232	Espelma màgica blava||llum
+233	Pal amb caca||
+234	Ballesta lleugera||
+235	Arc curt lleuger||
+236	Arc curt||
+237	Arc curt reforçat||
+238	Arc curt compost||
+239	Arc llarg lleuger||
+240	Arc llarg||
+241	Arc llarg reforçat||
+242	Arc llarg compost||
+243	Gran arc llarg||
+244	Arc llarg||
+245	Arc llarg élfico||
+246	Talla-vents||
+247	Ala de ratpenat||
+248	Vísceres de sàtir||
+249	Vísceres de Kroll||
+250	Ull de serp||
+251	Ull de sàtir||
+252	Ull de Kroll||
+253	Ull de corb||
+254	Ull de pop||
+255	Ull de gripau||
+256	Llengua de serp||
+257	Baves vermelles||
+258	Baves blaves||
+259	Baves verdes||
+260	Baves grogues||
+261	Baves taronges||
+262	Baves liles||
+263	Banya de sàtir||
+264	Pols de banya de sàtir||
+265	Cua de serp||
+266	Pota de formiga||
+267	Pota de corb||
+268	Tros de tentacle||
+269	Espores lluminoses||
+270	Agulló verinós||
+271	Matèria fantasmal||
+272	Flama vital||
+273	Conjur de dard màgic||
+274	Conjur d'ona arcana||
+275	Conjur de dard de foc||
+276	Conjur de bola de foc||
+277	Conjur d'ona de foc||
+278	Conjur d'alè de foc||
+279	Conjur de destrucció massiva||
+280	Conjur de dard de gel||
+281	Conjur d'alè gelat||
+282	Conjur de con de fred||
+283	Conjur d'estalactites||
+284	Conjur de dard de llum||
+285	Conjur de curació||curar
+286	Conjur de curació millorada||guarir 2
+287	Conjur de curació avançada||guarir 3
+288	Conjur de curació total||
+289	Conjur d'immunitat a les armes||
+290	Conjur d'immunitat al foc||
+291	Conjur d'immunitat al gel||
+292	Conjur d'immunitat arcana||
+293	Conjur de convertir en gallina||gallina
+294	Conjur de transmutar arma||arma
+295	Conjur de son||dormir
+296	Conjur de verí lent||lent
+297	Conjur de confusió||confús
+298	Conjur de terror||
+299	Conjur de ceguesa||
+300	Conjur de paràlisi||
+301	Conjur de lentitud||lent
+302	Conjur de teleportació||
+303	Conjur d'aproximació||
+304	Conjur de velocitat||rapid
+305	Conjur de força d'ogre||força
+306	Conjur de força de gegant||força
+307	Conjur de força de tità||força
+308	Conjur d'infravisió||infraestructures
+309	Conjur de detecció de paranys||trampes
+310	Conjur d'invisibilitat||invis
+311	Conjur d'invisibilitat millorada||invis
+312	Conjur d'invisibilitat total||invis
+313	Conjur de veure invisibilitat||veure inv
+314	Conjur de manera fantasmal||fantasmes
+315	Conjur de regeneració||regeneració
+316	Conjur de regeneració avançada||rege2
+317	Conjur de regeneració avançada||rege3
+318	Conjur de dard de foc millorat||
+319	Conjur de dard de foc avançat||
+320	Conjur de dard de gel millorat||
+321	Conjur de dard de gel avançat||
+322	||
+323	||
+324	||
+325	||
+326	||
+327	||
+328	||
+329	||
+330	||
+331	||
+332	||
+333	Conjur de dard de lentitud||
+334	||
+335	||
+336	||
+337	Conjur de drenar vida||
+338	Conjur de sacrifici||
+339	Conjur de dard de gel||
+340	||
+341	||
+342	||
+343	Conjur de ràfega de fred||apagar
+344	Llançar torpede de protons||
+345	Faser||
+346	Invocar bloc de gel||gel
+347	Conjur de drenar vida||
+348	Conjur de control arcà||control
+349	||
+350	Conjur d'aura de calor||aura
+351	Conjur de drenar vida||
+352	Conjur de drenar vida||
+353	Conjur de imbuir foc||foc
+354	Conjur de imbuir fred||fred
+355	Conjur de imbuir llum divina||llum
+356	Conjur de imbuir àcid||àcid
+357	Maledicció dels morts||maldic
+358	Conjur de vida latent||vida
+359	Conjur de núvol de mort||
+360	Conjur de reducció de verins||reducció
+361	Conjur de ment desperta||ment
+362	Conjur d'atordiment||atordir
+363	Conjur de transmutar robí||robí
+364	Conjur de transmutar safir||safir
+365	Conjur de transmutar maragda||acurat
+366	Conjur d'avanç instantani||avanç
+367	Llamp||llamp
+368	Conjur de transmutar metall||metall
+369	Conjur de guarir aliats||curar
+370	Conjur d'antídot||antídot
+371	Conjur de telekinesis||tele
+372	Conjur de millorar arma||arma
+373	Conjur de millorar armadura||prot
+374	Conjur de protecció contra atacs normals||melee
+375	||
+376	Llengua de cranc||
+377	Conjur de protecció contra el fred||fred
+378	Conjur de protecció contra les ombres||ombres
+379	Conjur de protecció contra el foc||foc
+380	Conjur d'immunitat a verins||verí
+381	Conjur de llibertat de moviments||movim
+382	Conjur de barrera mental||ment
+383	Conjur d'immunitat al polimorfisme||polimorf
+384	Conjur de rebotar projectils||rebot
+385	||
+386	Conjur de teleportació a la mina||mina
+387	Conjur de teleportació a les clavegueres||clavegueres
+388	Conjur de teleportació als jardins||jardí
+389	Conjur de teleportació a la biblioteca||biblio
+390	Conjur de teleportació a les catacumbes||CATAC
+391	Conjur de teleportació al laboratori||lab
+392	Conjur de teleportació als salons||salons
+393	Conjur de teleportació a la torre||torre
+394	Invocar esperit de foc||foc
+395	Conjur de bogeria||bogeria
+396	Conjur de curació en massa||curar
+397	||
+398	||
+399	Conjur de control mental||control
+400	Conjur de salvació||salva
+401	||
+402	Conjur de teleportació||
+403	Conjur de teleportació propera||
+404	Conjur d'oblit||
+405	Tom de dard màgic||
+406	Tom d'ona arcana||
+407	Tom de dard de foc||
+408	Tom de bola de foc||
+409	Tom d'ona de foc||
+410	Tom d'alè de foc||
+411	Tom de destrucció massiva||
+412	Tom de dard de gel||
+413	Tom d'alè gelat||
+414	Tom de con de fred||
+415	Tom de estalactites||
+416	Tom de dard de llum||
+417	Tom de curació||
+418	Tom de curació millorada||
+419	Tom de curació avançada||
+420	Tom de curació total||
+421	Tom d'immunitat a les armes||
+422	Tom d'immunitat al foc||
+423	Tom d'immunitat al gel||
+424	Tom d'immunitat arcana||
+425	Tom de convertir en gallina||
+426	Tom de transmutar arma||
+427	Tom de son lleu||
+428	Tom de confusió||
+429	Tom de terror||
+430	Tom de ceguesa||
+431	Tom de paràlisi||
+432	Tom de lentitud||
+433	Tom de teleportació||
+434	Tom d'aproximació||
+435	Tom de velocitat||
+436	Tom de força d'ogre||
+437	Tom de força de gegant||
+438	Tom de força de tità||
+439	Tom d'infravisió||
+440	Tom de detecció de paranys||
+441	Tom d'invisibilitat||
+442	Tom d'invisibilitat millorada||
+443	Tom d'invisibilitat total||
+444	Tom de veure invisibilitat||
+445	Tom de manera fantasmal||
+446	Tom de regeneració||
+447	Tom de regeneració millorada||
+448	Tom de regeneració avançada||
+449	Tom de dard de foc millorat||
+450	Tom de ràfega de fred||
+451	Tom d'invocació de bloc gèlid||
+452	Tom de verí lent||
+453	Tom de control arcà||
+454	Tom d'aura de calor||
+455	Tom d'imbuir foc||
+456	Tom d'imbuir fred||
+457	Tom d'imbuir llum divina||
+458	Tom d'imbuir àcid||
+459	Tom de maledicció dels morts||
+460	Tom de vida latent||
+461	Tom de núvol de mort||
+462	Tom de reducció de verins||
+463	Tom de ment desperta||
+464	Tom d'atordiment||
+465	Tom de transmutar robí||
+466	Tom de transmutar safir||
+467	Tom de transmutar maragda||
+468	Tom d'avanç instantani||
+469	Tom de llamp||
+470	Tom de transmutar metall||
+471	Tom de guarir aliats||
+472	Tom d'antídot||
+473	Tom de telequinesi||
+474	Tom de millorar arma||
+475	Tom de millorar armadura||
+476	Tom de protecció en combat||
+477	Tom de protecció contra el fred||
+478	Tom de protecció contra les ombres||
+479	Tom de protecció contra el foc||
+480	Tom d'immunitat a verins||
+481	Tom de llibertat de moviments||
+482	Tom de barrera mental||
+483	Tom de immunitat al polimorfisme||
+484	Tom de rebotar projectils||
+485	Tom de teleportació a la mina||
+486	Tom de teleportació a les clavegueres||
+487	Tom de teleportació als jardins||
+488	Tom de teleportació a la biblioteca||
+489	Tom de teleportació a les catacumbes||
+490	Tom de teleportació al laboratori||
+491	Tom de teleportació als salons||
+492	Tom de teleportació a la torre||
+493	Tom de invocació d'esperit de foc||
+494	Tom de bogeria||
+495	Tom de dard de foc avançat||
+496	Tom de curació en massa||
+497	Tom de dard de gel millorat||
+498	Tom de dard de gel avançat||
+499	Tom de control mental||
+500	Tom de salvació||
+501	Vareta màgica||dard a
+502	Vareta de dards de foc||dard f
+503	Vareta de boles de foc||bola f
+504	Vareta de polimorfisme||polimorf
+505	Bastó de bufó||polimorf
+506	Vareta de son||dormir
+507	Vareta de son||dormir
+508	Vareta de confusió||confús
+509	Vareta de por||por
+510	Vareta de ceguesa||ceguesa
+511	Vareta de paràlisi||paralis
+512	Vareta de lentitud||lent
+513	Vareta de teleportació llunyana||allunyar
+514	Vareta d'aproximació||apropar
+515	Vareta de dards de gel||dard h
+516	Llançador de bengales||llum
+517	Vareta de dards de foc||dard f
+518	Vareta de raigs||raigs
+519	||
+520	||
+521	||
+522	||
+523	Vestidures de vilatà||vestidura
+524	Vestidures de bard||tela
+525	Armadura encoixinada||tela
+526	Armadura de cuir lleuger||cuir
+527	Armadura de cuir||cuir
+528	Armadura de cuir tatxonat||cuir
+529	Armadura de cuir endurit||cuir
+530	Cota de malla||malla
+531	Cota de malla reforçada||malla
+532	Cota d'escates||escates
+533	Cota d'escates reforçada||escates
+534	Armadura de plaques||plaques
+535	Armadura de plàstic blanc||
+536	Cota d'escates de serp gegant marina||escates
+537	Cota d'escates de serp gegant dels focs||escates
+538	Cota d'escates de cobra gegant||escates
+539	Cota d'escates de serp gegant escarlata||escates
+540	Cota d'escates de drac marí||escates
+541	Cota d'escates de drac dels focs||escates
+542	Cota d'escates de drac negre||escates
+543	Cota d'escates de drac roig||escates
+544	Vestidures de nigromant||Nigro
+545	Cuirassa de bronze||bronze
+546	Cuirassa de plata||plata
+547	Cuirassa d'or||or
+548	Cota d'atzurita aïllant||malla
+549	Vestidures d'aprenent de mag de foc||toga
+550	Vestidures de mag de foc||toga
+551	Vestidures de bruixot de foc||toga
+552	Vestidures d'aprenent de mag de gel||toga
+553	Vestidures de mag de gel||toga
+554	Vestidures de bruixot de gel||toga
+555	Vestidures d'aprenent de mag arcà||toga
+556	Vestidures de mag arcà||toga
+557	Vestidures de bruixot arcà||toga
+558	Vestidures d'aprenent de mag blanc||toga
+559	Vestidures de mag blanc||toga
+560	Vestidures de bruixot blanc||toga
+561	Vestidures d'aprenent de guaridor||toga
+562	Vestidures de guaridor||toga
+563	Vestidures de guaridor avançat||toga
+564	Samarreta i texans||tela
+565	Ampolla petita buida||
+566	Ampolla mitjana buida||
+567	Ampolla gran buida||
+568	Poció de curació lleu||vida
+569	Poció de curació moderada||vida
+570	Poció de curació avançada||vida
+571	Poció de curació total||vida
+572	Poció de lentitud||
+573	Poció de paràlisi||
+574	Poció de verí lent||v lent
+575	Poció de reducció de verí||v reducció
+576	Antídot||anti v
+577	Poció de velocitat||veloc
+578	Poció de força d'ogre||força
+579	Poció de força de gegant||força
+580	Poció de força titànica||força
+581	Poció de detecció de paranys||trampa
+582	Poció de infravisió||infrav
+583	Poció de veure invisibilitat||veure
+584	Poció d'invisibilitat||invitació
+585	Poció d'invisibilitat millorada||invitació
+586	Poció d'invisibilitat total||invitació
+587	Poció de manera fantasmal||ethe
+588	Poció de regeneració lleu||regeneració
+589	Poció de regeneració moderada||regeneració
+590	Poció de regeneració avançada||regeneració
+591	Poció de verí||
+592	Poció de verí potent||
+593	Poció de verí letal||
+594	Ungüent de curació||
+595	Poció de detecció millorada||murs
+596	Elixir de resurrecció||
+597	Pergamí prot. lleu cos a cos||prot
+598	Pergamí prot. lleu contra el foc||prot
+599	Pergamí prot. lleu contra el gel||prot
+600	Pergamí prot. lleu contra l'arcà||prot
+601	Pergamí d'immunitat cos a cos||immu
+602	Pergamí d'immunitat a foc||immu
+603	Pergamí d'immunitat a gel||immu
+604	Pergamí d'immunitat arcana||immu
+605	Pergamí d'aura de calor||calor
+606	Pergamí de xoc arcà||xoc
+607	Pergamí de mestratge en cos a cos||melee
+608	Pergamí de mestratge amb arcs||proj
+609	Pergamí de teleportació a Zoran||zoran
+610	Pergamí de teleportació a la cuina||cuina
+611	Pergamí d'avanç instantani||avanç
+612	Pergamí d'il·luminació||llum
+613	Pergamí de destrucció de barrils||barrils
+614	Pergamí de gel flotant||gel
+615	Pergamí d'auguri||pista
+616	Pergamí de tornada||lliurament
+617	Pergamí d'energies positives||energia
+618	Pergamí de son lleu||dormir
+619	Pergamí de transmutació mides||mides
+620	Pergamí de millora d'arma||millorar
+621	Pergamí de bogeria||bogeria
+622	Anell de l'assassí||dany
+623	Anell del guerrer||dany
+624	Anell del ferrer||dany
+625	Anell del botxí||dany
+626	Anell del soldat||dany
+627	Anell de l'arquer||dany
+628	Anell del mutilador||dany
+629	Anell del bard||dany
+630	Anell del paladí||dany
+631	Anell del bàrbar||dany
+632	Anell dels focs||dany
+633	Anell dels gels||dany
+634	Anell dels mags||dany
+635	Anell dels sacerdots||dany
+636	Anell dels elements||dany
+637	Anell del poder||dany
+638	Anell de força de Kol'Zarek||força
+639	Anell de destresa de l'assassí||veloc
+640	Anell de destresa del guerrer||veloc
+641	Anell de destresa del ferrer||veloc
+642	Anell de destresa del botxí||veloc
+643	Anell de destresa del soldat||veloc
+644	Anell de destresa de l'arquer||veloc
+645	Anell de destresa del mutilador||veloc
+646	Anell de destresa del bard||veloc
+647	Anell de destresa del paladí||veloc
+648	Anell de destresa del bàrbar||veloc
+649	Anell de precisió de l'assassí||crític
+650	Anell de precisió del guerrer||crític
+651	Anell de precisió del ferrer||crític
+652	Anell de precisió del botxí||crític
+653	Anell de precisió del soldat||crític
+654	Anell de precisió de l'arquer||crític
+655	Anell de precisió dels focs||crític
+656	Anell de precisió dels gels||crític
+657	Anell de precisió dels mags||crític
+658	Anell de precisió dels cavallers||crític
+659	Anell de precisió dels sacerdots||crític
+660	Anell de precisió dels elements||crític
+661	Anell de precisió del poder||crític
+662	Anell de precisió del mutilador||crític
+663	Anell de precisió del bard||crític
+664	Anell de precisió del paladí||crític
+665	Anell de precisió del bàrbar||crític
+666	Anell protector del guerrer||prot
+667	Anell protector de l'arquer||prot
+668	Anell protector dels focs||prot
+669	Anell protector dels gels||prot
+670	Anell protector del mag||prot
+671	Anell protector del nigromant||prot
+672	Anell protector dels elements||prot
+673	Anell protector del poder||prot
+674	Anell de vida||vida
+675	Anell dels esperits||vida
+676	Anell de l'estudiant||exp
+677	Anell del metjastres||curar
+678	Anell de reducció de verins||v reducció
+679	Anell de regeneració||regeneració
+680	Anell de l'inframón||Nigro
+681	Anell del cel||salt
+682	Bolet de rapidesa||ràpid
+683	Espurna de la vida||resum
+684	||
+685	||
+686	||
+687	||
+688	||
+689	||
+690	||
+691	||
+692	||
+693	||
+694	||
+695	||
+696	||
+697	||
+698	||
+699	||
+700	||
+701	||
+702	||
+703	||
+704	||
+705	||
+706	Or||
+707	||
+708	Ull flotant||ull
+709	Cria de drac verd||drac
+710	Gripau globus||gripau
+711	Planta voladora||planta
+712	Coldax||gel
+713	Galeta punxada en un pur||pur
+714	Calavera||crani
+715	Esperit de la llum||llum
+716	Gatchan||Gatchan
+717	Paper en blanc||paper
+718	Ploma negra perfecta|ploma negra|ploma
+719	Tinta negra||tinta
+720	Tros d'estàtua de Posidó|tros d'estàtua|marbre
+721	Gran safir rodó||safir
+722	Corona de corall||corona
+723	Bàcul||bàcul
+724	Abonament||abonament
+725	Test de marbre blanc|test|quest
+726	Mandràgora en test de marbre blanc|mandràgora|quest
+727	Tros d'escut daurat|tros d'escut|tros
+728	Rostre de medusa||medusa
+729	Cap de serp||cap
+730	Peça de columna coríntia||tros
+731	Falguera||falguera
+732	Gran plat de bronze||plat
+733	Mola de pirita||pirita
+734	Pedra de sofre||sofre
+735	Símbol màgic||símbol
+736	Petit cofre||cofre
+737	Candau||candau
+738	Clau freda com el gel|clau freda|clau
+739	Enclusa||enclusa
+740	Fusta||fusta
+741	Manxa||manxa
+742	Sang de medusa||sang
+743	Oli de cremar||oli
+744	Mercuri||merc
+745	Clau negra||clau
+746	Rodament trencat||quest
+747	Nina||quest
+748	Plomall||quest
+749	Got d'aigua ple||quest
+750	Got d'aigua buit||quest
+751	Anell de plata||
+752	Tòtem d'Horga'hn||quest
+753	Ou||quest
+754	Coldax moribund||quest
+755	Llibre en blanc||
+756	Clau de Munskpa||quest
+757	Esperma de Grohm||quest
+758	Calavera||quest
+759	Clau calavérica||quest
+760	Necronomicón||quest
+761	Amulet negre||quest
+762	Clau de les cel·les||quest
+763	Clau desconeguda||
+764	Destral de fullet||quest
+765	Clau metàl·lica||quest
+766	Medalla científica||quest
+767	Urpa de orc||quest
+768	Retrat de carnet||quest
+769	Carnet de triat diví||quest
+770	Certificat de compra B-10||quest
+771	Model d'ordre de contravalor AN-200 signat||quest
+772	Model d'ordre de contravalor AN-200||quest
+773	Sol·licitud de model d'ordre de contravalor AN-200||quest
+774	Aprovació legislada de contravalors||quest
+775	Segell oficial de Harnakon||quest
+776	El carnet de súbdit oficial de Harnakon||quest
+777	Sol·licitud de carnet de súbdit de Harnakon||quest
+778	Certificat de compra signat|certificat signat|quest
+779	Clau del destí||quest
+780	Destí de mort horrorosa||destí
+781	Destí d'agonia eterna||destí
+782	Destí d'esclavitud perpètua||destí
+783	Halo||halo
+784	Orbe de renaixement||
+785	Llibre de la saviesa||nivell
+786	Cargol marí||cuina
+787	Petxina de pelegrí||zoran
+788	Caixa daurada||mapa
+789	Borsa màgica||borsa
+790	Manxa deteriorada||manxa
+791	Mocador usat||tela
+792	Tros de tela||tela
+793	Tela ensangonada||tela
+794	Tros de venda marró||tela
+795	Mitjó pudent||tela
+796	Restes d'un guant||tela
+797	Gamberes de cuir trencades||tela
+798	Tros de capa||tela
+799	Calçotets amb taques marrons||tela
+800	Petit tòtem de fusta||ninot
+801	Ninot de drap||ninot
+802	Os de pollastre||os
+803	Os de porc||os
+804	Esquelet de rata||os
+805	Calavera||os
+806	Osset||os
+807	Costella||os
+808	Tros de crani||os
+809	Banya trencada de cabra||os
+810	Fèmur trencat||os
+811	Os rosegat||os
+812	Tros de corda||corda
+813	Cordó esfilagarsat||corda
+814	Tros de corda nuada||corda
+815	Petit cabdell de fil||corda
+816	Restes d'una corda||corda
+817	Anell xafat de metall||metall
+818	Cullereta metàl·lica||metall
+819	Mànec d'una daga||metall
+820	Boleta de metall||metall
+821	Arracada metàl·lica trencada||metall
+822	Tub de metall||metall
+823	Argolla||metall
+824	Anella oberta de cadena||metall
+825	Cera||cera
+826	Un ull sagnant||ull
+827	Cuc punxat en un pal||cuc
+828	Panerola mossegada||animal
+829	Cua de rata||cua
+830	Rata morta||rata
+831	Dit seccionat||dit
+832	Tros de serp||animal
+833	Orella d'elf||orella
+834	Clau de la mina||
+835	Clau de les clavegueres||
+836	Clau dels jardins||
+837	Clau de la biblioteca||
+838	Clau de les catacumbes||
+839	Clau del laboratori||
+840	Clau dels salons||
+841	Clau de la torre dels mags||
+842	Clau de la torre abandonada||
+843	Clau de la torre dels mags||
+844	||Recepta
+845	||Recepta
+846	||Recepta
+847	||Recepta
+848	||Recepta
+849	||Recepta
+850	||Recepta
+851	||Recepta
+852	||Recepta
+853	||Recepta
+854	||Recepta
+855	||Recepta
+856	||Recepta
+857	||Recepta
+858	||Recepta
+859	||Recepta
+860	||Recepta
+861	Recepta de poció de curació lleu||llibre
+862	Recepta de poció de regeneració lleu||llibre
+863	Recepta de poció de verí lent||llibre
+864	Recepta de poció de força||llibre
+865	Recepta de poció de detecció de paranys||llibre
+866	Recepta de poció de reducció de verins||llibre
+867	Recepta de poció de velocitat||llibre
+868	Recepta de poció de infravisió||llibre
+869	Recepta de poció de veure invisibilitat||llibre
+870	Recepta d'antídot||llibre
+871	Recepta de poció de curació millorada||llibre
+872	Recepta de poció de força gegantina||llibre
+873	Recepta de poció de regeneració millorada||llibre
+874	Recepta de poció fantasmal||llibre
+875	Recepta de poció d'invisibilitat||llibre
+876	Recepta de poció de detecció de murs falsos||llibre
+877	Recepta d'elixir de resurrecció||llibre
+878	||
+879	||
+880	||
+881	||
+882	||
+883	||
+884	Invocar fullet||fullet
+885	Invocar fullet guaridor||curand
+886	Invocar esquelet||Esquel
+887	Invocar esquelet arquer||arquer
+888	Invocar esquelet mag||mag
+889	Invocar armadura||blava
+890	Invocar armadura vermella||vermella
+891	Invocar armadura verda||verda
+892	Conjur de curació||curar
+893	Conjur de curació||curar
+894	||
+895	Conjur d'immunitat als raigs||
+896	||
+897	Espasa de Harnakon||
+898	Destral de Harnakon||
+899	Maça de Harnakon||
+900	Llança de Harkanon||
+901	||
+902	Kathiel||
+903	Meltroth||
+904	Venoma||
+905	Thimius||
+906	Vitathandis||
+907	Viscer Axis||
+908	Divinius||
+909	Halbertus||
+910	Pergamí d'immunitat contra raigs||raigs
+911	Pergamí de protecció contra raigs||raigs
+912	Pergamí de teleportació a la mina||mina
+913	Pergamí de teleportació a les clavegueres||clavegueres
+914	Pergamí de teleportació als jardins||jardí
+915	Pergamí de teleportació a la biblioteca||biblio
+916	Pergamí de teleportació a les catacumbes||CATAC
+917	Pergamí de teleportació al laboratori||lab
+918	Pergamí de teleportació als salons||salons
+919	Pergamí de teleportació a la torre||torre
+920	Pergamí de gólem de ferro||gólem
+921	Pergamí de teleportació als vidres||final
+922	Bata de científic||tela
+923	Sangonera||sang
+924	Vampir xuclasang||vamp
+925	Orella d'elf||orella
+926	Calçotets d'elf||gallum
+927	||
+928	||
+929	||
+930	Pistola làser||làser
+931	Disruptor||disruptor
+932	Pijama vermell||pijama
+933	Espasa de guerrer de l'espai||
+934	Uniforme d'elf de l'espai||Unif
+935	Armadura de guerrer de l'espai||guerrer
+936	Conjur de portal||
+937	Conjur de teleportació a portal||
+938	Tom de portal||
+939	Tom de teleportació a portal||
+940	||
+941	Carbassa lluminosa||llum
+942	Caramel||dolça
+943	Vareta de truc o tracte||truc
+944	Disfressa d'esquelet||Esquel
+945	Carbassa botant||carbassa
+946	Anell calavera||calavera
+947	Estrany pergamí||
+948	||
+949	Clau de HarnaBank||
+950	Ploma màgica||banc
+951	Vestit anglès vermell del poder||vestit
+952	Anell Sia||Sadu
+953	Braç i urpes||
+954	Mà de l'Infern||
+955	Granota groga de motorista||granota
+956	Anell de salvació||guardar
+957	Katana de Hatto Hanzori||
+958	Mini Mandonguilla de la Mort||mandonguilla
+959	||
+960	||
+961	Anell Royale||Royale
+962	Orbe de renaixement||
+963	Tanga màgic de la Jungla||Tanga
+964	Benes màgica de Mòmia||Mòmia
+965	S-116 WASP||S-116
+966	||
+967	||
+968	||
+969	Clamyxia||
+970	Fong||fong
+971	Sorix||
+972	Gaetha||
+973	Driniux||
+974	Fong||fong
+975	Formatge màgic||formatge
+976	Pergamí antiesportiu de lentitud||lent
+977	Pergamí antiesportiu de verí||verí
+978	Pergamí antiesportiu d'atordir||atordir
+979	Pergamí antiesportiu de confusió||confusió
+980	Pergamí antiesportiu de mort||mort
+981	||
+982	||
+983	||
+984	||
+985	||
+986	||
+987	||
+988	||
+989	||
+990	||
+991	||
+992	||
+993	Bastó de màgia elementalista||
+994	Bastó de màgia elementalista||
+995	Bastó de màgia elementalista||
+996	Bastó de màgia elementalista||
+997	Bastó de màgia elementalista||
+998	Bastó de màgia elementalista||
+999	Bastó de màgia elementalista||
+1000	Bastó de màgia elementalista||
+1001	Bastó de màgia elementalista||
+1002	Bastó de màgia vermella||
+1003	Bastó de màgia vermella||
+1004	Bastó de màgia vermella||
+1005	Bastó de màgia vermella||
+1006	Bastó de màgia vermella||
+1007	Bastó de màgia vermella||
+1008	Bastó de màgia vermella||
+1009	Bastó de màgia vermella||
+1010	Bastó de màgia vermella||
+1011	Bastó de màgia blava||
+1012	Bastó de màgia blava||
+1013	Bastó de màgia blava||
+1014	Bastó de màgia blava||
+1015	Bastó de màgia blava||
+1016	Bastó de màgia blava||
+1017	Bastó de màgia blava||
+1018	Bastó de màgia blava||
+1019	Bastó de màgia blava||
+1020	Bastó de màgia curativa||
+1021	Bastó de màgia curativa||
+1022	Bastó de màgia curativa||
+1023	Bastó de màgia curativa||
+1024	Bastó de màgia curativa||
+1025	Bastó de màgia curativa||
+1026	Bastó de màgia curativa||
+1027	Bastó de màgia curativa||
+1028	Bastó de màgia curativa||
+1029	Bastó de nigromància||
+1030	Bastó de nigromància||
+1031	Bastó de nigromància||
+1032	Bastó de nigromància||
+1033	Bastó de nigromància||
+1034	Bastó de nigromància||
+1035	Bastó de nigromància||
+1036	Bastó de nigromància||
+1037	Bastó de nigromància||
+1038	Bastó de llum divina||
+1039	Bastó de llum divina||
+1040	Bastó de llum divina||
+1041	Bastó de llum divina||
+1042	Bastó de llum divina||
+1043	Bastó de llum divina||
+1044	Bastó de llum divina||
+1045	Bastó de llum divina||
+1046	Bastó de llum divina||
+1047	||
+1048	||
+1049	||
+1050	||
+1051	Rendaria||
+1052	Ortox||
+1053	Gork 'Haul||
+1054	Stygma||
+1055	Zelantia||
+1056	Skorpion||
+1057	Anell vermell de Kal'Hor||
+1058	Anell blau de Ras'Kah||
+1059	Anell del Bruixot||
+1060	Anell de curació Koorah||
+1061	Anell protector de Maldur||
+1062	||
+1063	Mort daga||
+1064	Mort espasa||
+1065	Mort destral||
+1066	Mort maça||
+1067	Mort asta||
+1068	Mort bastó||
+1069	Mort arc||
+1070	Gat de jade||gat
+1071	Dolfí d'amestita||dolfí
+1072	Àguila d'ambar||àguila
+1073	Lleó de plata||lleó
+1074	Drac d'ònix||drac
+1075	||
+1076	Ganivet llancívol||ganivet
+1077	Habilitat: Ganivet llancívol||
+1078	Cop atordidor||atordir
+1079	Habilitat: Cop atordidor||
+1080	Càrrega fugaç||càrrega
+1081	Habilitat: Càrrega fugaç||
+1082	Triple tret||triple
+1083	Habilitat: Triple tret||
+1084	conjur de son||dormir
+1085	Conjur d'aura vampírica||vamp
+1086	Tom d'aura vampírica||
+1087	Conjur d'aura de llum||llum
+1088	Tom d'aura de llum||
+1089	Conjur de fúria divina||fúria
+1090	Tom de fúria divina||
+1091	Vestit de Mr Xarxa||Mr.Red
+1092	Clau de calavera matàl·lica||clau
+1093	Bossa màgica petita||bossa
+1094	Bossa màgica mitjana||bossa
+1095	Bossa màgica gran||bossa
+1096	Bossa màgica enorme||bossa
+1097	||
+1098	Vara de polimorfar arma||
+1099	Tutú||tutu
+1100	||
+1101	Bastó de polimorfar arma||
+1102	Orb de teleportació||
+1103	Pergamí de runa explosiva||
+1104	Poció de canvi d'aspecte||
+1105	||
+1106	Bomba||bomba
+1107	||
+1108	Destral fantasma||destral
+1109	Habilitat: Destral fantasma||
+1110	Cort de vent||tall
+1111	Habilitat: Tall de vent||
+1112	Paret||paret
+1113	Sostre||sostre
+1114	Terra||terra
+1115	Escala||escala
+1116	||
+1117	||
+1118	Llum||llum
+1119	Porta||porta
+1120	Llimac vermell||llimac
+1121	Llimac blau||llimac
+1122	Llimac verd||llimac
+1123	Llimac groc||llimac
+1124	Llimac taronja||llimac
+1125	Llimac arcà||llimac
+1126	Sàtir||sàtir
+1127	Sàtir cornut||sàtir
+1128	Serp||serp
+1129	Serp de corall||serp
+1130	Serp marina||serp
+1131	Follet guardià||follet
+1132	Follet||follet
+1133	Follet guaridor||follet
+1134	Pop||pop
+1135	Granota||granota
+1136	Bola amb punxes||bola
+1137	Bola verinosa||bola
+1138	Cranc||cranc
+1139	Formiga||formiga
+1140	Escarabat verinós||escarabat
+1141	Tentacle||tentacle
+1142	Formiger||formiger
+1143	Esquelet 1||esq
+1144	Esquelet 2||esq
+1145	Esquelet 3||esq
+1146	Esquelet arquer||arc
+1147	Esquqlet nigromant||esq
+1148	Tomba amb esquelet||tomb
+1149	Esquelet enterrat||esq
+1150	Esperit aturmentat||esperit
+1151	Activa la masmorra||joc
+1152	Destruir monstres||mons.out
+1153	Armadura blava||armadura
+1154	Armadura vermella||armadura
+1155	Armadura verda||armadura
+1156	Casc vermell||casc
+1157	Casc blaul||casc
+1158	Casc arcàl||casc
+1159	Casc vermell milloratl||casc
+1160	Casc blau milloratl||casc
+1161	Casc arcà milloratl||casc
+1162	Trampa per òssosl||trampa
+1163	Trampa de llancesl||trampa
+1164	Trampa de bola de foc de terral||trampa
+1165	Trampa de bola de foc de sostrel||trampa
+1166	Rocal||roca
+1167	Vagonetal||vagó
+1168	Cristall de raigsl||raigs
+1169	Girar monstrel||girar
+1170	Palancal||palanca
+1171	Tombal||tomba
+1172	Paret lliscantl||paret
+1173	Terra lliscantl||terra
+1174	Escala lliscantl||escala
+1175	Pared destruïblel||paret
+1176	Escala de netejar salal||escala
+1177	Escala de netejar zonal||escala
+1178	Activar/desactivar monstresl||activar
+1179	Tuberia de gasl||gas
+1180	Rajola de gasl||gas
+1181	Barrill||barril
+1182	Barril amb essènciesl||barril
+1183	Barril amb fletxesl||barril
+1184	Pallasso sense gràcial||pallasso
+1185	Científicl||científ.
+1186	Foc caminantl||foc
+1187	Gólem de pedral||gólem
+1188	Gallinal||gallina
+1189	Cub gelatinósl||cub
+1190	Orc carcellerl||orc
+1191	Lladre fantasmall||lladre
+1192	Mag blaul||blau
+1193	Planta carnivoral||planta
+1194	Mag vermelll||vermell
+1195	Orc llancerl||orc
+1196	Orc guerrerl||orc
+1197	Bloc de gell||gel
+1198	Mag arcàl||arcà
+1199	Entl||ent
+1200	Rata kamikazel||rata
+1201	Llampecl||llum
+1202	magic bellows||bellows
+1203	Banderal||bandera
+1204	Metal||meta
+1205	Escenari: masmorres||ding
+1206	Escenari: clavegueres||claveguera
+1207	Escenari: mina||mina
+1208	Escenari: torre||tore
+1209	Escenari: sales||sales
+1210	Escenari: catacumbes||catac
+1211	Escenari: teranyines||teranyines
+1212	Escenari: Habitació màgica||màgica
+1213	Punxes||punxes
+1214	Cofre||cofre
+1215	Clau vermella||clau
+1216	Clau blava||clau
+1217	Clau verda||clau
+1218	Clau groga||clau
+1219	Clau taronja||clau
+1220	Crear clau vermella||clau
+1221	Crear clau blava||clau
+1222	Crear clau verda||clau
+1223	Crear clau groga||clau
+1224	Crear clau taronja||clau
+1225	Pont llevadís||pont llevadís
+1226	Pany||pany
+1227	Tempesta d'espasses||tempesta
+1228	Habilitat: tempesta d'espasses||
+1229	Núvol de fum||fum
+1230	Habilitat: núvol de fum||
+1231	Fletxes mocroexplosives||explo
+1232	Habilitat: fletxes microexplosives||
+1233	Abast extraordinari||abast
+1234	Habilitat: abast extraordinari||
+1235	||
+1236	Tremor||tremor
+1237	Habilitat: tremor
+1238	Vareta màgica
+1239	Arkanita||arkanita
+1240	Pyrita||pyrita
+1241	Gelita||gelita
+1242	Incendya||incendya
+1243	Llum permanet||llum
+1244	Portal d'arquitecte||portal
+1245	Tornar a començar el nivell i diàlegs||restart
+1246	Plataforma||platf
+1247	Diàleg||diàleg
+1248	Paret amb diàleg||paret
+1249	Escala amb diàleg||escala
+1250	Clau de la presó||
+1251	Zweitgart||
+1252	Destrossaesquelets||
+1253	Devian||
+1254	Ontrixion||
+1255	Eviscerax||
+1256	Ventmortal||
+1257	Cofre amb objectes||cofre
+1258	||
+1259	Pergamí: immunitat cos a cos
+1260	Pergamí: immunitat contra el foc
+1261	Pergamí: immunitat contra el gel
+1262	Pergamí: immunitat contra màgia arcana
+1263	Pergamí: aura de calor
+1264	Pergamí: descàrrega arcana
+1265	Pergamí: mestratge cos a cos
+1266	Pergamí: mestratge amb arcs
+1267	Pergamí: il·luminar||llum
+1268	Pergamí: transmutació Mides||mides
+1269	Pergamí: millorar arma||millorar
+1270	Executar amb destral||exec
+1271	Habilitat: executar amb destral||
+1272	||
+1273	Acid mucós||àcid
+1274	Condensació de la matèria||cond
+1275	Pa màgic||pa
+1276	Mestratge amb dagues 1||dagues
+1277	Habilitat: mestratge amb dagues 1||
+1278	Mestratge amb espassa 1||espassa
+1279	Habilitat: mestratge amb espassa||
+1280	Mestratge amb maces 1||maça
+1281	Habilitat: mestratge amb maces 1||
+1282	Mestratge amb destrals 1||destral
+1283	Habilitat: mestratge amb destrals 1||
+1284	Mestratge amb armes d'asta 1||armes d'asta
+1285	Habilitat: mestratge amb armes d'asta 1||
+1286	Mestratge amb arcs 1||arcs
+1287	Habilitat: mestratge amb arcs 1||
+1288	Mestratge amb dagues 2||dagues
+1289	Habilitat: mestratge amb dagues 2||
+1290	Mestratge amb espassa 2||espassa
+1291	Habilitat: mestratge amb espassa 2||
+1292	Mestratge amb maces 2||maça
+1293	Habilitat: mestratge amb maces 2||
+1294	Mestratge amb destrals 2||destral
+1295	Habilitat: mestratge amb destrals 2||destral
+1296	Mestratge amb armes d'asta 2||armes d'asta
+1297	Habilitat: mestratge amb armes d'asta 2||
+1298	Mestratge amb arcs 2||arcs
+1299	Habilitat: mestratge amb arcs 2||
+1300	Mestratge amb dagues 3||dagues
+1301	Habilitat: mestratge amb dagues 3||
+1302	Mestratge amb espassa 3||espassa
+1303	Habilitat: mestratge amb espassa 3||
+1304	Mestratge amb maces 3||maça
+1305	Habilitat: mestratge amb maces 3||
+1306	Mestratge amb destrals 3||destral
+1307	Habilitat: mestratge amb destrals 3||destral
+1308	Mestratge amb armes d'asta 3||armes d'asta
+1309	Habilitat: mestratge amb armes d'asta 3||
+1310	Mestratge amb arcs 3||arcs
+1311	Habilitat: mestratge amb arcs 3||
+1312	Samarreta GOG
+1313	Controlador clàssic
+1314	Toga de concentració del mag de foc novell||roba
+1315	Toga de concentració del mag de foc||roba
+1316	Toga de concentració del gran mag de foc||roba
+1317	Toga de concentració del mag de gel novell||roba
+1318	Toga de concentració del mag de gel||roba
+1319	Toga de concentració del gran mag de gel
+1320	Toga de concentració del bruixot arcà novell||roba
+1321	Toga de concentració del bruixot arcà||roba
+1322	Toga de concentració del gran bruixot arcà||roba
+1323	Toga de concentració del bruixot blanc novell||roba
+1324	Toga de concentració del bruixot blanc||roba
+1325	Toga de concentració del gran bruixot blanc||roba
+1326	Toga de concentració del guaridor novell||roba
+1327	Toga de concentració del guaridor||roba
+1328	Toga de concentració del gran guaridor||roba
+1329	Toga de defensa del mag de foc novell||roba
+1330	Toga de defensa del mag de foc||roba
+1331	Toga de defensa del gran mag de foc||roba
+1332	Toga de defensa del mag de gel novell||roba
+1333	Toga de defensa del mag de gel||roba
+1334	Toga de defensa del gran mag de gel||roba
+1335	Toga de defensa del bruixot arcà novell||roba
+1336	Toga de defensa del bruixot arcà||roba
+1337	Toga de defensa del gran bruixot arcà||roba
+1338	Toga de defensa del bruixot blanc novell||roba
+1339	Toga de defensa del bruixot blanc||roba
+1340	Toga de defensa del gran bruixot blanc||roba
+1341	Toga de defensa del guaridor novell||roba
+1342	Toga de defensa del guaridor||roba
+1343	Toga de defensa del gran guaridor||roba
+1344	Màgia sempiterna
+1345	Tom: màgia sempiterna
+1346	Night vision||vision
+1347	Start Player 1||ini 1
+1348	Start Player 2||ini 2
+1349	Start Player 3||ini 3
+1350	Start Player 4||ini 4
+1351	Bulldozer||Bulld
+1352	Magic starfish||starf
+1353	Checkpoint||check
+1354	Platform dialog||platf
+1355	Floor dialog||floor
+1356	Room Kill platform||platf
+1357	Room Kill floor||floor
+1358	Room Kill wall||wall
+1359	Zone Kill platform||platf
+1360	Lighting platform||platf
+1361	Lighting ladder||ladder
+1362	Lighting wall||wall
+1363	Lighting floor||floor
+1364	Presence||trap
+1365	Dialog appearing wall||wallin
+1366	Key of the town||key
+1367	||
+1368	green helmet||helmet
+1369	CubanB's Staff||CubanB's
+1370	Boss||boss
+1371	Invoker||Invoker
+1372	Santa clothes||Santa
+1373	scroll: telekinesis||tele
+1374	dummy humanoid 1||h1
+1375	dummy humanoid 2||h2
+1376	dummy humanoid 3||h3
+1377	dummy humanoid 4||h4
+1378	dummy humanoid 5||h5
+1379	dummy humanoid 6||h6
+1380	dummy humanoid 7||h7
+1381	dummy humanoid 8||h8
+1382	dummy humanoid 9||h9
+1383	dummy humanoid 10||h10
+1384	dummy humanoid 11||h11
+1385	dummy humanoid 12||h12
+1386	dummy humanoid 13||h13
+1387	dummy humanoid 14||h14
+1388	dummy humanoid 15||h15
+1389	dummy humanoid 16||h16
+1390	dummy humanoid 17||h17
+1391	dummy humanoid 18||h18
+1392	dummy humanoid 19||h19
+1393	dummy humanoid 20||h20
+1394	create skull key||key
+1395	create skull lock (consumes the key)||lock
+1396	spell of summon monster||summon
+1397	barrel 1||barrel 1
+1398	barrel 2||barrel 2
+1399	barrel 3||barrel 3
+1400	barrel 4||barrel 4
+1401	barrel 5||barrel 5
+1402	barrel 6||barrel 6
+1403	barrel 7||barrel 7
+1404	barrel 8||barrel 8
+1405	barrel 9||barrel 9
+1406	barrel 10||barrel 10
+1407	barrel 11||barrel 11
+1408	barrel 12||barrel 12
+1409	Baller's armor||baller
+1410	wasp||wasp
+1411	Night Ambient Light||night
+1412	speed allies||speed
+1413	str allies||str
+1414	bat||bat
+1415	Vampire Bat||vamp
+1416	prison door||door
+1417	Shack Door||door
+1418	barrel 13||barrel 13
+1419	barrel 14||barrel 14
+1420	barrel 15||barrel 15
+1421	barrel 16||barrel 16
+1422	barrel 17||barrel 17
+1423	barrel 18||barrel 18
+1424	barrel 19||barrel 19
+1425	barrel 20||barrel 20
+1426	orc big dagger||dagger
+1427	||
+1428	Railwand||rail
+1429	scroll: Meeting||meeting
+1430	Chain armor of the Lord||chain
+1431	Blessed platemail of Luxor||plate
+1432	Peices of Demonic armor||clothes
+1433	Light suite of the Champion||clothes
+1434	Blessed thornmail of Cecil||mail
+1435	Great robe of the alchemist||robe
+1436	Blessed armor of Raak||plate
+1437	Demonic staff||
+1438	Cursed edge||
+1439	Bouncing rock||rock
+1440	Rolling rock||rock
+1441	Enrage||enrage
+1442	Skill: Enrage||
+1443	Battle Cry||cry
+1444	Skill: Battle Cry||
+1445	Impale||impale
+1446	Skill: Impale||
+1447	Spirit arrows||spirit
+1448	Skill: Spirit arrows||
+1449	spirit arrow
+1450	Poisoned arrows||poison
+1451	Skill: Poisoned arrows||
+1452	Split shot||split
+1453	Skill: Split shot||
+1454	Lunge||lunge
+1455	Skill: Lunge||
+1456	Parry wall||parry
+1457	Skill: Parry wall||
+1458	Bomb||bomb
+1459	Skill: Bomb||
+1460	Web trap||web
+1461	Skill: Web trap||
+1462	Spell: web explosion||
+1463	Spell: mine explosion||
+1464	Exorcism||exor
+1465	Tome: Exorcism||
+1466	scroll: exorcism||exor
+1467	||
+1468	Wrath||thor
+1469	Skill: Wrath||
+1470	Cut purse||purse
+1471	Skill: Cut purse||
+1472	||
+1473	Javelin||javelin
+1474	Skill: javelin||
+1475	Justice||justice
+1476	Skill: justice||
+1477	Ruby ring of Eternity||etern
+1478	Topaz ring of Eternity||etern
+1479	Emerald ring of Eternity||etern
+1480	Amethist ring of Eternity||etern
+1481	Diamond ring of Eternity||etern
+1482	Master key||
+1483	Toy Key||
+1484	scroll: escape||
+1485	Death Cheater||death
+1486	||
+1487	Move out||move
+1488	Skill: Move out||
+1489	Critical strike||crit
+1490	Skill: Critical strike||
+1491	Charge||charge
+1492	Skill: Charge||
+1493	Voodoo Head||voodoo
+1494	||
+1495	Venomia||Venomia
+1496	Cursed Ring of Slow||slow
+1497	Ranger Deathwearer||
+1498	Ring of protection||prot
+1499	Ring of Speed||speed
+1500	Popolon's armor||
+1501	Aphrodite's armor||
+1502	Golem Armor||
+1503	Key World 1||key 1
+1504	Key World 2||key 2
+1505	Key World 3||key 3
+1506	Key World 4||key 4
+1507	Key World 5||key 5
+1508	Key World 6||key 6
+1509	Key World 7||key 7
+1510	Key World 8||key 8
+1511	Key World 9||key 9
+1512	Key World 10||key 10
+1513	Cross||cross
+1514	Bow||
+1515	Porcelain bow||
+1516	Dodge Death||death
+1517	tome: Dodge Death||
+1518	Unholly growth||growth
+1519	tome: Unholly growth||
+1520	Arcane shock||shock
+1521	tome: Arcane shock||
+1522	Exit Door||exit
