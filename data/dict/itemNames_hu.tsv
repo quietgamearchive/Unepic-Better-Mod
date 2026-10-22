@@ -1,0 +1,1523 @@
+﻿0	||
+1	érme||
+2	||
+3	||
+4	immunis a fegyverekre||
+5	immunis a tűzre||
+6	immunis a hidegre||
+7	immunis a misztikumra||
+8	immunis a mérgekre||
+9	immunis az átváltoztatásra||
+10	immunis a bénításra||
+11	immunis a mentális támadásokra||
+12	immunis mindenre||
+13	||
+14	||
+15	alszik||
+16	zavart||
+17	rémült||
+18	vak||
+19	lebénított||
+20	lassú||
+21	||
+22	||
+23	sebesség||
+24	ogre erő||
+25	infralátás||
+26	csapdaérzékelés||
+27	láthatatlan||
+28	láthatatlan lények érzékelése||
+29	éteri||
+30	regenerálódó||
+31	mérgezett||
+32	teleport||
+33	teleport||
+34	teleport||
+35	teleport||
+36	||
+37	sav||
+38	||
+39	||
+40	tűz||
+41	fagy||
+42	gyengeség||
+43	fáziskapu||
+44	feledés||
+45	közelharci védelem||
+46	tűz védelem||
+47	fagy védelem||
+48	misztikus védelem||
+49	forróság aura||
+50	lassú méreg||
+51	gyenge méreg||
+52	ellenméreg||
+53	misztikus csapás||
+54	közelharci képzettség||
+55	íj képzettség||
+56	||
+57	||
+58	világítás||
+59	összes hordó megsemmisítése||
+60	jég idézés||
+61	jövendölés||
+62	energia||
+63	sebzés||
+64	képzettség pontok||
+65	fagycsapás||
+66	midas átváltoztatás||midas
+67	csapdák és falak érzékelése||
+68	misztikus sebzés||
+69	misztikus irányítás||irányítás
+70	vörös mágikus esszencia|vörös esszencia|
+71	kék mágikus esszencia|kék esszencia|
+72	zöld mágikus esszencia|zöld esszencia|
+73	arany mágikus esszencia|arany esszencia|
+74	misztikus mágikus esszencia|misztikus esszencia|
+75	sárga mágikus esszencia|sárga esszencia|
+76	kristályos mágikus esszencia|kristályos esszencia|
+77	isteni támogatás|isteni támogatás|
+78	kicsi rubint||ékkő
+79	kicsi zafír||ékkő
+80	kicsi smaragd||ékkő
+81	caca||
+82	dardo ligero||
+83	||
+84	||
+85	||
+86	||
+87	||
+88	||
+89	||
+90	||
+91	||
+92	||
+93	||
+94	||
+95	||
+96	||
+97	||
+98	||
+99	||
+100	||
+101	||
+102	||
+103	||
+104	||
+105	||
+106	||
+107	||
+108	||
+109	||
+110	||
+111	||
+112	||
+113	||
+114	bénító dárda||
+115	gyengítő dárda||
+116	lassú dárda||
+117	tüzes vessző||
+118	tüzes vessző||
+119	fagy vessző||
+120	fagy vessző||
+121	misztikus lövedék||
+122	misztikus lövedék||
+123	||
+124	nyílvessző||
+125	hosszú nyílvessző||
+126	misztikus nyílvessző||
+127	nyílvessző||
+128	élet||
+129	tüzes vessző||
+130	jelzőfény||jelzőfény
+131	füst||
+132	||
+133	||
+134	tüzes vessző||
+135	nyílvessző||
+136	||
+137	||
+138	tüzes vessző||
+139	||
+140	||
+141	nyílvessző||
+142	||
+143	||
+144	||
+145	nyílvessző||
+146	könnyű tőr||
+147	széles tőr||
+148	gyilok||
+149	széles kés||
+150	áthatoló tőr||
+151	hullámos tőr||
+152	ezüst tőr||
+153	hajlított tőr||
+154	megedzett tőr||
+155	Adjanti keresztes tőre||
+156	rövidkard||
+157	gladius||
+158	széles kard||
+159	handzsár||
+160	támadó kard||
+161	pallos||
+162	másfélkezes kard||
+163	nagyméretű széles kard||
+164	katana||
+165	Elf kard||
+166	A nekromanta kardja||
+167	Edward elátkozott pengéje||
+168	Vörös kard||
+169	Excalibur||
+170	konyhai fejsze||
+171	kicsi fejsze||
+172	kézi fejsze||
+173	támadó fejsze||
+174	duplafejű fejsze||
+175	csontozó||
+176	harci fejsze||
+177	csatafejsze||
+178	harci fejsze||
+179	duplafejű harci fejsze||
+180	xxx||
+181	Horga'hn fejsze||
+182	csont||
+183	kivégző||
+184	garrote con clavo||
+185	mayal||
+186	bastón de trasgo curandero||
+187	buzogány||
+188	kalapács||
+189	harci buzogány||
+190	A kovács kalapácsa||
+191	harci buzogány||
+192	tüskés buzogány||
+193	harci kalapács||
+194	nagy kalapács||
+195	nagy tüskés buzogány||
+196	martillo del gólem||
+197	hatalmas kulcs||
+198	tűz jogar||
+199	jég jogar||
+200	Csonttörő||
+201	Mágus bot||
+202	A paladin kalapácsa||
+203	fény lándzsa||
+204	lándzsa||
+205	nehéz lándzsa||
+206	pika||
+207	karom lándzsa||
+208	szigony||
+209	alabárd||
+210	dupla pika||
+211	nagy szigony||
+212	szigony||
+213	Vagdalkozó||
+214	lanza envenenada||
+215	espadón||
+216	espada bastarda||
+217	espada de pyros||
+218	maza calavera||
+219	virágok||
+220	játék kalapács||
+221	kandeláber||fény
+222	fáklya||fény
+223	lámpás||fény
+224	gyertya||fény
+225	mágikus gyertya||fény
+226	esfera luminosa de los hielos||fény
+227	esfera luminosa del fuego||fény
+228	esfera luminosa arcana||fény
+229	esfera luminosa||fény
+230	öngyújtó||fény
+231	mágikus vörös cangle||fény
+232	mágikus kék gyertya||fény
+233	Ragacsos bot||
+234	ballesta ligera||
+235	fény rövid íj||
+236	rövid íj||
+237	megerősített rövid íj||
+238	összetett rövid íj||
+239	fény hosszú íj||
+240	hosszú íj||
+241	megerősített hosszú íj||
+242	összetett hosszú íj||
+243	nagy hosszú íj||
+244	arco largo||
+245	elf hosszú íj||
+246	Széltörő||
+247	denevérszárny||
+248	szatír belek||
+249	goblin belek||
+250	kígyószem||
+251	szatírszem||
+252	goblinszem||
+253	varjúszem||
+254	polipszem||
+255	békaszem||
+256	kígyónyelv||
+257	vörös nyálka||
+258	kék nyálka||
+259	zöld nyálka||
+260	sárga nyálka||
+261	narancssárga nyálka||
+262	lila nyálka||
+263	szatír szarva||
+264	polvo de cuerno de sátiro||
+265	kígyófarok||
+266	hangyaláb||
+267	varjúláb||
+268	csápdarab||
+269	világító spórák||
+270	mérgezett fullánk||
+271	szellem anyag||
+272	élet szikra||
+273	mágikus lövedék||
+274	misztikus hullám||
+275	tüzes vessző||
+276	tűzgömb||
+277	tűzhullám||
+278	tűzlehelet||
+279	||
+280	fagy lövedék||
+281	fagylehelet||
+282	fagykúp||
+283	sztalaktitok||
+284	fénysugár||
+285	gyógyítás||gyógyít
+286	haladó gyógyítás||gyógyít 2
+287	haladó gyógyítás||gyógyít 3
+288	teljes gyógyítás||
+289	fegyver immunitás||
+290	tűz immunitás||
+291	fagy immunitás||
+292	misztikus immunitás||
+293	átváltoztatás||átv
+294	fegyver átalakítása||fegyver
+295	altatás||altatás
+296	lassú méreg||lassú
+297	zavartság||zavart
+298	félelem||
+299	vakság||
+300	bénítás||
+301	lassítás||lassítás
+302	teleportáció||
+303	közelség||
+304	sebesség||sebesség
+305	ogre erő||erő
+306	hatalmas erő||erő
+307	titán erő||erő
+308	infralátás||infra
+309	csapdák érzékelése||csapda
+310	láthatatlanság||láthat
+311	láthatatlanság||láthat
+312	láthatatlanság||láthat
+313	láthatatlanság érzékelése||lát érz
+314	szellemalak||szellem
+315	regeneráció||rege
+316	haladó regeneráció||rege2
+317	haladó regeneráció||rege3
+318	fejlesztett tűz lövedék||
+319	haladó tűz lövedék||
+320	fejlesztett fagycsapás||
+321	haladó fagycsapás||
+322	||
+323	||
+324	||
+325	||
+326	||
+327	||
+328	||
+329	||
+330	||
+331	||
+332	||
+333	lassító gömb||
+334	||
+335	||
+336	||
+337	élet elszívása||
+338	||
+339	||
+340	||
+341	||
+342	||
+343	fagycsapás||csapás
+344	||
+345	||
+346	jégtömb megidézése||jég
+347	||
+348	misztikus irányítás||irányítás
+349	||
+350	forróság aura||aura
+351	||
+352	||
+353	tűz átalakítása||tűz
+354	hideg átalakítása||hideg
+355	isteni fény átalakítása||fény
+356	sav átalakítása||sav
+357	holtak átka||átok
+358	rejtett élet||élet
+359	halálos köd||
+360	méreg csökkentés||csökk
+361	éles elme||elme
+362	kábítás||kábít
+363	rubint átalakítása||rubi
+364	zafír átalakítása||zafír
+365	smaragd átalakítása||smar
+366	fáziskapu||fázis
+367	||
+368	fém átalakítása||fém
+369	gyógyítás allies||gyógyít
+370	ellenméreg||ellen
+371	telekinézis||tele
+372	fegyver fejlesztése||fegyver
+373	páncél fejlesztése||páncél
+374	közelharci védelem||közel
+375	||
+376	||
+377	hideg védelem||hideg
+378	árny védelem||árny
+379	tűz védelem||tűz
+380	méreg immunitás||méreg
+381	szabad mozgás||moz
+382	mentális akadály||elme
+383	átváltoztatás immunitás||átvál
+384	lövedékek visszaverése||vissza
+385	||
+386	teleport a bánya boltba||bánya
+387	teleport a csatorna boltba||csator
+388	teleport a kerti boltba||kert
+389	teleport a könyvtár boltba||könyv
+390	teleport a katakomba boltba||katak
+391	teleport a laboratórium boltba||lab
+392	teleport a csarnok boltba||csarnok
+393	teleport a torony boltba||torony
+394	tűzszellem megidézése||tűz
+395	őrület||őrület
+396	tömeges gyógyítás||gyógyít
+397	||
+398	||
+399	mentális irányítás||irányít
+400	megváltás||megvál
+401	||
+402	teleport||
+403	fáziskapu||
+404	feledés||
+405	könyv: mágikus golyó||
+406	könyv: misztikus hullám||
+407	könyv: tűz lövedék||
+408	könyv: tűzgömb||
+409	könyv: tűzhullám||
+410	könyv: tűzlehelet||
+411	tomo de destrucción masiva||
+412	könyv: fagycsapás||
+413	könyv: fagylehelet||
+414	könyv: fagykúp||
+415	könyv: sztalaktitek||
+416	könyv: fénysugár||
+417	könyv: gyógyítás||
+418	könyv: haladó gyógyítás||
+419	könyv: haladó gyógyítás||
+420	könyv: teljes gyógyítás||
+421	könyv: közelharc immunitás
+422	könyv: tűz immunitás
+423	könyv: fagy immunitás
+424	könyv: misztikus immunitás
+425	könyv: átváltoztatás||
+426	könyv: fegyver átalakítása ||
+427	könyv: altatás||
+428	||
+429	||
+430	könyv: vakság||
+431	könyv: bénítás||
+432	könyv: lassítás||
+433	könyv: teleport||
+434	könyv: közelség||
+435	könyv: gyorsaság||
+436	könyv: ogre erő||
+437	könyv: hatalmas erő||
+438	könyv: titán erő||
+439	könyv: infralátás||
+440	könyv: csapda érzékelés||
+441	könyv: láthatatlanság||
+442	||
+443	||
+444	könyv: láthatatlanság érzékelése||
+445	könyv: szellemalak||
+446	könyv: regeneráció||
+447	könyv: haladó regeneráció||
+448	könyv: haladó regeneráció||
+449	könyv: fejlesztett tűz lövedék||
+450	könyv: fagycsapás||
+451	könyv: jégtömb megidézése||
+452	könyv: lassú méreg||
+453	könyv: misztikus irányítás||
+454	könyv: forróság aura||
+455	könyv: tűz átalakítása||
+456	könyv: fagy átalakítása||
+457	könyv: isteni fény átalakítása||
+458	könyv: sav átalakítása||
+459	könyv: holtak átka||
+460	könyv: rejtett élet||
+461	könyv: halálos köd||
+462	könyv: méreg csökkentés||
+463	könyv: éles elme||
+464	könyv: kábítás||
+465	könyv: rubint átváltoztatása||
+466	könyv: zafír átváltoztatása||
+467	könyv: smaragd átváltoztatása||
+468	könyv: fáziskapu||
+469	||
+470	könyv: fém átalakítása||
+471	könyv: barátok gyógyítása||
+472	könyv: ellenméreg||
+473	könyv: telekinézis||
+474	könyv: fegyver fejlesztése||
+475	könyv: páncél fejlesztése||
+476	könyv: harci védelem||
+477	könyv: hideg védelem||
+478	könyv: árny védelem||
+479	könyv: tűz védelem||
+480	könyv: méreg immunitás||
+481	könyv: szabad mozgás||
+482	könyv: mentális akadály||
+483	könyv: átváltoztatás immunitás||
+484	könyv: lövedékek visszaverése||
+485	könyv: teleport a bánya boltba||
+486	könyv: teleport a csatorna boltba||
+487	könyv: teleport a kerti boltba||
+488	könyv: teleport a könyvtár boltba||
+489	könyv: teleport a katakomba boltba||
+490	könyv: teleport a laboratórium boltba||
+491	könyv: teleport a csarnok boltba||
+492	könyv: teleport a torony boltba||
+493	könyv: tűzszellem megidézése||
+494	könyv: őrület||
+495	könyv: fejlesztett tűz lövedék||
+496	könyv: tömeges gyógyítás||
+497	könyv: fejlesztett fagycsapás||
+498	könyv: haladó fagycsapás||
+499	könyv: mentális irányítás||
+500	könyv: megváltás||
+501	mágikus pálca||mág
+502	tűz lövedék pálcája||löved
+503	tűzgömb pálcája||gömb
+504	pálca: átváltoztatás||polimorf
+505	bolond pálcája||polimorf
+506	altatás pálcája||dormir
+507	altatás pálcája||dormir
+508	összezavarás pálcája||zavar
+509	félelem pálcája||fear
+510	vakítás pálcája||vak
+511	bénítás pálcája||bénít
+512	lassítás pálcája||lassú
+513	távoli teleportálás pálcája||táv
+514	közeli teleportálás pálcája||köz
+515	fagycsapás pálcája||fagy
+516	jelzőfény kilövő||jelzőfény
+517	tűz lövedék pálcája||tűz
+518	sugár pálcája||sugár
+519	||
+520	||
+521	||
+522	||
+523	városi ruha||ruha
+524	vadász ruha||ruha
+525	tűzött páncél||ruha
+526	könnyű bőrpáncél||bőr
+527	bőr páncél||bőr
+528	szegecses bőrpáncél||bőr
+529	megerősített bőrpáncél||bőr
+530	páncéling||páncél
+531	megerősített páncéling||páncél
+532	pikkelypáncél||pikkely
+533	megerősített pikkelypáncél||pikkely
+534	lemezpáncél||lemez
+535	Rohamosztagos páncél||osztag
+536	hatalmas tengeri kígyó pikkelypáncél||pikkely
+537	hatalmas tűzkígyó pikkelypáncél||pikkely
+538	hatalmas kobra pikkelypáncél||pikkely
+539	hatalmas skarlát kígyó pikkelypáncél||pikkely
+540	hatalmas tengeri sárkány pikkelypáncél||pikkely
+541	hatalmas tűz sárkány pikkelypáncél||pikkely
+542	hatalmas fekete sárkány pikkelypáncél||pikkely
+543	hatalmas skarlát sárkány pikkelypáncél||pikkely
+544	Nekromanta ruha||ruha
+545	bronz mellvért||lemez
+546	ezüst mellvért||lemez
+547	arany mellvért||lemez
+548	azurittal átszőtt páncél||páncél
+549	újonc tűzvarázsló köpeny||köpeny
+550	tűzvarázsló köpeny||köpeny
+551	nagy tűzvarázsló köpeny||köpeny
+552	újonc fagyvarázsló köpeny||köpeny
+553	fagyvarázsló köpeny||köpeny
+554	nagy fagyvarázsló köpeny||köpeny
+555	újonc misztikus boszorkánymester köpeny||köpeny
+556	misztikus boszorkánymester köpeny||köpeny
+557	nagy misztikus boszorkánymester köpeny||köpeny
+558	újonc fehérvarázsló köpeny||köpeny
+559	fehérvarázsló köpeny||köpeny
+560	fehér tűzvarázsló köpeny||köpeny
+561	újonc pap köpeny||köpeny
+562	pap köpeny||köpeny
+563	nagy pap köpeny||köpeny
+564	póló és farmer||ruha
+565	kicsi üres fiola||
+566	közepes üres fiola||
+567	nagy üres fiola||
+568	kisebb gyógyítás itala||gyógyít
+569	gyógyítás itala||gyógyít
+570	nagyobb gyógyítás itala||gyógyít
+571	teljes gyógyítás itala||gyógyít
+572	lassítás itala||
+573	bénítás itala||
+574	lassú méreg itala||lassú
+575	méreg csökkentés itala||csökk
+576	ellenméreg||anti
+577	gyorsaság itala||gyorsaság
+578	ogre erő itala||erő
+579	óriás erő itala||erő
+580	titán erő itala||erő
+581	csapdaérzékelés itala||csapda
+582	infralátás itala||infral
+583	láthatatlanság érzékelés itala||lát
+584	láthatatlanság itala||láth
+585	láthatatlanság itala||láth
+586	láthatatlanság itala||láth
+587	szellemalak itala||szellem
+588	kisebb regeneráció itala||rege
+589	regeneráció itala||rege
+590	nagyobb regeneráció itala||rege
+591	méreg itala||
+592	erős méreg itala||
+593	halálos méreg itala||
+594	gyógyítás kenőcs||
+595	fejlett érzékelés itala||falak
+596	feltámasztás itala||
+597	tekercs: közelharci védelem||véd
+598	tekercs: tűz védelem||véd
+599	tekercs: hideg védelem||véd
+600	tekercs: misztikus védelem||véd
+601	tekercs: melee immunitás||immu
+602	tekercs: tűz immunitás||immu
+603	tekercs: hideg immunitás||immu
+604	tekercs: misztikus immunitás||immu
+605	tekercs: forróság aura||hő
+606	tekercs: misztikus csapás||sokk
+607	tekercs: közelharci képzettség||közel
+608	tekercs: íj képzettség||íj
+609	tekercs: teleport Zoranhoz||zoran
+610	tekercs: teleport a konyhába||szakács
+611	tekercs: fáziskapu||fázis
+612	tekercs: világítás||fény
+613	tekercs: hordó pusztítás||hordók
+614	tekercs: jégakadály||jég
+615	tekercs: jövendölés||nyom
+616	tekercs: visszatérés||visszatér
+617	tekercs: pozitív energia||energia
+618	tekercs: altatás||altatás
+619	tekercs: Midas átváltoztatás||midas
+620	tekercs: fegyver fejlesztése||fejlesztés
+621	tekercs: őrület||őrület
+622	az orgyilkos gyűrűje||sebzés
+623	a harcos gyűrűje||sebzés
+624	a kovács gyűrű||sebzés
+625	a mészáros gyűrűje||sebzés
+626	a katona gyűrűje||sebzés
+627	az íjász gyűrű||sebzés
+628	a csonkító gyűrű||sebzés
+629	a vadász gyűrű||sebzés
+630	a paladin gyűrűje||sebzés
+631	a barbár gyűrűje||sebzés
+632	a tűz gyűrűje||sebzés
+633	a jég gyűrűje||sebzés
+634	a mágus gyűrűje||sebzés
+635	a pap gyűrűje||sebzés
+636	az elemek gyűrűje||sebzés
+637	a hatalom gyűrűje||sebzés
+638	Kol'Zarek erő gyűrűje||erő
+639	az orgyilkos ügyes gyűrűje||sebesség
+640	a harcos ügyes gyűrűje||sebesség
+641	a kovács ügyes gyűrűje||sebesség
+642	a mészáros ügyes gyűrűje||sebesség
+643	a katona ügyes gyűrűje||sebesség
+644	az íjász ügyes gyűrűje||sebesség
+645	a csonkító ügyes gyűrűje||sebesség
+646	a vadász ügyes gyűrűje||sebesség
+647	a paladin ügyes gyűrűje||sebesség
+648	a barbár ügyes gyűrűje||sebesség
+649	az orgyilkos pontos gyűrűje||kritikus
+650	a harcos pontos gyűrűje||kritikus
+651	a kovács pontos gyűrűje||kritikus
+652	a mészáros pontos gyűrűje||kritikus
+653	a katona pontos gyűrűje||kritikus
+654	az íjász pontos gyűrűje||kritikus
+655	a tűz pontos gyűrűje||kritikus
+656	a jég pontos gyűrűje||kritikus
+657	a mágus pontos gyűrűje||kritikus
+658	a lovag pontos gyűrűje||kritikus
+659	a pap pontos gyűrűje||kritikus
+660	az elemek pontos gyűrűje||kritikus
+661	a hatalom pontos gyűrűje||kritikus
+662	a csonkító pontos gyűrűje||kritikus
+663	a vadász pontos gyűrűje||kritikus
+664	a paladin pontos gyűrűje||kritikus
+665	a barbár pontos gyűrűje||kritikus
+666	a harcos védelmező gyűrűje||véd
+667	az íjász védelmező gyűrűje||véd
+668	a tűz védelmező gyűrűje||véd
+669	a jég védelmező gyűrűje||véd
+670	a mágus védelmező gyűrűje||véd
+671	a nekromanta védelmező gyűrűje||véd
+672	az elemek védelmező gyűrűje||véd
+673	a hatalom védelmező gyűrűje||véd
+674	Az élet gyűrűje||vida
+675	A lelkek gyűrűje||vida
+676	A tanítvány gyűrűje||exp
+677	A kuruzsló gyűrűje||gyógyít
+678	A méreg csökkentés gyűrűje||méreg
+679	A regeneráció gyűrűje||rege
+680	Az alvilág gyűrűje||nigro
+681	Az egek gyűrűje||jump
+682	A gyorsaság gombája||gyors
+683	Az élet szikrája||élet
+684	||
+685	||
+686	||
+687	||
+688	||
+689	||
+690	||
+691	||
+692	||
+693	||
+694	||
+695	||
+696	||
+697	||
+698	||
+699	||
+700	||
+701	||
+702	||
+703	||
+704	||
+705	||
+706	arany||
+707	||
+708	Lebegő szem||szem
+709	Zöld sárkányfióka||sárkány
+710	Glóbusz béka||béka
+711	Lebegő növény||növény
+712	Coldax||jég
+713	Enterprise||hajó
+714	Koponya ||koponya
+715	A fény lelke||fény
+716	Gatchan||gatchan
+717	üres papír||papír
+718	tökéletes fekete toll|fekete toll|toll
+719	fekete tinta||tinta
+720	Poszeidón szobrának egy darabja|szobordarab|szobor
+721	nagy kerek zafír||zafír
+722	korall korona||korona
+723	||
+724	trágya||komposzt
+725	fehér márvány cserép|cserép|küldetés
+726	mandragóra egy márvány cserépben|mandragóra|küldetés
+727	arany pajzs egy darabja|pajzsdarab|darab
+728	||
+729	||
+730	||
+731	páfrány||páfrány
+732	||
+733	nagy pirit kő||pirit
+734	kénkő||kén
+735	||
+736	||
+737	||
+738	||
+739	üllő||üllő
+740	fa||fa
+741	fújtató||fújtató
+742	||
+743	||
+744	higany||merc
+745	fekete kulcs||kulcs
+746	törött fogaskerék||csapágy
+747	baba||baba
+748	porrongy||porrongy
+749	vízzel teli üveg||küldetés
+750	üres üveg||küldetés
+751	ezüst gyűrű||
+752	Horga'hn totem||küldetés
+753	tojás||küldetés
+754	haldokló Coldax||küldetés
+755	üres könyv||
+756	Munskpa kulcsa||küldetés
+757	Grohm spermája||küldetés
+758	koponya||küldetés
+759	koponya kulcs||küldetés
+760	Necronomicon||küldetés
+761	fekete amulett||küldetés
+762	cellák kulcsa||küldetés
+763	ismeretlen kulcs||
+764	goblin fejszéje||küldetés
+765	vas kulcs||küldetés
+766	tudós medál||küldetés
+767	ork karma||küldetés
+768	igazolványkép||küldetés
+769	isteni kiválasztott igazolvány||küldetés
+770	B-10 vásárlási bizonylat||küldetés
+771	aláírt AN-200 modell||küldetés
+772	AN-200 modell||küldetés
+773	AN-200 modell igénylőlap||küldetés
+774	jogi jóváhagyás||küldetés
+775	Harnakon hivatalos pecséte||küldetés
+776	Harnakon hivatalos alattvalójának igazolványa ||küldetés
+777	igazolvány igénylés Harnakon hivatalos alattvalójává váláshoz ||küldetés
+778	aláírt vásárlási bizonylat|aláírt bizonylat|küldetés
+779	sors kulcs||küldetés
+780	szörnyű halál||sors
+781	folyamatos gyötrelem||sors
+782	örökkétartó rabszolgaság||sors
+783	glória||glória
+784	újjászületés gömbje||
+785	bölcsesség könyve||szint
+786	tengeri kagyló||főzés
+787	zarándok védelme||zoran
+788	arany doboz||térkép
+789	mágikus zacskó||zacskó
+790	fuelle deteriorado||fuelle
+791	pañuelo usado||tela
+792	trozo de tela||tela
+793	tela ensangrentada||tela
+794	trozo de venda marrón||tela
+795	calcetín maloliente||tela
+796	restos de un guante||tela
+797	grebas de cuero rotas||tela
+798	trozo de capa||tela
+799	gallumbos con manchas marrones||tela
+800	pequeño tótem de madera||muñeco
+801	muñeco de trapo||muñeco
+802	hueso de pollo||hueso
+803	hueso de cerdo||hueso
+804	esqueleto de rata||hueso
+805	calavera||hueso
+806	huesesito||hueso
+807	costilla||hueso
+808	trozo de cráneo||hueso
+809	cuerno roto de cabra||hueso
+810	fémur roto||hueso
+811	hueso mordisqueado||hueso
+812	trozo de cuerda||cuerda
+813	cordón deshilachado||cuerda
+814	trozo de soga anudada||cuerda
+815	pequeño ovillo de hilo||cuerda
+816	restos de una cuerda||cuerda
+817	anillo chafado de fém||fém
+818	cucharita metálica||fém
+819	mango de una daga||fém
+820	bolita de fém||fém
+821	pendiente metálico roto||fém
+822	tubito de fém||fém
+823	argolla||fém
+824	eslavón abierto de cadena||fém
+825	cera||cera
+826	un ojo sangriento||ojo
+827	gusano pinchado en un palo||gusano
+828	cucaracha mordisqueada||animal
+829	rabo de rata||rabo
+830	rata muerta||rata
+831	dedo seccionado||dedo
+832	trozo de serpiente||animal
+833	oreja de elfo||oreja
+834	kulcs a bányához||
+835	kulcs a csatornához||
+836	kulcs a kertekhez||
+837	kulcs a könyvtárhoz||
+838	kulcs a katakombákhoz||
+839	kulcs a laboratóriumhoz||
+840	kulcs a folyosókhoz||
+841	kulcs a toronyhoz||
+842	llave de la torre abandonada||
+843	llave de la torre de los magos||
+844	||recept
+845	||recept
+846	||recept
+847	||recept
+848	||recept
+849	||recept
+850	||recept
+851	||recept
+852	||recept
+853	||recept
+854	||recept
+855	||recept
+856	||recept
+857	||recept
+858	||recept
+859	||recept
+860	||recept
+861	recept: kisebb gyógyítás itala||könyv
+862	recept: kisebb regeneráció itala||könyv
+863	recept: lassú méreg itala||könyv
+864	recept: ogre erő itala||könyv
+865	recept: csapdaérzékelés itala||könyv
+866	recept: méregcsökkentés itala||könyv
+867	recept: sebesség itala||könyv
+868	recept: infralátás itala||könyv
+869	recept: láthatatlan látásának itala||könyv
+870	recept: ellenméreg||könyv
+871	recept: gyógyítás itala||könyv
+872	recept: óriás erő itala||könyv
+873	recept: regeneráció itala||könyv
+874	recept: szellemalak itala||könyv
+875	recept: láthatatlanság itala||könyv
+876	recept: fejlett érzékelés itala||könyv
+877	recept: feltámasztás elixírje||könyv
+878	||
+879	||
+880	||
+881	||
+882	||
+883	||
+884	goblin idézése||goblin
+885	gyógyító goblin idézése||gyógyító
+886	csontváz idézése||csont
+887	csontváz íjász idézése||íjász
+888	csontváz mágus idézése||mágus
+889	járkáló páncél idézése||kék
+890	járkáló vörös páncél idézése||vörös
+891	járkáló zöld páncél idézése||zöld
+892	gyógyítás||gyógyít
+893	gyógyítás||gyógyít
+894	||
+895	sugár immunitás||
+896	||
+897	Harnakon kardja||
+898	Harnakon fejszéje||
+899	Harnakon kalapácsa||
+900	Harnakon lándzsája||
+901	||
+902	Kathiel||
+903	Meltroth||
+904	Venoma||
+905	Thimius||
+906	Vitatkéziis||
+907	Viscer Axis||
+908	Lex Divinius||
+909	Halbertus||
+910	tekercs: sugár immunitás||sugár
+911	tekercs: sugár védelem||sugár
+912	tekercs: teleport a bányába||bánya
+913	tekercs: teleport a csatornákba||csatorna
+914	tekercs: teleport a kertekbe||kert
+915	tekercs: teleport a könyvtárba||könyvtár
+916	tekercs: teleport a katakombákba||katak
+917	tekercs: teleport a laboratóriumba||lab
+918	tekercs: teleport a folyosókra||folyos
+919	tekercs: teleport a toronyba||torony
+920	tekercs: vasgólem||gólem
+921	tekercs: teleport a kristályokhoz||vég
+922	tudós ruhája||ruha
+923	pióca||pióca
+924	vámpír vérszívó||vámp
+925	elf fül||fül
+926	elf alsónemű||alsó
+927	||
+928	lézer||
+929	bomlasztó töltet||
+930	lézerfegyver||fegyver
+931	Romulán bomlasztó||bomlasztó
+932	Föderációs egyenruha||egyenruha
+933	Bat'leth||
+934	egyenruhae de romulano||egyenruha
+935	Klingon harcos páncél||klingon
+936	portál||
+937	teleport a portálhoz||
+938	könyv: portál||
+939	könyv: teleport a portálhoz||
+940	||
+941	világító tök||fény
+942	édesség||édesség
+943	csoki és csalás pálcája||csalás
+944	csontváz ruházat||csontváz
+945	pattogó tök||tök
+946	koponya gyűrű||koponya
+947	furcsa tekercs||
+948	||
+949	HarnaBank kulcs||
+950	mágikus toll||bank
+951	Austin Powers ruhája||Powers
+952	Sadu gyűrű||Sadu
+953	Rozsomák karja és karmai||
+954	Pokolfiú pusztító keze||
+955	Menyasszony ruhája||meny
+956	Megváltó gyűrű||mentő
+957	Hattori Hanzo katanája||
+958	mini Halálcsillag||halálcsillag
+959	||
+960	||
+961	Nemesi gyűrű||Nemesi
+962	újjászületés gömbje||
+963	Mágikus dzsungeltanga||Tanga
+964	Múmia mágikus karkötői||Múmia
+965	S-116 WASP||S-116
+966	||
+967	||
+968	||
+969	Clamyxia||
+970	Zúzó||
+971	Sorix||
+972	Gaetha||
+973	Driniux||
+974	Gomba||gomba
+975	Mágikus sajt||sajt
+976	Lassítás csaló tekercse||lassít
+977	Mérgezés csaló tekercse||méreg
+978	Kábítás csaló tekercse||kábít
+979	Összezavarás csaló tekercse||zavarás
+980	Halál csaló tekercse||halál
+981	||
+982	||
+983	||
+984	||
+985	||
+986	||
+987	||
+988	||
+989	||
+990	||
+991	||
+992	||
+993	az elementális mágia botja||
+994	az elementális mágia botja||
+995	az elementális mágia botja||
+996	az elementális mágia botja||
+997	az elementális mágia botja||
+998	az elementális mágia botja||
+999	az elementális mágia botja||
+1000	az elementális mágia botja||
+1001	az elementális mágia botja||
+1002	a vörös mágia botja||
+1003	a vörös mágia botja||
+1004	a vörös mágia botja||
+1005	a vörös mágia botja||
+1006	a vörös mágia botja||
+1007	a vörös mágia botja||
+1008	a vörös mágia botja||
+1009	a vörös mágia botja||
+1010	a vörös mágia botja||
+1011	a kék mágia botja||
+1012	a kék mágia botja||
+1013	a kék mágia botja||
+1014	a kék mágia botja||
+1015	a kék mágia botja||
+1016	a kék mágia botja||
+1017	a kék mágia botja||
+1018	a kék mágia botja||
+1019	a kék mágia botja||
+1020	a gyógyító mágia botja||
+1021	a gyógyító mágia botja||
+1022	a gyógyító mágia botja||
+1023	a gyógyító mágia botja||
+1024	a gyógyító mágia botja||
+1025	a gyógyító mágia botja||
+1026	a gyógyító mágia botja||
+1027	a gyógyító mágia botja||
+1028	a gyógyító mágia botja||
+1029	a nekromancia botja||
+1030	a nekromancia botja||
+1031	a nekromancia botja||
+1032	a nekromancia botja||
+1033	a nekromancia botja||
+1034	a nekromancia botja||
+1035	a nekromancia botja||
+1036	a nekromancia botja||
+1037	a nekromancia botja||
+1038	az isteni fény botja||
+1039	az isteni fény botja||
+1040	az isteni fény botja||
+1041	az isteni fény botja||
+1042	az isteni fény botja||
+1043	az isteni fény botja||
+1044	az isteni fény botja||
+1045	az isteni fény botja||
+1046	az isteni fény botja||
+1047	||
+1048	||
+1049	||
+1050	||
+1051	Rendaria||
+1052	Ortox||
+1053	Gork' Haul||
+1054	Stygma||
+1055	Zelantia||
+1056	Skorpió||
+1057	Kal'Hor vörös gyűrűje||
+1058	Ras'Kah kék gyűrűje||
+1059	A varázsló gyűrűje||
+1060	Koorah gyógyító gyűrűje||
+1061	Maldur védelmező gyűrűje||
+1062	||
+1063	ölés tőrrel||
+1064	ölés karddal||
+1065	ölés fejszével||
+1066	ölés buzogánnyal||
+1067	ölés szálfegyverrel||
+1068	ölés bottal||
+1069	ölés íjjal||
+1070	Jáde macska||macska
+1071	Ametiszt delfin||delfin
+1072	Amber eagle||eagle
+1073	Smaragd oroszlán||oroszlán
+1074	Ónix sárkány||sárkány
+1075	||
+1076	Dobókés||kés
+1077	Képesség: Dobókés||
+1078	Kábító csapás||kábít
+1079	Képesség: Kábító csapás||
+1080	Gyors roham||roham
+1081	Képesség: Gyors roham||
+1082	Tripla lövés||tripla
+1083	Képesség: Tripla lövés||
+1084	Altató varázslat||altat
+1085	Vámpír aura||vámp
+1086	könyv: Vámpír aura||
+1087	Fény aura||fény
+1088	könyv: Fény aura||
+1089	Isteni düh||düh
+1090	könyv: Isteni düh||
+1091	Mr. Red öltönye||Mr.Red
+1092	Fémes koponya kulcs||kulcs
+1093	kicsi mágikus zacskó||zacskó
+1094	közepes mágikus zacskó||zacskó
+1095	nagy mágikus zacskó||zacskó
+1096	óriási mágikus zacskó||zacskó
+1097	||
+1098	Fegyverátváltoztatás botja||átvál
+1099	tütü||tütü
+1100	||
+1101	Páncélátváltoztatás botja||átvál
+1102	Teleportálás gömbje||telep
+1103	tekercs: robbanó rúna||rúna
+1104	alakváltó ital||alakv
+1105	||
+1106	Bomba||bomba
+1107	||
+1108	Szellemfejsze||fejsze
+1109	Képesség: Szellemfejsze||
+1110	Szélvágás||szélvágás
+1111	Képesség: Szélvágás||
+1112	fal||fal
+1113	tető||tető
+1114	padló||padló
+1115	létra||létra
+1116	||
+1117	||
+1118	fény||fény
+1119	ajtó||ajtó
+1120	vörös csiga||csiga
+1121	kék csiga||csiga
+1122	zöld csiga||csiga
+1123	sárga csiga||csiga
+1124	narancssárga csiga||csiga
+1125	misztikus csiga||csiga
+1126	szatír||szatír
+1127	szarvas szatír||szatír
+1128	kígyó||kígyó
+1129	korallkígyó||kígyó
+1130	tengeri kígyó||kígyó
+1131	goblin őr||goblin
+1132	goblinvezető||goblin
+1133	gyógyító goblin||goblin
+1134	polip||polip
+1135	béka||béka
+1136	tüskés golyó||golyó
+1137	mérgező golyó||golyó
+1138	rák||rák
+1139	hangya||hangya
+1140	mérgező csótány||csótány
+1141	csáp||csáp
+1142	hangyaboly||hangyaboly
+1143	csontváz 1||csont1
+1144	csontváz 2||csont2
+1145	csontváz 3||csont3
+1146	csontváz íjász||íjász
+1147	csontváz nekromanta||csont
+1148	sír csontvázzal||sír
+1149	eltemetett csontváz||csont
+1150	kínzott lélek||lélek
+1151	kripta aktiválása||játék
+1152	szörny elpusztítása||szpusz
+1153	kék páncél||páncél
+1154	vörös páncél||páncél
+1155	zöld páncél||páncél
+1156	vörös sisak||sisak
+1157	kék sisak||sisak
+1158	misztikus sisak||sisak
+1159	haladó vörös sisak||sisak
+1160	haladó kék sisak||sisak
+1161	haladó misztikus sisak||sisak
+1162	medvecsapda||csapda
+1163	dárdacsapda||csapda
+1164	tüzes csapda fel||csapda
+1165	tüzes csapda le||csapda
+1166	szikla||szikla
+1167	csille||csille
+1168	kristálysugár||sugár
+1169	szörnyűzés||űzés
+1170	kar||kar
+1171	sír||sír
+1172	csúszó fal||fal
+1173	csúszó padló||padló
+1174	csúszó létra||létra
+1175	elpusztítható fal||fal
+1176	szörnymentes szoba létra||lét S
+1177	szörnymentes zóna létra||lét Z
+1178	szörny engedélyezése/tiltása||enged
+1179	gázmeghajtás||gáz
+1180	gázmeghajtású csempe||gáz
+1181	hordó||hordó
+1182	hordó esszenciával||hordó
+1183	hordó nyílvesszőkkel||hordó
+1184	esetlen bohóc||bohóc
+1185	tudós||tudós
+1186	járkáló tűz||tűz
+1187	kőgólem||gólem
+1188	tyúk||tyúk
+1189	kocsonyás kocka||kocka
+1190	ork börtönőr||ork
+1191	szellemtolvaj||tolvaj
+1192	kék varázsló||kék
+1193	húsevő növény||növény
+1194	vörös varázsló||vörös
+1195	ork lándzsás||ork
+1196	ork harcos||ork
+1197	jégkocka||jég
+1198	misztikus varázsló||misztikus
+1199	ent||ent
+1200	kamikaze patkány||patkány
+1201	világítás||világít
+1202	mágikus fújtató||fújtató
+1203	zászló||zászló
+1204	cél||cél
+1205	háttér: kripták||krip
+1206	háttér: csatorna||csator
+1207	háttér: bánya||bánya
+1208	háttér: torony||torony
+1209	háttér: folyosók||folyos
+1210	háttér: katakombák||katak
+1211	háttér: pókhálók||pókháló
+1212	háttér: mágikus szoba||mágia
+1213	tüskék||tüskék
+1214	láda||láda
+1215	vörös kulcs||kulcs
+1216	kék kulcs||kulcs
+1217	zöld kulcs||kulcs
+1218	sárga kulcs||kulcs
+1219	narancssárga kulcs||kulcs
+1220	vörös kulcs létrehozása||kulcs
+1221	kék kulcs létrehozása||kulcs
+1222	zöld kulcs létrehozása||kulcs
+1223	sárga kulcs létrehozása||kulcs
+1224	narancssárga kulcs létrehozása||kulcs
+1225	liftkapu||liftkapu
+1226	zár||zár
+1227	Kardvihar||vihar
+1228	Képesség: Kardvihar||
+1229	Füstfelhő||füst
+1230	Képesség: Füstfelhő||
+1231	Robbanó nyílvesszők||robb
+1232	Képesség: Robbanó nyílvesszők||
+1233	Rendkívüli hatótáv||scope
+1234	Képesség: Rendkívüli hatótáv||
+1235	||
+1236	Rengés||rengés
+1237	Képesség: Rengés
+1238	mágikus pálca||
+1239	Arkanita||Arkanita
+1240	Pyrita||Pyrita
+1241	Gelita||Gelita
+1242	Incendya||Incendya
+1243	Végleges fény||fény
+1244	Portál az Építészhez||portál
+1245	karok és párbeszédek újraindítása||újrain
+1246	platform||platf
+1247	párbeszéd||párbeszéd
+1248	fal párbeszéd||fal
+1249	létra párbeszéd||létra
+1250	kulcs a börtönhöz||
+1251	Zweigart||
+1252	Skeletroyer||
+1253	Devian||
+1254	Ontrixion||
+1255	Eviscerax||
+1256	Halálszárny||
+1257	láda egy tárggyal||láda
+1258	||
+1259	tekercs: közelharc immunitás||immu
+1260	tekercs: tűz immunitás||immu
+1261	tekercs: hideg immunitás||immu
+1262	tekercs: misztikus immunitás||immu
+1263	tekercs: hőaura||hő
+1264	tekercs: misztikus csapás||csapás
+1265	tekercs: közelharci szakértelem||közel
+1266	tekercs: íj szakértelem||íj
+1267	tekercs: megvilágítás||fény
+1268	tekercs: Midas átváltoztatás||midas
+1269	tekercs: fegyver fejlesztése||fejlesz
+1270	Fejszés kivégzés||Kivég
+1271	Képesség: Fejszés kivégzés||
+1272	||
+1273	Savas nyálka||sav
+1274	Anyag kondenzátor||kond
+1275	Mágikus kenyér||kenyér
+1276	Tőr szakértelem 1||tőr
+1277	Képesség: Tőr szakértelem 1||
+1278	Kard szakértelem 1||kard
+1279	Képesség: Kard szakértelem 1||
+1280	Buzogány szakértelem 1||buzog
+1281	Képesség: Buzogány szakértelem 1||
+1282	Fejsze szakértelem 1||fejsze
+1283	Képesség: Fejsze szakértelem 1||
+1284	Szálfegyver szakértelem 1||szálfegy
+1285	Képesség: Szálfegyver szakértelem 1||
+1286	Íj szakértelem 1||íjak
+1287	Képesség: Íj szakértelem 1||
+1288	Tőr szakértelem 2||tőr
+1289	Képesség: Tőr szakértelem 2||
+1290	Kard szakértelem 2||kard
+1291	Képesség: Kard szakértelem 2||
+1292	Buzogány szakértelem 2||buzog
+1293	Képesség: Buzogány szakértelem 2||
+1294	Fejsze szakértelem 2||fejsze
+1295	Képesség: Fejsze szakértelem 2||
+1296	Szálfegyver szakértelem 2||szálfegy
+1297	Képesség: Szálfegyver szakértelem 2||
+1298	Íj szakértelem 2||íjak
+1299	Képesség: Íj szakértelem 2||
+1300	Tőr szakértelem 3||tőr
+1301	Képesség: Tőr szakértelem 3||
+1302	Kard szakértelem 3||kard
+1303	Képesség: Kard szakértelem 3||
+1304	Buzogány szakértelem 3||buzog
+1305	Képesség: Buzogány szakértelem 3||
+1306	Fejsze szakértelem 3||fejsze
+1307	Képesség: Fejsze szakértelem 3||
+1308	Szálfegyver szakértelem 3||szálfegy
+1309	Képesség: Szálfegyver szakértelem 3||
+1310	Íj szakértelem 3||íjak
+1311	Képesség: Íj szakértelem 3||
+1312	GOG póló||gog
+1313	Klasszikus kontroller||
+1314	újonc tűzmágus koncentráció köpenye||köpeny
+1315	tűzmágus koncentráció köpenye||köpeny
+1316	nagy tűzmágus koncentráció köpenye||köpeny
+1317	újonc fagymágus koncentráció köpenye||köpeny
+1318	fagymágus koncentráció köpenye||köpeny
+1319	nagy fagymágus koncentráció köpenye||köpeny
+1320	újonc misztikus varázsló koncentráció köpenye||köpeny
+1321	misztikus varázsló koncentráció köpenye||köpeny
+1322	nagy misztikus varázsló koncentráció köpenye||köpeny
+1323	újonc fehér varázsló koncentráció köpenye||köpeny
+1324	fehér varázsló koncentráció köpenye||köpeny
+1325	nagy fehér varázsló koncentráció köpenye||köpeny
+1326	újonc gyógyító koncentráció köpenye||köpeny
+1327	gyógyító koncentráció köpenye||köpeny
+1328	nagy gyógyító koncentráció köpenye||köpeny
+1329	újonc tűzmágus védelem köpenye||köpeny
+1330	tűzmágus védelem köpenye||köpeny
+1331	nagy tűzmágus védelem köpenye||köpeny
+1332	újonc fagymágus védelem köpenye||köpeny
+1333	fagymágus védelem köpenye||köpeny
+1334	nagy fagymágus védelem köpenye||köpeny
+1335	újonc misztikus varázsló védelem köpenye||köpeny
+1336	misztikus varázsló védelem köpenye||köpeny
+1337	nagy misztikus varázsló védelem köpenye||köpeny
+1338	újonc fehér varázsló védelem köpenye||köpeny
+1339	fehér varázsló védelem köpenye||köpeny
+1340	nagy fehér varázsló védelem köpenye||köpeny
+1341	újonc gyógyító védelem köpenye||köpeny
+1342	gyógyító védelem köpenye||köpeny
+1343	nagy gyógyító védelem köpenye||köpeny
+1344	Megőrző varázslat||
+1345	Könyv: Megőrző varázslat||
+1346	Éjjellátás||éjjel
+1347	1. játékos kezdés||ini 1
+1348	2. játékos kezdés||ini 2
+1349	3. játékos kezdés||ini 3
+1350	4. játékos kezdés||ini 4
+1351	Buldózer||Buld
+1352	Mágikus tengeri csillag||csill
+1353	Ellenőrzőpont||ell
+1354	Platform párbeszéd||platf
+1355	Talaj párbeszéd||talaj
+1356	Teremgyilok platform||platf
+1357	Teremgyilok talaj||talaj
+1358	Teremgyilok fal||fal
+1359	Zónagyilok platform||platf
+1360	Gyújtó platform||platf
+1361	Gyújtó létra||létra
+1362	Gyújtó fal||fal
+1363	Gyújtó talaj||talaj
+1364	Jelenlét||csapda
+1365	párbeszéd fal||falbe
+1366	Város kulcsa||kulcs
+1367	||
+1368	zöld sissak||sisak
+1369	CubanB's Staff||CubanB's
+1370	Boss||boss
+1371	Invoker||Invoker
+1372	Santa clothes||Santa
+1373	scroll: telekinesis||tele
+1374	dummy humanoid 1||h1
+1375	dummy humanoid 2||h2
+1376	dummy humanoid 3||h3
+1377	dummy humanoid 4||h4
+1378	dummy humanoid 5||h5
+1379	dummy humanoid 6||h6
+1380	dummy humanoid 7||h7
+1381	dummy humanoid 8||h8
+1382	dummy humanoid 9||h9
+1383	dummy humanoid 10||h10
+1384	dummy humanoid 11||h11
+1385	dummy humanoid 12||h12
+1386	dummy humanoid 13||h13
+1387	dummy humanoid 14||h14
+1388	dummy humanoid 15||h15
+1389	dummy humanoid 16||h16
+1390	dummy humanoid 17||h17
+1391	dummy humanoid 18||h18
+1392	dummy humanoid 19||h19
+1393	dummy humanoid 20||h20
+1394	create skull key||key
+1395	create skull lock (consumes the key)||lock
+1396	spell of summon monster||summon
+1397	barrel 1||barrel 1
+1398	barrel 2||barrel 2
+1399	barrel 3||barrel 3
+1400	barrel 4||barrel 4
+1401	barrel 5||barrel 5
+1402	barrel 6||barrel 6
+1403	barrel 7||barrel 7
+1404	barrel 8||barrel 8
+1405	barrel 9||barrel 9
+1406	barrel 10||barrel 10
+1407	barrel 11||barrel 11
+1408	barrel 12||barrel 12
+1409	Baller's armor||baller
+1410	wasp||wasp
+1411	Night Ambient Light||night
+1412	speed allies||speed
+1413	str allies||str
+1414	bat||bat
+1415	Vampire Bat||vamp
+1416	prison door||door
+1417	Shack Door||door
+1418	barrel 13||barrel 13
+1419	barrel 14||barrel 14
+1420	barrel 15||barrel 15
+1421	barrel 16||barrel 16
+1422	barrel 17||barrel 17
+1423	barrel 18||barrel 18
+1424	barrel 19||barrel 19
+1425	barrel 20||barrel 20
+1426	orc big dagger||dagger
+1427	||
+1428	Railwand||rail
+1429	scroll: Meeting||meeting
+1430	Chain armor of the Lord||chain
+1431	Blessed platemail of Luxor||plate
+1432	Peices of Demonic armor||clothes
+1433	Light suite of the Champion||clothes
+1434	Blessed thornmail of Cecil||mail
+1435	Great robe of the alchemist||robe
+1436	Blessed armor of Raak||plate
+1437	Demonic staff||
+1438	Cursed edge||
+1439	Bouncing rock||rock
+1440	Rolling rock||rock
+1441	Enrage||enrage
+1442	Skill: Enrage||
+1443	Battle Cry||cry
+1444	Skill: Battle Cry||
+1445	Impale||impale
+1446	Skill: Impale||
+1447	Spirit arrows||spirit
+1448	Skill: Spirit arrows||
+1449	spirit arrow
+1450	Poisoned arrows||poison
+1451	Skill: Poisoned arrows||
+1452	Split shot||split
+1453	Skill: Split shot||
+1454	Lunge||lunge
+1455	Skill: Lunge||
+1456	Parry wall||parry
+1457	Skill: Parry wall||
+1458	Bomb||bomb
+1459	Skill: Bomb||
+1460	Web trap||web
+1461	Skill: Web trap||
+1462	Spell: web explosion||
+1463	Spell: mine explosion||
+1464	Exorcism||exor
+1465	Tome: Exorcism||
+1466	scroll: exorcism||exor
+1467	||
+1468	Wrath||thor
+1469	Skill: Wrath||
+1470	Cut purse||purse
+1471	Skill: Cut purse||
+1472	||
+1473	Javelin||javelin
+1474	Skill: javelin||
+1475	Justice||justice
+1476	Skill: justice||
+1477	Ruby ring of Eternity||etern
+1478	Topaz ring of Eternity||etern
+1479	Emerald ring of Eternity||etern
+1480	Amethist ring of Eternity||etern
+1481	Diamond ring of Eternity||etern
+1482	Master key||
+1483	Toy Key||
+1484	scroll: escape||
+1485	Death Cheater||death
+1486	||
+1487	Move out||move
+1488	Skill: Move out||
+1489	Critical strike||crit
+1490	Skill: Critical strike||
+1491	Charge||charge
+1492	Skill: Charge||
+1493	Voodoo Head||voodoo
+1494	||
+1495	Venomia||Venomia
+1496	Cursed Ring of Slow||slow
+1497	Ranger Deathwearer||
+1498	Ring of protection||prot
+1499	Ring of Speed||speed
+1500	Popolon's armor||
+1501	Aphrodite's armor||
+1502	Golem Armor||
+1503	Key World 1||key 1
+1504	Key World 2||key 2
+1505	Key World 3||key 3
+1506	Key World 4||key 4
+1507	Key World 5||key 5
+1508	Key World 6||key 6
+1509	Key World 7||key 7
+1510	Key World 8||key 8
+1511	Key World 9||key 9
+1512	Key World 10||key 10
+1513	Cross||cross
+1514	Bow||
+1515	Porcelain bow||
+1516	Dodge Death||death
+1517	tome: Dodge Death||
+1518	Unholly growth||growth
+1519	tome: Unholly growth||
+1520	Arcane shock||shock
+1521	tome: Arcane shock||
+1522	Exit Door||exit
