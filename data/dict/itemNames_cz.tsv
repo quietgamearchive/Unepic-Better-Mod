@@ -1,0 +1,1523 @@
+﻿0	||
+1	zlaťák||
+2	||
+3	||
+4	odolnost vůči zbraním||
+5	odolnost vůči ohni||
+6	odolnost vůči chladu||
+7	odolnost vůči arkánním uměním||
+8	odolnost vůči jedům||
+9	odolnost vůči polymorfu||
+10	odolnost vůči ochromení||
+11	odolnost vůči psychickým útokům||
+12	odolnost vůči všemu||
+13	||
+14	||
+15	uspání||
+16	zmatení||
+17	zděšení||
+18	slepota||
+19	ochromení||
+20	zpomalení||
+21	||
+22	||
+23	rychlost||
+24	ogří síla||
+25	infravidění||
+26	odhalování pastí||
+27	neviditelnost||
+28	vidění neviditelných||
+29	mimo realitu||
+30	regenerace||
+31	otrava||
+32	teleport||
+33	teleport||
+34	teleport||
+35	teleport||
+36	||
+37	kyselina||
+38	||
+39	||
+40	oheň||
+41	chlad||
+42	slabost||
+43	fázové dveře||
+44	zapomnění||
+45	ochrana pro boj zblízka||
+46	ochrana proti ohni||
+47	ochrana proti mrazu||
+48	ochrana proti arkánním uměním||
+49	tepelná aura||
+50	zpomalení otravy||
+51	snížení otravy||
+52	protijed||
+53	arkánní šok||
+54	mistrovství v boji zblízka||
+55	mistrovství v boji s luky||
+56	||
+57	||
+58	osvětlení||
+59	zničení všech sudů||
+60	přivolání síly ledu||
+61	nasměrování||
+62	energie||
+63	poškození||
+64	talentové body||
+65	ledový poryv||
+66	Midasova přeměna||Midas
+67	odhalování pastí a stěn||
+68	arkánní příval||
+69	arkánní nadvláda||nadvláda
+70	esence rudé magie|rudá esence|
+71	esence modré magie|modrá esence|
+72	esence zelené magie|zelená esence|
+73	esence zlaté magie|zlatá esence|
+74	esence arkánních umění|arkánní esence|
+75	esence žluté magie|žlutá esence|
+76	esence krystalové magie|krystalová esence|
+77	božská přízeň|božská přízeň|
+78	malý rubín||drahokam
+79	malý safír||drahokam
+80	malý smaragd||drahokam
+81	caca||
+82	dardo ligero||
+83	||
+84	||
+85	||
+86	||
+87	||
+88	||
+89	||
+90	||
+91	||
+92	||
+93	||
+94	||
+95	||
+96	||
+97	||
+98	||
+99	||
+100	||
+101	||
+102	||
+103	||
+104	||
+105	||
+106	||
+107	||
+108	||
+109	||
+110	||
+111	||
+112	||
+113	||
+114	ochromující šipka||
+115	oslabující šipka||
+116	zpomalující šipka||
+117	ohnivý výboj||
+118	ohnivý výboj||
+119	mrazivý výboj||
+120	mrazivý výboj||
+121	arkánní výboj||
+122	arkánní výboj||
+123	||
+124	krátký šíp||
+125	dlouhý šíp||
+126	kouzelný šíp||
+127	šíp||
+128	život||
+129	ohnivý výboj||
+130	světlice||světlice
+131	bludička||
+132	||
+133	||
+134	ohnivý výboj||
+135	šíp||
+136	||
+137	||
+138	ohnivý výboj||
+139	||
+140	||
+141	šíp||
+142	||
+143	||
+144	||
+145	šíp||
+146	lehká dýka||
+147	široká dýka||
+148	úzká dýka||
+149	široký nůž||
+150	průrazná dýka||
+151	zvlněná dýka||
+152	stříbrná dýka||
+153	zahnutá dýka||
+154	zakalená dýka||
+155	Zahnutá dýka Adjanti||
+156	krátký meč||
+157	gladius||
+158	široký meč||
+159	šavle||
+160	nájezdnický meč||
+161	tesák||
+162	meč bastard||
+163	velký široký meč||
+164	katana||
+165	elfský meč||
+166	nekromantův meč||
+167	Edwardova zahnutá čepel||
+168	rudý meč||
+169	Excalibur||
+170	kuchyňská sekera||
+171	malá sekera||
+172	jednoruční sekere||
+173	nájezdnická sekera||
+174	dvoubřitá sekera||
+175	kostitřas||
+176	bojová sekera||
+177	bitevní sekera||
+178	válečná sekera||
+179	dvoubřitá válečná sekera||
+180	xxx||
+181	Horga'hnova sekera||
+182	kost||
+183	garrote||
+184	garrote con clavo||
+185	mayal||
+186	bastón de trasgo curandero||
+187	palcát||
+188	kladivo||
+189	bojový palcát||
+190	kovářské kladivo||
+191	válečný placát||
+192	řemdih||
+193	válečné kladivo||
+194	velké kladivo||
+195	velký řemdih||
+196	martillo del golem||
+197	velikánský klíč||
+198	ohnivé žezlo||
+199	ledové žezlo||
+200	Kostilam||
+201	čarodějná hůl||
+202	paladinovo kladivo||
+203	lehké kopí||
+204	kopí||
+205	těžké kopí||
+206	píka||
+207	drápovité kopí||
+208	trojzubec||
+209	halapartna||
+210	dvojitá píka||
+211	velký trojzubec||
+212	trojzubec||
+213	Porcovač||
+214	lanza envenenada||
+215	espadón||
+216	espada bastarda||
+217	espada de pyros||
+218	maza calavera||
+219	květiny||
+220	kladivo na hraní||
+221	kandelábr||světlo
+222	pochodeň||světlo
+223	svítilna||světlo
+224	svíčka||světlo
+225	kouzelná svíce||světlo
+226	esfera luminosa de los hielos||light
+227	esfera luminosa del fuego||light
+228	esfera luminosa arcana||light
+229	esfera luminosa||light
+230	zapalovač||světlo
+231	rudá magická svíčka||světlo
+232	modrá magická svíčka||světlo
+233	klacík s hovnem||
+234	ballesta ligera||
+235	krátký lehký luk||
+236	krátký luk||
+237	vylepšený krátký luk||
+238	krátký skládací luk||
+239	dlouhý lehký luk||
+240	dlouhý luk||
+241	vylepšený dlouhý luk||
+242	dlouhý skládací luk||
+243	masivní dlouhý luk||
+244	dlouhý luk||
+245	dlouhý elfský luk||
+246	Větrolam||
+247	netopýří křídlo||
+248	satyrovy střeva||
+249	goblinní střeva||
+250	hadí oko||
+251	oko satyra||
+252	goblinní oko||
+253	vranní oko||
+254	oko chobotnice||
+255	žabí oko||
+256	hadí jazyk||
+257	rudý sliz||
+258	modrý sliz||
+259	zelený sliz||
+260	žlutý sliz||
+261	oranžový sliz||
+262	fialový sliz||
+263	roh satyra||
+264	polvo de cuerno de sátiro||
+265	hadí ocas||
+266	mravenčí noha||
+267	vranní pařát||
+268	kus chapadla||
+269	svítící výtrusy||
+270	otrávené žihadlo||
+271	přízračná hmota||
+272	Životní jiskra||
+273	kouzelný výboj||
+274	arkánní vlna||
+275	ohnivý výboj||
+276	ohnivá koule||
+277	ohnivá vlna||
+278	ohnivý dech||
+279	||
+280	mrazivý výboj||
+281	mrazivý dech||
+282	ledový proud||
+283	stalaktity||
+284	výboj světla||
+285	léčení||léčení
+286	pokročilé léčení||léčení 2
+287	pokročilé léčení||léčení 3
+288	úplné vyléčení||
+289	odolnost vůči zbraním||
+290	odolnost vůči ohni||
+291	odolnost vůči mrazu||
+292	odolnost vůči arkánním uměním||
+293	polymorf||slepice
+294	přeměna zbraně||zbraň
+295	spánek||spánek
+296	zpomalující lektvar||zpomalení
+297	zmatení||zmatení
+298	děs||
+299	oslepení||
+300	ochromení||
+301	zpomalení||zpomalení
+302	teleportace||
+303	blízkost||
+304	rychlost||rychlost
+305	ogří síla||síla
+306	nelidská síla||síla
+307	síla titánů||síla
+308	infravidění||infra.
+309	odhalování pastí||pasti
+310	neviditelnost||nevid.
+311	neviditelnost||nevid.
+312	neviditelnost||nevid.
+313	vidění neviditelného||invize
+314	přízračná forma||přízr. f.
+315	regenerace||regen.
+316	pokročilá regenerace||regen. 2
+317	pokročilá regenerace||regen. 3
+318	vylepšený ohnivý výboj||
+319	pokročilý ohnivý výboj||
+320	vylepšený mrazivý výboj||
+321	pokročilý mrazivý výboj||
+322	||
+323	||
+324	||
+325	||
+326	||
+327	||
+328	||
+329	||
+330	||
+331	||
+332	||
+333	zpomalující výboj||
+334	||
+335	||
+336	||
+337	vysátí života||
+338	||
+339	||
+340	||
+341	||
+342	||
+343	ledový poryv||poryv
+344	||
+345	||
+346	ledová zátarasa||zátarasa
+347	||
+348	arkánní nadvláda||nadvláda
+349	||
+350	tepelná aura||aura
+351	||
+352	||
+353	prostoupení ohněm||oheň
+354	prostoupení chladem||chlad
+355	prostoupení božským světlem||světlo
+356	prostoupení kyselinou||jed
+357	kletba mrtvých||kletba
+358	skrytý život||život
+359	smrtící oblak||
+360	snížení otravy||sníž. ot.
+361	bystrá mysl||mysl
+362	omráčení||omráčení
+363	přeměna rubínu||rubín
+364	přeměna safíru||safír
+365	přeměna smaragdu||smaragd
+366	fázové dveře||fáz. dv.
+367	||
+368	přeměna kovu||kov
+369	léčení spojenců||léčení
+370	protijed||protijed
+371	telekineze||telek.
+372	vylepšení zbraně||zbraň
+373	vylepšení brnění||brnění
+374	ochrana pro boj zblízka||boj zblízka
+375	||
+376	||
+377	ochrana vůči chladu||chlad
+378	ochrana vůči stínům||stín
+379	ochrana vůči ohni||oheň
+380	ochrana vůči jedům||jed
+381	volnost pohybu||pohyb
+382	psychická bariéra||mysl
+383	ochrana vůči polymorfu||polymorf
+384	navrácení střel||vrácení
+385	||
+386	teleport do důlního obchodu||důl
+387	teleport do obchodu ve stokách||stoky
+388	teleport do zahradního obchodu||zahrada
+389	teleport do knihovního obchodu||knihovna
+390	teleport do obchodu v katakombách||katakomby
+391	teleport do laboratorního obchodu||laboratoř
+392	teleport do obchodu v síních||síně
+393	teleport do obchodu ve věžích||věž
+394	vyvolání ohnivého ducha||oheň
+395	šílenství||šílenství
+396	hromadné uzdravení||léčení
+397	||
+398	||
+399	psychická nadvláda||nadvláda
+400	vykoupení||vykoupení
+401	||
+402	teleport||
+403	fázové dveře||
+404	zapomnění||
+405	spis: O Kouzelném výboji||
+406	spis: O Arkánní vlně||
+407	spis: O Ohnivém výboji||
+408	spis: O Ohnivé kouli||
+409	spis: O Ohnivé vlně||
+410	spis: O Ohnivém dechu||
+411	spis: O Hromadném zničení||
+412	spis: O Mrazivém výboji||
+413	spis: O Mrazivém dechu||
+414	spis: O Ledovém proudu||
+415	spis: O Stalaktitech||
+416	spis: O Světelném výboji||
+417	spis: O Léčení||
+418	spis: O Vylepšeném léčení||
+419	spis: O Vylepšeném léčení||
+420	spis: O Úplném vyléčení||
+421	||
+422	||
+423	||
+424	||
+425	spis: O Polymorfu||
+426	spis: O Přeměnách zbraní ||
+427	spis: O Uspání||
+428	||
+429	||
+430	spis: O Oslepení||
+431	spis: O Ochromení||
+432	spis: O Zpomalení||
+433	spis: O Teleportu||
+434	spis: O Blízkosti||
+435	spis: O Rychlosti||
+436	spis: O Nelidské síle||
+437	spis: O Obří síle||
+438	spis: O Titání síle||
+439	spis: O Infravidění||
+440	spis: O Odhalování pastí||
+441	spis: O Neviditelnosti||
+442	||
+443	||
+444	spis: O Vidění neviditelného||
+445	spis: O Přízračné formě||
+446	spis: O Regeneraci||
+447	spis: O Pokročilé regeneraci||
+448	spis: O Pokročilé regeneraci||
+449	spis: O Vylepšeném ohnivém výboji||
+450	spis: O Ledovém poryvu||
+451	spis: O Vyvolání ledového bloku||
+452	spis: O Zpomalení otravy||
+453	spis: O Arkánní nadvládě||
+454	spis: O Tepelné auře||
+455	spis: O Prostoupení ohněm||
+456	spis: O Prostoupení chladem||
+457	spis: O Prostoupení božským světlem||
+458	spis: O Prostoupení kyselinou||
+459	spis: O Kletbě mrtvých||
+460	spis: O Skrytém životě||
+461	spis: O Smrtícím oblaku||
+462	spis: O Snížení otravy||
+463	spis: O Bystré mysli||
+464	spis: O Omráčení||
+465	spis: O Přeměně rubínu||
+466	spis: O Přeměně safíru||
+467	spis: O Přeměně smaragdu||
+468	spis: O Fázových dveřích||
+469	||
+470	spis: O Přeměně kovů||
+471	spis: O Léčení spojenců||
+472	spis: O Protijedu||
+473	spis: O Telekinezi||
+474	spis: O Vylepšených zbraních||
+475	spis: O Vylepšení brnění||
+476	spis: O Ochraně v boji||
+477	spis: O Ochraně vůči chladu||
+478	spis: O Ochraně vůči přízrakům||
+479	spis: O Ochraně vůči ohni||
+480	spis: O Ochraně vůči jedům||
+481	spis: O Volném pohybu||
+482	spis: O Psychické bariéře||
+483	spis: O Ochraně vůči polymorfu||
+484	spis: O Vracení střel||
+485	spis: Teleport do důlního obchodu||
+486	spis: Teleport do obchodu ve stokách||
+487	spis: Teleport do zahradního obchodu||
+488	spis: Teleport do knihovního obchodu||
+489	spis: Teleport do obchodu v katakombách||
+490	spis: Teleport do laboratorního obchodu||
+491	spis: Teleport do obchodu v síních||
+492	spis: Teleport do obchodu ve věžích||
+493	spis: O Vyvolání ohnivého ducha||
+494	spis: O Šílenství||
+495	spis: O Vylepšeném ohnivém výboji||
+496	spis: O Hromadném uzdravení||
+497	spis: O Vylepšeném mrazivém výboji||
+498	spis: O Pokročilém mrazivém výboji||
+499	spis: O Psychické nadvládě||
+500	spis: O Vykoupení||
+501	kouzelná hůlka||výboj
+502	proutek ohnivého výboje||ohn. výboj
+503	proutek ohnivé koule||ohn. koule
+504	proutek polymorfu||polymorf
+505	šaškova hůl||polymorf
+506	uspávací hůlka||uspání
+507	uspávací hůlka||uspání
+508	matoucí hůlka||zmatení
+509	hůlka strachu||strach
+510	oslepující hůlka||oslepení
+511	ochromující hůlka||paralýza
+512	zpomalující hůlka||zpomalení
+513	proutek daleké teleportace||dalk. tel.
+514	proutek blízké teleportace||blíz. tel.
+515	proutek mrazivých výbojů||led
+516	odpalovač světlic||světlice
+517	proutek ohnivých výbojů||oheň
+518	paprsková hůlka||paprsek
+519	||
+520	||
+521	||
+522	||
+523	městský oděv||oděv
+524	hraničářův oděv||oděv
+525	prošívaná zbroj||oděv
+526	lehká kožená zbroj||kůže
+527	kožená zbroj||kůže
+528	okovaná kožená zbroj||kůže
+529	vyztužená kožená zbroj||kůže
+530	kroužková zbroj||kroužk. z.
+531	vyztužená kroužková zbroj||kroužk. z.
+532	šupinová zbroj||šupin. z.
+533	vyztužená šupinová zbroj||šupin z.
+534	plátová zbroj||plátová z.
+535	bílé plastikové brnění||brnění
+536	šupinová zbroj obřího mořského hada||šupin z.
+537	šupinová zbroj obřího ohnivého hada||šupin z.
+538	šupinová zbroj obří kobry||šupin z.
+539	šupinová zbroj obřího šarlatového hada||šupin z.
+540	šupinová zbroj obřího mořského draka||šupin z.
+541	šupinová zbroj obřího ohnivého draka||šupin z.
+542	šupinová zbroj obřího černého draka||šupin z.
+543	šupinová zbroj obřího šarlatového draka||šupin z.
+544	nekromantův oděv||oděv
+545	bronzový kyrys||plátová z.
+546	stříbrný kyrys||plátová z.
+547	zlatý kyrys||plátová z.
+548	azuritový kyrys||kroužk. z.
+549	roucho ohnivého novice||roucho
+550	roucho ohnivého čaroděje||roucho
+551	roucho velkého ohnivého čaroděje||roucho
+552	roucho ledového novice||roucho
+553	roucho ledového čaroděje||roucho
+554	roucho velkého ledového čaroděje||roucho
+555	roucho arkánního novice||roucho
+556	roucho arkánního černokněžníka||roucho
+557	roucho velkého arkánního černokněžníka||roucho
+558	roucho bílého novice||roucho
+559	roucho bílého čaroděje||roucho
+560	roucho velkého bílého čaroděje||roucho
+561	roucho nezasvěceného klerika||roucho
+562	roucho klerika||roucho
+563	roucho velkého klerika||roucho
+564	tričko & džíny||oděv
+565	prázdný malý flakónek||
+566	středně velký prázdný flakónek||
+567	velký prázdný flakónek||
+568	lektvar mírného uzdravení||léčení
+569	lektvar uzdravení||léčení
+570	lektvar velkého uzdravení||léčení
+571	lektvar úplného uzdravení||léčení
+572	lektvar zpomalení||
+573	lektvar ochromení||
+574	lektvar zpomalení otravy||zpomalení
+575	lektvar snížení otravy||sníž. ot.
+576	protijed||protijed
+577	lektvar rychlosti||rychlost
+578	lektvar nelidské síly||síla
+579	lektvar obří síly||síla
+580	lektvar titání síly||síla
+581	lektvar odhalování pastí||past
+582	lektvar infravidění||infravid.
+583	lektvar vidění neviditelného||invize
+584	lektvar neviditelnosti||nevid.
+585	lektvar neviditelnosti||nevid.
+586	lektvar neviditelnosti||nevid.
+587	lektvar přízračné formy||přízr.
+588	lektvar mírné regenerace||rege.
+589	lektvar regenerace||rege.
+590	lektvar úplné regenerace||rege.
+591	lektvar jedu||
+592	lektvar silného jedu||
+593	lektvar smrtícího jedu||
+594	léčivá mast||
+595	lektvar vylepšeného odhalování||stěny
+596	elixír vzkříšení||
+597	svitek ochrany pro boj zblízka||ochrana
+598	svitek ochrany vůči ohni||ochrana
+599	svitek ochrany vůči chladu||ochrana
+600	svitek arkánní ochrany||ochrana
+601	svitek odolnosti pro boj zblízka||odolnost
+602	svitek odolnosti vůči ohni||odolnost
+603	svitek odolnosti vůči chladu||odolnost
+604	svitek odolnosti vůči arkánním uměním||odolnost
+605	svitek tepelné aury||teplo
+606	svitek arkánního šoku||šok
+607	svitek mistrovství v boji zblízka||zblízka
+608	svitek mistrovství v boji s lukem||luk
+609	svitek teleportu k Zoranovi||Zoran
+610	svitek teleportu do kuchyně||kuchyně
+611	svitek fázových dveří||fáze
+612	svitek osvětlení||světlo
+613	svitek zničení sudů||sudy
+614	svitek ledového bloku||led
+615	svitek nasměrování||nasměr.
+616	svitek návratu||návrat
+617	svitek pozitivní energie||energie
+618	svitek spánku||spánek
+619	svitek Midasovy přeměny||Midas
+620	svitek vylepšení zbraně||vylepšen.
+621	svitek šílenství||šílenství
+622	prsten zabijáka||poškoz.
+623	prsten válečníka||poškoz.
+624	prsten kováře||poškoz.
+625	prsten řezníka||poškoz.
+626	prsten vojáka||poškoz.
+627	prsten lučištníka||poškoz.
+628	prsten zohavení||poškoz.
+629	prsten hraničáře||poškoz.
+630	prsten paladina||poškoz.
+631	prsten barbara||poškoz.
+632	prsten ohně||poškoz.
+633	prsten ledu||poškoz.
+634	prsten čaroděje||poškoz.
+635	prsten klerika||poškoz.
+636	prsten elementů||poškoz.
+637	prsten síly||poškoz.
+638	Kol'Zarekův prsten síly||síla
+639	prsten obratného zabijáka||rychlost
+640	prsten obratného válečníka||rychlost
+641	prsten obratného kováře||rychlost
+642	prsten obratného řezníka||rychlost
+643	prsten obratného vojáka||rychlost
+644	prsten obratného lučištníka||rychlost
+645	prsten obratného čističe||rychlost
+646	prsten obratného hraničáře||rychlost
+647	prsten obratného paladina||rychlost
+648	prsten obratného barbara||rychlost
+649	mistrovský prsten zabijáka||krit. út.
+650	mistrovský prsten válečníka||krit. út.
+651	mistrovský prsten kováře||krit. út.
+652	mistrovský prsten řezníka||krit. út.
+653	mistrovský prsten vojáka||krit. út.
+654	mistrovský prsten lučištníka||krit. út.
+655	mistrovský prsten ohně||krit. út.
+656	mistrovský prsten ledu||krit. út.
+657	mistrovský prsten čaroděje||krit. út.
+658	mistrovský prsten rytíře||krit. út.
+659	mistrovský prsten klerika||krit. út.
+660	mistrovský prsten elementů||krit. út.
+661	mistrovský prsten síly||krit. út.
+662	mistrovský prsten čističe||krit. út.
+663	mistrovský prsten hraničáře||krit. út.
+664	mistrovský prsten paladina||krit. út.
+665	mistrovský prsten barbara||krit. út.
+666	ochranný prsten válečníka||ochrana
+667	ochranný prsten lučištníka||ochrana
+668	ochranný prsten ohně||ochrana
+669	ochranný prsten ledu||ochrana
+670	ochranný prsten čarodějů||ochrana
+671	ochranný prsten nekromantů||ochrana
+672	ochranný prsten elementů||ochrana
+673	ochranný prsten síly||ochrana
+674	prsten života||život
+675	prsten duchů||život
+676	prsten učně||zkš
+677	prsten šarlatána||léčení
+678	prsten snížení otravy||jed
+679	prsten regenerace||rege.
+680	prsten podsvětí||nekrom.
+681	prsten nebes||skok
+682	houba rychlosti||rychlost
+683	Jiskra života||život
+684	||
+685	||
+686	||
+687	||
+688	||
+689	||
+690	||
+691	||
+692	||
+693	||
+694	||
+695	||
+696	||
+697	||
+698	||
+699	||
+700	||
+701	||
+702	||
+703	||
+704	||
+705	||
+706	zlato||
+707	||
+708	Plovoucí oko||oko
+709	Mládě zeleného draka||drak
+710	Nafouklá žába||žába
+711	Létající kytka||rostlina
+712	Coldax||led
+713	Vesmírná sušenka s doutníkem||sušenka
+714	Lebka||lebka
+715	Duch světla||duch
+716	Gatchan||Gatchan
+717	prázdný list||list
+718	dokonale černé pírko|černé pírko|pírko
+719	černý inkoust||inkoust
+720	kousek Poseidonovy sochy|kus sochy|socha
+721	velký oválný safír||safír
+722	korálová koruna||koruna
+723	||
+724	hnojivo||kompost
+725	bílý mramorový hrnec|hrnec|úkol
+726	mandragora v mramorovém hrnci|mandragora|úkol
+727	kus zlatého štítu|kus štítu|štít
+728	||
+729	||
+730	||
+731	kapradí||kapradí
+732	||
+733	velký kus pyritu||pyrit
+734	síra||síra
+735	||
+736	||
+737	||
+738	||
+739	kovadlina||kovadlina
+740	dřevo||dřevo
+741	měch||měch
+742	||
+743	||
+744	rtuť||rtuť
+745	černý klíč||klíč
+746	rozbité soukolí||soukolí
+747	panenka||panenka
+748	štětka||štětka
+749	sklenice plná vody||úkol
+750	prázdná sklenice||úkol
+751	stříbrný prsten||
+752	Horga'hnův totem||úkol
+753	vejce||úkol
+754	umírající Coldax||úkol
+755	prázdná kniha||
+756	Munskpův klíč||úkol
+757	Grohmovo sperma||úkol
+758	lebka||úkol
+759	klíč lebek||úkol
+760	Necronomicon||úkol
+761	černý amulet||úkol
+762	klíč od cel||úkol
+763	neznámý klíč||
+764	goblinní sekera||úkol
+765	železný klíč||úkol
+766	medaile za vědu||úkol
+767	skřetí pařát||úkol
+768	průkaz s fotkou||úkol
+769	bohem schválený průkaz||úkol
+770	certifikát k získání B-10||úkol
+771	podepsaný formulář AN-200||úkol
+772	formulář AN-200||úkol
+773	žádost o formulář AN-200||úkol
+774	legislativní schválení||úkol
+775	oficiální pečeť Harnakona||úkol
+776	průkaz Harnakonova oficiálního přisluhovače||úkol
+777	žádost o průkaz Harnakonova oficiálního přisluhovače||úkol
+778	podepsaný certifikát o obdržení|podepsaný certf.|úkol
+779	klíč k osudu||úkol
+780	osud strašlivé smrti||osud
+781	osud věčného utrpení||osud
+782	osud nikdy nekončícího otroctví||osud
+783	svatozář||svatozář
+784	koule znovuzrození||
+785	kniha moudrosti||úroveň
+786	mořská ulita||kuchyně
+787	poutníkova ulita||Zoran
+788	zlatý box||mapa
+789	kouzelný vak||vak
+790	fuelle deteriorado||fuelle
+791	pańuelo usado||tela
+792	trozo de tela||tela
+793	tela ensangrentada||tela
+794	trozo de venda marrón||tela
+795	calcetín maloliente||tela
+796	restos de un guante||tela
+797	grebas de cuero rotas||tela
+798	trozo de capa||tela
+799	gallumbos con manchas marrones||tela
+800	pequeńo tótem de madera||muńeco
+801	muńeco de trapo||muńeco
+802	hueso de pollo||hueso
+803	hueso de cerdo||hueso
+804	esqueleto de rata||hueso
+805	calavera||hueso
+806	huesesito||hueso
+807	costilla||hueso
+808	trozo de cráneo||hueso
+809	cuerno roto de cabra||hueso
+810	fémur roto||hueso
+811	hueso mordisqueado||hueso
+812	trozo de cuerda||cuerda
+813	cordón deshilachado||cuerda
+814	trozo de soga anudada||cuerda
+815	pequeńo ovillo de hilo||cuerda
+816	restos de una cuerda||cuerda
+817	anillo chafado de metal||metal
+818	cucharita metálica||metal
+819	mango de una daga||metal
+820	bolita de metal||metal
+821	pendiente metálico roto||metal
+822	tubito de metal||metal
+823	argolla||metal
+824	eslavón abierto de cadena||metal
+825	cera||cera
+826	un ojo sangriento||ojo
+827	gusano pinchado en un palo||gusano
+828	cucaracha mordisqueada||animal
+829	rabo de rata||rabo
+830	rata muerta||rata
+831	dedo seccionado||dedo
+832	trozo de serpiente||animal
+833	oreja de elfo||oreja
+834	klíč od dolů||
+835	klíč od stok||
+836	klíč od zahrad||
+837	klíč od knihovny||
+838	klíč od katakomb||
+839	klíč od laboratoře||
+840	klíč od síní||
+841	klíč od věží||
+842	llave de la torre abandonada||
+843	llave de la torre de los magos||
+844	||recept
+845	||recept
+846	||recept
+847	||recept
+848	||recept
+849	||recept
+850	||recept
+851	||recept
+852	||recept
+853	||recept
+854	||recept
+855	||recept
+856	||recept
+857	||recept
+858	||recept
+859	||recept
+860	||recept
+861	recept na lektvar mírného uzdravení||kniha
+862	recept na lektvar mírné regenerace||kniha
+863	recept na lektvar zpomalení otravy||kniha
+864	recept na lektvar nelidské síly||kniha
+865	recept na lektvar odhalování pastí||kniha
+866	recept na lektvar snížení otravy||kniha
+867	recept na lektvar rychlosti||kniha
+868	recept na lektvar infravidění||kniha
+869	recept na lektvar vidění neviditelného||kniha
+870	recept na protijed||kniha
+871	recept na lektvar uzdravení||kniha
+872	recept na lektvar obří síly||kniha
+873	recept na lektvar regenerace||kniha
+874	recept na lektvar přízračné formy||kniha
+875	recept na lektvar neviditelnosti||kniha
+876	recept na lektvar vylepšeného odhalování||kniha
+877	recept na elixír vzkříšení||kniha
+878	||
+879	||
+880	||
+881	||
+882	||
+883	||
+884	vyvolání goblina||goblin
+885	vyvolání léčivého goblina||léčitel
+886	vyvolání kostlivce||kostl.
+887	vyvolání kostlivého lučištníka||lučišt.
+888	vyvolání čarodějného kostlivce||čaroděj
+889	vyvolání oživlého brnění||modré
+890	vyvolání oživlého rudého brnění||rudé
+891	vyvolání oživlého zeleného brnění||zelené
+892	uzdravení||léčení
+893	uzdravení||léčení
+894	||
+895	odolnost vůči paprskům||
+896	||
+897	Harnakonův meč||
+898	Harnakonova sekera||
+899	Harnakonovo kladivo||
+900	Harnakonovo kopí||
+901	||
+902	Kathiel||
+903	Meltroth||
+904	Venoma||
+905	Thimius||
+906	Vitathandis||
+907	Viscer Axis||
+908	Lex Divinius||
+909	Halbertus||
+910	svitek odolnosti vůči paprskům||paprsek
+911	svitek odolnosti vůči paprskům||paprsek
+912	svitek teleportu do dolů||důl
+913	svitek teleportu do stok||stoka
+914	svitek teleportu do zahrad||zahrada
+915	svitek teleportu do knihovny||knihovna
+916	svitek teleportu do katakomb||katakomby
+917	svitek teleportu do laboratoří||laboratoř
+918	svitek teleportu do síní||síně
+919	svitek teleportu do věží||věž
+920	svitek železného golema||golem
+921	svitek teleportu ke krystalům||konec
+922	vědcův oděv||oděv
+923	pijavice||pijavice
+924	upíří piják||piják
+925	elfské ucho||ucho
+926	elfské spodky||spodky
+927	||
+928	||
+929	||
+930	laser||laser
+931	disruptor||disrupt.
+932	rudé pyžamo||uniforma
+933	meč vesmírného válečníka||
+934	uniforma vesmírného elfa||uniforma
+935	brnění vesmírného válečníka||brnění
+936	portál||
+937	teleport k portálu||
+938	spis: O Portálu||
+939	spis: O Teleportu k portálu||
+940	||
+941	zažehnutá dýně||světlo
+942	cukrovinka||sladkost
+943	kolednická hůlka||hůlka
+944	kostým kostlivce||kostlivec
+945	poskakující dýně||dýně
+946	prsten lebek||lebka
+947	podivný svitek||
+948	||
+949	klíč od HarnaBanky||
+950	kouzelné pírko||banka
+951	mocný rudý oblek gentlemana||moc
+952	prsten Sadu||Sadu
+953	paže s drápy||
+954	ruka zkázy||
+955	žlutý motorkářský oblek||oblek
+956	prsten spasení||spasení
+957	katana Hatta Hanzoriho||
+958	malá vesmírná koule||koule
+959	||
+960	||
+961	královský prsten||prsten
+962	orb znovuzrození||
+963	kouzelná pralesní tanga||tanga
+964	mumiiny kouzelné obvazy||obvazy
+965	S-116 WASP||S-116
+966	||
+967	||
+968	||
+969	Clamyxia||
+970	Drtič||
+971	Sorix||
+972	Gaetha||
+973	Driniux||
+974	houba||houba
+975	kouzelný sýr||kouz. sýr.
+976	švindlovací svitek zpomalení||zpomal.
+977	švindlovací svitek otrávení||otrava
+978	švindlovací svitek omráčení||omráčení
+979	švindlovací svitek zmatení||zmatení
+980	švindlovací svitek smrti||smrt
+981	||
+982	||
+983	||
+984	||
+985	||
+986	||
+987	||
+988	||
+989	||
+990	||
+991	||
+992	||
+993	hůl elementální magie||
+994	hůl elementální magie||
+995	hůl elementální magie||
+996	hůl elementální magie||
+997	hůl elementální magie||
+998	hůl elementální magie||
+999	hůl elementální magie||
+1000	hůl elementální magie||
+1001	hůl elementální magie||
+1002	hůl rudé magie||
+1003	hůl rudé magie||
+1004	hůl rudé magie||
+1005	hůl rudé magie||
+1006	hůl rudé magie||
+1007	hůl rudé magie||
+1008	hůl rudé magie||
+1009	hůl rudé magie||
+1010	hůl rudé magie||
+1011	hůl modré magie||
+1012	hůl modré magie||
+1013	hůl modré magie||
+1014	hůl modré magie||
+1015	hůl modré magie||
+1016	hůl modré magie||
+1017	hůl modré magie||
+1018	hůl modré magie||
+1019	hůl modré magie||
+1020	hůl léčivé magie||
+1021	hůl léčivé magie||
+1022	hůl léčivé magie||
+1023	hůl léčivé magie||
+1024	hůl léčivé magie||
+1025	hůl léčivé magie||
+1026	hůl léčivé magie||
+1027	hůl léčivé magie||
+1028	hůl léčivé magie||
+1029	hůl nekromancie||
+1030	hůl nekromancie||
+1031	hůl nekromancie||
+1032	hůl nekromancie||
+1033	hůl nekromancie||
+1034	hůl nekromancie||
+1035	hůl nekromancie||
+1036	hůl nekromancie||
+1037	hůl nekromancie||
+1038	hůl božského světla||
+1039	hůl božského světla||
+1040	hůl božského světla||
+1041	hůl božského světla||
+1042	hůl božského světla||
+1043	hůl božského světla||
+1044	hůl božského světla||
+1045	hůl božského světla||
+1046	hůl božského světla||
+1047	||
+1048	||
+1049	||
+1050	||
+1051	Rendaria||
+1052	Ortox||
+1053	Gork' Haul||
+1054	Stygma||
+1055	Zelantia||
+1056	Škorpión||
+1057	Rudý prsten Kal'Horu||
+1058	Modrý prsten Ras'Kahu||
+1059	Prsten Černokněžníka||
+1060	Léčivý prsten Koorahu||
+1061	Ochranný prsten Maldura||
+1062	||
+1063	dýkou na rozloučenou||
+1064	mečem na rozloučenou||
+1065	sekyrou na rozloučenou||
+1066	kladivem na rozloučenou||
+1067	dřevcem na rozloučenou||
+1068	holí na rozloučenou||
+1069	lukem na rozloučenou||
+1070	Nefritová kočka||kočka
+1071	Ametystový delfín||sekera
+1072	Jantarový sokol||sokol
+1073	Stříbrný lev||lev
+1074	Onyxový drak||drak
+1075	||
+1076	vrhací nůž||nůž
+1077	umění vrhání nožů||
+1078	omračující úder||omráčení
+1079	umění omračujícího úderu||
+1080	rychlé nabití||nabití
+1081	umění rychlého nabití||
+1082	trojitá střela||trojtě
+1083	umění trojité střely||
+1084	uspávací kouzlo||uspání
+1085	upíří aura||up. aura
+1086	spis: O Upíří auře||
+1087	aura světla||světlo
+1088	spis: O Auře světla||
+1089	božský hněv||hněv
+1090	spis: O Božském hněvu||
+1091	oblek Pana červeného||pan červ.
+1092	kovový klíč lebek||klíč
+1093	malý kouzelný vak||vak
+1094	střední kouzelný vak||vak
+1095	velký kouzelný vak||vak
+1096	obrovský kouzelný vak||vak
+1097	||
+1098	hůl polymorfované zbraně
+1099	tutu||tutu
+1100	||
+1101	hůl polymorfovaného brnění
+1102	orb teleportace
+1103	svitek výbušné runy
+1104	dvojčecí lektvar
+1105	||
+1106	bomba||bomba
+1107	||
+1108	přízračná sekera||sekera
+1109	umění přízračné sekery||
+1110	větrošvih||švih
+1111	umění větrošvihu||
+1112	zeď||zeď
+1113	střecha||střecha
+1114	podlaha||podlaha
+1115	žebřík||žebřík
+1116	zničit žebřík||žebř. pryč
+1117	zničit předmět||zničit př.
+1118	světlo||světlo
+1119	dveře||dveře
+1120	rudý slimák||slimák
+1121	modrý slimák||slimák
+1122	zelený slimák||slimák
+1123	žlutý slimák||slimák
+1124	oranžový slimák||slimák
+1125	arkánní slimák||slimák
+1126	satyr||satyr
+1127	rohatý satyr||satyr
+1128	had||had
+1129	korálovec||korál.
+1130	mořský had||moř. had
+1131	strážný goblin||gob. stráž
+1132	odvážný goblin||odv. goblin
+1133	goblin léčitel||léčt.
+1134	chobotnice||chobot.
+1135	žába||žába
+1136	okovaná koule||kov. koule
+1137	jedovatá koule||jed. koule
+1138	krab||krab
+1139	mravenec||mravnc.
+1140	jedovatý šváb||šváb
+1141	chapadlo||chapadlo
+1142	mraveniště||mravště.
+1143	kostlivec 1||kostl.1
+1144	kostlivec 2||kostl.2
+1145	kostlivec 3||kostl.3
+1146	kostlivý lučištník||lučišt.
+1147	kostlivý nekromant||nekrmnt.
+1148	hrob s kostlivcem||hrob
+1149	zakopaný kostlivec||kostl.
+1150	zmučená duše||duše
+1151	spustit dobrodružství||hrát
+1152	zničit nestvůry||nestv. znč.
+1153	modré brnění||brnění
+1154	rudé brnění||brnění
+1155	zelené brnění||brnění
+1156	rudá helma||helma
+1157	modrá helma||helma
+1158	arkánní helma||helma
+1159	vylepšená rudá helma||helma
+1160	vylepšená modrá helma||helma
+1161	vylepšená arkánní helma||helma
+1162	past na medvědy||past
+1163	past s oštěpem||past
+1164	stropní ohnivá léčka||past
+1165	pozemní ohnivá léčka||past
+1166	skála||skála
+1167	důlní vagón||vagón
+1168	paprskový krystal||krystal
+1169	zmást nestvůru||zmatení
+1170	páka||páka
+1171	hrob||hrob
+1172	jezdící zeď||zeď
+1173	jezdící podlaha||podlaha
+1174	jezdící žebřík||žebřík
+1175	zničitelná zeď||zeď
+1176	signální žebřík M||žebř. M
+1177	signální žebřík O||žebř. O
+1178	vyhnat/zahnat příšeru||v/z příš.
+1179	plynová tryska||tryska
+1180	kachlík s plyn. tryskou||kachlík
+1181	sud||sud
+1182	sud s esencemi||sud
+1183	sud s šípy||sud
+1184	hulvátský šašek||šašek
+1185	vědec||vědec
+1186	kráčející oheň||oheň
+1187	kamenný golem||golem
+1188	slepice||slepice
+1189	želatinová kostka||kostka
+1190	skřet žalářník||skřet
+1191	přízračný zloděj||zloděj
+1192	modrý čaroděj||čaroděj
+1193	masožravá rostlina||rostlina
+1194	rudý čaroděj||čaroděj
+1195	skřet kopiník||skřet
+1196	skřet válečník||skřet
+1197	ledový blok||led
+1198	mistr arkánních umění||arkánní m.
+1199	ent||ent
+1200	kamikaze krysa||krysa
+1201	hromobití||hromobití
+1202	kouzelné měchy||měchy
+1203	vlajka||vlajka
+1204	konec||konec
+1205	pozadí kobek||kobky
+1206	pozadí stok||stoky
+1207	pozadí dolů||doly
+1208	pozadí věže||věž
+1209	pozadí síní||síně
+1210	pozadí katakomb||katak.
+1211	pozadí katakomb s pavučinami||prop. k.
+1212	pozadí: kouzelné komnaty||kouz. komn.
+1213	bodce na rozloučenou||bodce
+1214	truhla||truhla
+1215	rudý klíč||klíč
+1216	modrý klíč||klíč
+1217	zelený klíč||klíč
+1218	žlutý klíč||klíč
+1219	oranžový klíč||klíč
+1220	vytvořit rudý klíč||klíč
+1221	vytvořit modrý klíč||klíč
+1222	vytvořit zelený klíč||klíč
+1223	vytvořit žlutý klíč||klíč
+1224	vytvořit oranžový klíč||klíč
+1225	padací brána||brána
+1226	zámek||zámek
+1227	mečová bouře||bouře
+1228	umění mečové bouře||
+1229	kouřový oblak||kouř
+1230	umění kouřového oblaku||
+1231	malé výbušné šípy||výb. šípy
+1232	umění vlády nad výbušnými šípy||
+1233	neobyčejný teleskop||teleskop
+1234	umění neobyčejného teleskopování||
+1235	||
+1236	záchvěv||záchvěv
+1237	umění záchvěvu
+1238	kouzelná hůlka||
+1239	Arkanita||Arkanita
+1240	Pyrita||Pyrita
+1241	Gelita||Gelita
+1242	Incendya||Incendya
+1243	věčné světlo||světlo
+1244	stavitelský portál||portál
+1245	restart pák a dialogů||restart
+1246	plošina||ploš.
+1247	dialog||dialog
+1248	stěna po dialogu||stěna po d.
+1249	žebřík po dialogu||žebřík po d.
+1250	klíč od žaláře||
+1251	Zweigart||
+1252	Kostismršť||
+1253	Devian||
+1254	Ontrixion||
+1255	Eviscerax
+1256	Smrtivítr||
+1257	truhla s předmětem||truhla
+1258	||
+1259	svitek ochrany při boji zblízka||ochr.
+1260	svitek ochrany vůči ohni||ochr.
+1261	svitek ochrany vůči ledu||ochr.
+1262	svitek ochrany vůči ark. uměním||ochr.
+1263	svitek tepelné aury||teplo
+1264	svitek arkánního třesu
+1265	svitek mistrovství v boji nablízko||nablízko
+1266	svitek mistrovství v boji s lukem||luk
+1267	svitek osvětlení||světlo
+1268	svitek Midasovy přeměny||Midasova p.
+1269	svitek vylepšené zbraně||vylepšení
+1270	poprava sekyrou||popr. sek.
+1271	umění popravy sekyrou||
+1272	||
+1273	jedovatý sliz||sliz
+1274	kondenzátor hmoty||kondenz.
+1275	kouzelný chleba||chleba
+1276	mistrovství v boji s dýkami 1||dýky
+1277	umění mistrovského boje s dýkami 1||
+1278	mistrovství v boji s meči 1||meče
+1279	umění mistrovského boje s meči 1||
+1280	mistrovství v boji s tupými z. 1||tupé z.
+1281	umění mistrovského boje s tupými z. 1||
+1282	mistrovství v boji se sekyrami 1||sekyry
+1283	umění mistrovského boje se sekyrami 1||
+1284	mistrovství v boji s dřevc. z. 1||dřevc. z.
+1285	umění mistrovského boje s dřevc. z. 1||
+1286	mistrovství v boji s luky 1||luky
+1287	umění mistrovského boje s luky 1||
+1288	mistrovství v boji s dýkami 2||dýky
+1289	umění mistrovského boje s dýkami 2||
+1290	mistrovství v boji s meči 2||meče
+1291	umění mistrovského boje s meči 2||
+1292	mistrovství v boji s tupými z. 2||tupé z.
+1293	umění mistrovského boje s tupými z. 2||
+1294	mistrovství v boji se sekyrami 2||sekyry
+1295	umění mistrovského boje se sekyrami 2||
+1296	mistrovství v boji s dřevc. z. 2||dřevc. z.
+1297	umění mistrovského boje s dřevc. z. 2||
+1298	mistrovství v boji s luky 2||luky
+1299	umění mistrovského boje s luky 2||
+1300	mistrovství v boji s dýkami 3||dýky
+1301	umění mistrovského boje s dýkami 3||
+1302	mistrovství v boji s meči 3||meče
+1303	umění mistrovského boje s meči 3||
+1304	mistrovství v boji s tupými z. 3||tupé z.
+1305	umění mistrovského boje s tupými z. 3||
+1306	mistrovství v boji se sekyrami 3||sekyry
+1307	umění mistrovského boje se sekyrami 3||
+1308	mistrovství v boji s dřevc. z. 3||dřevc. z.
+1309	umění mistrovského boje s dřevc. z. 3||
+1310	mistrovství v boji s luky 3||luky
+1311	umění mistrovského boje s luky 3||
+1312	Tričko GOG||GOG
+1313	Klasický joystick||
+1314	roucho pilného učence ohnivé magie||roucho
+1315	roucho pilného ohnivého čaroděje||roucho
+1316	roucho pilného ohnivého velemága||roucho
+1317	roucho pilného učence ledové magie||roucho
+1318	roucho pilného ledového čaroděje||roucho
+1319	roucho pilného velemága ledové magie||roucho
+1320	roucho pilného učence arkánních umění||roucho
+1321	roucho pilného mága arkánních umění||roucho
+1322	roucho pilného velemága arkánních umění||roucho
+1323	roucho pilného učence ledové magie||roucho
+1324	roucho pilného bílého čaroděje||roucho
+1325	roucho pilného velemága bílé magie||roucho
+1326	roucho pilného učence léčivé magie||roucho
+1327	roucho pilného léčitele||roucho
+1328	roucho pilného veleléčitele||roucho
+1329	ochranné roucho učence ohnivé magie||roucho
+1330	ochranné roucho ohnivého čaroděje||roucho
+1331	ochranné roucho ohnivého velemága||roucho
+1332	ochranné roucho učence ledové magie||roucho
+1333	ochranné roucho ledového čaroděje||roucho
+1334	ochranné roucho ledového velemága||roucho
+1335	ochranné roucho učence arkánních umění||roucho
+1336	ochranné roucho mága arkánních umění||roucho
+1337	ochranné roucho velemága arkánních umění||roucho
+1338	ochranné roucho učence bílé magie||roucho
+1339	ochranné roucho bílého čaroděje||roucho
+1340	ochranné roucho bílého velemága||roucho
+1341	ochranné roucho učence léčivé magie||roucho
+1342	ochranné roucho léčitele||roucho
+1343	ochranné roucho veleléčitele||roucho
+1344	Nesmrtelná magie||
+1345	Spis: O Nesmrtelné magii
+1346	Night vision||vision
+1347	Start Player 1||ini 1
+1348	Start Player 2||ini 2
+1349	Start Player 3||ini 3
+1350	Start Player 4||ini 4
+1351	Bulldozer||Bulld
+1352	Magic starfish||starf
+1353	Checkpoint||check
+1354	Platform dialog||platf
+1355	Floor dialog||floor
+1356	Room Kill platform||platf
+1357	Room Kill floor||floor
+1358	Room Kill wall||wall
+1359	Zone Kill platform||platf
+1360	Lighting platform||platf
+1361	Lighting ladder||ladder
+1362	Lighting wall||wall
+1363	Lighting floor||floor
+1364	Presence||trap
+1365	Dialog appearing wall||wallin
+1366	Key of the town||key
+1367	||
+1368	green helmet||helmet
+1369	CubanB's Staff||CubanB's
+1370	Boss||boss
+1371	Invoker||Invoker
+1372	Santa clothes||Santa
+1373	scroll: telekinesis||tele
+1374	dummy humanoid 1||h1
+1375	dummy humanoid 2||h2
+1376	dummy humanoid 3||h3
+1377	dummy humanoid 4||h4
+1378	dummy humanoid 5||h5
+1379	dummy humanoid 6||h6
+1380	dummy humanoid 7||h7
+1381	dummy humanoid 8||h8
+1382	dummy humanoid 9||h9
+1383	dummy humanoid 10||h10
+1384	dummy humanoid 11||h11
+1385	dummy humanoid 12||h12
+1386	dummy humanoid 13||h13
+1387	dummy humanoid 14||h14
+1388	dummy humanoid 15||h15
+1389	dummy humanoid 16||h16
+1390	dummy humanoid 17||h17
+1391	dummy humanoid 18||h18
+1392	dummy humanoid 19||h19
+1393	dummy humanoid 20||h20
+1394	create skull key||key
+1395	create skull lock (consumes the key)||lock
+1396	spell of summon monster||summon
+1397	barrel 1||barrel 1
+1398	barrel 2||barrel 2
+1399	barrel 3||barrel 3
+1400	barrel 4||barrel 4
+1401	barrel 5||barrel 5
+1402	barrel 6||barrel 6
+1403	barrel 7||barrel 7
+1404	barrel 8||barrel 8
+1405	barrel 9||barrel 9
+1406	barrel 10||barrel 10
+1407	barrel 11||barrel 11
+1408	barrel 12||barrel 12
+1409	Baller's armor||baller
+1410	wasp||wasp
+1411	Night Ambient Light||night
+1412	speed allies||speed
+1413	str allies||str
+1414	bat||bat
+1415	Vampire Bat||vamp
+1416	prison door||door
+1417	Shack Door||door
+1418	barrel 13||barrel 13
+1419	barrel 14||barrel 14
+1420	barrel 15||barrel 15
+1421	barrel 16||barrel 16
+1422	barrel 17||barrel 17
+1423	barrel 18||barrel 18
+1424	barrel 19||barrel 19
+1425	barrel 20||barrel 20
+1426	orc big dagger||dagger
+1427	||
+1428	Railwand||rail
+1429	scroll: Meeting||meeting
+1430	Chain armor of the Lord||chain
+1431	Blessed platemail of Luxor||plate
+1432	Peices of Demonic armor||clothes
+1433	Light suite of the Champion||clothes
+1434	Blessed thornmail of Cecil||mail
+1435	Great robe of the alchemist||robe
+1436	Blessed armor of Raak||plate
+1437	Demonic staff||
+1438	Cursed edge||
+1439	Bouncing rock||rock
+1440	Rolling rock||rock
+1441	Enrage||enrage
+1442	Skill: Enrage||
+1443	Battle Cry||cry
+1444	Skill: Battle Cry||
+1445	Impale||impale
+1446	Skill: Impale||
+1447	Spirit arrows||spirit
+1448	Skill: Spirit arrows||
+1449	spirit arrow
+1450	Poisoned arrows||poison
+1451	Skill: Poisoned arrows||
+1452	Split shot||split
+1453	Skill: Split shot||
+1454	Lunge||lunge
+1455	Skill: Lunge||
+1456	Parry wall||parry
+1457	Skill: Parry wall||
+1458	Bomb||bomb
+1459	Skill: Bomb||
+1460	Web trap||web
+1461	Skill: Web trap||
+1462	Spell: web explosion||
+1463	Spell: mine explosion||
+1464	Exorcism||exor
+1465	Tome: Exorcism||
+1466	scroll: exorcism||exor
+1467	||
+1468	Wrath||thor
+1469	Skill: Wrath||
+1470	Cut purse||purse
+1471	Skill: Cut purse||
+1472	||
+1473	Javelin||javelin
+1474	Skill: javelin||
+1475	Justice||justice
+1476	Skill: justice||
+1477	Ruby ring of Eternity||etern
+1478	Topaz ring of Eternity||etern
+1479	Emerald ring of Eternity||etern
+1480	Amethist ring of Eternity||etern
+1481	Diamond ring of Eternity||etern
+1482	Master key||
+1483	Toy Key||
+1484	scroll: escape||
+1485	Death Cheater||death
+1486	||
+1487	Move out||move
+1488	Skill: Move out||
+1489	Critical strike||crit
+1490	Skill: Critical strike||
+1491	Charge||charge
+1492	Skill: Charge||
+1493	Voodoo Head||voodoo
+1494	||
+1495	Venomia||Venomia
+1496	Cursed Ring of Slow||slow
+1497	Ranger Deathwearer||
+1498	Ring of protection||prot
+1499	Ring of Speed||speed
+1500	Popolon's armor||
+1501	Aphrodite's armor||
+1502	Golem Armor||
+1503	Key World 1||key 1
+1504	Key World 2||key 2
+1505	Key World 3||key 3
+1506	Key World 4||key 4
+1507	Key World 5||key 5
+1508	Key World 6||key 6
+1509	Key World 7||key 7
+1510	Key World 8||key 8
+1511	Key World 9||key 9
+1512	Key World 10||key 10
+1513	Cross||cross
+1514	Bow||
+1515	Porcelain bow||
+1516	Dodge Death||death
+1517	tome: Dodge Death||
+1518	Unholly growth||growth
+1519	tome: Unholly growth||
+1520	Arcane shock||shock
+1521	tome: Arcane shock||
+1522	Exit Door||exit
