@@ -1,0 +1,332 @@
+﻿0	-
+1	-
+2	모든 존재 심지어는 당신 마저 뚫고 지나가며 대상의 내부를 파괴하는 파동을 발사합니다.\n벽에 부딪히면 튕기니 작은 방에서 쓰는 것은 자살행위입니다.
+3	적을 태워버리는 화염 화살을 발사합니다.
+4	적을 완전히 태워버리는 거대한 화염구를 발사합니다.
+5	-
+6	붉은 용의 숨결과 비슷한 짧은 사거리의 화염의 숨결을 내뱉습니다.
+7	-
+8	적을 얼려버리는 얼음 화살을 발사합니다.
+9	푸른용의 숨결과 비슷한 짧은 사거리의 냉기의 숨결을 내뱉습니다.
+10	범위 내에 있는 모든 적들을 얼려버리는 냉기를 발사합니다.
+11	날카로운 얼음 가시를 사방으로 발사합니다.
+12	빛의 줄기를 발사해 언데드에게 피해를 입히고 기절시킵니다.
+13	작은 상처를 치료합니다.
+14	꽤 큰 상처를 치료합니다.
+15	치명적인 상처를 치료합니다.
+16	이 강력한 치료 주문은 모든 상처를 치유하고 몸의 상태를 되돌려 몸에 활력을 불어넣습니다.
+17	어떤 근접 공격도 막아내는 마법의 방어막을 만들어 냅니다.
+18	어떠한 열기도 막아내는 마법의 방어막을 만들어 냅니다.
+19	어떠한 추위도 막아내는 마법의 방어막을 만들어 냅니다..
+20	신비술을 막아내는 마법의 방어막을 만들어 냅니다.
+21	대상을 닭으로 영원히 변이시킵니다.
+22	대상의 무기를 전혀 무해한것으로 변이시킵니다.
+23	-
+24	생명체를 재웁니다. 주변의 경고소리나 싸우는 소리에도 깨지않습니다.\n단 공격을 당하면 깹니다.
+25	-
+26	대상의 내면을 파고들어 잠시동안 혼란상태로 만듭니다.
+27	-
+28	대상의 시야를 막아 먼 거리를 보지 못하게합니다.
+29	잠시동안 대상을 마비시킵니다.
+30	대상의 속도를 잠시동안 느리게 합니다.
+31	대상을 당신과 먼 거리로 강제 이동시킵니다.
+32	대상을 당신 바로 옆으로 강제 이동시킵니다.
+33	치타의 속도를 얻습니다.\n잠시동안 이동속도가 증가합니다.
+34	당신의 힘을 증가시켜 공격력이 증가합니다..
+35	당신의 힘을 증가시켜 공격력이 증가합니다.
+36	당신의 힘을 증가시켜 공격력이 증가합니다.
+37	당신의 눈을 강화해 어둠속을 볼수있게 됩니다.
+38	당신의 눈을 강화해 숨겨진 함정들을 탐지합니다.
+39	당신이 투명해집니다.\n단 공격을 하거나 공격을 당하면 풀립니다.
+40	당신이 투명해집니다.\n단 공격을 하는건 상관없으나 공격을 당하면 풀립니다.
+41	당신이 투명해집니다.\n공격을 하거나 공격을 당해도 효과가 풀리지 않습니다.
+42	당신의 눈을 강화해 투명한 생명체들을 봅니다.
+43	당신의 몸과 소지품들이 안개가 됩니다.\n어떠한 무기도 당신을 베지 못하고 그냥 지나치며. 마찬가지로 당신의 공격도 적에게 어떠한 피해도 입히지 못합니다.
+44	체력이 느리게 재생됩니다.
+45	체력이 어느정도 빠르게 재생됩니다.
+46	체력이 매우 빠르게 재생됩니다.
+47	회복해주는 정신체가있는 곳으로 순간이동합니다.\n횟수 제한없이 당신이 쓰고싶을때 마음대로 쓸 수 있습니다.
+48	-
+49	스킬 포인트를 초기화해서 재분배할 수 있게됩니다.
+50	당신과 당신의 아이템이 변이 마법에 면역력을 갖게됩니다.
+51	-
+52	-
+53	-
+54	당신 몸에 침입하려는 독을 모두 중화시킵니다. 하지만 이미 몸속에 퍼져있는 독에는 효과가 없습니다.
+55	-
+56	-
+57	-
+58	마비 마법을 막아내는 마법의 방어막을 만듭니다.
+59	-
+60	-
+61	모든 종류의 공격으로부터 당신을 지키는 방어막을 생성합니다. 말그대로 당신은 무적이 됩니다.
+62	-
+63	당신의 힘을 증가시켜 공격력이 증가합니다.
+64	대상이 투명해집니다.
+65	체력이 느리게 재생됩니다.
+66	치명적인 독이 당신의 체력을 깎습니다.
+67	보호막을 형성해 근접 공격으로 받는 데미지의 3분의 일을 감소시킵니다.
+68	-
+69	보호막을 형성해 불 공격으로 받는 데미지의 3분의 일을 감소시킵니다.
+70	보호막을 형성해 얼음 공격으로 받는 데미지의 3분의 일을 감소시킵니다.
+71	보호막을 형성해 신비술 공격으로 받는 데미지의 3분의 일을 감소시킵니다.
+72	보호막을 형성해 어둠 공격으로 받는 데미지의 3분의 일을 감소시킵니다.
+73	주변에 있는 적들에게 계속해서 데미지를 입히는 열기를 발산합니다.
+74	이 주문이 사용되면 중독이 약간 느려져 치료할 수 있는 시간을 벌게됩니다.
+75	당신의 몸속에 퍼져있는 독을 약간 해독해 독의 효과를 중화합니다.
+76	당신의 몸속에 퍼져있는 독을 완전하게 해독합니다.
+77	충격파를 일으켜 방에 있는 모든 적들에게 데미지를 줍니다.
+78	근접 공격의 공격력을 50 크리티컬 히트의 확률을 15% 발사속도를 15% 증가시킵니다.
+79	활의 공격력을 40 크리티컬 히트의 확률을 25% 발사속도를 25% 증가시킵니다.
+80	조란의 상점으로 순간이동 합니다.
+81	조록의 부엌으로 순간이동 합니다.
+82	점프 하거나 뛰어내리지 않고 걸어갈수있는 가장 먼 거리의 장소로 순간이동합니다.
+83	-
+84	-
+85	-
+86	-
+87	-
+88	-
+89	-
+90	-
+91	-
+92	-
+93	방에있는 모든 램프와 횃불에 불을 붙입니다.
+94	방에있는 모든 나무통을 부십니다.
+95	장거리 공격을 막아내는 얼음 방패를 만듭니다.
+96	검 대용으로 사용해도 될만큼 거대한 열쇠입니다. 쥐고있는 것만으로도 머리카락이 곤두섭니다.\nWhere's a Heartless when you need it?(1)
+97	활성화된 임무에 관한 추가적으로 필요한 아이템을 어디서 얻는지 혹은 어려운 퍼즐 해결에 관한 실마리를 얻는지 같은 정보를 얻습니다.
+98	당신이 현재 활성화한 임무를 처음 준 사람에게 순간이동합니다..
+99	반은 개구리고 반은 풍선입니다. 박쥐, 벌, 작은 거미를 혀로 잡아먹습니다.
+100	애미, 애비 다 없는 작은 새끼용입니다. 다른 생명체에게 불을 뿜습니다. 또 불 공격에는 피해를 입지 않습니다.
+101	죽은 펫을 되살립니다.
+102	당신을 따라다니고 있는 펫에게 기력을 줍니다.
+103	처음엔 체력이 절반밖에 없지만 적의 체력을 흡수해 자신의 체력을 채웁니다. 그러다 자신의 체력이 꽉 차면 당신이 부상당했을때 당신에게 체력을 공급합니다.
+104	잠시동안 투명해집니다.\n다만 시전자가 공격받거나 공격을 하면 효과는 풀립니다.
+105	잠시동안 투명해집니다.\n다만 시전자가 공격받거나 공격을 하면 효과는 풀립니다.
+106	비싸게 팔 수 있는 물건입니다.
+107	당신에게 지식을 전달해줍니다. 추가 포인트 5개를 얻습니다.
+108	책이 텅 비어 있습니다.
+109	냉기 폭풍을 불러내 당신 몸에 붙어있는 모든 불을 끕니다. 냉기층은 계속 남아 이후 발생하는 불 공격을 막아냅니다.
+110	생명체를 재웁니다. 주변의 경고소리나 싸우는 소리에도 깨지않습니다.\n단 공격을 당하면 깹니다.
+111	대상을 금화로 바꿉니다. 목표의 체력이 높으면 높을수록 금화의 액수도 높아집니다.
+112	조록의 부엌으로 순간이동 합니다.\n횟수 제한은 없습니다.
+113	조란의 상점으로 순간이동 합니다.\n횟수 제한은 없습니다.
+114	죽은 펫을 되살립니다.\n인벤토리에서 죽은 펫을 찾으시고 "부활시키기"를 누르세요.
+115	아무도 가본적이 없는 머나먼 우주로!
+116	함정과 숨겨진 문 가짜 벽을 탐지합니다.
+117	적 스켈레톤을 조종합니다. 신비술 레벨이 5씩 증가할때마다 조종 가능한 스켈레톤의 숫자가 하나씩 증가합니다.
+118	살아있는 생명체들의 생명의 힘을 빼앗습니다 (언데드와 비생명체에겐 적용되지 않습니다).
+119	언데드들에게 빛의 화살을 발사합니다.\n오직 신비술 공격에만 피해를 입습니다.
+120	당신의 무기에 불의 힘을 채워 불 데미지를 추가로 입힙니다.\n오직 검과 활에만 효과가 있습니다.
+121	당신의 무기에 얼음의 힘을 채워 얼음 데미지를 추가로 입힙니다.\n오직 검과 단검에만 효과가 있습니다.
+122	당신의 무기에 신성한 빛의 힘을 채워 빛 데미지를 추가로 입힙니다.\n오직 둔기에만 효과가 있습니다.
+123	당신의 무기에 산의 힘을 채워 산성 데미지를 추가로 입힙니다.\n오직 창과 활에만 효과가 있습니다.
+124	당신이 있는 지역에서 순수한 정신체가 담긴 상자가 어디있는지 밝혀줍니다.\n아이콘이 지도에 표시됩니다.\n횟수 제한은 없습니다.
+125	언데드를 파괴하면 보상으로 받는 빛의 신의 은총입니다.
+126	인간형 괴물의 시체에서 스켈레톤을 일으킵니다.\n신비술 레벨이 5의 배수 일때마다 조종 가능한 스켈레톤의 숫자가 하나씩 증가합니다.
+127	체력의 절반을 저장합니다. 나중에 죽으면 저장했던 체력을 다시 사용해 죽음을 면합니다.
+128	길을 따라 서서히 전진하며 모든 생명체의 체력을 흡수하는 구름을 만듭니다.
+129	잠시동안 정신이 명확해져 모든 마법의 주문시전 시간이 짧아집니다.
+130	대상을 몇초동안 기절시켜 어떠한 행동에도 반응하지 못합니다.
+131	루비를 붉은 마법의 정수 20개로 바꿉니다.
+132	사파이어를 푸른 마법의 정수 20개로 바꿉니다.
+133	에메랄드를 초록 마법의 정수 20개로 바꿉니다.
+134	전기로부터 착용자를 보호하기 위해서 가죽이 덧대진 사슬갑옷입니다.
+135	인벤토리칸을 10칸 더 늘립니다.
+136	들고있는 무기의 형태를 영구적으로 더 강하게 변화시킵니다.
+137	금속형 적에게 사용하면 적이 금화로 바뀝니다.
+138	펫같은 아군 생명체를 치료합니다.\n언데드에겐 먹히지 않습니다.
+139	먼 거리에 있는 아이템을 줍습니다.
+140	갑옷이나 로브의 재질을 영원히 바꿔 성능을 높입니다.
+141	경직, 잠, 조종과 같은 정신공격으로부터 면역이 생기게 합니다.
+142	반사 방어막을 만듭니다.\n방어막에 닿는 모든 발사체들이 공격자에게 다시 반사됩니다.
+143	느려짐, 마비, 강제이동같은 움직임을 방해하는 모든 마법으로부터 당신을 보호합니다.
+144	적에게 추가 마법 데미지를 입히고 착용자에게 추가 경험치를 주는 전설의 검입니다.
+145	큰 도장이 찍힌 AN-200 요청서입니다. 당신은 도장에 뭐라 찍혀있는지 관심 없습니다.\n해골 세개 창구로 갖다주기만 하면 됩니다.
+146	서명이 완료된 AN-200 요청서입니다. 도장과 서명으로 걸레짝이 되었습니다.\n해골/해골/뼈 창구에 갖다주세요.
+147	AN-200 요청서입니다. 다 구비되있습니다. 이제 서명만 받으면 됩니다. 당신 서명은 필요없습니다.\n해골/뼈/해골 창구로 갖다주세요.
+148	요청서를 발급 받기위한 요청서 2212/HHK 서류입니다. 당신의 혓바닥 도장을 찍는 칸이 있습니다. AN-200 요청이 확인되었습니다.\n해골/뼈/뼈 창구로 갖다주세요.
+149	이제 당신은 공식으로 허가 받았습니다. 부모님이 뿌듯하시겠네요.\n이 허가서를 뼈/해골/해골 창구로 가져가세요.
+150	하나콘님의 공식 인장입니다. 다섯개 나라에 공인을 받았습니다.\n뼈/해골/뼈 창구로 가셔서 공인된 허가서를 발급받으세요.
+151	하나콘님의 하인들에게 주어지는 정식 하인증입니다. 당신의 흐릿한 그림이 박혀있습니다.\n이제 뼈/뼈/해골 창구로 가세요.
+152	MC-3805 서류입니다. (공식 하인증 발급요청서) \n뼈 세개 창구로 가세요. 그리고 뼈와 해골은 다릅니다.
+153	피피의 더듬이에서 광선이 나가 적들을 마비시킵니다.
+154	광산으로 순간이동 합니다.
+155	하수도로 순간이동 합니다.
+156	정원으로 순간이동 합니다.
+157	도서관으로 순간이동 합니다.
+158	카타콤으로 순간이동 합니다.
+159	실험실로 순간이동 합니다.
+160	홀로 순간이동 합니다.
+161	잊혀진 탑으로 순간이동 합니다.
+162	적을 공격하는 불의 정령을 소환합니다.
+163	강력한 정신파를 발산해 방안의 모든 생명체들의 지각능력을 무력화 합니다.\n마법에 걸린 자들은 자신의 친구를 적으로 오해하게 됩니다.
+164	당신을 비롯해서 같은 방에있는 모든 아군의 체력을 회복합니다.
+165	점프 거리를 늘려줍니다.
+166	목표의 충성심을 흔들어서 자신의 친구들과 싸우게 합니다.
+167	언데드를 구원하는 주문입니다.\n언데를 파괴하고 영혼을 구원해 4개의 은총을 받습니다.
+168	스켈레톤 전사를 소환합니다.\n3마리까지 조종 가능합니다.
+169	스켈레톤 궁수를 소환합니다.\n3마리까지 조종 가능합니다.
+170	화염 화살을 쓰는 스켈레톤 마법사를 소환합니다.\n3마리까지 조종 가능합니다.
+171	불 면역이 붉은 갑옷을 소환합니다.\n3마리까지 조종 가능합니다.
+172	적에게 독 데미지를 입히는 초록 갑옷을 소환합니다.\n3마리까지 조종 가능합니다.
+173	I아군을 치료하는 고블린 치료사를 소환합니다.\n3마리까지 조종 가능합니다.
+174	이것을 씹었을 때 나오는 육즙으로 마법의 물약을 만듭니다.
+175	더 강력한 마법의 물약을 만드는데 쓰이는 이상한 물체입니다.
+176	마법의 물약을 만들거나 주문을 시전하는데 필요한 마법의 정수입니다.
+177	담배피거나 불을 밝히는데 쓰입니다.
+178	이 열쇠는 성의 다른 구역으로 가는데 필요합니다.
+179	이것은 임무와 관련된 아이템입니다.
+180	다른 물약을 만드는데 빈 병을 사용할 수 있습니다.
+181	게임이 끝난 후에 당신의 운명의 문을 열어줄 열쇠입니다.
+182	화살입니다. 이걸로 귀지도 팔수있고 등도 긁을 수 있습니다.
+183	작아진 얼음의 정령입니다.\n적에게 얼음을 발사합니다.
+184	광선 면역이 방어막을 만듭니다.
+185	보호막을 형성해 광선 공격으로 받는 데미지의 3분의 일을 감소시킵니다.
+186	몬스터가 엘프와 싸워이긴 전리품으로 간직하고 있던 것입니다. 팔면 돈이 되겠군요.
+187	고통도 못느끼고 자비도 없는 강력한 강철 골렘을 깨웁니다.
+188	포탈을 생성합니다.
+189	마지막으로 생성한 포탈로 순간이동합니다.
+190	순간이동 주문서같아 보입니다.
+191	아이템을 안전히 보관할 수 있는 하나은행의 금고를 엽니다.
+192	하나은행으로 순간이동 합니다.\n횟수 제한은 없습니다.
+193	쌔끈이들을 돌아버리게 만듭니다!\n여자와 거래할때 할인을 받을 수 있습니다.
+194	저장하고 데려다 줍니다.
+195	게임이 저장되면 알려줍니다.
+196	데미지 2000이나 되는 레이저로 공격하지만 많은 기력이 필요합니다.\n약한 적은 공격하지 않습니다.
+197	끼고 있는 동안 근육을 늘립니다
+198	The spirit of an ancient pharaon regenerates your body.
+199	Space vessel from Syder Arcade. Shoots a fast burst of gunfire.
+200	The effects of eating it are unpredictable.
+201	Throws a ghost axe that goes through any enemy in its path.
+202	For [DURATION] seconds, your sword attacks pressurize the air. The resulting waves cut through enemies.
+203	Throws a knife that damages the creature. If thrown against a humanoid's back, the damage will be massive.
+204	For 10 seconds your mace attacks stun the victim, but deal half damage.
+205	Perform a dash that damages all enemies passed while slowing their movement speed for 3 seconds.
+206	For [DURATION] seconds, 3 arrows are launched per attack.
+207	An aura that slowly drains the vital energy of any living being nearby.
+208	An holy aura that hurts any nearby undead.
+209	A great explosion of divine light that damages undead and stuns them for 3 seconds.
+210	Transforms the armor of a foe to something less protective.
+211	Teleports you directly to a flag that is unconquered or conquered by the enemy.
+212	Summons an invisible rune that explodes when a foe gets too close.
+213	Foes see you as a member of their team (if there are other members in their team).
+214	Slows the closest foe.
+215	Poisons the closest foe.
+216	Stuns the closest foe.
+217	Inverts the left/right controls of the closest foe.
+218	Instantly kills the closest foe.
+219	Creates/destroys a wall in front of you.
+220	Creates/destroys the ceiling above your head.
+221	Creates/destroys the floor under your feet. To create it you must be on the very edge.
+222	Creates/destroys a ladder that allows you to move up one level.
+223	-
+224	Creates a light source to light the corridor.\nThere can not be 2 light sources too close together.
+225	Destroys the item at your position.\nWorks with light sources, doors, chests, coffins, etc.
+226	Creates a door that leads to a parallel room.
+227	Creates a monster like the one on the icon.
+228	Activate/Deactivate your dungeon as other players will see it, activates all monsters, traps and dialog.
+229	Destroys the monster label in your position.
+230	Creates a trap like the one on the icon.
+231	Turns the label of the monster in your position left/right. Monster will appear looking in this direction.
+232	Creates a lever at your position that activates "surprises" for the suffering players.
+233	Creates a coffin at your position where the suffering players will revive if they die. One coffin per player.
+234	The wall will disappear if a lever is activated.
+235	The floor will disappear if a lever is activated.
+236	The ladder will appear if a lever is activated.
+237	The wall will disappear if it is hit by a player.
+238	The ladder will appear when all enemies in the room are killed.
+239	The ladder will appear when all enemies in your zone are killed.
+240	Makes/Unmakes a monster spawn when a lever is activated.
+241	Creates a gas jet.
+242	Creates a tile that activates all gas jets in the room.
+243	Creates an item that can be destroyed.
+244	Teleports you to the beginning of the dungeon.
+245	Inserts a conquest flag.
+246	Inserts a race goal.
+247	Changes the ambient background of the room.
+248	Inserts spikes. Any monster that touches them will die.
+249	Creates a chest. To insert things inside just drop an item nearby.
+250	Creates this item.
+251	Creates a liftgate in front of you.
+252	Creates a lock that opens any liftgate in the room.\nTo assign a key, just drop one nearby.
+253	Turns on/off all lights of the room.
+254	Creates a storm of swords surrounding you that hurts anyone who dares approach.
+255	Creates a cloud of dust that confuses enemies and turns you invisible for [DURATION] seconds.
+256	Fire arrows that create an explosive wave that hurts other nearby enemies. Lasts until death.
+257	Extends the range of your attacks with polearms. Lasts until death.
+258	Smashes the ground and rips up the surfaces ahead of you, dealing damage and stunning all creatures hit.
+259	Create/Destroy an Architect portal. To teleport to this portal from another room, access the castle map and click another room containing a portal.
+260	Reset all levers and dialog in this room.
+261	The platform appears when a lever is activated.
+262	Create/destroy a dialog checkpoint. When all characters are over all dialog checkpoints the room's dialog will appear. Edit the dialog in MENU > DIALOGS.
+263	The wall disappears when dialog is shown.
+264	The ladder will appear when dialog is shown.
+265	Create/destroy a chest that contains a random item. This item can only be used in the current game.
+266	Violently drives your axe through the next creature you attack, killing it instantly. Does not work on large creatures.
+267	The flask contains some sort of moving fluorescent green mucus.
+268	When activated, it transforms any electricity into matter for a few seconds.
+269	Increases damage greatly with axes. This effect can be stacked [DAMAGE] times. Lasts until death.
+270	-
+271	-
+272	It is activated after your death to prevent Death takes with her the active spells that benefits you.
+273	Allows you to see in the darkness.
+274	Sets the initial location of a player.
+275	Create/destroy walls in a part of the room selected with the mouse.
+276	Teleports you to any location in the room (selected by the mouse).
+277	Converts dialogs in checkpoints. When dialogs are called, position of all characters are saved.
+278	The ladder will appear when all lights are lit.
+279	The wall will disappear when all lights are lit.
+280	The floor will disappear when dialog is shown.
+281	The floor will disappear when all enemies in the screen are killed.
+282	The floor will disappear when all lights are lit.
+283	The platform will appear when dialog is shown.
+284	The platform will appear when all enemies in the screen are killed.
+285	The platform will appear when all enemies in the zone are killed.
+286	The platform will appear when all lights are lit.
+287	The wall will disappear when all enemies in the screen are killed.
+288	An invisible lever is activated when a player pass nearby.
+289	A wall will appear when dialog is shown.
+290	+2 To your purchasing charisma. Essences cost less coin.
+291	Creates an invoker. A boss is needed in the same room.
+292	Creates a boss. The boss must be customized.
+293	+5 to Swag. Pimped out armor with ice and jewels cuz its gangsta.
+294	An electrically powered electromagnetic projectile launcher. Can damage even those who are invincible otherwise.
+295	Teleports you next to a friend who is crouched. Does not work if there is a boss nearby.
+296	Increases running speed and damage with daggers. This effect can be stacked [DAMAGE] times. Lasts until death.
+297	-
+298	-
+299	Increases damage and critical chance with swords. This effect can be stacked [DAMAGE] times. Lasts until death.
+300	-
+301	-
+302	Increases damage and attack speed with bows. This effect can be stacked [DAMAGE] times. Lasts until death.
+303	-
+304	-
+305	Increases damage and bonus damage to stunned targets with maces. This effect can be stacked [DAMAGE] times. Lasts until death.
+306	-
+307	-
+308	Increases damage and number of targets hit with polearms. This effect can be stacked [DAMAGE] times. Lasts until death.
+309	-
+310	-
+311	For [DURATION] seconds, your attacks deal increased damage while reducing attack speed.
+312	Scream a battle shout that increases attack speed of yourself and allies for [DURATION] seconds.
+313	Infuses two arrows with a part of your spirit, allowing them to pierce undead but ignore the living.
+314	Coats a batch of arrows in poison for your attacks. Number of poisoned arrows is your level in bows.
+315	For [DURATION] seconds, shots split on impact into a pair of arrows that each deal 25% weapon damage.
+316	Lunges to the first enemy ahead of you, attacking it twice.
+317	For [DURATION] seconds, the sword moves so fast it parries all melee attacks against you.
+318	Drops a bomb that explodes when stepped on or damaged.
+319	Drops a trap that entangles nearby creatures for 5 seconds when it's activated.
+320	Removes any possession or transformation from a friend. It cannot be cast on yourself.
+321	Throws a hammer that damages the target. The impact stuns all nearby creatures.
+322	A quick dash that passes by creatures. If any of them have coin purses, the dagger cuts it causing coins to drop until empty.
+323	Throws 2 javelins that each deal damage and slows the target for [DURATION] seconds.
+324	For [DURATION] seconds, any creature that attacks you in melee is sentenced by the hammer of justice to receive damage in return.
+325	Yells an inspiring shout that increases running speed of yourself and allies for [DURATION] seconds.
+326	For your next 3 attacks, your eyes see the weaknesses of creatures. These attacks deal critical damage.
+327	Charges at the first enemy ahead of you, striking and stunning it.
+328	When an enemy strikes you, there is a chance to be slowed down for 10 seconds.
+329	If you die, death is missdirected to someone else of your group in the same room, letting you survive.
+330	Enlarges all skeletons you control, becoming stronger, faster and harder.
+331	Places the exit door (only coop), where players leave the dungeon.
