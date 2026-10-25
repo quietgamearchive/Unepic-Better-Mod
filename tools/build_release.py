@@ -17,9 +17,9 @@ import zipfile
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REL = os.path.join(ROOT, "release")
-VERSION = "1.0.0"                                  # keep in sync with MOD_TITLE in src
-TOP = "Unepic_Better_Mod_v1.0.0.zip"
-SRC = "Unepic_Better_Mod_v1.0.0_source_repo.zip"
+VERSION = "1.0.1"                                  # keep in sync with MOD_TITLE in src
+TOP = "Unepic_Better_Mod_v1.0.1.zip"
+SRC = "Unepic_Better_Mod_v1.0.1_source_repo.zip"
 MANIFEST = os.path.join(REL, "MANIFEST.txt")
 GAME_MOD = r"D:\SteamLibrary\steamapps\common\Unepic\mod"   # verify only
 
@@ -36,7 +36,7 @@ RELEASE_ORDER = [
     ("mod/items.tsv", "data/items.tsv"),
     ("mod/unepic_mod.ini", "data/unepic_mod.ini"),
 ]
-RELEASE_DICT_PREFIX = ("itemNames_", "itemDesc_")   # 19 + 19 = 38 files
+RELEASE_DICT_PREFIX = ("itemNames_", "itemDesc_", "effectName_")   # 19 + 19 + 19 = 57 files
 
 # GitHub repository content mirrors UPLOAD_FILES in github_api_upload.py:
 # README + screenshot folder + build script + source folders + the tools folder.
@@ -62,7 +62,7 @@ def repo_map():
 FORBIDDEN_NAMES = ["DEVELOPMENT.md", "AGENTS.md", "changelog_CN.txt", "unepic_mod.log",
                    "SDL2_orig.dll", "unepic_mod_core.c", "unepic_loader.c"]
 FORBIDDEN_SUFFIX = (".pdb", ".lib", ".obj", ".exp")
-FORBIDDEN_PREFIX = ("core_", "bonus", "challenges_", "effectName_", "logros_")
+FORBIDDEN_PREFIX = ("core_", "bonus", "challenges_", "logros_")
 
 
 def release_map():
@@ -125,7 +125,7 @@ def write_manifest():
     lines.append("             suffixes " + ", ".join(FORBIDDEN_SUFFIX) +
                  " | prefixes " + ", ".join(FORBIDDEN_PREFIX))
     lines.append("             mod/backups/, game-root unepic_mod.ini and unepic_mod.log,")
-    lines.append("             dict TSVs that are not itemNames_/itemDesc_")
+    lines.append("             dict TSVs that are not itemNames_/itemDesc_/effectName_")
     lines.append("the GitHub repository archive mirrors UPLOAD_FILES in github_api_upload.py:")
     lines.append("             README.md, img/, build.ps1, src/, scripts/, data/, tools/build_release.py")
     lines.append("             (docs/DEVELOPMENT.md, AGENTS.md and changelog_CN.txt stay local)")
@@ -140,8 +140,8 @@ def do_build():
     if missing:
         sys.exit("missing release inputs: " + ", ".join(missing))
     n = len([a for a in release_map() if a.startswith("mod/dict/")])
-    if n != 38:
-        sys.exit("expected 38 dictionaries, found %d" % n)
+    if n != 57:
+        sys.exit("expected 57 dictionaries, found %d" % n)
     build(release_map(), os.path.join(REL, TOP))
     build(repo_map(), os.path.join(REL, SRC))
     write_manifest()
