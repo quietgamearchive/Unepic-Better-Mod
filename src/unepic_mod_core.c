@@ -40,6 +40,9 @@ static const int USE_FREEZE      = 0;
 #define ADDR_MASK2     0x00672330u
 #define ADDR_STATS_PTR 0x0071C5C0u
 #define STATS_ALT      0x00DA7270u      /* hardcoded in the exe at 0x00445A9B */
+#define ADDR_MP_MODE   0x00672334u      /* 0 = single-player, non-zero = multiplayer */
+#define ITEM_COIN      9101             /* money record, in both game modes */
+#define ITEM_UN        9102             /* UN-points record, rebuilt from stats+0x170 */
 
 #define OFF_ENTITY   0x17F78
 #define OFF_LEVEL_OBJ 0x17F7C           /* the loaded level object (0 outside) */
@@ -71,6 +74,17 @@ static volatile LONG g_speed_pct = 100;
 static volatile LONG g_airjump = 0;
 static volatile LONG g_jump_vk;
 static volatile LONG g_jump_down;        /* edge tracker: ignore key auto-repeat */
+static int g_jump_key_forced;            /* [cheats] jump_key overrides learning */
+static int g_mp_tp = 1;                  /* [cheats] mp_tp: in-room teleport in MP */
+static volatile LONG g_aj_probe_t0;      /* airjump probe: tick after the vy write */
+static volatile LONG g_aj_probe_ent;
+static volatile LONG g_aj_probe_y0;      /* float bits, before the write */
+static volatile LONG g_aj_probe_vy0;     /* float bits, before the write */
+static volatile LONG g_aj_retry_until;   /* watch the impulse until this tick */
+static volatile LONG g_aj_retry_left;    /* how many restores are still allowed */
+static HANDLE g_netsync;                 /* multiplayer position catch-up thread */
+static int g_netsync_on;                 /* [debug] netsync: 0 = park the thread */
+static HANDLE g_godguard;                /* instant-death undo thread (god mode) */
 /* An air jump must feel like a real ground jump.  Measured takeoff vy of the
  * game's own jump: -339 .. -368 (trace, 2026-10-22).  The old code "learned" the
  * impulse from whatever frame it sampled and once caught a decayed -138, which
@@ -78,10 +92,19 @@ static volatile LONG g_jump_down;        /* edge tracker: ignore key auto-repeat
  * other half of that symptom was auto-repeat firing the write ~20x per second,
  * re-launching from a fixed small vy.  Fixed value, at the strong end. */
 #define AIRJUMP_IMPULSE (-368.0f)
-/* right-click teleport: world = player + (cursor - client centre) * scale.
- * scale is a guess (1 px = 1 unit at 1.0x zoom) until the first live test; it can
- * be tuned with [cheats] tp_scale=100 (percent) without rebuilding. */
+/* right-click teleport: world = room centre + (cursor - client centre) * scale,
+ * where scale is [video] aspect base / client size (0.625 world units per client
+ * pixel at scale 16, 1280 wide inside a 2048 wide window), corrected by
+ * [cheats] tp_scale=100 (percent, read on every click, no restart).
+ * The derived point is then resolved by the room grid - see grid_find_landing. */
 static volatile LONG g_teleport = 0;
+/* per-effect switches, index = effect id: g_buff_on keeps a positive effect at
+ * max duration, g_debuff_on clears a negative one every worker tick.  The
+ * Buffs window edits these; they are saved in mod\buffs.ini. */
+static unsigned char g_buff_on[110];
+static unsigned char g_debuff_on[110];
+/* slot the saves window asked the game to load; consumed by WM_APP+18 */
+static volatile LONG g_load_slot = -1;
 static float g_tp_scale = 1.0f;
 static volatile LONG g_tp_check_tick;
 static volatile LONG g_tp_old_x, g_tp_old_y, g_tp_new_x, g_tp_new_y;   /* float bits */
@@ -97,6 +120,8 @@ static float g_atk_div = 1.0f;           /* attack phase duration is divided by 
 static volatile LONG g_player_x;
 static volatile LONG g_speed_cnt;
 static volatile LONG g_last_speed;
+static volatile LONG g_tp_guard_until;  /* position guard ignores jumps until this tick */
+static volatile LONG g_last_x_eip;      /* last instruction seen writing entity+0x520 */
 static LONG g_speed_last_cnt;
 static void ime_guard(void);
 static int  un_current(void);
@@ -259,8 +284,14 @@ static volatile LONG g_it_lastret;
 static const int DIAG_WP = 0;      /* hardware watchpoint, for reverse engineering */
 static volatile LONG g_wp_n;          /* total watchpoint hits             */
 static volatile LONG g_wp_eip[64];    /* distinct writer EIPs              */
+static volatile LONG g_wp_cnt[64];    /* hits per writer since the report  */
 static volatile LONG g_wp_seen;       /* number of distinct EIPs           */
+static volatile LONG g_wp_period;     /* hits since the last report        */
 static volatile LONG g_wp_addr;
+static DWORD g_wp_tid;              /* game window thread for DR0 (0 = all threads) */
+static unsigned g_watch_ent_off;    /* [debug] watchent=offset, resolved from the entity */
+static int g_watch_rw;              /* [debug] watchrw=1 -> trap reads as well as writes */
+static int g_watch_net;             /* [debug] watchnet=1 -> watch the net player's x */
 static PVOID g_veh;
 
 static LONG CALLBACK veh_handler(EXCEPTION_POINTERS *ep)
@@ -270,49 +301,93 @@ static LONG CALLBACK veh_handler(EXCEPTION_POINTERS *ep)
     CONTEXT *c = ep->ContextRecord;
     if (!(c->Dr6 & 0x1)) return EXCEPTION_CONTINUE_SEARCH;
     {
-        LONG eip = (LONG)c->Eip, k, dup = 0, n;
+        LONG eip = (LONG)c->Eip, k, n;
         InterlockedIncrement(&g_wp_n);
+        InterlockedIncrement(&g_wp_period);
         n = g_wp_seen;
         for (k = 0; k < n && k < 64; k++)
-            if (g_wp_eip[k] == eip) { dup = 1; break; }
-        if (!dup && n < 64) {
+            if (g_wp_eip[k] == eip) { InterlockedIncrement(&g_wp_cnt[k]); break; }
+        if (k == n && n < 64) {
             unsigned *sp = (unsigned *)c->Esp;
+            unsigned char *ip = (unsigned char *)c->Eip;
             g_wp_eip[n] = eip;
+            g_wp_cnt[n] = 1;
             InterlockedIncrement(&g_wp_seen);
-            if (!IsBadReadPtr(sp, 16))
-                logmsg("WATCH eip=%08x ret=%08x arg0=%08x arg1=%08x",
-                       (unsigned)eip, sp[0], sp[1], sp[2]);
+            if (!IsBadReadPtr(sp, 28) && !IsBadReadPtr(ip, 6))
+                logmsg("WATCH eip=%08x edi=%08x esi=%08x op=%02x %02x %02x %02x "
+                       "sp: %08x %08x %08x %08x %08x %08x %08x",
+                       (unsigned)eip, (unsigned)c->Edi, (unsigned)c->Esi,
+                       ip[0], ip[1], ip[2], ip[3],
+                       sp[0], sp[1], sp[2], sp[3], sp[4], sp[5], sp[6]);
         }
     }
+    /* The value checks below read the watched address.  That is fine for a
+     * write-only breakpoint, but with [debug] watchrw=1 the read itself raises
+     * the same breakpoint again: the handler recursed until the game died.
+     * Read+write mode only logs the unique EIPs above; it must not touch the
+     * watched data. */
+    if (!g_watch_rw) {
+        /* Death-state marker: when the watched field is the entity state
+         * (+0x540) and the value that was just written is 118, log the writer.
+         * This is the instant-kill path (spikes) that does not go through
+         * damage_int: measured 2026-10-24, HP 330 -> 0 and state 118 in the
+         * same tick. */
+        if (g_watch_ent_off == 0x540 && g_wp_addr &&
+            !IsBadReadPtr((void *)(size_t)g_wp_addr, 4)) {
+            LONG v = *(LONG *)(size_t)g_wp_addr;
+            if (v == 118)
+                logmsg("WATCH DEATH state=118 eip=%08x ret=%08x", (unsigned)c->Eip,
+                       IsBadReadPtr((unsigned *)c->Esp, 4) ? 0 : ((unsigned *)c->Esp)[3]);
+        }
+        /* Hit-point writes: the instant-kill traps zero HP directly (measured
+         * 2026-10-24), so logging only non-positive values finds the trap code
+         * without drowning in healing/UI writes. */
+        if (g_watch_ent_off == 0x474 && g_wp_addr &&
+            !IsBadReadPtr((void *)(size_t)g_wp_addr, 4)) {
+            float hv = *(float *)(size_t)g_wp_addr;
+            if (!(hv > 0.0f))
+                logmsg("WATCH KILLHP eip=%08x value=%.1f ret=%08x", (unsigned)c->Eip,
+                       (double)hv,
+                       IsBadReadPtr((unsigned *)c->Esp, 4) ? 0 : ((unsigned *)c->Esp)[3]);
+        }
+    }
+    if (g_watch_ent_off == 0x520) g_last_x_eip = (LONG)c->Eip;
     c->Dr6 = 0;
     c->EFlags &= ~0x100u;
     return EXCEPTION_CONTINUE_EXECUTION;
 }
 
+static void set_dr_one(DWORD tid, DWORD dr0, DWORD dr7)
+{
+    HANDLE t = OpenThread(THREAD_SUSPEND_RESUME | THREAD_GET_CONTEXT |
+                          THREAD_SET_CONTEXT, FALSE, tid);
+    if (!t) return;
+    SuspendThread(t);
+    CONTEXT c;
+    memset(&c, 0, sizeof c);
+    c.ContextFlags = CONTEXT_DEBUG_REGISTERS;
+    if (GetThreadContext(t, &c)) {
+        c.Dr0 = dr0; c.Dr1 = c.Dr2 = c.Dr3 = 0;
+        c.Dr6 = 0;   c.Dr7 = dr7;
+        SetThreadContext(t, &c);
+    }
+    ResumeThread(t);
+    CloseHandle(t);
+}
+
 static void set_dr_all(DWORD dr0, DWORD dr7)
 {
     DWORD me = GetCurrentThreadId(), pid = GetCurrentProcessId();
-    HANDLE snap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
-    if (snap == INVALID_HANDLE_VALUE) return;
+    HANDLE snap;
     THREADENTRY32 te;
+    if (g_wp_tid) { set_dr_one(g_wp_tid, dr0, dr7); return; }
+    snap = CreateToolhelp32Snapshot(TH32CS_SNAPTHREAD, 0);
+    if (snap == INVALID_HANDLE_VALUE) return;
     te.dwSize = sizeof te;
     if (Thread32First(snap, &te)) {
         do {
             if (te.th32OwnerProcessID != pid || te.th32ThreadID == me) continue;
-            HANDLE t = OpenThread(THREAD_SUSPEND_RESUME | THREAD_GET_CONTEXT |
-                                  THREAD_SET_CONTEXT, FALSE, te.th32ThreadID);
-            if (!t) continue;
-            SuspendThread(t);
-            CONTEXT c;
-            memset(&c, 0, sizeof c);
-            c.ContextFlags = CONTEXT_DEBUG_REGISTERS;
-            if (GetThreadContext(t, &c)) {
-                c.Dr0 = dr0; c.Dr1 = c.Dr2 = c.Dr3 = 0;
-                c.Dr6 = 0;   c.Dr7 = dr7;
-                SetThreadContext(t, &c);
-            }
-            ResumeThread(t);
-            CloseHandle(t);
+            set_dr_one(te.th32ThreadID, dr0, dr7);
         } while (Thread32Next(snap, &te));
     }
     CloseHandle(snap);
@@ -321,11 +396,29 @@ static void set_dr_all(DWORD dr0, DWORD dr7)
 static void wp_arm(unsigned addr)
 {
     if (g_wp_addr == (LONG)addr) return;
+    if (addr && !g_veh) {
+        /* never arm a debug register without our handler: the #DB would reach
+         * the game's own handlers and take the process down (crashed this way
+         * on 2026-10-24 with watchnet=1 before the install condition was fixed) */
+        logmsg("watchpoint: refusing to arm %08x, no exception handler installed", addr);
+        return;
+    }
     if (g_wp_addr) set_dr_all(0, 0);
     g_wp_addr = (LONG)addr;
     if (addr) {
-        set_dr_all(addr, 0x000D0001u);  /* L0=1, write, 4 bytes */
-        logmsg("watchpoint armed on %08x (%ld hits so far)", addr, g_wp_n);
+        if (!g_wp_tid) {
+            HWND gw = find_game_window();
+            if (gw) g_wp_tid = GetWindowThreadProcessId(gw, NULL);
+        }
+        if (!g_wp_tid) {
+            logmsg("watchpoint: no game window, not armed");
+            g_wp_addr = 0;
+            return;
+        }
+        /* L0=1, 4 bytes; condition 01 = writes, 11 = reads and writes */
+        set_dr_all(addr, g_watch_rw ? 0x000F0001u : 0x000D0001u);
+        logmsg("watchpoint armed on %08x (%s, tid %lu, %ld hits so far)",
+               addr, g_watch_rw ? "read+write" : "write", g_wp_tid, g_wp_n);
     }
 }
 
@@ -358,6 +451,15 @@ static void cfg_load_cheats(void)
     }
     g_speed_pct = GetPrivateProfileIntA("cheats", "speed", 100, p);
     g_airjump   = GetPrivateProfileIntA("cheats", "airjump", 0, p);
+    g_mp_tp = GetPrivateProfileIntA("cheats", "mp_tp", 1, p);
+    {
+        int jk = GetPrivateProfileIntA("cheats", "jump_key", 0, p);
+        if (jk > 0 && jk < 256) {
+            g_jump_vk = jk;
+            g_jump_key_forced = 1;
+            logmsg("cfg: jump key forced to vk=%d", jk);
+        }
+    }
     g_atkspd    = GetPrivateProfileIntA("cheats", "atkspd", 10, p);
     if (g_speed_pct < 10) g_speed_pct = 10;
     if (g_speed_pct > 1000) g_speed_pct = 1000;
@@ -422,6 +524,20 @@ static int stats_get(unsigned s, unsigned off)
 {
     return *(int *)(s + off) ^ *(int *)ADDR_MASK1;
 }
+
+/* The game's save path reads this flag at 0x0043C8DB: 0 -> save\game_N.sav,
+ * non-zero -> save\game_mp_N.sav.  It is 1 or 2 inside an MP session, so test
+ * for non-zero.  Read it live: returning to a single-player game resets the
+ * flag without restarting the process. */
+static int game_is_mp(void)
+{
+    return readable((void *)ADDR_MP_MODE, 4) && *(unsigned *)ADDR_MP_MODE != 0;
+}
+
+/* Money is item 9101 in both modes.  A fresh MP bag can have no 9101 record at
+ * all (the HUD then shows 0), so money_set() may have to create one.  Item 9102
+ * is the UN-points record: the game rebuilds it from stats+0x170 at 0x0043322E
+ * and adds 9102 pickups to stats+0x170 at 0x004345F6, so it is not money. */
 
 /* ---------------- thread freezing (optional) ------------------------------- */
 #define MAXTH 192
@@ -1050,8 +1166,8 @@ static void patch_hurt_int(void)
  * entry: ecx = container, [esp+4] = item object, [esp+8] = n, [esp+0xc] = ?
  * -> ret 0xc (caller cleans 12 bytes)
  *
- * With "infinite items" (g_nocons) on, any item except the currency types (9101 gold,
- * 9102 UN points) returns "1 item left" without touching the count, so the
+ * With "infinite items" (g_nocons) on, any item except the currency types (9101
+ * coin, 9102 UN points) returns "1 item left" without touching the count, so the
  * stack is never consumed or removed.
  *
  *  0x00 83 3D <&g_nocons> 00   cmp [nocons],0
@@ -1132,6 +1248,70 @@ static void patch_consume(void)
         logmsg("consume detour FAILED");
 }
 
+/* ---- instant-death traps (spikes): skip the HP=0 store while god is on -----
+ * 0x42B335 is the tail of the rectangle trap check that walks the room's traps:
+ *
+ *   42b323  cmp [ecx+0x540],0x76 / je ...   already dead -> skip
+ *   42b32c  cmp [ecx+0xcc],0x1f  / je ...   death pose  -> skip
+ *   42b335  fldz
+ *   42b337  fstps [ecx+0x474]              HP = 0      <- the kill
+ *   42b33d  (loop continues)
+ *
+ * The eight bytes of fldz+fstps are replaced by a jump to a stub that redoes
+ * them only while [g_god] is 0 and otherwise falls through to 0x42B33D.  God
+ * mode therefore skips the kill completely - no HP loss, no death state, no
+ * knock-back - while the trap behaves exactly as before when god is off.
+ * Found with the HP write watchpoint on 2026-10-24 (EIP 0x42B33D, value 0.0). */
+static int patch_trap_site(unsigned tgt_addr, unsigned char modrm, unsigned resume,
+                           const char *tag)
+{
+    unsigned char *tgt = (unsigned char *)(size_t)tgt_addr;
+    unsigned char *stub, *p, *jmp_at;
+    unsigned *rel;
+    /* fldz; fstps [reg+0x474] - the register differs per site (ecx single
+     * player, edx multiplayer), the rest of the loop is identical. */
+    if (tgt[0] != 0xD9 || tgt[1] != 0xEE || tgt[2] != 0xD9 || tgt[3] != modrm ||
+        *(unsigned *)(tgt + 4) != 0x474u) {
+        logmsg("trap patch %s: prologue mismatch %02x %02x %02x %02x %08x",
+               tag, tgt[0], tgt[1], tgt[2], tgt[3], *(unsigned *)(tgt + 4));
+        return 0;
+    }
+    stub = alloc_exec(48);
+    if (!stub) return 0;
+    p = stub;
+    *p++ = 0x83; *p++ = 0x3D;                /* cmp dword [g_god], 0 */
+    *(DWORD *)p = (DWORD)&g_god; p += 4;
+    *p++ = 0x00;
+    *p++ = 0x75; *p++ = 0x08;                /* jne +8: skip the two FP ops */
+    *p++ = 0xD9; *p++ = 0xEE;                /* fldz */
+    *p++ = 0xD9; *p++ = modrm;               /* fstps [reg+0x474] */
+    *(DWORD *)p = 0x474u; p += 4;
+    jmp_at = p;
+    *p++ = 0xE9;                             /* jmp back after the two ops */
+    rel = (unsigned *)p;
+    *rel = resume - (DWORD)(size_t)(jmp_at + 5);
+    p += 4;
+    FlushInstructionCache(GetCurrentProcess(), stub, (SIZE_T)(p - stub));
+    if (install_jmp(tgt, 8, stub)) {
+        logmsg("trap patch ok (%s): HP kill skipped while god is on", tag);
+        return 1;
+    }
+    logmsg("trap patch FAILED (%s)", tag);
+    return 0;
+}
+
+static int patch_trap_spike(void)
+{
+    int n = 0;
+    /* 0x42B335 is the single-player trap loop.  0x48F039 is the one that
+     * actually runs on spikes in multiplayer - caught with the HP write
+     * watchpoint on 2026-10-24 (EIP 0x48F041, value 0.0); the old single-site
+     * patch left the multiplayer game dying there. */
+    n += patch_trap_site(0x0042B335u, 0x99, 0x0042B33Du, "single-player");
+    n += patch_trap_site(0x0048F039u, 0x9A, 0x0048F041u, "multiplayer");
+    return n;
+}
+
 static void apply_patch(void)
 {
     if (NEUTRALISE_FLAG) neutralise_tamper_flag();
@@ -1143,6 +1323,7 @@ static void apply_patch(void)
     patch_count_adder(0x00422540u, 0x04, &g_mu_422540, "count-add(+0x04)", 0);
     patch_count_adder(0x00422660u, 0x0C, &g_mu_422660, "count-add(+0x0C)", 1);
     patch_count_adder(0x004225A0u, 0x20, &g_mu_4225a0, "count-add(+0x20)", 0);
+    patch_trap_spike();
 }
 
 /* ---------------- old overlay panel (disabled, kept for reference) --------- */
@@ -1390,6 +1571,7 @@ static volatile LONG g_give_req;          /* 0 idle, 1 pending */
 static volatile LONG g_give_type, g_give_count, g_give_ground;
 static volatile LONG g_give_done, g_give_result;
 static volatile LONG g_give_post_tick;   /* GetTickCount() when the request was sent */
+static volatile LONG g_money_after = -1;  /* count to write after the coin is created */
 
 static unsigned desc_of_type(unsigned type)
 {
@@ -1478,10 +1660,23 @@ static int bag_give(unsigned type, int count, int to_ground)
     return res ? (left == 0 ? 1 : 2) : 0;
 }
 
+static int set_item_count(int type, int v);   /* defined below; used by the money path */
+
 /* runs on the game window's thread, called from game_wndproc */
 static void give_do_pending(void)
 {
     int r = bag_give((unsigned)g_give_type, (int)g_give_count, (int)g_give_ground);
+    if (g_money_after >= 0) {
+        LONG v = g_money_after;
+        g_money_after = -1;
+        if (r) {
+            int ok = set_item_count(ITEM_COIN, (int)v);
+            logmsg("money create: item 9101 give=%d, set %ld %s",
+                   r, v, ok ? "ok" : "FAILED");
+        } else {
+            logmsg("money create: item 9101 give failed (%d)", r);
+        }
+    }
     g_give_result = r;
     g_give_done = 1;
     g_give_req = 0;
@@ -1750,13 +1945,18 @@ static void items_filter(const wchar_t *needle)
 
 /* ---------------- overlay panel (native Win32 controls) ---------------- */
 #define PANEL_W 640
-#define PANEL_H 1084
+#define PANEL_H 1148
 #define ID_CB_GOD    101
 #define ID_CB_XP     102
 #define ID_CB_ITEM   103
 #define ID_CB_JUMP   106
 #define ID_CB_TP     107
-#define ID_BT_TPINFO 407
+#define ID_BT_REVEAL 408
+#define ID_BT_BUFFS  409
+#define ID_BT_MPUNLOCK 410
+#define ID_BT_SAVES_MP 411
+#define ID_BT_LIGHTS 412
+#define ID_BT_LIGHTS_ALL 413
 #define ID_CM_ASPECT 140
 #define ID_CM_SCALE  150
 #define ID_CM_SPEED  160
@@ -1791,6 +1991,8 @@ static HWND  g_hwnd;
 static HWND  g_cb_god, g_cb_xp, g_cb_item, g_cb_jump;
 static HWND  g_cm_aspect, g_cm_scale, g_bt_scale, g_st_scale;
 static HWND  g_cm_speed;
+static HWND  g_bt_mpunlock;          /* enabled live, only when the map table is loaded */
+static HWND  g_bt_force;             /* Force save: single-player only */
 static HWND  g_cm_atk;
 static HWND  g_ed_pts, g_ed_gold, g_ed_un;
 static HWND  g_v_hp, g_v_lvl, g_v_xp, g_v_gold, g_v_un, g_v_pts;
@@ -1800,7 +2002,7 @@ static HWND  g_ck_hiden, g_st_dev, g_desc;
 static HWND  g_bt_bag, g_bt_grnd;
 static HWND  g_hint;       /* bottom line, reused for short status messages */
 #define MOD_NAME    L"Unepic Better Mod"
-#define MOD_TITLE   L"Unepic Better Mod  v1.0.0"
+#define MOD_TITLE   L"Unepic Better Mod  v1.0.1"
 #define HINT_DEFAULT L"(C) 2026 Quiet Game Archive"
 static HFONT g_ui_font, g_ui_bold;
 static int   g_panel_visible;
@@ -1845,6 +2047,8 @@ static int    g_bag_prev_n = -1;
 static LONG   g_wp_auto_done;
 static int    g_wpauto;
 static unsigned g_watch_addr;   /* [debug] watch=DA8730 (hex, no 0x) */
+static float g_nudge_x, g_nudge_y;   /* [debug] nudge=dx,dy: one-shot entity shift */
+static int   g_nudge_wait;           /* ticks left before it fires (0 = nothing) */
 
 static void bag_diff(void)
 {
@@ -1928,6 +2132,34 @@ static int set_item_count(int type, int v)
         }
     }
     return 0;
+}
+
+/* Money is item 9101 in both modes.  Rewrite it when the record exists; if an
+ * MP bag has no coin at all, ask the game thread to create one through the same
+ * item-add path the Items panel uses, then write the requested count there. */
+static int money_set(int v)
+{
+    int ok = set_item_count(ITEM_COIN, v);
+    if (ok) {
+        logmsg("set money = %d ok (item 9101, mp=%d)", v, game_is_mp());
+        return 1;
+    }
+    if (!game_is_mp()) {
+        logmsg("set money = %d FAILED - no coin record (item 9101, mp=0)", v);
+        return 0;
+    }
+    if (g_give_req) {
+        logmsg("set money = %d deferred - another give is pending", v);
+        return 0;
+    }
+    g_money_after = (LONG)v;
+    if (!give_request(ITEM_COIN, 1, 0)) {
+        g_money_after = -1;
+        logmsg("set money = %d FAILED - no game window", v);
+        return 0;
+    }
+    logmsg("set money = %d: no coin record, creating item 9101 on the game thread", v);
+    return 2;      /* pending; the 250 ms panel refresh will show the result */
 }
 
 /* UN is derived every frame: sum(ledger[i] where flag[i]==2) - stats+0x170 */
@@ -2348,7 +2580,7 @@ static void panel_refresh(void)
         need = stats_get(s, OFF_NEED); pts = stats_get(s, OFF_POINTS);
     }
     if (e) { mx = *(int *)(e + ENT_MAXHP); hp = (int)*(float *)(e + ENT_CURHP); }
-    gold = item_count_of_type(9101);
+    gold = item_count_of_type(ITEM_COIN);
     un   = un_current();
     wsprintfW(b, L"%d / %d", hp, mx);              SetWindowTextW(g_v_hp, b);
     wsprintfW(b, L"%d", lvl);                      SetWindowTextW(g_v_lvl, b);
@@ -2363,7 +2595,7 @@ static void panel_fill_edits(void)
     unsigned s = stats_addr();
     wchar_t b[32];
     int pts = s ? stats_get(s, OFF_POINTS) : 0;
-    int gold = item_count_of_type(9101), un = un_current();
+    int gold = item_count_of_type(ITEM_COIN), un = un_current();
     char ini[MAX_PATH];
     int asp, s10, max10, idx;
     wsprintfW(b, L"%d", pts);   SetWindowTextW(g_ed_pts, b);
@@ -2412,6 +2644,7 @@ static int edit_int(HWND h, int def)
 {
     wchar_t b[32];
     GetWindowTextW(h, b, 32);
+    if (!b[0]) return def;      /* empty box: use the caller's documented default */
     return (int)wcstol(b, NULL, 10);
 }
 
@@ -2419,6 +2652,14 @@ static void force_save(void)
 {
     HWND gw = find_game_window();
     unsigned e = entity_addr();
+    if (game_is_mp()) {
+        MessageBoxW(g_hwnd,
+                    L"Force save is single-player only.\r\n\r\n"
+                    L"In multiplayer, save from the game's own menu.",
+                    L"Force save", MB_OK | MB_ICONINFORMATION);
+        logmsg("force save: refused in multiplayer (SP only)");
+        return;
+    }
     if (!gw) {
         MessageBoxW(g_hwnd, L"Game window not found.", MOD_NAME, MB_OK | MB_ICONWARNING);
         return;
@@ -2429,6 +2670,47 @@ static void force_save(void)
     }
     logmsg("force save: requested (entity %08x)", e);
     PostMessageW(gw, WM_APP + 8, 0, 0);
+}
+
+/* [debug] warptest=<mapId> - one-shot map load, on the game thread.
+ * Calls the routine the game itself uses for its "load map" action
+ * (0x00471CA0, entry at 0x0041B6E6: this=0x17CA610, arg1=map id, arg2=that
+ * caller's buffer - passed as 0 here).  It resets the stats object and builds
+ * a new level, so it can leave the session broken: save first.
+ */
+static int g_warp_id = -1;
+
+/* [debug] roomwarp=<cell> - one-shot: load the room a map cell belongs to.
+ * 0x0042E030 is what the game itself calls on a door transition
+ * (this=0x7E10D8, zone, room, 0); the 16x16 cell records at 0x00B03008 hold
+ * zone at +0x2B8 and room at +0x2B0 (verified against a live transition:
+ * zone 1 / room 12 -> call (1, 12, 0)).
+ */
+static int g_roomwarp_cell = -1;
+static int g_wb_zone = -1, g_wb_room = -1;   /* [debug] warpbyid=zone,room */
+
+static void roomwarp_fire(void)
+{
+    HWND gw = find_game_window();
+    if (!gw) { logmsg("roomwarp: no game window"); return; }
+    logmsg("roomwarp: posting cell=%d", g_roomwarp_cell);
+    PostMessageW(gw, WM_APP + 15, 0, 0);
+}
+
+static void warpbyid_fire(void)
+{
+    HWND gw = find_game_window();
+    if (!gw) { logmsg("warpbyid: no game window"); return; }
+    logmsg("warpbyid: posting zone=%d room=%d", g_wb_zone, g_wb_room);
+    PostMessageW(gw, WM_APP + 16, 0, 0);
+}
+
+static void warp_test_fire(void)
+{
+    HWND gw = find_game_window();
+    if (!gw) { logmsg("warptest: no game window"); return; }
+    logmsg("warptest: posting mapId=%d", g_warp_id);
+    PostMessageW(gw, WM_APP + 14, 0, 0);
 }
 
 static void panel_apply(int which)
@@ -2444,8 +2726,7 @@ static void panel_apply(int which)
         int v = edit_int(g_ed_gold, 2);
         if (v < 2) v = 2;
         if (v > 999999) v = 999999;
-        set_item_count(9101, v);
-        logmsg("set money = %d", v);
+        if (money_set(v) == 2) return;   /* coin creation is pending on the game thread */
     } else if (which == 2) {
         int v = edit_int(g_ed_un, 0);
         if (v < 0) v = 0;
@@ -2906,15 +3187,20 @@ static void panel_hide(void)
 #define SV_ID_DELETE   503
 #define SV_ID_FOLDER   504
 #define SV_ID_CLOSE    505
+#define SV_ID_LOAD     506
 
 static HWND g_saves, g_lb_slot, g_cm_target, g_saves_st;
 static wchar_t g_saves_cls[64];   /* per-core class name: a reused name would keep the OLD wndproc (old cores stay mapped) */
 static char g_save_dir[MAX_PATH];
+static int g_saves_mp;            /* 1 = the window manages game_mp_N.sav */
 static unsigned g_slot_sig[SAVE_MAX_SLOTS];   /* used<<20 | size, plus mtime mix */
 
+/* Single-player and multiplayer keep independent save files: the game picks
+ * save\game_N.sav when 0x672334 is 0 and save\game_mp_N.sav otherwise (0x43C8DB). */
 static int saves_slot_exists(int slot, char *out, size_t n)
 {
-    _snprintf(out, n, "%s\\save\\game_%d.sav", g_save_dir, slot);
+    _snprintf(out, n, g_saves_mp ? "%s\\save\\game_mp_%d.sav" : "%s\\save\\game_%d.sav",
+              g_save_dir, slot);
     return GetFileAttributesA(out) != INVALID_FILE_ATTRIBUTES;
 }
 
@@ -2937,10 +3223,16 @@ static void saves_row_text(int slot, wchar_t *w, int n)
     FindClose(h);
     memset(&st, 0, sizeof st);
     FileTimeToSystemTime(&fd.ftLastWriteTime, &st);
-    wsprintfW(w, L"slot %2d    %04d-%02d-%02d %02d:%02d    %6u B%s",
-              slot, st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute,
-              (unsigned)fd.nFileSizeLow,
-              slot == *(int *)0x00675174u ? L"    (current)" : L"");
+    {
+        /* 0x675174 is shared by both namespaces, so only call it "(current)"
+         * in the window that matches the mode the game is actually in. */
+        int cur = !IsBadReadPtr((void *)0x00675174u, 4) &&
+                  slot == *(int *)0x00675174u &&
+                  (g_saves_mp ? game_is_mp() : !game_is_mp());
+        wsprintfW(w, L"slot %2d    %04d-%02d-%02d %02d:%02d    %6u B%s",
+                  slot, st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute,
+                  (unsigned)fd.nFileSizeLow, cur ? L"    (current)" : L"");
+    }
     (void)n;
 }
 
@@ -2952,6 +3244,7 @@ static void saves_refresh(int force)
     WIN32_FIND_DATAA fd;
     HANDLE h;
     int i, sel, changed = 0, cur;
+    static int last_mode = -1;
 
     if (!g_lb_slot) return;
     if (!g_save_dir[0]) {
@@ -2961,6 +3254,12 @@ static void saves_refresh(int force)
         }
     }
     cur = *(int *)0x00675174u;
+    {
+        /* the "(current)" marker depends on the mode as well (0x675174 is
+         * shared by both namespaces), so refresh when SP <-> MP changes */
+        int mode = game_is_mp() ? 1 : 0;
+        if (mode != last_mode) { last_mode = mode; changed = 1; }
+    }
     for (i = 0; i < SAVE_MAX_SLOTS; i++) {
         sig[i] = 0;
         if (saves_slot_exists(i, path, sizeof path)) {
@@ -2989,13 +3288,15 @@ static void saves_refresh(int force)
         char pat[MAX_PATH];
         wchar_t w[200];
         int n = 0;
-        _snprintf(pat, sizeof pat, "%s\\save\\game_*.sav", g_save_dir);
+        _snprintf(pat, sizeof pat, g_saves_mp ? "%s\\save\\game_mp_*.sav"
+                                              : "%s\\save\\game_*.sav", g_save_dir);
         h = FindFirstFileA(pat, &fd);
         if (h != INVALID_HANDLE_VALUE) {
             do {
                 int slot = -1;
                 if (fd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) continue;
-                if (sscanf(fd.cFileName, "game_%d.sav", &slot) == 1 && slot >= 0) n++;
+                if (sscanf(fd.cFileName, g_saves_mp ? "game_mp_%d.sav" : "game_%d.sav",
+                           &slot) == 1 && slot >= 0) n++;
             } while (FindNextFileA(h, &fd));
             FindClose(h);
         }
@@ -3037,7 +3338,8 @@ static void saves_copy(void)
             return;
         }
     }
-    cur = *(int *)0x00675174u;
+    cur = (g_saves_mp ? game_is_mp() : !game_is_mp())
+          ? *(int *)0x00675174u : -1;
     if (target == cur) {
         wsprintfW(msg, L"Slot %d is the slot the game is using right now.\r\n"
                        L"It may be overwritten on the next save.\r\nCopy anyway?", target);
@@ -3107,7 +3409,8 @@ static void saves_delete(void)
         SetWindowTextW(g_saves_st, L"that slot is already empty");
         return;
     }
-    cur = *(int *)0x00675174u;
+    cur = (g_saves_mp ? game_is_mp() : !game_is_mp())
+          ? *(int *)0x00675174u : -1;
     wsprintfW(msg, L"Delete the save in slot %d?\r\n\r\nThe file goes to the recycle bin, "
                    L"so it can be restored.%s", slot,
               slot == cur ? L"\r\n\r\nThis is the slot the game is using right now." : L"");
@@ -3139,6 +3442,66 @@ static void saves_open_folder(void)
     }
 }
 
+/* Load a slot without leaving the game.  Single-player window only: the MP
+ * saves window deliberately has no Load button, because the game loads
+ * game_mp_N.sav itself from its multiplayer menu.
+ * The game has its own queued-load path: its main loop checks 0x00639894 and,
+ * when set, calls the save loader 0x0043C940(this=0x00674EF8, slot, 0, 0, 0)
+ * with the slot from 0x00675174, then clears the flag.  We only fill in those
+ * two globals on the game thread (WM_APP+18); the loader itself runs in the
+ * game's own context, which is why this is safe to use mid-game.  Verified
+ * 2026-10-23: setting slot 9 + the flag loaded game_9.sav within one frame. */
+static void saves_close(void);
+
+static void saves_load(void)
+{
+    wchar_t msg[420];
+    char path[MAX_PATH];
+    int slot = saves_selected_slot();
+    HWND gw;
+
+    if (slot < 0) return;
+    if (!saves_slot_exists(slot, path, sizeof path)) {
+        SetWindowTextW(g_saves_st, L"that slot is empty");
+        return;
+    }
+    /* Safety net only - the MP window does not create a Load button.  The
+     * game's own multiplayer menu is the only supported way to load
+     * game_mp_N.sav, so never drive the loader from the MP save manager. */
+    if (g_saves_mp) {
+        MessageBoxW(g_saves,
+                    L"This window only manages multiplayer save files.\r\n\r\n"
+                    L"Load a multiplayer save from the game's own multiplayer\r\n"
+                    L"menu - the mod does not drive the loader for those slots.",
+                    L"Load multiplayer save", MB_OK | MB_ICONINFORMATION);
+        SetWindowTextW(g_saves_st, L"load multiplayer saves from the game's menu");
+        logmsg("saves: refused load from the mp window");
+        return;
+    }
+    wsprintfW(msg,
+              L"Load slot %d now?\r\n\r\n"
+              L"The game's own loader runs on the next frame.\r\n"
+              L"Unsaved progress is lost and the game returns to the\r\n"
+              L"saved room.\r\n\r\n"
+              L"Force save first if you want to keep the current state.", slot);
+    if (MessageBoxW(g_saves, msg, L"Load save slot",
+                    MB_OKCANCEL | MB_ICONWARNING | MB_DEFBUTTON2) != IDOK) {
+        logmsg("saves: load slot %d cancelled", slot);
+        SetWindowTextW(g_saves_st, L"load cancelled");
+        return;
+    }
+    gw = find_game_window();
+    if (!gw) {
+        SetWindowTextW(g_saves_st, L"game window not found");
+        return;
+    }
+    g_load_slot = slot;
+    PostMessageW(gw, WM_APP + 18, 0, 0);
+    logmsg("saves: load slot %d requested", slot);
+    hint_flash(L"loading the selected save ...");
+    saves_close();
+}
+
 static BOOL CALLBACK saves_font_cb(HWND c, LPARAM p)
 {
     SendMessageW(c, WM_SETFONT, (WPARAM)p, TRUE);
@@ -3157,6 +3520,7 @@ static LRESULT CALLBACK saves_proc(HWND h, UINT m, WPARAM w, LPARAM l)
         switch (LOWORD(w)) {
         case SV_ID_REFRESH: saves_refresh(1); return 0;
         case SV_ID_COPY:    saves_copy(); return 0;
+        case SV_ID_LOAD:    if (!g_saves_mp) saves_load(); return 0;
         case SV_ID_DELETE:  saves_delete(); return 0;
         case SV_ID_FOLDER:  saves_open_folder(); return 0;
         case SV_ID_CLOSE:   saves_close(); return 0;
@@ -3183,12 +3547,14 @@ static LRESULT CALLBACK saves_proc(HWND h, UINT m, WPARAM w, LPARAM l)
     return DefWindowProcW(h, m, w, l);
 }
 
-static void saves_show(void)
+static void saves_show(int mp)
 {
     WNDCLASSEXW wc;
-    RECT r = { 0, 0, 560, 548 }, pr;
+    RECT r = { 0, 0, 560, 584 }, pr;
     HINSTANCE hi = GetModuleHandleA(NULL);
 
+    if (g_saves && IsWindow(g_saves) && g_saves_mp != mp) saves_close();
+    g_saves_mp = mp ? 1 : 0;
     if (g_saves && IsWindow(g_saves)) {
         ShowWindow(g_saves, SW_SHOW);
         SetForegroundWindow(g_saves);
@@ -3209,18 +3575,22 @@ static void saves_show(void)
         return;
     }
     AdjustWindowRect(&r, WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, FALSE);
-    g_saves = CreateWindowExW(WS_EX_TOOLWINDOW, g_saves_cls, L"Unepic Better Mod - save slots",
+    g_saves = CreateWindowExW(WS_EX_TOPMOST | WS_EX_TOOLWINDOW, g_saves_cls,
+                              g_saves_mp ? L"Unepic Better Mod - multiplayer save slots"
+                                         : L"Unepic Better Mod - save slots",
                               WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU,
                               CW_USEDEFAULT, CW_USEDEFAULT, r.right - r.left, r.bottom - r.top,
                               g_hwnd, NULL, hi, NULL);
     if (!g_saves) { hint_flash(L"could not create the saves window"); return; }
 
-    CreateWindowExW(0, L"BUTTON", L"Save slots (one file per slot; the game reads them at its load menu)",
+    CreateWindowExW(0, L"BUTTON",
+                    g_saves_mp ? L"Multiplayer saves (game_mp_N.sav; the game reads them from the multiplayer menu)"
+                               : L"Save slots (one file per slot; the game reads them at its load menu)",
                     WS_CHILD | WS_VISIBLE | BS_GROUPBOX, 12, 4, 536, 392, g_saves, NULL, hi, NULL);
     g_lb_slot = CreateWindowExW(0, L"LISTBOX", L"", WS_CHILD | WS_VISIBLE | WS_BORDER |
                                 WS_VSCROLL | LBS_NOTIFY, 24, 26, 512, 356, g_saves, NULL, hi, NULL);
     CreateWindowExW(0, L"BUTTON", L"Actions", WS_CHILD | WS_VISIBLE | BS_GROUPBOX,
-                    12, 400, 536, 76, g_saves, NULL, hi, NULL);
+                    12, 400, 536, 112, g_saves, NULL, hi, NULL);
     CreateWindowExW(0, L"STATIC", L"Copy selected to", WS_CHILD | WS_VISIBLE,
                     24, 422, 120, 18, g_saves, NULL, hi, NULL);
     g_cm_target = CreateWindowExW(0, L"COMBOBOX", L"", WS_CHILD | WS_VISIBLE |
@@ -3232,12 +3602,28 @@ static void saves_show(void)
                     324, 416, 116, 28, g_saves, (HMENU)SV_ID_DELETE, hi, NULL);
     CreateWindowExW(0, L"BUTTON", L"Open folder", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
                     446, 416, 96, 28, g_saves, (HMENU)SV_ID_FOLDER, hi, NULL);
+    if (g_saves_mp) {
+        /* Multiplayer slots are loaded by the game itself from its own
+         * multiplayer menu; offering a load button here only invites the
+         * "which save did it actually read" problem, so there is none. */
+        CreateWindowExW(0, L"STATIC",
+                        L"Load multiplayer saves from the game's own multiplayer menu.\r\n"
+                        L"This window only manages the files.",
+                        WS_CHILD | WS_VISIBLE | SS_LEFT, 24, 452, 512, 32,
+                        g_saves, NULL, hi, NULL);
+    } else {
+        CreateWindowExW(0, L"BUTTON", L"Load selected", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+                        24, 452, 140, 28, g_saves, (HMENU)SV_ID_LOAD, hi, NULL);
+        CreateWindowExW(0, L"STATIC", L"uses the game's loader; unsaved progress is lost",
+                        WS_CHILD | WS_VISIBLE | SS_LEFT, 176, 457, 368, 18,
+                        g_saves, NULL, hi, NULL);
+    }
     g_saves_st = CreateWindowExW(0, L"STATIC", L"", WS_CHILD | WS_VISIBLE | SS_LEFT,
-                                 14, 484, 532, 18, g_saves, NULL, hi, NULL);
+                                 14, 520, 532, 18, g_saves, NULL, hi, NULL);
     CreateWindowExW(0, L"BUTTON", L"Refresh", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
-                    12, 508, 100, 28, g_saves, (HMENU)SV_ID_REFRESH, hi, NULL);
+                    12, 544, 100, 28, g_saves, (HMENU)SV_ID_REFRESH, hi, NULL);
     CreateWindowExW(0, L"BUTTON", L"Close", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
-                    448, 508, 100, 28, g_saves, (HMENU)SV_ID_CLOSE, hi, NULL);
+                    448, 544, 100, 28, g_saves, (HMENU)SV_ID_CLOSE, hi, NULL);
     EnumChildWindows(g_saves, saves_font_cb, (LPARAM)g_ui_font);
 
     {
@@ -3266,6 +3652,12 @@ static void saves_show(void)
     SetTimer(g_saves, 1, 1000, NULL);
 }
 
+static int map_reveal_apply(void);
+static int mp_unlock_all_apply(void);
+static int mp_unlock_state_ok(void);
+static int light_request(int all);
+static void buffs_show(void);
+
 static LRESULT CALLBACK panel_proc(HWND h, UINT m, WPARAM w, LPARAM l)
 {
     switch (m) {
@@ -3290,21 +3682,9 @@ static LRESULT CALLBACK panel_proc(HWND h, UINT m, WPARAM w, LPARAM l)
         if (id == ID_BT_FORCE) { force_save(); return 0; }
         if (id == ID_BT_RETO)  { retos_button(); return 0; }
         if (id == ID_BT_ALLACH) { ach_button(); return 0; }
-        if (id == ID_BT_SAVES)  { saves_show(); return 0; }
-        if (id == ID_BT_TPINFO) {
-            MessageBoxW(g_hwnd,
-                        L"Experimental feature - not fully reliable.\r\n\r\n"
-                        L"- Only fires while the game window is focused.\r\n"
-                        L"- One click moves at most 384 world units. The game snaps the "
-                        L"character back to the current room if the target is outside it, "
-                        L"so long distances are done in a few clicks.\r\n"
-                        L"- A target below the character's feet is inside the floor and gets "
-                        L"reverted; by default only the horizontal position is used.\r\n"
-                        L"- Distance off? Change [cheats] tp_scale in unepic_mod.ini "
-                        L"(read on every click, no restart).",
-                        L"Right-click teleport", MB_OK | MB_ICONINFORMATION);
-            return 0;
-        }        if (id == ID_CM_ASPECT && HIWORD(w) == CBN_SELCHANGE) { scale_items(); return 0; }
+        if (id == ID_BT_SAVES)  { saves_show(0); return 0; }
+        if (id == ID_BT_SAVES_MP) { saves_show(1); return 0; }
+        if (id == ID_CM_ASPECT && HIWORD(w) == CBN_SELCHANGE) { scale_items(); return 0; }
         if (id == ID_CM_SPEED && HIWORD(w) == CBN_SELCHANGE) { panel_apply_speed(); return 0; }
         if (id == ID_CM_ATK && HIWORD(w) == CBN_SELCHANGE) { panel_apply_atkspd(); return 0; }
         if (id == ID_CM_LANG && HIWORD(w) == CBN_SELCHANGE) { panel_pick_lang(); return 0; }
@@ -3319,6 +3699,71 @@ static LRESULT CALLBACK panel_proc(HWND h, UINT m, WPARAM w, LPARAM l)
         if (id == ID_BT_TOBAG)  { give_from_panel(0); return 0; }
         if (id == ID_BT_TOGRND) { give_from_panel(1); return 0; }
         if (id == ID_CB_HIDEN && HIWORD(w) == BN_CLICKED) { panel_toggle_hiden(); return 0; }
+        if (id == ID_BT_REVEAL && HIWORD(w) == BN_CLICKED) {
+            if (MessageBoxW(g_hwnd,
+                            L"Mark every room of the current map as explored?\n\n"
+                            L"The whole map becomes visible and every room can be\n"
+                            L"selected and right-click warped to.  If you save the\n"
+                            L"game afterwards, the explored state is stored in that\n"
+                            L"save.",
+                            MOD_NAME, MB_OKCANCEL | MB_ICONQUESTION) == IDOK) {
+                logmsg("panel: reveal map confirmed");
+                map_reveal_apply();
+            }
+            return 0;
+        }
+        if (id == ID_BT_MPUNLOCK && HIWORD(w) == BN_CLICKED) {
+            if (MessageBoxW(g_hwnd,
+                            L"Open every co-op map in the multiplayer list?\n\n"
+                            L"Each map normally needs the previous dungeon cleared.\n"
+                            L"This is SESSION ONLY: it opens the list now but is not\n"
+                            L"saved. Loading a save rebuilds the list from real\n"
+                            L"progress, so maps you have not completed are locked\n"
+                            L"again.\n\n"
+                            L"Entering and completing a map records that completion\n"
+                            L"normally, so that map stays unlocked afterwards.",
+                            L"Unlock all MP maps", MB_OKCANCEL | MB_ICONQUESTION) == IDOK) {
+                logmsg("panel: unlock mp maps confirmed");
+                if (mp_unlock_all_apply() > 0)
+                    hint_flash(L"maps opened for this session - complete a map to keep it");
+            }
+            return 0;
+        }
+        if (id == ID_BT_LIGHTS && HIWORD(w) == BN_CLICKED) {
+            /* the real work runs on the game thread (WM_APP+20) and only once
+             * the game is running in a room again - the panel takes the game
+             * out of the foreground, and the native ignition effect needs the
+             * room's own effect list.  So this only queues the request. */
+            if (!light_request(0))
+                MessageBoxW(g_hwnd,
+                            L"Could not read this room's light table.\n\n"
+                            L"The table only exists while a room is loaded.\n"
+                            L"Nothing was changed.",
+                            MOD_NAME, MB_OK | MB_ICONWARNING);
+            return 0;
+        }
+        if (id == ID_BT_LIGHTS_ALL && HIWORD(w) == BN_CLICKED) {
+            if (MessageBoxW(g_hwnd,
+                            L"Light every room of the current zone?\n\n"
+                            L"This turns on every torch, brazier and lamp in all\n"
+                            L"loaded room tables of this zone - not just this room.\n\n"
+                            L"Rooms whose puzzle is \"light every torch\" are opened\n"
+                            L"without their script running, so a door or event may\n"
+                            L"not fire.  It is local memory only (no achievements are\n"
+                            L"touched), it is not undone by this button, and in\n"
+                            L"multiplayer the other player will not see it.",
+                            L"Light all rooms", MB_OKCANCEL | MB_ICONWARNING) == IDOK) {
+                logmsg("panel: light all rooms confirmed");
+                if (!light_request(1))
+                    MessageBoxW(g_hwnd,
+                                L"Could not read the room table array.\n\n"
+                                L"It only exists while a zone is loaded.\n"
+                                L"Nothing was changed.",
+                                MOD_NAME, MB_OK | MB_ICONWARNING);
+            }
+            return 0;
+        }
+        if (id == ID_BT_BUFFS) { buffs_show(); return 0; }
         if (HIWORD(w) == BN_CLICKED) {
             g_god    = SendMessageW(g_cb_god,  BM_GETCHECK, 0, 0) == BST_CHECKED;
             g_maxxp  = SendMessageW(g_cb_xp,   BM_GETCHECK, 0, 0) == BST_CHECKED;
@@ -3332,10 +3777,16 @@ static LRESULT CALLBACK panel_proc(HWND h, UINT m, WPARAM w, LPARAM l)
         return 0;
     }
     case WM_APP + 9:
-        MessageBoxW(g_hwnd,
-                    w ? L"Saved to game_0.sav (game_serializer returned 1)."
-                      : L"Save FAILED - see unepic_mod.log.",
-                    MOD_NAME, MB_OK | (w ? MB_ICONINFORMATION : MB_ICONWARNING));
+        if (w) {
+            wchar_t name[64], msg[160];
+            int slot = IsBadReadPtr((void *)0x00675174u, 4) ? -1 : *(int *)0x00675174u;
+            wsprintfW(name, game_is_mp() ? L"game_mp_%d.sav" : L"game_%d.sav", slot);
+            wsprintfW(msg, L"Saved to %s.", name);
+            MessageBoxW(g_hwnd, msg, MOD_NAME, MB_OK | MB_ICONINFORMATION);
+        } else {
+            MessageBoxW(g_hwnd, L"Save FAILED - see unepic_mod.log.",
+                        MOD_NAME, MB_OK | MB_ICONWARNING);
+        }
         return 0;
     case WM_APP + 7:
         if (g_panel_visible) panel_hide(); else panel_show();
@@ -3397,13 +3848,14 @@ static int panel_create(void)
     asp = 0;
 
     /* cheats */
-    mk_ctl(L"BUTTON", L"Cheats", BS_GROUPBOX, 12, 110, PANEL_W - 24, 180, 0, g_ui_bold);
+    mk_ctl(L"BUTTON", L"Cheats", BS_GROUPBOX, 12, 110, PANEL_W - 24, 244, 0, g_ui_bold);
     g_cb_god  = mk_ctl(L"BUTTON", L"God mode", BS_AUTOCHECKBOX, 26, 134, 150, 24, ID_CB_GOD, g_ui_font);
     g_cb_xp   = mk_ctl(L"BUTTON", L"Max XP", BS_AUTOCHECKBOX, 200, 134, 130, 24, ID_CB_XP, g_ui_font);
+    mk_ctl(L"BUTTON", L"Buffs...", BS_PUSHBUTTON,
+           350, 134, 120, 24, ID_BT_BUFFS, g_ui_font);
     g_cb_item = mk_ctl(L"BUTTON", L"Infinite items", BS_AUTOCHECKBOX, 26, 164, 150, 24, ID_CB_ITEM, g_ui_font);
     g_cb_jump = mk_ctl(L"BUTTON", L"Infinite jump", BS_AUTOCHECKBOX, 200, 164, 150, 24, ID_CB_JUMP, g_ui_font);
     g_cb_tp   = mk_ctl(L"BUTTON", L"Right-click teleport", BS_AUTOCHECKBOX, 380, 164, 200, 24, ID_CB_TP, g_ui_font);
-    mk_ctl(L"BUTTON", L"!", BS_PUSHBUTTON, 584, 166, 22, 22, ID_BT_TPINFO, g_ui_bold);
     mk_ctl(L"STATIC", L"Move speed", SS_LEFT, 26, 200, 96, 20, 0, g_ui_font);
     g_cm_speed = mk_ctl(L"COMBOBOX", L"", CBS_DROPDOWNLIST | WS_VSCROLL,
                         126, 196, 90, 180, ID_CM_SPEED, g_ui_font);
@@ -3418,75 +3870,87 @@ static int panel_create(void)
             SendMessageW(g_cm_atk, CB_ADDSTRING, 0, (LPARAM)sp);
         }
     }
+    mk_ctl(L"BUTTON", L"Light this room", BS_PUSHBUTTON,
+           26, 232, 220, 28, ID_BT_LIGHTS, g_ui_font);
+    mk_ctl(L"BUTTON", L"Light all rooms", BS_PUSHBUTTON,
+           258, 232, 220, 28, ID_BT_LIGHTS_ALL, g_ui_font);
+    mk_ctl(L"BUTTON", L"Reveal whole map", BS_PUSHBUTTON,
+           26, 264, 220, 28, ID_BT_REVEAL, g_ui_font);
+    g_bt_mpunlock = mk_ctl(L"BUTTON", L"Unlock all MP maps", BS_PUSHBUTTON,
+                           258, 264, 220, 28, ID_BT_MPUNLOCK, g_ui_font);
+    EnableWindow(g_bt_mpunlock, mp_unlock_state_ok());
     mk_ctl(L"BUTTON", L"Complete all challenges", BS_PUSHBUTTON,
-           26, 232, 220, 28, ID_BT_RETO, g_ui_font);
+           26, 296, 220, 28, ID_BT_RETO, g_ui_font);
     mk_ctl(L"BUTTON", L"Unlock all achievements", BS_PUSHBUTTON,
-           258, 232, 240, 28, ID_BT_ALLACH, g_ui_font);
+           258, 296, 220, 28, ID_BT_ALLACH, g_ui_font);
 
     /* values */
-    mk_ctl(L"BUTTON", L"Values", BS_GROUPBOX, 12, 296, PANEL_W - 24, 130, 0, g_ui_bold);
-    mk_ctl(L"STATIC", L"Skill points", SS_LEFT, 26, 320, 96, 20, 0, g_ui_font);
-    g_ed_pts  = mk_ctl(L"EDIT", L"0", WS_BORDER | ES_NUMBER | ES_RIGHT, 122, 318, 110, 26, ID_ED_PTS, g_ui_font);
-    mk_ctl(L"BUTTON", L"Set", BS_PUSHBUTTON, 246, 317, 60, 28, ID_BT_PTS, g_ui_font);
-    mk_ctl(L"BUTTON", L"Max", BS_PUSHBUTTON, 312, 317, 60, 28, ID_BT_PTS_MAX, g_ui_font);
-    mk_ctl(L"STATIC", L"0 - 999", SS_LEFT, 386, 320, 200, 20, 0, g_ui_font);
-    mk_ctl(L"STATIC", L"Money", SS_LEFT, 26, 350, 96, 20, 0, g_ui_font);
-    g_ed_gold = mk_ctl(L"EDIT", L"2", WS_BORDER | ES_NUMBER | ES_RIGHT, 122, 348, 110, 26, ID_ED_GOLD, g_ui_font);
-    mk_ctl(L"BUTTON", L"Set", BS_PUSHBUTTON, 246, 347, 60, 28, ID_BT_GOLD, g_ui_font);
-    mk_ctl(L"BUTTON", L"Max", BS_PUSHBUTTON, 312, 347, 60, 28, ID_BT_GOLD_MAX, g_ui_font);
-    mk_ctl(L"STATIC", L"2 - 999999", SS_LEFT, 386, 350, 200, 20, 0, g_ui_font);
-    mk_ctl(L"STATIC", L"UN", SS_LEFT, 26, 380, 96, 20, 0, g_ui_font);
-    g_ed_un   = mk_ctl(L"EDIT", L"0", WS_BORDER | ES_NUMBER | ES_RIGHT, 122, 378, 110, 26, ID_ED_UN, g_ui_font);
-    mk_ctl(L"BUTTON", L"Set", BS_PUSHBUTTON, 246, 377, 60, 28, ID_BT_UN, g_ui_font);
-    mk_ctl(L"BUTTON", L"Max", BS_PUSHBUTTON, 312, 377, 60, 28, ID_BT_UN_MAX, g_ui_font);
-    mk_ctl(L"STATIC", L"0 - 999999", SS_LEFT, 386, 380, 200, 20, 0, g_ui_font);
+    mk_ctl(L"BUTTON", L"Values", BS_GROUPBOX, 12, 360, PANEL_W - 24, 130, 0, g_ui_bold);
+    mk_ctl(L"STATIC", L"Skill points", SS_LEFT, 26, 384, 96, 20, 0, g_ui_font);
+    g_ed_pts  = mk_ctl(L"EDIT", L"0", WS_BORDER | ES_NUMBER | ES_RIGHT, 122, 382, 110, 26, ID_ED_PTS, g_ui_font);
+    mk_ctl(L"BUTTON", L"Set", BS_PUSHBUTTON, 246, 381, 60, 28, ID_BT_PTS, g_ui_font);
+    mk_ctl(L"BUTTON", L"Max", BS_PUSHBUTTON, 312, 381, 60, 28, ID_BT_PTS_MAX, g_ui_font);
+    mk_ctl(L"STATIC", L"0 - 999", SS_LEFT, 386, 384, 200, 20, 0, g_ui_font);
+    mk_ctl(L"STATIC", L"Money", SS_LEFT, 26, 414, 96, 20, 0, g_ui_font);
+    g_ed_gold = mk_ctl(L"EDIT", L"2", WS_BORDER | ES_NUMBER | ES_RIGHT, 122, 412, 110, 26, ID_ED_GOLD, g_ui_font);
+    mk_ctl(L"BUTTON", L"Set", BS_PUSHBUTTON, 246, 411, 60, 28, ID_BT_GOLD, g_ui_font);
+    mk_ctl(L"BUTTON", L"Max", BS_PUSHBUTTON, 312, 411, 60, 28, ID_BT_GOLD_MAX, g_ui_font);
+    mk_ctl(L"STATIC", L"2 - 999999", SS_LEFT, 386, 414, 200, 20, 0, g_ui_font);
+    mk_ctl(L"STATIC", L"UN", SS_LEFT, 26, 444, 96, 20, 0, g_ui_font);
+    g_ed_un   = mk_ctl(L"EDIT", L"0", WS_BORDER | ES_NUMBER | ES_RIGHT, 122, 442, 110, 26, ID_ED_UN, g_ui_font);
+    mk_ctl(L"BUTTON", L"Set", BS_PUSHBUTTON, 246, 441, 60, 28, ID_BT_UN, g_ui_font);
+    mk_ctl(L"BUTTON", L"Max", BS_PUSHBUTTON, 312, 441, 60, 28, ID_BT_UN_MAX, g_ui_font);
+    mk_ctl(L"STATIC", L"0 - 999999", SS_LEFT, 386, 444, 200, 20, 0, g_ui_font);
 
     /* status */
-    mk_ctl(L"BUTTON", L"Status", BS_GROUPBOX, 12, 432, PANEL_W - 24, 110, 0, g_ui_bold);
-    mk_ctl(L"STATIC", L"HP", SS_LEFT, 26, 456, 40, 20, 0, g_ui_font);
-    g_v_hp   = mk_ctl(L"STATIC", L"-", SS_LEFT, 70, 456, 190, 20, 0, g_ui_font);
-    mk_ctl(L"STATIC", L"Level", SS_LEFT, 300, 456, 60, 20, 0, g_ui_font);
-    g_v_lvl  = mk_ctl(L"STATIC", L"-", SS_LEFT, 364, 456, 120, 20, 0, g_ui_font);
-    mk_ctl(L"STATIC", L"XP", SS_LEFT, 26, 480, 40, 20, 0, g_ui_font);
-    g_v_xp   = mk_ctl(L"STATIC", L"-", SS_LEFT, 70, 480, 190, 20, 0, g_ui_font);
-    mk_ctl(L"STATIC", L"Points", SS_LEFT, 300, 480, 60, 20, 0, g_ui_font);
-    g_v_pts  = mk_ctl(L"STATIC", L"-", SS_LEFT, 364, 480, 120, 20, 0, g_ui_font);
-    mk_ctl(L"STATIC", L"Money", SS_LEFT, 26, 504, 60, 20, 0, g_ui_font);
-    g_v_gold = mk_ctl(L"STATIC", L"-", SS_LEFT, 90, 504, 140, 20, 0, g_ui_font);
-    mk_ctl(L"STATIC", L"UN", SS_LEFT, 300, 504, 30, 20, 0, g_ui_font);
-    g_v_un   = mk_ctl(L"STATIC", L"-", SS_LEFT, 334, 504, 150, 20, 0, g_ui_font);
+    mk_ctl(L"BUTTON", L"Status", BS_GROUPBOX, 12, 496, PANEL_W - 24, 110, 0, g_ui_bold);
+    mk_ctl(L"STATIC", L"HP", SS_LEFT, 26, 520, 40, 20, 0, g_ui_font);
+    g_v_hp   = mk_ctl(L"STATIC", L"-", SS_LEFT, 70, 520, 190, 20, 0, g_ui_font);
+    mk_ctl(L"STATIC", L"Level", SS_LEFT, 300, 520, 60, 20, 0, g_ui_font);
+    g_v_lvl  = mk_ctl(L"STATIC", L"-", SS_LEFT, 364, 520, 120, 20, 0, g_ui_font);
+    mk_ctl(L"STATIC", L"XP", SS_LEFT, 26, 544, 40, 20, 0, g_ui_font);
+    g_v_xp   = mk_ctl(L"STATIC", L"-", SS_LEFT, 70, 544, 190, 20, 0, g_ui_font);
+    mk_ctl(L"STATIC", L"Points", SS_LEFT, 300, 544, 60, 20, 0, g_ui_font);
+    g_v_pts  = mk_ctl(L"STATIC", L"-", SS_LEFT, 364, 544, 120, 20, 0, g_ui_font);
+    mk_ctl(L"STATIC", L"Money", SS_LEFT, 26, 568, 60, 20, 0, g_ui_font);
+    g_v_gold = mk_ctl(L"STATIC", L"-", SS_LEFT, 90, 568, 140, 20, 0, g_ui_font);
+    mk_ctl(L"STATIC", L"UN", SS_LEFT, 300, 568, 30, 20, 0, g_ui_font);
+    g_v_un   = mk_ctl(L"STATIC", L"-", SS_LEFT, 334, 568, 150, 20, 0, g_ui_font);
 
     /* saves */
-    mk_ctl(L"BUTTON", L"Saves", BS_GROUPBOX, 12, 548, PANEL_W - 24, 70, 0, g_ui_bold);
-    mk_ctl(L"BUTTON", L"Force save", BS_PUSHBUTTON, 26, 572, 120, 28, ID_BT_FORCE, g_ui_font);
-    mk_ctl(L"BUTTON", L"Saves...", BS_PUSHBUTTON, 156, 572, 120, 28, ID_BT_SAVES, g_ui_font);
+    mk_ctl(L"BUTTON", L"Saves", BS_GROUPBOX, 12, 612, PANEL_W - 24, 70, 0, g_ui_bold);
+    g_bt_force = mk_ctl(L"BUTTON", L"Force save (SP only)", BS_PUSHBUTTON,
+                        26, 636, 170, 28, ID_BT_FORCE, g_ui_font);
+    EnableWindow(g_bt_force, !game_is_mp());   /* single-player only */
+    mk_ctl(L"BUTTON", L"Saves...", BS_PUSHBUTTON, 206, 636, 120, 28, ID_BT_SAVES, g_ui_font);
+    mk_ctl(L"BUTTON", L"MP saves...", BS_PUSHBUTTON, 332, 636, 120, 28, ID_BT_SAVES_MP, g_ui_font);
 
     /* items */
-    mk_ctl(L"BUTTON", L"Items", BS_GROUPBOX, 12, 624, PANEL_W - 24, 420, 0, g_ui_bold);
-    mk_ctl(L"STATIC", L"Lang", SS_LEFT, 26, 648, 36, 20, 0, g_ui_font);
+    mk_ctl(L"BUTTON", L"Items", BS_GROUPBOX, 12, 688, PANEL_W - 24, 420, 0, g_ui_bold);
+    mk_ctl(L"STATIC", L"Lang", SS_LEFT, 26, 712, 36, 20, 0, g_ui_font);
     g_cm_lang = mk_ctl(L"COMBOBOX", L"", CBS_DROPDOWNLIST | WS_VSCROLL,
-                       66, 644, 150, 520, ID_CM_LANG, g_ui_font);
-    mk_ctl(L"STATIC", L"Category", SS_LEFT, 236, 648, 70, 20, 0, g_ui_font);
+                       66, 708, 150, 520, ID_CM_LANG, g_ui_font);
+    mk_ctl(L"STATIC", L"Category", SS_LEFT, 236, 712, 70, 20, 0, g_ui_font);
     g_cm_cat = mk_ctl(L"COMBOBOX", L"", CBS_DROPDOWNLIST | WS_VSCROLL,
-                      310, 644, 200, 500, ID_CM_CAT, g_ui_font);
-    mk_ctl(L"STATIC", L"Find", SS_LEFT, 26, 678, 36, 20, 0, g_ui_font);
-    g_ed_find = mk_ctl(L"EDIT", L"", WS_BORDER, 66, 674, 190, 26, ID_ED_FIND, g_ui_font);
-    mk_ctl(L"STATIC", L"Qty", SS_LEFT, 270, 678, 32, 20, 0, g_ui_font);
+                      310, 708, 200, 500, ID_CM_CAT, g_ui_font);
+    mk_ctl(L"STATIC", L"Find", SS_LEFT, 26, 742, 36, 20, 0, g_ui_font);
+    g_ed_find = mk_ctl(L"EDIT", L"", WS_BORDER, 66, 738, 190, 26, ID_ED_FIND, g_ui_font);
+    mk_ctl(L"STATIC", L"Qty", SS_LEFT, 270, 742, 32, 20, 0, g_ui_font);
     g_ed_qty = mk_ctl(L"EDIT", L"1", WS_BORDER | ES_NUMBER | ES_RIGHT,
-                      306, 674, 56, 26, ID_ED_QTY, g_ui_font);
-    mk_ctl(L"STATIC", L"1 - 999", SS_LEFT, 368, 678, 56, 20, 0, g_ui_font);
-    g_st_count = mk_ctl(L"STATIC", L"", SS_RIGHT, 430, 678, 174, 20, ID_ST_COUNT, g_ui_font);
+                      306, 738, 56, 26, ID_ED_QTY, g_ui_font);
+    mk_ctl(L"STATIC", L"1 - 999", SS_LEFT, 368, 742, 56, 20, 0, g_ui_font);
+    g_st_count = mk_ctl(L"STATIC", L"", SS_RIGHT, 430, 742, 174, 20, ID_ST_COUNT, g_ui_font);
     g_lb_items = mk_ctl(L"LISTBOX", L"", LBS_NOTIFY | WS_BORDER | WS_VSCROLL
-                        | LBS_NOINTEGRALHEIGHT, 26, 706, 588, 146, ID_LB_ITEMS, g_ui_font);
-    g_bt_bag   = mk_ctl(L"BUTTON", L"To bag", BS_PUSHBUTTON, 26, 860, 110, 28, ID_BT_TOBAG, g_ui_font);
-    g_bt_grnd  = mk_ctl(L"BUTTON", L"To ground", BS_PUSHBUTTON, 146, 860, 110, 28, ID_BT_TOGRND, g_ui_font);
+                        | LBS_NOINTEGRALHEIGHT, 26, 770, 588, 146, ID_LB_ITEMS, g_ui_font);
+    g_bt_bag   = mk_ctl(L"BUTTON", L"To bag", BS_PUSHBUTTON, 26, 924, 110, 28, ID_BT_TOBAG, g_ui_font);
+    g_bt_grnd  = mk_ctl(L"BUTTON", L"To ground", BS_PUSHBUTTON, 146, 924, 110, 28, ID_BT_TOGRND, g_ui_font);
     g_ck_hiden = mk_ctl(L"BUTTON", L"hide rows without a name", BS_AUTOCHECKBOX,
-                        270, 862, 344, 24, ID_CB_HIDEN, g_ui_font);
-    g_st_item  = mk_ctl(L"STATIC", L"no selection", SS_LEFT, 26, 894, 588, 20, ID_ST_ITEM, g_ui_font);
-    g_st_dev   = mk_ctl(L"STATIC", L"", SS_LEFT, 26, 916, 588, 20, ID_ST_DEV, g_ui_font);
+                        270, 926, 344, 24, ID_CB_HIDEN, g_ui_font);
+    g_st_item  = mk_ctl(L"STATIC", L"no selection", SS_LEFT, 26, 958, 588, 20, ID_ST_ITEM, g_ui_font);
+    g_st_dev   = mk_ctl(L"STATIC", L"", SS_LEFT, 26, 980, 588, 20, ID_ST_DEV, g_ui_font);
     g_desc     = mk_ctl(L"EDIT", L"",
                         WS_BORDER | WS_VSCROLL | ES_MULTILINE | ES_READONLY | ES_AUTOVSCROLL,
-                        26, 940, 588, 92, 0, g_ui_font);
+                        26, 1004, 588, 92, 0, g_ui_font);
 
     /* fill item pickers */
     {
@@ -3515,7 +3979,7 @@ static int panel_create(void)
     }
 
     g_hint = mk_ctl(L"STATIC", HINT_DEFAULT,
-                    SS_CENTER, 14, 1054, PANEL_W - 28, 20, 0, g_ui_font);
+                    SS_CENTER, 14, 1118, PANEL_W - 28, 20, 0, g_ui_font);
     panel_sync_checks();
     panel_fill_edits();
     logmsg("panel created hwnd=%p", (void *)g_hwnd);
@@ -3532,20 +3996,269 @@ static int is_game_foreground(void)
     return pid == GetCurrentProcessId();
 }
 
+/* Periodic dump of who touched the watched field.  The distinct-EIP list alone
+ * cannot answer "does this writer run every frame or only once", which is the
+ * question when a multiplayer write is being reverted, so the counts are reset
+ * after every report and the entity position is printed next to them. */
+static void wp_report(void)
+{
+    LONG n = g_wp_seen, k;
+    unsigned e = entity_addr();
+    logmsg("watch: %ld hits since the last report on %08x, player at (%.1f,%.1f) vy %.1f",
+           g_wp_period, (unsigned)g_wp_addr,
+           e ? (double)*(float *)(e + 0x520) : 0.0,
+           e ? (double)*(float *)(e + 0x524) : 0.0,
+           e ? (double)*(float *)(e + 0x528) : 0.0);
+    g_wp_period = 0;
+    for (k = 0; k < n && k < 64; k++) {
+        unsigned char *ip = (unsigned char *)(size_t)g_wp_eip[k];
+        if (ip && !IsBadReadPtr(ip, 4))
+            logmsg("   eip=%08x op=%02x %02x %02x %02x hits=%ld",
+                   (unsigned)g_wp_eip[k], ip[0], ip[1], ip[2], ip[3], g_wp_cnt[k]);
+        else
+            logmsg("   eip=%08x hits=%ld", (unsigned)g_wp_eip[k], g_wp_cnt[k]);
+        g_wp_cnt[k] = 0;
+    }
+}
+
+/* [debug] nudge=dx,dy - move the player entity a couple of seconds after the
+ * core starts, either in one jump or (with [debug] nudge_ramp=1) in 20 steps of
+ * dx/20 every 30 ms, so an external capture can compare "the write landed" with
+ * "the picture followed".  The ramp form is what tests whether the multiplayer
+ * render only refreshes while the game sees the position changing. */
+static int g_nudge_ramp;
+
+static DWORD WINAPI nudge_ramp_thread(LPVOID p)
+{
+    unsigned e = (unsigned)(size_t)p;
+    float stepx = g_nudge_x / 20.0f, stepy = g_nudge_y / 20.0f;
+    int i;
+    for (i = 0; i < 20; i++) {
+        if (!readable((void *)(size_t)(e + 0x520), 8)) break;
+        *(float *)(e + 0x520) += stepx;
+        *(float *)(e + 0x524) += stepy;
+        Sleep(30);
+    }
+    if (readable((void *)(size_t)(e + 0x520), 8))
+        logmsg("nudge: ramp done ent=%08x now (%.1f,%.1f)", e,
+               (double)*(float *)(e + 0x520), (double)*(float *)(e + 0x524));
+    return 0;
+}
+
+/* [debug] poke=ADDR,VALUE - write one float to one absolute address once, a
+ * couple of seconds after the core starts, and clear the key.  Used to test
+ * whether a given address is the position the renderer reads: if writing it
+ * moves the picture while writing the entity does not, that address is the one.
+ * VALUE is a plain float; the driving script reads the entity coordinate first
+ * and passes it in, so nothing here has to resolve entity offsets. */
+static unsigned g_poke_addr;
+static float    g_poke_val;
+static int      g_poke_wait;
+
+static void poke_fire(void)
+{
+    char p[MAX_PATH];
+    if (!g_poke_addr) return;
+    if (IsBadWritePtr((void *)(size_t)g_poke_addr, 4)) {
+        logmsg("poke: %08x is not writable, nothing written", g_poke_addr);
+    } else {
+        float old = *(float *)(size_t)g_poke_addr;
+        *(float *)(size_t)g_poke_addr = g_poke_val;
+        logmsg("poke: %08x %.4f -> %.4f", g_poke_addr, (double)old, (double)g_poke_val);
+    }
+    cfg_path(p, sizeof p);
+    WritePrivateProfileStringA("debug", "poke", "", p);
+}
+
+/* ---- multiplayer net player object (docs/DEVELOPMENT.md section 13.20) ----
+ * The network session is a static 1.4 MB object at 0x01477088.  Its +0xB0E00
+ * block is the world/player state that 0x488BA0 serialises; +0xC of that block
+ * is the local player state object, and 0x4BBEB0 sends +0x1C/+0x20 of it as the
+ * position.  Every address here came out of the disassembly, so each step is
+ * checked before it is dereferenced.
+ *
+ * [debug] netwatch=1  - log the net object's position whenever it moves, next
+ *                       to the entity position, so the two can be compared.
+ * [debug] pokenet=x,y - one-shot: write that position into the net object only
+ *                       (the entity is left alone).  If the picture moves, this
+ *                       is the store the MP renderer reads. */
+#define ADDR_SESSION 0x01477088u
+
+static int   g_netwatch;
+static int   g_vprobe;                   /* [debug] vprobe: log the entity's walking speed */
+static int   g_hpwatch;                  /* [debug] hpwatch: log HP/state changes */
+static int   g_pokenet_wait;
+static float g_pokenet_x, g_pokenet_y;
+static float g_net_last_x = -99999.0f, g_net_last_y;
+
+static unsigned net_player_obj(void)
+{
+    unsigned p;
+    if (!readable((void *)ADDR_SESSION, 0xB0E10)) return 0;
+    p = *(unsigned *)(size_t)(ADDR_SESSION + 0xB0E00 + 0xC);
+    if (p < 0x10000 || (p & 3)) return 0;
+    if (!readable((void *)(size_t)(p + 0x1C), 8)) return 0;
+    return p;
+}
+
+/* Write the position the multiplayer side actually draws from.  Measured live
+ * on 2026-10-24: writing only entity+0x520/+0x524 leaves the picture behind,
+ * writing this object together with the entity moves the character and it
+ * stays there.  Returns 0 when the session/player object is not resolvable, so
+ * the caller can fall back to the entity write. */
+static int net_pos_write(float x, float y)
+{
+    unsigned p = net_player_obj();
+    if (!p || IsBadWritePtr((void *)(size_t)(p + 0x1C), 8)) return 0;
+    *(float *)(size_t)(p + 0x1C) = x;
+    *(float *)(size_t)(p + 0x20) = y;
+    return 1;
+}
+
+static void net_player_tick(void)
+{
+    unsigned o = net_player_obj();
+    unsigned e;
+    float nx, ny, ex = 0.0f, ey = 0.0f;
+    if (!o) return;
+    nx = *(float *)(size_t)(o + 0x1C);
+    ny = *(float *)(size_t)(o + 0x20);
+    e = entity_addr();
+    if (e) {
+        ex = *(float *)(size_t)(e + 0x520);
+        ey = *(float *)(size_t)(e + 0x524);
+    }
+    if (g_netwatch && (nx != g_net_last_x || ny != g_net_last_y)) {
+        logmsg("netpos: obj=%08x (%.2f,%.2f) entity (%.2f,%.2f) net-entity (%+.2f,%+.2f)",
+               o, (double)nx, (double)ny, (double)ex, (double)ey,
+               (double)(nx - ex), (double)(ny - ey));
+        g_net_last_x = nx;
+        g_net_last_y = ny;
+    }
+    if (g_pokenet_wait > 0 && --g_pokenet_wait == 0) {
+        char p[MAX_PATH];
+        *(float *)(size_t)(o + 0x1C) = g_pokenet_x;
+        *(float *)(size_t)(o + 0x20) = g_pokenet_y;
+        logmsg("pokenet: obj=%08x (%.2f,%.2f) -> (%.2f,%.2f), entity stays (%.2f,%.2f)",
+               o, (double)nx, (double)ny, (double)g_pokenet_x, (double)g_pokenet_y,
+               (double)ex, (double)ey);
+        g_net_last_x = g_pokenet_x;
+        g_net_last_y = g_pokenet_y;
+        cfg_path(p, sizeof p);
+        WritePrivateProfileStringA("debug", "pokenet", "", p);
+    }
+}
+
+static void nudge_fire(void)
+{
+    unsigned e = entity_addr();
+    char p[MAX_PATH];
+    if (!e || !readable((void *)(size_t)(e + 0x520), 8)) {
+        logmsg("nudge: no player entity, nothing written");
+    } else if (g_nudge_ramp) {
+        HANDLE ht = CreateThread(NULL, 0, nudge_ramp_thread, (LPVOID)(size_t)e, 0, NULL);
+        logmsg("nudge: ramp (%.1f,%.1f) over 600 ms from (%.1f,%.1f)%s",
+               (double)g_nudge_x, (double)g_nudge_y,
+               (double)*(float *)(e + 0x520), (double)*(float *)(e + 0x524),
+               ht ? "" : " - CreateThread FAILED");
+        if (ht) CloseHandle(ht);
+    } else {
+        float x = *(float *)(e + 0x520) + g_nudge_x;
+        float y = *(float *)(e + 0x524) + g_nudge_y;
+        *(float *)(e + 0x520) = x;
+        *(float *)(e + 0x524) = y;
+        logmsg("nudge: ent=%08x (%.1f,%.1f) -> (%.1f,%.1f)", e,
+               (double)(x - g_nudge_x), (double)(y - g_nudge_y), (double)x, (double)y);
+    }
+    cfg_path(p, sizeof p);
+    WritePrivateProfileStringA("debug", "nudge", "", p);
+}
+
 static void tick(void)
 {
     unsigned s = stats_addr();
+    /* A lost keyup would leave the one-press edge set and swallow every later
+     * press.  Read the physical key instead of using a time threshold: a time
+     * threshold would turn held auto-repeat into an unwanted hover. */
+    if (g_jump_down && g_jump_vk &&
+        !(GetAsyncKeyState((int)g_jump_vk) & 0x8000))
+        g_jump_down = 0;
+    if (g_nudge_wait > 0 && --g_nudge_wait == 0) nudge_fire();
+    if (g_poke_wait > 0 && --g_poke_wait == 0) poke_fire();
+    net_player_tick();
+    if (g_hpwatch) {
+        /* log every HP / state change: tells whether an instant-death trap
+         * (spikes) goes through the damage path (HP drops) or sets a state */
+        unsigned he = entity_addr();
+        if (he && readable((void *)(size_t)(he + ENT_MAXHP), 8)) {
+            static int lmx, have;
+            static float lhp;
+            static LONG lst;
+            int mx = *(int *)(size_t)(he + ENT_MAXHP);
+            float hp = *(float *)(size_t)(he + ENT_CURHP);
+            LONG st = readable((void *)(size_t)(he + 0x540), 4)
+                      ? *(LONG *)(size_t)(he + 0x540) : -1;
+            if (!have || mx != lmx || hp != lhp || st != lst) {
+                logmsg("hpwatch: hp %.1f/%d state %ld  (was %.1f/%d state %ld)",
+                       (double)hp, mx, st, (double)lhp, lmx, lst);
+                lmx = mx;
+                lhp = hp;
+                lst = st;
+                have = 1;
+            }
+        }
+    }
+    if (g_vprobe) {
+        /* entity x difference over one tick: tells whether the Move speed
+         * multiplier reaches the physics in this mode (the hook logs the
+         * argument, this logs the resulting motion) */
+        static DWORD vt;
+        static float vx0;
+        static int have;
+        unsigned ev = entity_addr();
+        DWORD now = GetTickCount();
+        if (ev && readable((void *)(size_t)(ev + 0x520), 4)) {
+            float x = *(float *)(size_t)(ev + 0x520);
+            if (have) {
+                DWORD dt = now - vt;
+                if (dt >= 50) {
+                    float v = (x - vx0) * 1000.0f / (float)dt;
+                    if (v > 8.0f || v < -8.0f)
+                        logmsg("vprobe: x=%.2f dx=%.2f dt=%lums v=%.0f units/s",
+                               (double)x, (double)(x - vx0), dt, (double)v);
+                }
+            }
+            vt = now;
+            vx0 = x;
+            have = 1;
+        } else {
+            have = 0;
+        }
+    }
     if (g_maxxp && s) {
         int need = stats_get(s, OFF_NEED);
         int xp   = stats_get(s, OFF_XP);
         if (need > 0 && xp < need) stats_set(s, OFF_XP, need);
     }
-    if (g_watch_addr) {
+    if (g_watch_ent_off) {
+        unsigned we = entity_addr();
+        if (we && (LONG)(we + g_watch_ent_off) != g_wp_addr)
+            wp_arm(we + g_watch_ent_off);
+    } else if (g_watch_net) {
+        /* the net player object is re-created when the room changes, so the
+         * address is resolved fresh every tick instead of being pinned */
+        unsigned no = net_player_obj();
+        if (no && (LONG)(no + 0x1C) != g_wp_addr) wp_arm(no + 0x1C);
+    } else if (g_watch_addr) {
         /* [debug] watch=<hex> wins: it is what the reverse-engineering notes ask for */
         if ((LONG)g_watch_addr != g_wp_addr) wp_arm(g_watch_addr);
     } else if (DIAG_WP && !g_wp_auto_done) {
         unsigned e = entity_addr();
         if (e && (LONG)(e + ENT_CURHP) != g_wp_addr) wp_arm(e + ENT_CURHP);
+    }
+    if (g_watch_ent_off || g_watch_addr || g_watch_net) {
+        static int wr_div;
+        if (++wr_div >= 10) { wr_div = 0; wp_report(); }   /* about every 2 s */
     }
     {
         static int bd_div;
@@ -3556,7 +4269,7 @@ static void tick(void)
         g_player_x = e ? (LONG)(e + 0x520) : 0;
         if (e && g_airjump) {
             float vy = *(float *)(e + 0x528);
-            if (vy < -80.0f && g_prev_vy > -40.0f) {
+            if (!g_jump_key_forced && vy < -80.0f && g_prev_vy > -40.0f) {
                 LONG dt = (LONG)GetTickCount() - g_last_vk_tick;
                 if (dt >= 0 && dt < 500 && g_last_vk && g_jump_vk != g_last_vk) {
                     g_jump_vk = g_last_vk;
@@ -3565,6 +4278,23 @@ static void tick(void)
                 }
             }
             g_prev_vy = vy;
+        }
+    }
+    if (g_aj_probe_t0) {
+        unsigned e = entity_addr();
+        LONG now = (LONG)GetTickCount();
+        if ((LONG)e != g_aj_probe_ent) {
+            logmsg("ajprobe: entity changed %08x -> %08x", (unsigned)g_aj_probe_ent, e);
+            g_aj_probe_t0 = 0;
+        } else if (e && now - g_aj_probe_t0 >= 180) {
+            float y0, vy0;
+            memcpy(&y0, (const void *)&g_aj_probe_y0, 4);
+            memcpy(&vy0, (const void *)&g_aj_probe_vy0, 4);
+            logmsg("ajprobe: +%ldms y %.1f -> %.1f (dy %.1f), vy %.1f -> %.1f, state %ld",
+                   now - g_aj_probe_t0, (double)y0, (double)*(float *)(e + 0x524),
+                   (double)(*(float *)(e + 0x524) - y0), (double)vy0,
+                   (double)*(float *)(e + 0x528), *(LONG *)(e + 0x540));
+            g_aj_probe_t0 = 0;
         }
     }
     if (g_tp_check_tick && (LONG)(GetTickCount() - g_tp_check_tick) >= 400) {
@@ -3676,17 +4406,169 @@ static void report(int ticks)
            g_mu_type, g_mu_old, g_mu_new, g_mu_delta, (unsigned)g_mu_ret);
 }
 
-/* low-level keyboard hook: the 200 ms polling missed short taps in fullscreen */
+/* low-level input hooks.  They live on their OWN thread (hook_worker below):
+ * the callback runs on the thread that installed the hook and blocks the whole
+ * system until it returns, so that thread must never show a dialog, write a
+ * file or wait on anything.  The panel and its message boxes run on the worker
+ * thread instead. */
 static HHOOK g_kbd;
+static HANDLE g_hook_thread;
+static DWORD g_hook_tid;
+static HANDLE g_hook_ready;
+
+/* ---------------- the room's walkability grid -----------------------------
+ * *(entity+0x684) is the room object (0x1A04 bytes).  At +0xABF the game keeps
+ * a 63x31 raster, one byte per 16x16 world-pixel cell, COLUMN major:
+ *      idx = cx*31 + cy      cx 0..62 (x = cx*16), cy 0..30 (y = cy*16)
+ * 0 = open, non-zero = solid.  A standing entity has its feet on the TOP edge
+ * of a solid cell and its ~60 px body in the four cells above it.
+ *
+ * Verified live 2026-10-23 three ways: the raster drawn against the screen
+ * matched the walls; the block that stopped the player walking right
+ * (cx 21..29, four cells tall) is solid in it; and the game's own
+ * phase-advance spell took the player from x=25 to x=983, which is exactly
+ * this raster's last standable column (cx 61) minus the body half-width.
+ *
+ * The room object is re-read every call: two of them alternate at runtime
+ * (seen swapping between 0x00803D80 and 0x00826A24 within one second).
+ */
+#define GRID_W    63
+#define GRID_H    31
+#define GRID_CELL 16.0f
+#define GRID_BODY 4                 /* cells of clear space the body needs */
+#define GRID_REACH 8                /* sideways fallback radius, in cells (128 px) */
+/* the world point that sits at the centre of the client area.  It is NOT the
+ * room centre (504,248) - the camera puts the room 54 units right and 40 units
+ * up from the window centre - but it is constant across window sizes; measured
+ * 2026-10-23 at 2048x1152 (two rooms) and at maximized 2560x1529.  Together
+ * with pixel-per-unit = client_height / TP_VIEW_H this makes the whole click
+ * map computable at any resolution, no calibration needed. */
+#define TP_VIEW_H  640.0f
+#define TP_ORIGIN_X 450.0f
+#define TP_ORIGIN_Y 286.0f
+
+static unsigned char g_grid[GRID_W * GRID_H];
+static unsigned g_grid_room;
+
+static int grid_load(void)
+{
+    unsigned e = entity_addr(), room;
+    if (!e || IsBadReadPtr((void *)(size_t)(e + 0x684), 4)) return 0;
+    room = *(unsigned *)(size_t)(e + 0x684);
+    if (!room || IsBadReadPtr((void *)(size_t)(room + 0xABF), GRID_W * GRID_H))
+        return 0;
+    memcpy(g_grid, (void *)(size_t)(room + 0xABF), sizeof g_grid);
+    g_grid_room = room;
+    return 1;
+}
+
+/* outside the room is solid: nothing standable beyond the walls */
+static int grid_solid(int cx, int cy)
+{
+    if (cx < 0 || cx >= GRID_W || cy < 0 || cy >= GRID_H) return 1;
+    return g_grid[cx * GRID_H + cy] != 0;
+}
+
+/* feet on the top edge of cell (cx, fy) */
+static int grid_standable(int cx, int fy)
+{
+    int k;
+    if (!grid_solid(cx, fy)) return 0;
+    for (k = 1; k <= GRID_BODY; k++)
+        if (grid_solid(cx, fy - k)) return 0;
+    return 1;
+}
+
+/* First standable cell in one column, searched outward from the clicked row and
+ * over the whole column: the nearest floor below the click wins ties against
+ * the nearest one above, because a click in mid air should drop rather than
+ * float.  Returns 0 when the column has nothing standable at all (a shaft, a
+ * solid wall from top to bottom). */
+static int grid_column_landing(int cx, int cy0, int *ofy)
+{
+    int d;
+    for (d = 0; d < GRID_H; d++) {
+        int fy = cy0 + d;
+        if (fy >= GRID_BODY + 1 && fy < GRID_H && grid_standable(cx, fy)) {
+            *ofy = fy;
+            return 1;
+        }
+        if (d == 0) continue;
+        fy = cy0 - d;
+        if (fy >= GRID_BODY + 1 && fy < GRID_H && grid_standable(cx, fy)) {
+            *ofy = fy;
+            return 1;
+        }
+    }
+    return 0;
+}
+
+/* Landing point for a requested world point.
+ *
+ * Stage 1 keeps the click's own column, then the two columns beside it, so the
+ * character always ends up under the cursor in x whenever that is possible:
+ * a click in mid air drops onto the floor under it, a click inside rock rises
+ * onto the top of that rock, a click on a floor stays on that floor.
+ * Stage 2 only runs when those three columns have nothing standable (a shaft,
+ * the far side of a block): then the nearest cell within GRID_REACH, in any
+ * direction.  *how names the stage, for the log.
+ * Returns 0 when the point is outside the room or nothing nearby is standable,
+ * so nothing is written and the click is refused instead of teleporting somewhere
+ * unrelated. */
+static int grid_find_landing(float wx, float wy, float *ox, float *oy,
+                             const char **how)
+{
+    int cx0 = (int)(wx / GRID_CELL), cy0 = (int)(wy / GRID_CELL);
+    int r, dx, dy, fy;
+
+    if (how) *how = "none";
+    if (cx0 < 0 || cx0 >= GRID_W || cy0 < 0 || cy0 >= GRID_H) return 0;
+    for (r = 0; r <= 1; r++) {
+        for (dx = -r; dx <= r; dx++) {
+            int cx = cx0 + dx;
+            if (cx < 0 || cx >= GRID_W) continue;
+            if (!grid_column_landing(cx, cy0, &fy)) continue;
+            *ox = (float)cx * GRID_CELL + GRID_CELL / 2.0f;
+            *oy = (float)fy * GRID_CELL;
+            if (how) *how = r ? "column+1" : "column";
+            return abs(dx) + 1;
+        }
+    }
+    for (r = 1; r <= GRID_REACH; r++) {
+        int best_cx = -1, best_cy = -1, best_d = 0x7FFFFFFF;
+        for (dx = -r; dx <= r; dx++) {
+            int cx = cx0 + dx;
+            if (cx < 0 || cx >= GRID_W) continue;
+            for (dy = -r; dy <= r; dy++) {
+                int f = cy0 + dy, d;
+                if (abs(dx) != r && abs(dy) != r) continue;      /* this ring only */
+                if (f <= GRID_BODY || f >= GRID_H) continue;
+                if (!grid_standable(cx, f)) continue;
+                d = dx * dx + dy * dy;
+                if (d < best_d) { best_d = d; best_cx = cx; best_cy = f; }
+            }
+        }
+        if (best_cx >= 0) {
+            *ox = (float)best_cx * GRID_CELL + GRID_CELL / 2.0f;
+            *oy = (float)best_cy * GRID_CELL;
+            if (how) *how = "ring";
+            return r + 1;
+        }
+    }
+    return 0;
+}
 
 /* ---------------- right-click teleport ------------------------------------
- * v1: the world position is the player position plus the cursor offset from the
- * client centre, scaled by [cheats] tp_scale (100 = 1 world unit per pixel).
- * That assumes the camera keeps the player centred and 1:1 pixels, which has NOT
- * been calibrated yet - the first live tests are what tune it.
- * Safety net: 400 ms after writing the position, look at where the player really
- * is.  If the game's own collision resolver pushed us sideways by more than 24
- * units, the spot was inside geometry, so put the old position back and say so.
+ * The cursor maps onto the room, not onto the player: the camera does not move
+ * inside a room, so the client pixel -> world conversion is a fixed affine map
+ * (a 640-unit-tall view scaled to the client height, anchored at world
+ * (-120,-32) in the client's top-left corner; measured, see below).  The
+ * derived point is then resolved by grid_find_landing, which keeps the clicked
+ * column: a click in mid air drops onto the floor under it, a click inside rock
+ * rises onto the top of it, a click high above a platform lands on that
+ * platform.  Nothing is written when the room has nothing standable nearby, so
+ * a bad click no longer leaves the player where they were with no explanation,
+ * and the engine never gets a position inside rock to roll back.
  */
 static void tp_go(int sx, int sy)
 {
@@ -3694,11 +4576,19 @@ static void tp_go(int sx, int sy)
     HWND gw = find_game_window();
     RECT cr;
     POINT c;
-    float px, py, tx, ty;
-    int capped = 0;
+    float px, py, tx, ty, wx, wy;
 
     if (!g_teleport) return;
     if (!e) { logmsg("tp: no player entity"); return; }
+    /* In multiplayer the entity write alone is invisible: the game draws from
+     * the player state object it serialises for the peer (section 13.20).  With
+     * mp_tp=1 the landing is written into both; mp_tp=0 keeps the in-room
+     * teleport single-player only.  The game's room transition is NOT used -
+     * that crashed the MP room loader on 2026-10-23. */
+    if (game_is_mp() && !g_mp_tp) {
+        logmsg("tp: in-room teleport is disabled in multiplayer (mp_tp=0)");
+        return;
+    }
     if (IsBadWritePtr((void *)(size_t)(e + 0x520), 8)) {
         logmsg("tp: player entity %08x is not writable", e);
         return;
@@ -3718,38 +4608,83 @@ static void tp_go(int sx, int sy)
     px = *(float *)(e + 0x520);
     py = *(float *)(e + 0x524);
     {
-        /* first live test showed the character ended up much closer to home than
-         * the cursor: the game renders the world at the window resolution, so one
-         * screen pixel is ~one world unit, not base_width/client_width.  scale is
-         * now 1:1 times [cheats] tp_scale% (100 = 1 px per unit, 10..400). */
         char ini[MAX_PATH];
-        int pct, mode;
-        float sc;
+        int pct, ring, bias_x, bias_y;
+        const char *how = "none";
+        float sc, ppu, lx = 0.0f, ly = 0.0f;
         cfg_path(ini, sizeof ini);
         pct = GetPrivateProfileIntA("cheats", "tp_scale", 100, ini);
         if (pct < 10) pct = 10;
         if (pct > 400) pct = 400;
-        /* mode 1 (default): horizontal only - the live log showed that a target
-         * below the current feet is always inside the floor, the game reverts the
-         * whole move and the click looks like it did nothing.  Keeping the height
-         * and letting the game drop the character onto the floor at the new x
-         * works in every case.  mode 0 also uses the cursor y (a small lift
-         * helps, floors are solid right under the sprite). */
-        mode = GetPrivateProfileIntA("cheats", "tp_mode", 1, ini);
         g_tp_scale = (float)pct / 100.0f;
         sc = g_tp_scale;
-        tx = px + (float)(c.x - cr.right / 2) * sc;
-        ty = mode ? py : py + (float)(c.y - cr.bottom / 2) * sc - 24.0f;
-        /* clamp one click to 384 world units.  The live log showed every move up
-         * to ~440 landing exactly on the computed x, while a +752 jump snapped the
-         * player to x=25 and a -386 jump ended at 983: the engine keeps the
-         * character inside the area around the current room, so a long jump lands
-         * on whatever edge it can reach instead of the target.  Small steps are
-         * reliable, so a far click just becomes several clicks. */
-        if (tx - px > 384.0f) { tx = px + 384.0f; capped = 1; }
-        if (px - tx > 384.0f) { tx = px - 384.0f; capped = 1; }
-        if (ty - py > 384.0f) { ty = py + 384.0f; capped = 1; }
-        if (py - ty > 384.0f) { ty = py - 384.0f; capped = 1; }
+        /* Click -> world, measured 2026-10-23 from window captures with the
+         * player standing still.  The game renders a 640-world-unit-tall view
+         * scaled to the client height, and the world point at the centre of
+         * the client area is (450,286) - the room centre (504,248) shifted 54
+         * units left and 40 up by the camera.  So
+         *
+         *      world = (450,286) + (client - client_centre) * (640/client_h)
+         *
+         * Captures behind it:
+         *   2048x1152 room A  feet (1322,207) for world (616,80)
+         *   2048x1152 room C  feet (1875,345) for world (914,160)
+         *   2560x1529 room C  feet (378,463)  for world (73.4,160)  [maximized]
+         * Back-solving the centre origin gives (450.4,285.0), (441.2,288.3)
+         * and (451.0,286.2) - the x spread is the sprite's drawn centre vs
+         * the entity x, about 16 px.  Crucially the origin does NOT move when
+         * the window is resized or maximized, so the map is computed, not
+         * calibrated.  The old "base 1280x720 centred" model had the scale
+         * 12% too small (1.6 vs 1.8 px/unit at 2048 wide) - that was the
+         * "left accurate, drifts further right" report, ~200 px at world
+         * x=900.
+         * tp_scale multiplies the zoom; tp_bias_x / tp_bias_y shift the origin
+         * (world units, re-read on every click) for fine tuning. */
+        ppu = (float)cr.bottom / TP_VIEW_H * sc;      /* client px per world unit */
+        bias_x = GetPrivateProfileIntA("cheats", "tp_bias_x", 0, ini);
+        bias_y = GetPrivateProfileIntA("cheats", "tp_bias_y", 0, ini);
+        if (bias_x < -400) bias_x = -400;
+        if (bias_x > 400) bias_x = 400;
+        if (bias_y < -400) bias_y = -400;
+        if (bias_y > 400) bias_y = 400;
+        wx = TP_ORIGIN_X + ((float)c.x - (float)cr.right * 0.5f) / ppu + (float)bias_x;
+        wy = TP_ORIGIN_Y + ((float)c.y - (float)cr.bottom * 0.5f) / ppu + (float)bias_y;
+        if (!grid_load()) {
+            logmsg("tp: no room grid at *(entity+0x684) - not inside a level? move aborted"
+                   " | client (%d,%d) player (%.1f,%.1f)", c.x, c.y,
+                   (double)px, (double)py);
+            return;
+        }
+        ring = grid_find_landing(wx, wy, &lx, &ly, &how);
+        if (!ring) {
+            logmsg("tp: refused, nothing standable in that column or within %d cells of"
+                   " (%.1f,%.1f) | client (%d,%d) of %dx%d px/unit %.3f"
+                   " | player (%.1f,%.1f) self (%.1f,%.1f)",
+                   GRID_REACH, (double)wx, (double)wy, c.x, c.y,
+                   (int)cr.right, (int)cr.bottom, (double)ppu,
+                   (double)px, (double)py, (double)(wx - px), (double)(wy - py));
+            return;
+        }
+        tx = lx; ty = ly;
+        if (ring == 1) {
+            /* Found in the clicked column: keep the cursor's own x instead of
+             * the cell centre.  The centre rounding alone was up to 8 world
+             * units = 13 screen px of sideways drift, which is what "slightly off"
+             * describes once the landing rule itself is right.  Stay 2 units
+             * inside the cell so the body never straddles its neighbour. */
+            float cl = (float)(int)(wx / GRID_CELL) * GRID_CELL;
+            tx = wx;
+            if (tx < cl + 2.0f) tx = cl + 2.0f;
+            if (tx > cl + GRID_CELL - 2.0f) tx = cl + GRID_CELL - 2.0f;
+        }
+        logmsg("tp: client (%d,%d) of %dx%d px/unit %.3f scale=%.2f bias (%d,%d)"
+               " | asked (%.1f,%.1f) -> standable (%.1f,%.1f) snap (%+.1f,%+.1f) via %s"
+               " | player (%.1f,%.1f) self (%+.1f,%+.1f)",
+               c.x, c.y, (int)cr.right, (int)cr.bottom, (double)ppu, (double)sc,
+               bias_x, bias_y,
+               (double)wx, (double)wy, (double)tx, (double)ty,
+               (double)(tx - wx), (double)(ty - wy), how,
+               (double)px, (double)py, (double)(wx - px), (double)(wy - py));
     }
     g_tp_ent = (LONG)e;
     g_tp_old_x = (LONG)*(unsigned *)&px;
@@ -3760,18 +4695,1050 @@ static void tp_go(int sx, int sy)
     if (!g_tp_check_tick) g_tp_check_tick = 1;
     *(float *)(e + 0x520) = tx;
     *(float *)(e + 0x524) = ty;
-    logmsg("tp: client (%d,%d) of %dx%d scale=%.2f | player (%.1f,%.1f) -> (%.1f,%.1f)%s",
-           c.x, c.y, (int)cr.right, (int)cr.bottom, (double)g_tp_scale,
-           (double)px, (double)py, (double)tx, (double)ty,
-           capped ? "  (capped to 384 units)" : "");
+    g_tp_guard_until = (LONG)GetTickCount() + 800;   /* the god guard must not undo this */
+    if (!g_tp_guard_until) g_tp_guard_until = 1;
+    if (game_is_mp()) {
+        int ok = net_pos_write(tx, ty);
+        logmsg("tp: mp wrote the net player position (%s)", ok ? "ok" : "object not found");
+    }
+}
+
+
+/* ---- big map: right-click warps to the room under the cursor -------------
+ * The map screen singleton is 0x0148817C: +0x0 = 1 while the map is open,
+ * +0x4/+0x8 = cell under the cursor (-1 when none).  Cell records live at
+ * 0x00B03008 + cell*0x2D0 (zone +0x2B8, room +0x2B0).  A warp runs the game's
+ * own transition (0x00447080 + mirror the level pointer + hold the recorded
+ * position) on the game thread via WM_APP+16.  Rooms without a recorded
+ * spot (mod\roomspots.tsv) use the first entity of the room as the landing.
+ */
+#define MAP_OBJ 0x0148817Cu
+
+static int spot_find(unsigned z, unsigned r, float *x, float *y);
+
+static int map_is_open(void)
+{
+    unsigned v = *(unsigned *)(size_t)MAP_OBJ;
+    return v == 1;
+}
+
+static void map_right_click(void)
+{
+    unsigned x = *(unsigned *)(size_t)(MAP_OBJ + 0x04);
+    unsigned y = *(unsigned *)(size_t)(MAP_OBJ + 0x08);
+    unsigned cell;
+    float sx, sy;
+    HWND gw;
+    if (x > 15 || y > 15) {
+        logmsg("mapwarp: right-click, no room under the cursor (%u,%u)", x, y);
+        return;
+    }
+    cell = (x << 4) + y;
+    /* the level object keeps the room's map cell at +0x22A88/+0x22A8C and the
+     * loader takes exactly that pair, so the cell is the room key here.
+     * Only rooms with a recorded landing spot are warped: the prop-position
+     * fallback was tried on 2026-10-23 and left rooms without a usable prop
+     * unrendered and frozen (cell 6,11), so the map never uses it. */
+    gw = find_game_window();
+    if (!gw) return;
+    if (!spot_find(x, y, &sx, &sy)) {
+        /* no spot yet: use the first entity of the room as the landing.
+         * The 0xB03008 record is not a reliable "is there a room" test - real
+         * rooms can have an all-zero progress record (cell 0,10) - so just
+         * try, the user retries the same cell if the room comes up black. */
+        if (g_wb_zone >= 0 || g_wb_room >= 0) return;   /* one request at a time */
+        g_wb_zone = (int)x;
+        g_wb_room = (int)y;
+        logmsg("mapwarp: cell %u (%u,%u) no spot, trying an approximate landing",
+               cell, x, y);
+        PostMessageW(gw, WM_APP + 16, 0, 0);
+        return;
+    }
+    if (g_wb_zone >= 0 || g_wb_room >= 0) return;     /* one warp at a time */
+    g_wb_zone = (int)x;
+    g_wb_room = (int)y;
+    logmsg("mapwarp: cell %u (%u,%u) spot (%.1f,%.1f)",
+           cell, x, y, (double)sx, (double)sy);
+    PostMessageW(gw, WM_APP + 16, 0, 0);
+}
+
+/* ---- full map reveal -----------------------------------------------------
+ * The big map's "visited" data is not the bitmap the map screen draws from
+ * (map+0x9F83C).  The save object keeps 16 room records at stats+0x17F8C,
+ * stride 0x28; dword 0 of record [room] has one bit per zone (the cell x).
+ * Measured live on 2026-10-23: warping to (10,5) set bit 10 of record 5,
+ * warping to (14,6) set bit 14 of record 6, and the map screen's bitmap then
+ * mirrored it.  With all 16 records at 0xFFFF the map draws the whole zone
+ * and every drawn room accepts the cursor / a right-click warp.  The game
+ * copies the records into the save stream, so a save made afterwards keeps
+ * the map revealed in that save.  This is a one-shot write; nothing keeps
+ * forcing it afterwards, so loading an older save restores that save's bits.
+ */
+#define MAP_STATS_ROOMS  0x17F8Cu
+#define MAP_STATS_STRIDE 0x28u
+
+static int map_reveal_apply(void)
+{
+    unsigned st;
+    int i;
+    st = stats_addr();
+    if (!st || !readable((void *)(size_t)(st + MAP_STATS_ROOMS), 16 * MAP_STATS_STRIDE)) {
+        logmsg("reveal: save object not readable, nothing changed");
+        return 0;
+    }
+    for (i = 0; i < 16; i++) {
+        unsigned *p = (unsigned *)(size_t)(st + MAP_STATS_ROOMS +
+                                           (unsigned)i * MAP_STATS_STRIDE);
+        *p = 0xFFFFu;
+    }
+    logmsg("reveal: all rooms of the zone marked visited");
+    return 1;
+}
+
+/* ---- light every light source of the current room -------------------------
+ * Measured live on 2026-10-25 (external read-only debugger first, then the
+ * same fields written in game).  A room's placeable objects exist in two
+ * layers:
+ *
+ *   durable per-room table (survives leaving and re-entering the room):
+ *     hdr   = *(void **)(level + 0xBA94)      level = *(stats + 0x17F7C)
+ *     count = *(unsigned *)hdr, arr = *(void **)(hdr + 4)
+ *     entry = arr + i*0x20:  +0x08 template index, +0x18 on/off
+ *     template = 0x1AED85C + idx*0xDC:  +0x00 name string, +0x44 type
+ *     type 2 = torch / brazier, 5 and 6 = "luz" light, 1 = item, 16 = lever
+ *
+ *   live records rebuilt from that table by 0x427D80 on every room load:
+ *     level + 0x21CC4 + i*0x34:  +0x14 on, +0x2C state
+ *     count at level + 0x21CBC
+ *
+ * Lighting a torch by hand writes both layers.  Writing only the live record
+ * looks right until the next room load; writing only the table takes effect
+ * on the next load.  So both are written here, and only for entries that are
+ * 0 (off) - a stored 2 already means "lit" and is left untouched.
+ * The header is taken through level+0xBA94 (the pointer the game's own room
+ * loader uses) instead of recomputing the static table base from cell coords.
+ */
+#define LVL_OFF_LIGHT_HDR   0x0000BA94u /* *(level+0xBA94) = per-room object table */
+#define LIGHT_ENT_STRIDE    0x00000020u
+#define LIGHT_ENT_TMPL      0x00000008u
+#define LIGHT_ENT_ON        0x00000018u
+#define LIGHT_TMPL_TABLE    0x001AED85Cu
+#define LIGHT_TMPL_STRIDE   0x000000DCu
+#define LIGHT_TMPL_TYPE     0x00000044u
+#define LVL_OFF_OBJCNT      0x0021CBCu
+#define LVL_OFF_OBJS        0x0021CC4u
+#define LVL_OBJ_STRIDE      0x00000034u
+#define LOBJ_OFF_ON         0x00000014u
+#define LOBJ_OFF_STATE      0x0000002Cu
+
+/* The game's own "light this lamp" action is the interaction dispatcher
+ * 0x48D610: ecx = object record (level + 0x21CC4 + i*0x34), stack argument =
+ * the player entity.  Its only caller (0x4459D4, the "press the interact key
+ * on whatever is under the player" path) reaches it through the wrapper
+ * 0x48F610 with exactly those two arguments, so calling the dispatcher itself
+ * gives the plain per-object branch without the wrapper's follow-up.
+ *
+ * For template type 2 that branch does, in this order:
+ *   - table entry +0x18 = 1 and record +0x14 = 1   (the switch we used to write)
+ *   - calls 0x42BDB0, "is every type-2 object in the room on?"
+ *   - when that returns 1: for every type-2 entry, 0x4416B0 (effect id 0x32)
+ *     at x = entry[0]*48+24, y = entry[1]*80+48, then one record into the
+ *     16-slot queue 0x437FB0   (this is the ignition effect + its sound)
+ * So calling it per lamp reproduces the native effect instead of faking it.
+ *
+ * 0x4416B0's "this" is *(void **)0x1477084, measured live as "level + 0xA788"
+ * (the room's own effect list).  It is NULL while the game is not running in a
+ * foreground room and the game double-buffers rooms, so the dispatcher must
+ * only be called when that pointer is non-NULL and equal to the current level
+ * + 0xA788 - otherwise the game's own effect block would run with a NULL this.
+ * That is why the work is queued (WM_APP+20) and retried while the request is
+ * pending: clicking a panel button takes the game out of the foreground.
+ */
+static volatile LONG g_light_req;
+static int g_light_stale;
+
+static void light_post(void)
+{
+    HWND gw = find_game_window();
+    if (gw) PostMessageW(gw, WM_APP + 20, 0, 0);
+}
+
+/* panel / hook thread: queue the work, never touch the game here.
+ * all = 0 -> this room, 1 -> every room table of the current zone */
+static int light_request(int all)
+{
+    unsigned st, lvl;
+    st = stats_addr();
+    lvl = st ? *(unsigned *)(size_t)(st + OFF_LEVEL_OBJ) : 0;
+    if (!lvl || !readable((void *)(size_t)(lvl + LVL_OFF_LIGHT_HDR), 4)) return 0;
+    g_light_req = all ? 2 : 1;
+    light_post();
+    logmsg("lights: request queued (%s, level %08x)", all ? "all rooms" : "this room", lvl);
+    return 1;
+}
+
+/* game thread only: light the room through the game's own interaction */
+static int room_lights_apply(unsigned lvl, unsigned st)
+{
+    typedef void (__attribute__((thiscall)) *fx_t)(void *ctx, int x, int y);
+    unsigned hdr, arr, cnt, live, ctx;
+    int i, lit = 0, puffs = 0, nxy = 0;
+    int xy[64][2];
+
+    if (!lvl || !st || !readable((void *)(size_t)(lvl + LVL_OFF_LIGHT_HDR), 4)) return -1;
+    hdr = *(unsigned *)(size_t)(lvl + LVL_OFF_LIGHT_HDR);
+    if (!hdr || !readable((void *)(size_t)hdr, 8)) return -1;
+    cnt = *(unsigned *)(size_t)hdr;
+    arr = *(unsigned *)(size_t)(hdr + 4);
+    if (!cnt || cnt > 64 || !arr || !readable((void *)(size_t)arr, cnt * LIGHT_ENT_STRIDE)) return -1;
+
+    live = 0;
+    if (readable((void *)(size_t)(lvl + LVL_OFF_OBJCNT), 4))
+        live = *(unsigned *)(size_t)(lvl + LVL_OFF_OBJCNT);
+
+    for (i = 0; i < (int)cnt; i++) {
+        unsigned e = arr + (unsigned)i * LIGHT_ENT_STRIDE;
+        unsigned tidx, tmpl, type, rec;
+
+        if (!readable((void *)(size_t)(e + LIGHT_ENT_ON), 4)) continue;
+        tidx = *(unsigned *)(size_t)(e + LIGHT_ENT_TMPL);
+        if (tidx > 1024u) continue;
+        tmpl = LIGHT_TMPL_TABLE + tidx * LIGHT_TMPL_STRIDE;
+        if (!readable((void *)(size_t)(tmpl + LIGHT_TMPL_TYPE), 4)) continue;
+        type = *(unsigned *)(size_t)(tmpl + LIGHT_TMPL_TYPE);
+        if (type != 2u && type != 5u && type != 6u) continue;
+
+        /* the ignition puff goes to every lamp of the room, like the game's own
+         * all-lights-on branch, so collect the positions even for lamps that
+         * were already on */
+        if (type == 2u && (unsigned)i < live && (unsigned)i < 64u && nxy < 64) {
+            rec = lvl + LVL_OFF_OBJS + (unsigned)i * LVL_OBJ_STRIDE;
+            if (readable((void *)(size_t)(rec + LOBJ_OFF_STATE), 4)) {
+                xy[nxy][0] = (int)*(unsigned *)(size_t)(rec + 0x0C);
+                xy[nxy][1] = (int)*(unsigned *)(size_t)(rec + 0x10) - 0x20;
+                nxy++;
+            }
+        }
+        if (*(unsigned *)(size_t)(e + LIGHT_ENT_ON) != 0u) continue;
+
+        /* the two flags the game itself writes when a lamp is lit */
+        *(unsigned *)(size_t)(e + LIGHT_ENT_ON) = 1u;
+        if ((unsigned)i < live && (unsigned)i < 64u) {
+            rec = lvl + LVL_OFF_OBJS + (unsigned)i * LVL_OBJ_STRIDE;
+            if (readable((void *)(size_t)(rec + LOBJ_OFF_STATE), 4)) {
+                *(unsigned *)(size_t)(rec + LOBJ_OFF_ON) = 1u;
+                *(unsigned *)(size_t)(rec + LOBJ_OFF_STATE) = 1u;
+            }
+        }
+        lit++;
+    }
+
+    /* Same thing the game's scripted "light every lamp" path does
+     * (0x450DE5): push one effect command per lamp with this = level+0xA788.
+     * That object is part of the level struct (arrays at +0, +0x900, +0x1200,
+     * count at +0x1300, capacity 0x3F); the game consumes it on its next frame,
+     * so this is safe from the message loop and simply plays when it resumes. */
+    ctx = lvl + 0x0000A788u;
+    if (lit > 0 && nxy > 0 && readable((void *)(size_t)(ctx + 0x1300u), 4)) {
+        for (i = 0; i < nxy; i++) {
+            unsigned c = *(unsigned *)(size_t)(ctx + 0x1300u);
+            if (c >= 0x3Eu) break;              /* leave room in the 63-slot buffer */
+            ((fx_t)0x004416B0u)((void *)(size_t)ctx, xy[i][0], xy[i][1]);
+            puffs++;
+        }
+    }
+    logmsg("lights: level %08x count %u live %u -> %d lit, %d effect command(s)",
+           lvl, cnt, live, lit, puffs);
+    return lit;
+}
+
+/* Every room of the current zone keeps its object table in the static array at
+ * 0xAFDFE0, stride 0x50 (the room loader 0x427D80 derives the per-room pointer
+ * from cell coords and stores it at level+0xBA94).  Measured live: 205 of the
+ * 256 slots are populated, each with count/array and a resolvable template, so
+ * the whole zone can be lit in one pass.  Only the durable table is written
+ * here; the current room goes through room_lights_apply() first so its live
+ * records and effect commands are handled too.  Entries whose array or
+ * template cannot be validated are skipped.
+ */
+#define ADDR_LIGHT_TABLES 0x00AFDFE0u
+#define LIGHT_TABLE_STRIDE 0x00000050u
+
+static int room_lights_all_rooms(unsigned lvl, unsigned st)
+{
+    unsigned i, k;
+    int here, rooms = 0, lamps = 0;
+
+    here = room_lights_apply(lvl, st);          /* current room first */
+
+    if (!readable((void *)(size_t)ADDR_LIGHT_TABLES, 256 * LIGHT_TABLE_STRIDE)) {
+        logmsg("lights: room table array not readable");
+        return here;
+    }
+    for (i = 0; i < 256; i++) {
+        unsigned hdr = ADDR_LIGHT_TABLES + i * LIGHT_TABLE_STRIDE;
+        unsigned cnt = *(unsigned *)(size_t)hdr;
+        unsigned arr = *(unsigned *)(size_t)(hdr + 4);
+        int hit = 0;
+
+        if (cnt == 0 || cnt > 64) continue;
+        if (!arr || !readable((void *)(size_t)arr, cnt * LIGHT_ENT_STRIDE)) continue;
+        for (k = 0; k < cnt; k++) {
+            unsigned e = arr + k * LIGHT_ENT_STRIDE;
+            unsigned tidx = *(unsigned *)(size_t)(e + LIGHT_ENT_TMPL);
+            unsigned tmpl, type;
+
+            if (tidx > 1024u) continue;
+            tmpl = LIGHT_TMPL_TABLE + tidx * LIGHT_TMPL_STRIDE;
+            if (!readable((void *)(size_t)(tmpl + LIGHT_TMPL_TYPE), 4)) continue;
+            type = *(unsigned *)(size_t)(tmpl + LIGHT_TMPL_TYPE);
+            if (type != 2u && type != 5u && type != 6u) continue;
+            if (*(unsigned *)(size_t)(e + LIGHT_ENT_ON) != 0u) continue;
+            *(unsigned *)(size_t)(e + LIGHT_ENT_ON) = 1u;
+            lamps++;
+            hit = 1;
+        }
+        if (hit) rooms++;
+    }
+    logmsg("lights: all rooms (zone tables) -> %d room(s), %d lamp(s) (current room handled separately: %d)",
+           rooms, lamps, here);
+    return lamps + (here > 0 ? here : 0);
+}
+
+/* ---- unlock every co-op map ------------------------------------------------
+ * The multiplayer "Official maps" list is a chain of single-player dungeons,
+ * each unlocked when the previous one was cleared.  The state lives in a map
+ * table in the game:
+ *
+ *     table = *(unsigned *)0x00EE29E4;              // 0x146A980 live
+ *     count = *(unsigned *)(table + 0x04);          // 51
+ *     flag  = *(unsigned *)(table + 0x268 + idx*8); // != 0 -> unlocked
+ *
+ * Found 2026-10-24 with a read watchpoint on an entry's prerequisite id: the
+ * info panel at 0x47A794 loads the entry's own id, calls the game's own id
+ * lookup (0x4406F0) and tests exactly this flag at 0x47A7CB.  idx is assigned
+ * by that lookup, so writing the flag half of every record unlocks the whole
+ * list without needing to know the ids.  The table is rebuilt from the save on
+ * load, so the button writes it live and the player has to save afterwards. */
+#define ADDR_MP_MAPTABLE 0x00EE29E4u
+#define ADDR_MP_SLOT     0x0017CAA90u   /* the save slot the menu has selected */
+#define ADDR_ACTOR_POOL  0x0146BDF4u    /* the map table ends right before this */
+#define MP_MAP_MODE_OFF  0x000u         /* +0: 0 = game_N.sav, 1 = game_mp_N.sav */
+#define MP_MAP_MODE_MP   1u
+#define MP_MAP_PRESENT   0x190u         /* +0x190: per-slot "save exists" flag[9] */
+#define MP_MAP_FLAGS_OFF 0x268u
+#define MP_MAP_SLOT_RECS 64u
+
+/* The multiplayer lobby's menu object (static, built by 0x471ED0).  Its +0xC
+ * is the screen state; measured with the user's own flow on 2026-10-24:
+ *   step 1 (mode)      0x3D
+ *   step 2 (character) 0x29
+ *   step 3 (scene)     0x97  (0x47 once the map list/description is open)
+ * The field persists across a step back in other places (the map slot does
+ * not reset), so the state has to be part of the gate: without it the button
+ * stayed lit after returning from the scene step. */
+#define ADDR_MP_MENU     0x0017CA610u
+#define MP_MENU_STATE    0x0000000Cu
+#define MP_MENU_STEP3_A  0x97u
+#define MP_MENU_STEP3_B  0x47u
+
+static unsigned mp_menu_state(void)
+{
+    if (IsBadReadPtr((void *)ADDR_MP_MENU, 0x10)) return ~0u;
+    if (*(unsigned *)ADDR_MP_MENU != 1) return ~0u;    /* menu open */
+    return *(unsigned *)(size_t)(ADDR_MP_MENU + MP_MENU_STATE);
+}
+
+static int mp_scene_step(void)
+{
+    unsigned m = mp_menu_state();
+    return m == MP_MENU_STEP3_A || m == MP_MENU_STEP3_B;
+}
+
+/* The table is the save-slot cache the multiplayer map list is drawn from.
+ * Its initialiser 0x43FE00 is given a namespace (string pair at 0x52A674 /
+ * 0x52A688: "save\game_%d.sav" / "save\game_mp_%d.sav") which it stores at
+ * +0, and it fills one 64-record block per slot.  This is the reliable "the
+ * multiplayer data is what is loaded" signal: while the game is still using
+ * the single-player namespace +0 is 0, however the MP flag and 0x675174 look.
+ * The first unlock flag is NOT such a signal -- a fresh MP save has all of
+ * them zero (only map 0 is free), which is exactly the state the list shows
+ * at the scene step.  What proves the slot itself is usable is the game's own
+ * per-slot "save exists" flag at +0x190, tested at 0x4680F5 and set after a
+ * save at 0x409099. */
+static unsigned mp_table_mp(void)
+{
+    unsigned t;
+    if (!game_is_mp()) return 0;
+    if (IsBadReadPtr((void *)ADDR_MP_MAPTABLE, 4)) return 0;
+    t = *(unsigned *)(size_t)ADDR_MP_MAPTABLE;
+    if (!t || IsBadReadPtr((void *)(size_t)t, 8)) return 0;
+    if (*(unsigned *)(size_t)(t + MP_MAP_MODE_OFF) != MP_MAP_MODE_MP) return 0;
+    return t;
+}
+
+static int mp_slot_ready(unsigned t, unsigned *slot_out)
+{
+    unsigned slots, slot;
+    if (IsBadReadPtr((void *)ADDR_MP_SLOT, 4)) return 0;
+    slot = *(unsigned *)ADDR_MP_SLOT;
+    slots = (0x1468u - MP_MAP_FLAGS_OFF) / (MP_MAP_SLOT_RECS * 8);
+    if (slot >= slots) return 0;
+    if (IsBadReadPtr((void *)(size_t)(t + MP_MAP_PRESENT + slot * 4), 4)) return 0;
+    if (*(unsigned *)(size_t)(t + MP_MAP_PRESENT + slot * 4) == 0) return 0;
+    /* The selected slot is also the slot the game will save to; if the two
+     * globals disagree we do not know which one the list is showing. */
+    if (IsBadReadPtr((void *)0x00675174u, 4)) return 0;
+    if (*(unsigned *)0x00675174u != slot) return 0;
+    if (slot_out) *slot_out = slot;
+    return 1;
+}
+
+static int mp_unlock_state_ok(void)
+{
+    unsigned t;
+    if (!mp_scene_step()) return 0;
+    t = mp_table_mp();
+    return t && mp_slot_ready(t, NULL);
+}
+
+static int mp_unlock_all_apply(void)
+{
+    unsigned t, count, slots, slot, i;
+    if (!mp_scene_step()) {
+        logmsg("mp unlock: refused, not on the scene step (menu state %u)",
+               mp_menu_state());
+        return 0;
+    }
+    t = mp_table_mp();
+    if (!t) {
+        logmsg("mp unlock: refused, no multiplayer save table is loaded");
+        return 0;
+    }
+    count = *(unsigned *)(size_t)(t + 4);      /* map records, 51 live */
+    if (count < 1 || count > MP_MAP_SLOT_RECS) {
+        logmsg("mp unlock: implausible record count %u (table %08x)", count, t);
+        return 0;
+    }
+    /* The object is 0x1468 bytes (initialiser 0x43FE00 pushes 0x1468):
+     * 0x268 header + 9 slots x 64 records x 8 bytes.  Only the slot the game
+     * has active is written; uninitialised slots must keep their zeros. */
+    slots = (0x1468u - MP_MAP_FLAGS_OFF) / (MP_MAP_SLOT_RECS * 8);
+    if (!mp_slot_ready(t, &slot)) {
+        logmsg("mp unlock: refused, no multiplayer save is selected/loaded"
+               " (slot %u, table %08x)", IsBadReadPtr((void *)ADDR_MP_SLOT, 4)
+               ? 0xFFFFFFFFu : *(unsigned *)ADDR_MP_SLOT, t);
+        return 0;
+    }
+    if (IsBadWritePtr((void *)(size_t)(t + MP_MAP_FLAGS_OFF + slot * MP_MAP_SLOT_RECS * 8),
+                      count * 8)) {
+        logmsg("mp unlock: slot %u flags at %08x not writable", slot,
+               t + MP_MAP_FLAGS_OFF + slot * MP_MAP_SLOT_RECS * 8);
+        return 0;
+    }
+    for (i = 0; i < count; i++)
+        *(unsigned *)(size_t)(t + MP_MAP_FLAGS_OFF +
+                              (slot * MP_MAP_SLOT_RECS + i) * 8) = 1;
+    logmsg("mp unlock: slot %u of 0..%u, %u records flagged in table %08x",
+           slot, slots - 1, count, t);
+    return (int)count;
+}
+
+/* ---- player status effects (Buffs window) --------------------------------
+ * Status effects live on the player entity in four parallel arrays (this is
+ * also the save layout): count at +0x6B0, duration at +0x6B4, initial
+ * duration at +0x86C, state at +0xA24, 110 slots.  The effect-name block in
+ * memory is ordered by effect id starting at 1 (101 names), which is how the
+ * names and ids below were classified; measured ids: 19 = total immunity,
+ * 41 = slowed, 73 = frozen.
+ *
+ * Negative ids are the game's own room-entry clear list (0x004B4100);
+ * positive ones are the rest of the name table minus three ambiguous
+ * entries (62 skeletal, 64 gaining a level!, 100 Move out).  The Buffs window edits one
+ * switch per id: a positive one is kept at PERMA_SECONDS, a negative one is
+ * cleared every worker tick.  Selections are stored in mod\buffs.ini.
+ */
+typedef struct { unsigned char id; const wchar_t *name; } EffName;
+
+static const EffName g_buff_list[] = {
+    {9,   L"night vision"},
+    {10,  L"\u6B66\u5668\u514D\u75AB"},
+    {11,  L"\u706B\u7130\u514D\u75AB"},
+    {12,  L"\u51B0\u971C\u514D\u75AB"},
+    {13,  L"\u4EA1\u7075\u514D\u75AB"},
+    {14,  L"\u53D8\u5F62\u514D\u75AB"},
+    {15,  L"\u610F\u5FD7\u4FDD\u62A4"},
+    {16,  L"\u6BD2\u7269\u514D\u75AB"},
+    {17,  L"\u81EA\u7531\u884C\u52A8"},
+    {18,  L"\u7535\u6D41\u514D\u75AB"},
+    {19,  L"\u5B8C\u5168\u514D\u75AB"},
+    {20,  L"\u6B66\u5668\u9632\u62A4"},
+    {21,  L"\u706B\u7130\u9632\u62A4"},
+    {22,  L"\u51B0\u971C\u9632\u62A4"},
+    {23,  L"\u4EA1\u7075\u9632\u62A4"},
+    {24,  L"\u7535\u6D41\u9632\u62A4"},
+    {25,  L"undying magic"},
+    {26,  L"enraged"},
+    {27,  L"battle cry"},
+    {28,  L"spirit arrows"},
+    {29,  L"poisoned arrows"},
+    {31,  L"split shot"},
+    {33,  L"\u5315\u9996\u989D\u5916\u4F24\u5BB3"},
+    {34,  L"\u5200\u5251\u989D\u5916\u4F24\u5BB3"},
+    {35,  L"\u9489\u9524\u989D\u5916\u4F24\u5BB3"},
+    {36,  L"\u65A7\u7C7B\u989D\u5916\u4F24\u5BB3"},
+    {37,  L"\u957F\u67C4\u989D\u5916\u4F24\u5BB3"},
+    {38,  L"\u5F13\u7BAD\u989D\u5916\u4F24\u5BB3"},
+    {39,  L"parry wall"},
+    {42,  L"general speed"},
+    {45,  L"\u5FEB\u901F"},
+    {46,  L"\u5F3A\u58EE"},
+    {49,  L"\u591C\u89C6"},
+    {50,  L"\u9677\u9631\u63A2\u6D4B"},
+    {51,  L"\u9690\u8EAB"},
+    {53,  L"\u51CF\u7F13\u6BD2\u6027"},
+    {54,  L"\u770B\u5230\u9690\u5F62\u751F\u7269"},
+    {55,  L"\u865A\u65E0\u7F25\u7F08"},
+    {56,  L"\u518D\u751F"},
+    {57,  L"\u6E29\u70ED\u7075\u6C14"},
+    {58,  L"\u6BD2\u6027\u51CF\u5F31"},
+    {59,  L"\u5438\u8840\u7075\u6C14"},
+    {60,  L"\u5723\u5149\u7075\u6C14"},
+    {63,  L"\u514D\u75AB"},
+    {69,  L"\u6B66\u5668\u7CBE\u901A"},
+    {70,  L"\u5F13\u7BAD\u7CBE\u901A"},
+    {74,  L"\u63A2\u6D4B\u9677\u9631\u548C\u6697\u95E8"},
+    {78,  L"\u806A\u6167"},
+    {80,  L"\u9694\u7A7A\u53D6\u7269"},
+    {81,  L"\u53CD\u5F39"},
+    {94,  L"\u70C8\u98CE\u5E7B\u5F71"},
+    {95,  L"\u7206\u88C2\u7BAD"},
+    {96,  L"\u95EA\u7535\u51B2\u51FB"},
+    {97,  L"\u529B\u5288\u534E\u5C71"},
+    {98,  L"\u7535\u5BB9\u5668"},
+    {101, L"Critical strikes"}
+};
+#define NBUFFS ((int)(sizeof g_buff_list / sizeof g_buff_list[0]))
+
+static const EffName g_debuff_list[] = {
+    {1,   L"\u4E2D\u6BD2 1"}, {2, L"\u4E2D\u6BD2 2"}, {3, L"\u4E2D\u6BD2 3"}, {4, L"\u4E2D\u6BD2 4"},
+    {5,   L"\u8150\u8680 1"}, {6, L"\u8150\u8680 2"}, {7, L"\u8150\u8680 3"}, {8, L"\u8150\u8680 4"},
+    {30,  L"\u88AB\u53D8\u5F62"},
+    {32,  L"\u7761\u7720"},
+    {40,  L"\u9EBB\u75F9"},
+    {41,  L"\u51CF\u901F"},
+    {43,  L"lycanthropy"},
+    {44,  L"\u7729\u6655"},
+    {47,  L"\u8FF7\u60D1"},
+    {48,  L"\u6050\u60E7"},
+    {52,  L"\u5931\u660E"},
+    {66,  L"\u865A\u5F31"},
+    {68,  L"\u75DB\u82E6\u4E2D"},
+    {72,  L"\u71C3\u70E7"},
+    {73,  L"\u51BB\u7ED3"},
+    {83,  L"\u9EC4\u6CB9\u624B"},
+    {85,  L"\u88AB\u675F\u7F1A"},
+    {86,  L"\u5BFB\u6B7B"},
+    {87,  L"\u5F71\u54CD\u610F\u5FD7"},
+    {88,  L"\u7CBE\u795E\u5D29\u6E83"},
+    {89,  L"\u7F04\u9ED8"},
+    {90,  L"\u7CBE\u795E\u63A7\u5236"},
+    {91,  L"(\u672A\u547D\u540D)"},
+    {93,  L"\u6DF7\u4E71"}
+};
+#define NDEBUFFS ((int)(sizeof g_debuff_list / sizeof g_debuff_list[0]))
+
+#define PERMA_SECONDS      99999.0f
+#define OWN_EFFECT_SECONDS 3000.0f   /* anything above this was set by us */
+
+/* Effect names come from the game's own dictio_effectName_* dictionaries,
+ * which we dumped to mod\dict\effectName_<code>.tsv (index = effect id).
+ * A missing or placeholder entry keeps the built-in label below. */
+static int g_effect_lang;
+static wchar_t g_effect_names[110][NAME_MAX];
+
+static void effect_names_load(int li)
+{
+    char path[MAX_PATH], line[512];
+    FILE *f;
+    int i;
+
+    for (i = 0; i < 110; i++) g_effect_names[i][0] = 0;
+    if (li < 0 || li >= LANG_INTERNAL) return;
+    _snprintf(path, sizeof path, "%s\\mod\\dict\\effectName_%s.tsv",
+              g_dir, g_lang_codes[li]);
+    f = fopen(path, "rb");
+    if (!f) { logmsg("buffs: no %s - built-in names", path); return; }
+    while (fgets(line, sizeof line, f)) {
+        char *tab, *v, *bar;
+        int idx, len;
+        if ((unsigned char)line[0] == 0xEF && (unsigned char)line[1] == 0xBB &&
+            (unsigned char)line[2] == 0xBF)
+            memmove(line, line + 3, strlen(line + 3) + 1);
+        idx = atoi(line);
+        if (idx <= 0 || idx >= 110) continue;
+        tab = strchr(line, '\t');
+        if (!tab) continue;
+        v = tab + 1;
+        len = (int)strlen(v);
+        while (len && (v[len - 1] == '\n' || v[len - 1] == '\r')) v[--len] = 0;
+        bar = strchr(v, '|');                /* item names carry "||tag" */
+        if (bar) *bar = 0;
+        utf8w(v, g_effect_names[idx], NAME_MAX);
+        if (!name_usable(g_effect_names[idx])) g_effect_names[idx][0] = 0;
+    }
+    fclose(f);
+    logmsg("buffs: effect names loaded for lang=%s", g_lang_codes[li]);
+}
+
+static const wchar_t *effect_label(unsigned id, const wchar_t *builtin)
+{
+    return (id < 110 && g_effect_names[id][0]) ? g_effect_names[id] : builtin;
+}
+
+static int effect_lang_default(void)
+{
+    char p[MAX_PATH], code[16];
+    int i;
+    cfg_path(p, sizeof p);
+    GetPrivateProfileStringA("items", "lang", "en", code, sizeof code, p);
+    for (i = 0; i < LANG_INTERNAL; i++)
+        if (_stricmp(code, g_lang_codes[i]) == 0) return i;
+    return 0;                                /* "en", same as items_load() */
+}
+
+/* +0xA24 is not just "state": for many effects it is the magnitude the item
+ * descriptor carries at +0x13C and passes to the apply function 0x00446B50.
+ * The spell descriptions confirm it: spirit arrows = 2 arrows, critical
+ * strike = next 3 attacks, weapon mastery 1/2/3 = 2/4/6 stacks.  The values
+ * below are the strongest the game itself ships (rings 33, titan strength
+ * 200, regeneration 20, ...).  Leaving the slot at 0 is why the HUD showed
+ * x0 and those buffs did nothing. */
+static int effect_magnitude(unsigned id)
+{
+    switch (id) {
+    case 20: case 21: case 22: case 23: case 24: return 33;  /* protections */
+    case 28: return 2;                   /* spirit arrows: two arrows */
+    case 29: return 10;                  /* poisoned arrows; retail = bow level */
+    case 33: case 34: case 35: case 36: case 37: case 38: return 6;
+    case 45: return 33;                  /* fast */
+    case 46: return 200;                 /* titan strength */
+    case 51: return 3;                   /* invisibility 3 */
+    case 56: return 20;                  /* regeneration */
+    case 57: return 10;                  /* warm aura */
+    case 59: return 4;                   /* vampiric aura */
+    case 60: return 25;                  /* divine light aura */
+    case 69: case 70: return 1;          /* weapon / bow mastery */
+    case 78: return 33;                  /* cleverness */
+    case 94: return 10;                  /* sword storm */
+    case 101: return 3;                  /* critical strikes: next 3 attacks */
+    }
+    return 0;
+}
+
+static void set_effect(unsigned ent, unsigned id, float seconds)
+{
+    *(float *)(size_t)(ent + 0x6B4 + id * 4) = seconds;
+    *(float *)(size_t)(ent + 0x86C + id * 4) = seconds;
+    *(int *)(size_t)(ent + 0xA24 + id * 4) = 0;
+}
+
+static void clear_effect(unsigned ent, unsigned id)
+{
+    *(float *)(size_t)(ent + 0x6B4 + id * 4) = 0.0f;
+    *(float *)(size_t)(ent + 0x86C + id * 4) = 0.0f;
+    *(int *)(size_t)(ent + 0xA24 + id * 4) = 0;
+}
+
+static void buffs_cfg_path(char *out, size_t n)
+{
+    char p[MAX_PATH];
+    GetModuleFileNameA(NULL, p, MAX_PATH);
+    {
+        char *s = strrchr(p, '\\');
+        if (s) *s = 0;
+    }
+    _snprintf(out, n, "%s\\mod\\buffs.ini", p);
+    out[n - 1] = 0;
+}
+
+/* Defaults (also used when mod\buffs.ini does not exist yet): every positive
+ * buff on, every negative one off. */
+static void buffs_cfg_load(void)
+{
+    char p[MAX_PATH], key[8], code[16];
+    int i;
+    memset(g_buff_on, 0, sizeof g_buff_on);
+    memset(g_debuff_on, 0, sizeof g_debuff_on);
+    buffs_cfg_path(p, sizeof p);
+    for (i = 0; i < NBUFFS; i++) {
+        _snprintf(key, sizeof key, "%u", g_buff_list[i].id);
+        g_buff_on[g_buff_list[i].id] =
+            GetPrivateProfileIntA("positive", key, 1, p) ? 1 : 0;
+    }
+    for (i = 0; i < NDEBUFFS; i++) {
+        _snprintf(key, sizeof key, "%u", g_debuff_list[i].id);
+        g_debuff_on[g_debuff_list[i].id] =
+            GetPrivateProfileIntA("debuff", key, 0, p) ? 1 : 0;
+    }
+    /* the effect-name language starts as the item language, then takes
+     * whatever was picked in the Buffs window last time */
+    g_effect_lang = effect_lang_default();
+    GetPrivateProfileStringA("ui", "lang", "", code, sizeof code, p);
+    for (i = 0; i < LANG_INTERNAL; i++)
+        if (_stricmp(code, g_lang_codes[i]) == 0) { g_effect_lang = i; break; }
+    effect_names_load(g_effect_lang);
+}
+
+/* One pass, one file write.  WritePrivateProfileStringA rewrites the whole
+ * file for every key: 87 keys measured 236 ms, and this runs on the thread
+ * that also serves the low-level keyboard/mouse hooks, so the whole system
+ * stops delivering input while it runs.  The reader still uses
+ * GetPrivateProfileIntA, which parses what we write here unchanged. */
+static void buffs_cfg_save(void)
+{
+    char p[MAX_PATH], buf[2048];
+    size_t n = 0;
+    int i, r;
+    FILE *f;
+
+    buffs_cfg_path(p, sizeof p);
+    r = _snprintf(buf + n, sizeof buf - n, "[positive]\r\n");
+    if (r > 0) n += (size_t)r;
+    for (i = 0; i < NBUFFS && n < sizeof buf - 16; i++) {
+        unsigned id = g_buff_list[i].id;
+        r = _snprintf(buf + n, sizeof buf - n, "%u=%d\r\n", id, g_buff_on[id] ? 1 : 0);
+        if (r <= 0) break;
+        n += (size_t)r;
+    }
+    r = _snprintf(buf + n, sizeof buf - n, "[debuff]\r\n");
+    if (r > 0) n += (size_t)r;
+    for (i = 0; i < NDEBUFFS && n < sizeof buf - 16; i++) {
+        unsigned id = g_debuff_list[i].id;
+        r = _snprintf(buf + n, sizeof buf - n, "%u=%d\r\n", id, g_debuff_on[id] ? 1 : 0);
+        if (r <= 0) break;
+        n += (size_t)r;
+    }
+    r = _snprintf(buf + n, sizeof buf - n, "[ui]\r\nlang=%s\r\n",
+                  g_lang_codes[g_effect_lang]);
+    if (r > 0) n += (size_t)r;
+
+    f = fopen(p, "wb");
+    if (!f) { logmsg("buffs: cannot write %s", p); return; }
+    if (fwrite(buf, 1, n, f) != n) logmsg("buffs: short write to %s", p);
+    fclose(f);
+    f = fopen(p, "rb");                       /* prove the bytes landed */
+    if (!f) { logmsg("buffs: %s vanished after write", p); return; }
+    fseek(f, 0, SEEK_END);
+    if (ftell(f) < (long)n) logmsg("buffs: %s is %ld bytes, expected %u",
+                                   p, ftell(f), (unsigned)n);
+    fclose(f);
+}
+
+static void status_effects_tick(void)
+{
+    unsigned st, ent;
+    float *dur, *snap;
+    int i, applied = 0, cleared = 0;
+
+    st = stats_addr();
+    ent = st ? *(unsigned *)(size_t)(st + OFF_ENTITY) : 0;
+    if (!ent || !readable((void *)(size_t)(ent + 0x6B4), 0x200)) return;
+    dur = (float *)(size_t)(ent + 0x6B4);
+    snap = (float *)(size_t)(ent + 0x86C);
+
+    for (i = 0; i < NBUFFS; i++) {
+        unsigned id = g_buff_list[i].id;
+        int mag = effect_magnitude(id);
+        if (g_buff_on[id]) {
+            if (dur[id] < OWN_EFFECT_SECONDS) {
+                set_effect(ent, id, PERMA_SECONDS);
+                applied++;
+            }
+            /* keep the magnitude/charge count topped up: the game consumes
+             * critical strikes and mastery stacks while fighting.  Only raise
+             * it, so a stronger value the game set itself (e.g. poisoned
+             * arrows = a high bow level) is not lowered. */
+            if (mag && *(int *)(size_t)(ent + 0xA24 + id * 4) < mag) {
+                *(int *)(size_t)(ent + 0xA24 + id * 4) = mag;
+                applied++;
+            }
+        } else if (dur[id] > OWN_EFFECT_SECONDS) {
+            /* god mode holds total immunity (19) every ~200 ms to keep the
+             * instant-kill traps harmless; clearing it here made the icon blink
+             * on and off.  Skip it while god is on - the checkbox cannot win
+             * against a held effect anyway. */
+            if (id == 19 && g_god) continue;
+            clear_effect(ent, id);
+            cleared++;
+        }
+    }
+    for (i = 0; i < NDEBUFFS; i++) {
+        unsigned id = g_debuff_list[i].id;
+        if (g_debuff_on[id] && (dur[id] != 0.0f || snap[id] != 0.0f)) {
+            clear_effect(ent, id);
+            cleared++;
+        }
+    }
+    if (applied || cleared) {
+        int cnt = 0;
+        for (i = 0; i < 110; i++)
+            if (dur[i] != 0.0f) cnt++;
+        *(int *)(size_t)(ent + 0x6B0) = cnt;
+    }
+}
+
+/* ---- Buffs window --------------------------------------------------------
+ * One checkbox per effect id: upper half keeps a positive effect at max
+ * duration, lower half clears a negative one every worker tick.  The two
+ * "All"/"None" buttons set a whole half.  A language combo switches the
+ * labels to the game's own effectName dictionary.  Selections are stored in
+ * mod\buffs.ini (section positive / debuff, key = effect id; [ui] lang).
+ */
+#define BF_W 990
+#define BF_H 940
+#define BF_ID_BUFF    1200
+#define BF_ID_DEBUFF  2200
+#define BF_ID_ALL_P   1300
+#define BF_ID_NONE_P  1301
+#define BF_ID_ALL_D   2300
+#define BF_ID_NONE_D  2301
+#define BF_ID_CLOSE   2400
+#define BF_ID_LANG    2500
+
+static HWND g_buffs;
+static wchar_t g_buffs_cls[64];
+/* The panel, both sub-windows and the low-level keyboard/mouse hooks all live
+ * on this one thread, and the system waits for a low-level hook to return
+ * before it delivers ANY input.  So nothing slow may happen inside a control
+ * notification: mod\buffs.ini is written at most once a second from the timer
+ * instead of once per click (All/None used to flush 87 profile keys inline). */
+static int g_bcfg_dirty;
+static DWORD g_bflush_tick;
+
+static void buffs_close(void)
+{
+    if (g_bcfg_dirty) { buffs_cfg_save(); g_bcfg_dirty = 0; }
+    if (g_buffs && IsWindow(g_buffs)) DestroyWindow(g_buffs);
+}
+
+static void buffs_apply_lang(HWND h)
+{
+    wchar_t txt[NAME_MAX + 24];
+    int i;
+
+    SendMessageW(h, WM_SETREDRAW, FALSE, 0);
+    for (i = 0; i < NBUFFS; i++) {
+        HWND cb = GetDlgItem(h, BF_ID_BUFF + i);
+        if (!cb) continue;
+        wsprintfW(txt, L"%u  %s", g_buff_list[i].id,
+                  effect_label(g_buff_list[i].id, g_buff_list[i].name));
+        SetWindowTextW(cb, txt);
+    }
+    for (i = 0; i < NDEBUFFS; i++) {
+        HWND cb = GetDlgItem(h, BF_ID_DEBUFF + i);
+        if (!cb) continue;
+        wsprintfW(txt, L"%u  %s", g_debuff_list[i].id,
+                  effect_label(g_debuff_list[i].id, g_debuff_list[i].name));
+        SetWindowTextW(cb, txt);
+    }
+    SendMessageW(h, WM_SETREDRAW, TRUE, 0);
+    RedrawWindow(h, NULL, NULL, RDW_ERASE | RDW_FRAME | RDW_INVALIDATE | RDW_ALLCHILDREN);
+}
+
+static LRESULT CALLBACK buffs_proc(HWND h, UINT m, WPARAM w, LPARAM l)
+{
+    switch (m) {
+    case WM_COMMAND: {
+        int id = LOWORD(w);
+        if (id == BF_ID_LANG && HIWORD(w) == CBN_SELCHANGE) {
+            int sel = (int)SendMessageW((HWND)l, CB_GETCURSEL, 0, 0);
+            if (sel >= 0 && sel < LANG_INTERNAL) {
+                g_effect_lang = sel;
+                effect_names_load(g_effect_lang);   /* one small file read */
+                buffs_apply_lang(h);
+                g_bcfg_dirty = 1;                   /* [ui] lang, flushed later */
+                logmsg("buffs: language -> %s", g_lang_codes[g_effect_lang]);
+            }
+            return 0;
+        }
+        if (id >= BF_ID_BUFF && id < BF_ID_BUFF + NBUFFS) {
+            int i = id - BF_ID_BUFF;
+            unsigned eid = g_buff_list[i].id;
+            g_buff_on[eid] = SendMessageW((HWND)l, BM_GETCHECK, 0, 0) == BST_CHECKED;
+            g_bcfg_dirty = 1;
+            status_effects_tick();
+            return 0;
+        }
+        if (id >= BF_ID_DEBUFF && id < BF_ID_DEBUFF + NDEBUFFS) {
+            int i = id - BF_ID_DEBUFF;
+            unsigned eid = g_debuff_list[i].id;
+            g_debuff_on[eid] = SendMessageW((HWND)l, BM_GETCHECK, 0, 0) == BST_CHECKED;
+            g_bcfg_dirty = 1;
+            status_effects_tick();
+            return 0;
+        }
+        if (id == BF_ID_ALL_P || id == BF_ID_NONE_P ||
+            id == BF_ID_ALL_D || id == BF_ID_NONE_D) {
+            int on, i, pos = (id == BF_ID_ALL_P || id == BF_ID_NONE_P);
+            on = (id == BF_ID_ALL_P || id == BF_ID_ALL_D);
+            SendMessageW(h, WM_SETREDRAW, FALSE, 0);
+            if (pos) {
+                for (i = 0; i < NBUFFS; i++) {
+                    g_buff_on[g_buff_list[i].id] = (unsigned char)on;
+                    SendMessageW(GetDlgItem(h, BF_ID_BUFF + i), BM_SETCHECK,
+                                 on ? BST_CHECKED : BST_UNCHECKED, 0);
+                }
+            } else {
+                for (i = 0; i < NDEBUFFS; i++) {
+                    g_debuff_on[g_debuff_list[i].id] = (unsigned char)on;
+                    SendMessageW(GetDlgItem(h, BF_ID_DEBUFF + i), BM_SETCHECK,
+                                 on ? BST_CHECKED : BST_UNCHECKED, 0);
+                }
+            }
+            SendMessageW(h, WM_SETREDRAW, TRUE, 0);
+            RedrawWindow(h, NULL, NULL,
+                         RDW_ERASE | RDW_FRAME | RDW_INVALIDATE | RDW_ALLCHILDREN);
+            g_bcfg_dirty = 1;
+            status_effects_tick();
+            return 0;
+        }
+        if (id == BF_ID_CLOSE) { buffs_close(); return 0; }
+        return 0;
+    }
+    case WM_KEYDOWN:
+        if (w == VK_ESCAPE) { buffs_close(); return 0; }
+        break;
+    case WM_CLOSE:
+        buffs_close();
+        return 0;
+    case WM_DESTROY:
+        g_buffs = NULL;
+        if (g_hwnd) {
+            EnableWindow(g_hwnd, TRUE);
+            SetActiveWindow(g_hwnd);
+        }
+        return 0;
+    }
+    return DefWindowProcW(h, m, w, l);
+}
+
+static void buffs_show(void)
+{
+    WNDCLASSEXW wc;
+    RECT r = { 0, 0, BF_W, BF_H }, pr;
+    HINSTANCE hi = GetModuleHandleA(NULL);
+    int i, col, row;
+
+    if (g_buffs && IsWindow(g_buffs)) {
+        ShowWindow(g_buffs, SW_SHOW);
+        SetForegroundWindow(g_buffs);
+        return;
+    }
+    memset(&wc, 0, sizeof wc);
+    wc.cbSize = sizeof wc;
+    wc.lpfnWndProc = buffs_proc;
+    wc.hInstance = hi;
+    wc.hCursor = LoadCursorA(NULL, IDC_ARROW);
+    wc.hbrBackground = (HBRUSH)(COLOR_BTNFACE + 1);
+    wsprintfW(g_buffs_cls, L"UnepicBuffs%08X", (unsigned)(size_t)&buffs_proc);
+    wc.lpszClassName = g_buffs_cls;
+    if (!RegisterClassExW(&wc) && GetLastError() != ERROR_CLASS_ALREADY_EXISTS) {
+        logmsg("buffs: RegisterClassExW failed: %lu", GetLastError());
+        return;
+    }
+    AdjustWindowRect(&r, WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, FALSE);
+    g_buffs = CreateWindowExW(WS_EX_TOPMOST | WS_EX_TOOLWINDOW, g_buffs_cls,
+                              L"Unepic Better Mod - buffs",
+                              WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU,
+                              CW_USEDEFAULT, CW_USEDEFAULT,
+                              r.right - r.left, r.bottom - r.top,
+                              g_hwnd, NULL, hi, NULL);
+    if (!g_buffs) { logmsg("buffs: CreateWindowExW failed: %lu", GetLastError()); return; }
+
+    CreateWindowExW(0, L"BUTTON", L"Positive buffs (keep at max duration)",
+                    WS_CHILD | WS_VISIBLE | BS_GROUPBOX, 12, 4, BF_W - 24, 496,
+                    g_buffs, NULL, hi, NULL);
+    CreateWindowExW(0, L"BUTTON", L"All", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+                    BF_W - 176, 10, 76, 24, g_buffs, (HMENU)BF_ID_ALL_P, hi, NULL);
+    CreateWindowExW(0, L"BUTTON", L"None", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+                    BF_W - 92, 10, 76, 24, g_buffs, (HMENU)BF_ID_NONE_P, hi, NULL);
+    for (i = 0; i < NBUFFS; i++) {
+        wchar_t txt[NAME_MAX + 24];
+        col = i / 19;
+        row = i % 19;
+        wsprintfW(txt, L"%u  %s", g_buff_list[i].id,
+                  effect_label(g_buff_list[i].id, g_buff_list[i].name));
+        CreateWindowExW(0, L"BUTTON", txt, WS_CHILD | WS_VISIBLE | BS_AUTOCHECKBOX,
+                        24 + col * 316, 40 + row * 23, 306, 22,
+                        g_buffs, (HMENU)(BF_ID_BUFF + i), hi, NULL);
+        SendMessageW(GetDlgItem(g_buffs, BF_ID_BUFF + i), BM_SETCHECK,
+                     g_buff_on[g_buff_list[i].id] ? BST_CHECKED : BST_UNCHECKED, 0);
+    }
+
+    CreateWindowExW(0, L"BUTTON", L"No debuffs (clear these every 200 ms)",
+                    WS_CHILD | WS_VISIBLE | BS_GROUPBOX, 12, 504, BF_W - 24, 388,
+                    g_buffs, NULL, hi, NULL);
+    CreateWindowExW(0, L"BUTTON", L"All", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+                    BF_W - 176, 510, 76, 24, g_buffs, (HMENU)BF_ID_ALL_D, hi, NULL);
+    CreateWindowExW(0, L"BUTTON", L"None", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+                    BF_W - 92, 510, 76, 24, g_buffs, (HMENU)BF_ID_NONE_D, hi, NULL);
+    for (i = 0; i < NDEBUFFS; i++) {
+        wchar_t txt[NAME_MAX + 24];
+        col = i / 15;
+        row = i % 15;
+        wsprintfW(txt, L"%u  %s", g_debuff_list[i].id,
+                  effect_label(g_debuff_list[i].id, g_debuff_list[i].name));
+        CreateWindowExW(0, L"BUTTON", txt, WS_CHILD | WS_VISIBLE | BS_AUTOCHECKBOX,
+                        24 + col * 460, 540 + row * 23, 450, 22,
+                        g_buffs, (HMENU)(BF_ID_DEBUFF + i), hi, NULL);
+        SendMessageW(GetDlgItem(g_buffs, BF_ID_DEBUFF + i), BM_SETCHECK,
+                     g_debuff_on[g_debuff_list[i].id] ? BST_CHECKED : BST_UNCHECKED, 0);
+    }
+    CreateWindowExW(0, L"STATIC", L"Language", WS_CHILD | WS_VISIBLE,
+                    20, 907, 70, 22, g_buffs, NULL, hi, NULL);
+    {
+        HWND cmb = CreateWindowExW(0, L"COMBOBOX", NULL,
+                        WS_CHILD | WS_VISIBLE | WS_VSCROLL | CBS_DROPDOWNLIST,
+                        96, 903, 260, 220, g_buffs,
+                        (HMENU)BF_ID_LANG, hi, NULL);
+        for (i = 0; i < LANG_INTERNAL; i++)
+            SendMessageW(cmb, CB_ADDSTRING, 0, (LPARAM)g_lang_labels[i]);
+        SendMessageW(cmb, CB_SETCURSEL, (WPARAM)g_effect_lang, 0);
+    }
+    CreateWindowExW(0, L"STATIC", L"names from the game's own dictionaries",
+                    WS_CHILD | WS_VISIBLE, 372, 907, 340, 22,
+                    g_buffs, NULL, hi, NULL);
+    CreateWindowExW(0, L"BUTTON", L"Close", WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
+                    BF_W - 124, 900, 100, 28, g_buffs, (HMENU)BF_ID_CLOSE, hi, NULL);
+    EnumChildWindows(g_buffs, saves_font_cb, (LPARAM)g_ui_font);
+
+    if (g_hwnd) {
+        GetWindowRect(g_hwnd, &pr);
+        GetWindowRect(g_buffs, &r);
+        SetWindowPos(g_buffs, HWND_TOP,
+                     pr.left + ((pr.right - pr.left) - (r.right - r.left)) / 2,
+                     pr.top + ((pr.bottom - pr.top) - (r.bottom - r.top)) / 2,
+                     0, 0, SWP_NOSIZE | SWP_NOACTIVATE);
+        EnableWindow(g_hwnd, FALSE);
+    }
+    ShowWindow(g_buffs, SW_SHOW);
+    SetForegroundWindow(g_buffs);
 }
 
 static LRESULT CALLBACK mouse_proc(int code, WPARAM wp, LPARAM lp)
 {
     if (code == HC_ACTION && wp == WM_RBUTTONDOWN) {
         int fg = is_game_foreground();
+        MSLLHOOKSTRUCT *m = (MSLLHOOKSTRUCT *)lp;
+        if (fg && map_is_open()) {
+            /* the big map is up: right-click belongs to the map, never to the
+             * in-game teleport - swallow it either way */
+            (void)m;
+            map_right_click();
+            return 1;
+        }
         if (g_teleport) {
-            MSLLHOOKSTRUCT *m = (MSLLHOOKSTRUCT *)lp;
             logmsg("mouse: rdown at %ld,%ld fg=%d", (LONG)m->pt.x, (LONG)m->pt.y, fg);
             if (fg) tp_go((int)m->pt.x, (int)m->pt.y);
         }
@@ -3779,6 +5746,174 @@ static LRESULT CALLBACK mouse_proc(int code, WPARAM wp, LPARAM lp)
     return CallNextHookEx(g_mouse, code, wp, lp);
 }
 
+/* Multiplayer position catch-up (docs/DEVELOPMENT.md section 13.20).
+ *
+ * The picture in MP is drawn from the net player object.  That object is
+ * written by the game from a player-state snapshot only about 1.5 times per
+ * second (measured 2026-10-24 with a write watchpoint: the only writer was a
+ * block memcpy from 0x1248D920, i.e. a snapshot), so a teleport, an air jump
+ * or the Move speed multiplier shows up in the game state but not on screen.
+ * Copying x in at ~60 Hz keeps horizontal speed visible; y is copied only in
+ * airborne states (101/102/103) so the air jump still shows, never on a ladder
+ * (state 104 / +-100 units per second) where it fought the game's own climb
+ * and bounced the player to the top (2026-10-24).
+ * Runs multiplayer only and exits with g_stopping. */
+static DWORD WINAPI net_sync_thread(LPVOID p)
+{
+    int writes = 0;
+    LONG ladder_until = 0;
+    (void)p;
+    while (!g_stopping) {
+        if (!g_netsync_on) { Sleep(150); continue; }
+        if (game_is_mp()) {
+            unsigned e = entity_addr();
+            unsigned o = net_player_obj();
+            /* x is synced for horizontal Move speed (the game itself rewrites
+             * the net object from a snapshot only ~1.5 times per second); y is
+             * synced only while airborne (101/102/103), which is what makes the
+             * air jump visible.  Nothing at all is written in ladder state 104
+             * (and for 600 ms afterwards), and the +-100 units/s entry frame
+             * itself is skipped: any write there fought the game's own
+             * climb/entry and bounced the player back to the top, which made
+             * descending need several presses. */
+            if (e && o && readable((void *)(size_t)(e + 0x520), 8) &&
+                !IsBadWritePtr((void *)(size_t)(o + 0x1C), 8)) {
+                float ex = *(float *)(size_t)(e + 0x520);
+                float ey = *(float *)(size_t)(e + 0x524);
+                float nx = *(float *)(size_t)(o + 0x1C);
+                float ny = *(float *)(size_t)(o + 0x20);
+                LONG now = (LONG)GetTickCount();
+                LONG st = readable((void *)(size_t)(e + 0x540), 4)
+                          ? *(LONG *)(size_t)(e + 0x540) : 0;
+                float vy = readable((void *)(size_t)(e + 0x528), 4)
+                           ? *(float *)(size_t)(e + 0x528) : 0.0f;
+                int ladder_state = st == 104;
+                int ladder_speed = (vy > 99.5f && vy < 100.5f) ||
+                                   (vy < -99.5f && vy > -100.5f);
+                int airborne = st == 101 || st == 102 || st == 103;
+                /* Only the real ladder state arms the 600 ms quiet period.
+                 * A normal fall passes through |vy| = 100 for a frame; using
+                 * that to arm 600 ms would freeze the sync for most of the
+                 * fall.  The frame itself is still skipped. */
+                if (ladder_state) ladder_until = now + 600;
+                if (!ladder_speed && (LONG)(now - ladder_until) >= 0) {
+                    if (ex != nx) {
+                        *(float *)(size_t)(o + 0x1C) = ex;
+                        writes++;
+                    }
+                    if (airborne && ey != ny) {
+                        *(float *)(size_t)(o + 0x20) = ey;
+                        writes++;
+                    }
+                }
+            }
+        }
+        Sleep(16);
+    }
+    if (writes) logmsg("netsync: stopped after %d catch-up writes", writes);
+    return 0;
+}
+
+/* God mode has to cover the instant-kill traps as well (spikes and the like).
+ * They do not go through entity::damage_int - measured 2026-10-24: HP 330 -> 0
+ * and entity state -> 118 in the same tick, followed by a respawn - so there is
+ * no damage call to block.  Instead this keeps the last normal position and,
+ * only while god is on, undoes the death the moment it appears: HP back to
+ * max, state back to 0 and the player back where they stood.  It follows the
+ * god checkbox live and costs nothing when the checkbox is off. */
+/* Multiplayer sometimes throws the airjump impulse away: 200-300 ms after the
+ * press the entity is still in a falling state and vy is back at +400.  For a
+ * short window after each press, if the entity is airborne but no longer
+ * rising, put the impulse back (at most three times per press). */
+static void airjump_retry_tick(void)
+{
+    LONG now = (LONG)GetTickCount();
+    unsigned e;
+    LONG st;
+    float vy;
+    if (g_aj_retry_left <= 0) return;
+    if ((LONG)(now - g_aj_retry_until) >= 0) { g_aj_retry_left = 0; return; }
+    e = entity_addr();
+    if (!e) return;
+    st = readable((void *)(size_t)(e + 0x540), 4)
+         ? *(LONG *)(size_t)(e + 0x540) : 0;
+    vy = readable((void *)(size_t)(e + 0x528), 4)
+         ? *(float *)(size_t)(e + 0x528) : 0.0f;
+    if ((st == 101 || st == 102 || st == 103) && vy > 0.0f) {
+        *(float *)(size_t)(e + 0x528) = AIRJUMP_IMPULSE;
+        *(LONG *)(size_t)(e + 0x540) = 103;
+        g_aj_retry_left--;
+        logmsg("airjump: impulse restored (vy %.1f state %ld, %ld left)",
+               (double)vy, st, (long)g_aj_retry_left);
+    }
+}
+
+static DWORD WINAPI god_guard_thread(LPVOID p)
+{
+    int fixes = 0, eff_div = 0, eff_set = 0;
+    (void)p;
+    while (!g_stopping) {
+        unsigned e;
+        int retrying;
+        airjump_retry_tick();
+        retrying = g_aj_retry_left > 0 &&
+                   (LONG)(GetTickCount() - g_aj_retry_until) < 0;
+        if (!g_god) {
+            if (eff_set) {
+                unsigned ce = entity_addr();
+                if (ce && readable((void *)(size_t)(ce + 0x6B4), 4)) {
+                    *(float *)(size_t)(ce + 0x6B4 + 19 * 4) = 0.0f;
+                    *(float *)(size_t)(ce + 0x86C + 19 * 4) = 0.0f;
+                }
+                eff_set = 0;
+                logmsg("godguard: total-immunity effect released");
+            }
+            Sleep(retrying ? 8 : 120);
+            continue;
+        }
+        e = entity_addr();
+        if (e && readable((void *)(size_t)(e + 0x6B4), 4)) {
+            /* effect 19 = "total immunity" (data/dict/effectName_en.tsv).  The
+             * game itself decides what that covers, so if it includes the
+             * instant-kill traps nothing has to be patched.  Refreshed every
+             * ~200 ms; the slots are duration +0x6B4, initial +0x86C, state
+             * +0xA24, stride 4, 110 slots (see section 5.12). */
+            if (++eff_div >= 50) {
+                eff_div = 0;
+                *(float *)(size_t)(e + 0x6B4 + 19 * 4) = 99999.0f;
+                *(float *)(size_t)(e + 0x86C + 19 * 4) = 99999.0f;
+                *(int *)(size_t)(e + 0xA24 + 19 * 4) = 0;
+                if (!eff_set) {
+                    logmsg("godguard: total-immunity effect (19) held while god is on");
+                    eff_set = 1;
+                }
+            }
+        }
+        if (e && readable((void *)(size_t)(e + ENT_MAXHP), 8) &&
+            readable((void *)(size_t)(e + 0x520), 8)) {
+            int mx = *(int *)(size_t)(e + ENT_MAXHP);
+            float hp = *(float *)(size_t)(e + ENT_CURHP);
+            LONG st = readable((void *)(size_t)(e + 0x540), 4)
+                      ? *(LONG *)(size_t)(e + 0x540) : 0;
+            if (st == 118 || hp <= 0.0f) {
+                if (mx > 0) *(float *)(size_t)(e + ENT_CURHP) = (float)mx;
+                *(LONG *)(size_t)(e + 0x540) = 0;
+                fixes++;
+                if (fixes == 1 || (fixes % 50) == 0)
+                    logmsg("godguard: instant-death trap undone (#%d, state %ld, hp %.1f)",
+                           fixes, st, (double)hp);
+            }
+        }
+        Sleep(4);
+    }
+    if (fixes) logmsg("godguard: %d trap(s) undone in total", fixes);
+    return 0;
+}
+
+/* Multiplayer: the picture is drawn from the net player object (section 13.20), so
+ * the jump writes the game's jump state 103 and god_guard_thread keeps a short
+ * retry window for impulses the snapshot throws away (see airjump_retry_tick).
+ * The net_sync_thread above mirrors the y only in airborne states. */
 static LRESULT CALLBACK kbd_proc(int code, WPARAM wp, LPARAM lp)
 {
     if (code == HC_ACTION && (wp == WM_KEYUP || wp == WM_SYSKEYUP)) {
@@ -3795,23 +5930,54 @@ static LRESULT CALLBACK kbd_proc(int code, WPARAM wp, LPARAM lp)
                 if (!g_jump_down) {                 /* one press = one jump */
                     unsigned e = entity_addr();
                     g_jump_down = 1;
+                    g_aj_retry_until = (LONG)GetTickCount() + 300;
+                    g_aj_retry_left = 3;
                     if (e) {
                         float vy = *(float *)(e + 0x528);
                         LONG st = *(LONG *)(e + 0x540);
-                        if (st == 0) {
+                        int on_floor = 1;
+                        /* +0x540 == 0 does NOT mean "on the ground": the live log
+                         * has state 0 presses while the player was falling, and
+                         * those were the taps that did nothing.  Ask the room
+                         * grid instead - a cell is the floor when it is solid and
+                         * the body fits above it (one cell of tolerance for the
+                         * y rounding at the boundary). */
+                        if (grid_load()) {
+                            float gx = *(float *)(e + 0x520);
+                            float gy = *(float *)(e + 0x524);
+                            int gcx = (int)(gx / GRID_CELL);
+                            int gfy = (int)(gy / GRID_CELL);
+                            on_floor = grid_standable(gcx, gfy) ||
+                                       grid_standable(gcx, gfy + 1);
+                        }
+                        if (st == 0 && on_floor) {
                             /* standing on the ground: the game's own jump runs from
                              * this same keypress (vy 400 -> -339..-368, state 0 -> 103).
                              * Do not fight it - forcing the impulse here would also
                              * run while it is still in the pre-jump frame. */
-                            logmsg("airjump: on the ground (state 0), left to the game");
+                            logmsg("airjump: on the ground (state 0, floor below),"
+                                   " left to the game");
                         } else {
-                            /* airborne: refresh the whole impulse on every press,
-                             * no matter whether we are still rising.  The old gate
-                             * (only when vy > -60) swallowed presses during the
-                             * ascent, which is why only frantic mashing worked. */
+                            /* airborne OR falling with state 0: refresh the whole
+                             * impulse on every press, no matter whether we are still
+                             * rising.  The old gate (only when vy > -60) swallowed
+                             * presses during the ascent, which is why only frantic
+                             * mashing worked. */
+                            g_aj_probe_ent = (LONG)e;
+                            g_aj_probe_y0 = *(LONG *)(e + 0x524);
+                            g_aj_probe_vy0 = *(LONG *)(e + 0x528);
                             *(float *)(e + 0x528) = AIRJUMP_IMPULSE;
-                            logmsg("airjump: vy %.1f -> %.1f (state %ld)",
-                                   (double)vy, (double)AIRJUMP_IMPULSE, st);
+                            /* The impulse alone is not enough in multiplayer:
+                             * the game kept the falling state 102 and restored
+                             * vy 400 within 200-300 ms (probe: dy +90 while
+                             * the airjump log had just written -368).  The
+                             * game's own jump ends in state 103; set the same
+                             * state so the physics treats this as a jump. */
+                            if (readable((void *)(size_t)(e + 0x540), 4))
+                                *(LONG *)(size_t)(e + 0x540) = 103;
+                            g_aj_probe_t0 = (LONG)GetTickCount();
+                            logmsg("airjump: vy %.1f -> %.1f (state %ld -> 103, floor %d)",
+                                   (double)vy, (double)AIRJUMP_IMPULSE, st, on_floor);
                         }
                     }
                 }
@@ -3819,41 +5985,281 @@ static LRESULT CALLBACK kbd_proc(int code, WPARAM wp, LPARAM lp)
         }
         if (k->vkCode == VK_OEM_3 && is_game_foreground()) {
             logmsg("hotkey tap");
-            if (g_saves && IsWindow(g_saves)) {   /* modal window: the hotkey closes it */
+            /* child windows behave like the saves window: the first press
+             * closes the child, only the next one touches the panel - the
+             * panel must never be hidden while a child is still open. */
+            if (g_saves && IsWindow(g_saves)) {
                 saves_close();
+                return CallNextHookEx(g_kbd, code, wp, lp);
+            }
+            if (g_buffs && IsWindow(g_buffs)) {
+                buffs_close();
                 return CallNextHookEx(g_kbd, code, wp, lp);
             }
             if (g_panel_visible) panel_hide(); else panel_show();
             logmsg("panel %s", g_panel_visible ? "shown" : "hidden");
         }
+        /* Light all from inside the game.  This is the path that can also play
+         * the native ignition puff: the room's effect list (level+0xA788) only
+         * exists while the game is actually drawing the room, and clicking a
+         * panel button takes that away.  F9 is free in the game (its quick bar
+         * uses F1..F8).  The check is against the real game window, not just
+         * "a window of this process" - the panel lives in the same process. */
+        if (k->vkCode == VK_F9 && GetForegroundWindow() == find_game_window()) {
+            if (light_request(0))
+                logmsg("hotkey: light all requested");
+        }
     }
     return CallNextHookEx(g_kbd, code, wp, lp);
 }
 
-static DWORD WINAPI worker(LPVOID p)
+/* ---- map/room watch (change-only diagnostic) -----------------------------
+ * NOTE: [ent+0x1038] is the player's CONTAINER (76 x 172-byte item records),
+ * not the room - the earlier comment here called it "the loaded room" and that
+ * was wrong (see section 13.16).  The room object is [ent+0x684].  This watcher only
+ * reports changes, so the fields below are read as-is for the log line.
+ */
+static unsigned g_last_room, g_last_room_a, g_last_room_b;
+
+static void map_watch_tick(void)
 {
+    unsigned st = stats_addr(), ent, room, a, b;
+    if (!st || !readable((void *)(size_t)(st + OFF_ENTITY), 4)) return;
+    ent = *(unsigned *)(size_t)(st + OFF_ENTITY);
+    if (!ent || !readable((void *)(size_t)(ent + 0x1038), 4)) return;
+    room = *(unsigned *)(size_t)(ent + 0x1038);
+    if (!room || !readable((void *)(size_t)(room + 0x180), 4)) return;
+    a = *(unsigned *)(size_t)(room + 0x178);
+    b = *(unsigned *)(size_t)(room + 0x17C);
+    if (room == g_last_room && a == g_last_room_a && b == g_last_room_b) return;
+    logmsg("mapwatch: room=%08x w=%u h=%u a178=%u a17c=%u a1e0=%u  (was %08x %u %u)",
+           room,
+           *(unsigned *)(size_t)(room + 0x08),
+           *(unsigned *)(size_t)(room + 0x0C),
+           a, b, *(unsigned *)(size_t)(room + 0x1E0),
+           g_last_room, g_last_room_a, g_last_room_b);
+    g_last_room = room;
+    g_last_room_a = a;
+    g_last_room_b = b;
+}
+
+/* ---- game mode watch (single-player vs multiplayer) ----------------------
+ * 0x00672334 is the flag the game itself reads to choose save\game_mp_N.sav.
+ * Log every transition so a money/feature branch can be traced in the log. */
+static int g_last_mp = -1;
+static void mode_watch_tick(void)
+{
+    int mp = game_is_mp();
+    if (mp == g_last_mp) return;
+    logmsg("mode: %s (0x%08x=%u), money item %d, UN item %d",
+           mp ? "multiplayer" : "single-player", ADDR_MP_MODE,
+           *(unsigned *)ADDR_MP_MODE, ITEM_COIN, ITEM_UN);
+    g_last_mp = mp;
+}
+
+/* ---- room bookmarks (zone/room -> last known player position) -----------
+ * The map cell records name a room (zone at +0x2B8, room at +0x2B0) but not
+ * a position, and 0x0042E030 does not place the player.  So we remember where
+ * the player stood in every room: one second after the room changes, append
+ * "zone<TAB>room<TAB>x<TAB>y" to mod\roomspots.tsv.  A warp looks the room up
+ * there and writes the coordinates after loading; unknown rooms are refused.
+ */
+typedef struct { unsigned zone, room; float x, y; } RoomSpot;
+static RoomSpot g_spot[512];
+static int g_nspot;
+static unsigned g_track_zone, g_track_room;
+/* a warp is applied over ~1 s: the engine keeps writing the level pointer and
+ * the player position for a few frames after the room load, so we hold ours */
+static int g_pend_n;
+static float g_pend_x, g_pend_y;
+static unsigned g_pend_lvl;
+static int g_track_wait = -1;
+
+static void spots_path(char *out, size_t n)
+{
+    char ini[MAX_PATH];
+    char *s;
+    cfg_path(ini, sizeof ini);
+    s = strrchr(ini, '\\');
+    if (s) *s = 0;
+    _snprintf(out, n, "%s\\mod\\roomspots.tsv", ini);
+}
+
+static void spots_load(void)
+{
+    char path[MAX_PATH], line[256];
+    FILE *f;
+    spots_path(path, sizeof path);
+    f = fopen(path, "r");
+    if (!f) { logmsg("roomspots: none yet (%s)", path); return; }
+    while (fgets(line, sizeof line, f)) {
+        unsigned z, r;
+        float x, y;
+        if (sscanf(line, "%u\t%u\t%f\t%f", &z, &r, &x, &y) == 4) {
+            int i, dup = -1;
+            for (i = 0; i < g_nspot; i++)
+                if (g_spot[i].zone == z && g_spot[i].room == r) dup = i;
+            if (dup < 0 && g_nspot < (int)(sizeof g_spot / sizeof g_spot[0])) dup = g_nspot++;
+            if (dup >= 0) {
+                g_spot[dup].zone = z;
+                g_spot[dup].room = r;
+                g_spot[dup].x = x;
+                g_spot[dup].y = y;
+            }
+        }
+    }
+    fclose(f);
+    logmsg("roomspots: %d room(s) known", g_nspot);
+}
+
+static void spot_append(unsigned z, unsigned r, float x, float y)
+{
+    char path[MAX_PATH];
+    FILE *f;
+    spots_path(path, sizeof path);
+    f = fopen(path, "a");
+    if (!f) return;
+    fprintf(f, "%u\t%u\t%.1f\t%.1f\n", z, r, (double)x, (double)y);
+    fclose(f);
+}
+
+static int spot_find(unsigned z, unsigned r, float *x, float *y)
+{
+    int i;
+    for (i = g_nspot - 1; i >= 0; i--) {
+        if (g_spot[i].zone == z && g_spot[i].room == r) {
+            *x = g_spot[i].x;
+            *y = g_spot[i].y;
+            return 1;
+        }
+    }
+    return 0;
+}
+
+static void room_track_tick(void)
+{
+    unsigned st = stats_addr(), lvl, ent, z, r;
+    if (!st) return;
+    if (g_pend_n > 0) {
+        if (g_pend_lvl) {
+            if (*(unsigned *)(size_t)(st + OFF_LEVEL_OBJ) != g_pend_lvl)
+                *(unsigned *)(size_t)(st + OFF_LEVEL_OBJ) = g_pend_lvl;
+        }
+        if (g_pend_x != 0.0f || g_pend_y != 0.0f) {
+            ent = *(unsigned *)(size_t)(st + OFF_ENTITY);
+            if (ent && readable((void *)(size_t)(ent + 0x524), 4)) {
+                *(float *)(size_t)(ent + 0x520) = g_pend_x;
+                *(float *)(size_t)(ent + 0x524) = g_pend_y;
+            }
+        }
+        if (--g_pend_n == 0)
+            logmsg("warp: level/position held for 1 s, releasing");
+    }
+    lvl = *(unsigned *)(size_t)(st + OFF_LEVEL_OBJ);
+    if (!lvl || !readable((void *)(size_t)(lvl + 0x22A90), 4)) return;
+    z = *(unsigned *)(size_t)(lvl + 0x22A88);
+    r = *(unsigned *)(size_t)(lvl + 0x22A8C);
+    if (z == g_track_zone && r == g_track_room) {
+        if (g_track_wait > 0 && --g_track_wait == 0) {
+            ent = *(unsigned *)(size_t)(st + OFF_ENTITY);
+            if (ent && readable((void *)(size_t)(ent + 0x524), 4)) {
+                float x = *(float *)(size_t)(ent + 0x520);
+                float y = *(float *)(size_t)(ent + 0x524);
+                int i, dup = -1;
+                for (i = 0; i < g_nspot; i++)
+                    if (g_spot[i].zone == z && g_spot[i].room == r) dup = i;
+                if (dup < 0 && g_nspot < (int)(sizeof g_spot / sizeof g_spot[0]))
+                    dup = g_nspot++;
+                if (dup >= 0) {
+                    g_spot[dup].zone = z;
+                    g_spot[dup].room = r;
+                    g_spot[dup].x = x;
+                    g_spot[dup].y = y;
+                }
+                logmsg("roomspot: zone=%u room=%u pos=(%.1f,%.1f)", z, r,
+                       (double)x, (double)y);
+                spot_append(z, r, x, y);
+            }
+        }
+        return;
+    }
+    logmsg("roomspot: entered zone=%u room=%u", z, r);
+    g_track_zone = z;
+    g_track_room = r;
+    g_track_wait = 5;            /* 5 x 200 ms: let the engine place the player */
+}
+
+/* Install the two low-level hooks and pump this thread's queue.  The callbacks
+ * fire on this thread and the OS waits for them, so nothing slow may ever run
+ * here - that is exactly why the panel and its MessageBoxes moved off it. */
+static DWORD WINAPI hook_worker(LPVOID p)
+{
+    MSG msg;
     (void)p;
+    g_hook_tid = GetCurrentThreadId();
+    g_kbd = SetWindowsHookExW(WH_KEYBOARD_LL, kbd_proc, GetModuleHandleA(NULL), 0);
+    logmsg("kbd hook %s (thread %lu)", g_kbd ? "installed" : "FAILED", g_hook_tid);
+    g_mouse = SetWindowsHookExW(WH_MOUSE_LL, mouse_proc, GetModuleHandleA(NULL), 0);
+    logmsg("mouse hook %s", g_mouse ? "installed" : "FAILED");
+    /* force the message queue into existence before announcing readiness:
+     * PostThreadMessage(WM_QUIT) from CoreStop fails on a thread that has not
+     * called a message function yet, and the hook thread would never exit */
+    PeekMessageW(&msg, NULL, WM_USER, WM_USER, PM_NOREMOVE);
+    if (g_hook_ready) SetEvent(g_hook_ready);
+    while (GetMessageW(&msg, NULL, 0, 0) > 0) {
+        TranslateMessage(&msg);
+        DispatchMessageW(&msg);
+    }
+    if (g_kbd) { UnhookWindowsHookEx(g_kbd); g_kbd = NULL; }
+    if (g_mouse) { UnhookWindowsHookEx(g_mouse); g_mouse = NULL; }
+    logmsg("hooks removed");
+    return 0;
+}
+
+/* Stop the hook thread and remove both hooks.  Called from CoreStop BEFORE the
+ * worker is asked to quit and before any code is unpatched: the callbacks must
+ * not be able to run core code while the patches are being torn down. */
+static void hooks_stop(void)
+{
+    if (!g_hook_thread) return;
+    if (g_hook_tid) PostThreadMessageW(g_hook_tid, WM_QUIT, 0, 0);
+    WaitForSingleObject(g_hook_thread, 2000);
+    CloseHandle(g_hook_thread);
+    g_hook_thread = NULL;
+    g_hook_tid = 0;
+}
+
+static DWORD WINAPI worker(LPVOID p)
+{    (void)p;
     if (!ENABLE_PATCH) { logmsg("patch disabled"); return 0; }
     g_wtid = GetCurrentThreadId();
     logmsg("core worker up (stats ptr -> %08x)", *(unsigned *)ADDR_STATS_PTR);
     if (DIAG_WP) g_veh = AddVectoredExceptionHandler(1, veh_handler);
     apply_patch();
 
+    /* hooks first: they are the cheats that need key/mouse input, so they must
+     * work even when the panel cannot be created */
+    g_hook_ready = CreateEventW(NULL, TRUE, FALSE, NULL);
+    g_hook_thread = CreateThread(NULL, 0, hook_worker, NULL, 0, NULL);
+    if (g_hook_thread && g_hook_ready) WaitForSingleObject(g_hook_ready, 2000);
+    if (g_hook_ready) { CloseHandle(g_hook_ready); g_hook_ready = NULL; }
+    logmsg("hook thread %s", g_hook_thread ? "up" : "FAILED");
+
     if (!panel_create()) {             /* fallback: no UI, cheats still work */
         int t = 0;
         for (;;) {
             if (g_stopping) break;
             tick();
+            map_watch_tick();
+            room_track_tick();
+            mode_watch_tick();
+            status_effects_tick();
             if (++t % 15 == 0) report(t);
             Sleep(200);
         }
         return 0;
     }
 
-    g_kbd = SetWindowsHookExW(WH_KEYBOARD_LL, kbd_proc, GetModuleHandleA(NULL), 0);
-    logmsg("kbd hook %s", g_kbd ? "installed" : "FAILED");
-    g_mouse = SetWindowsHookExW(WH_MOUSE_LL, mouse_proc, GetModuleHandleA(NULL), 0);
-    logmsg("mouse hook %s", g_mouse ? "installed" : "FAILED");
     SetTimer(g_hwnd, 1, 200, NULL);
     {
         MSG msg;
@@ -3863,6 +6269,18 @@ static DWORD WINAPI worker(LPVOID p)
             if (g_stopping) break;
             if (msg.message == WM_TIMER) {
                 tick();
+                map_watch_tick();
+                room_track_tick();
+                mode_watch_tick();
+                status_effects_tick();
+                /* coalesced mod\buffs.ini write: never inside a click handler,
+                 * so a burst of checkbox changes costs at most one flush a second
+                 * (the input hooks now live on their own thread, see hook_worker) */
+                if (g_bcfg_dirty && (LONG)GetTickCount() - g_bflush_tick > 1000) {
+                    g_bflush_tick = GetTickCount();
+                    g_bcfg_dirty = 0;
+                    buffs_cfg_save();
+                }
                 if (g_give_done) { g_give_done = 0; give_report((int)g_give_result); }
                 else if (g_give_req
                          && (LONG)GetTickCount() - g_give_post_tick > 4000) {
@@ -3885,6 +6303,20 @@ static DWORD WINAPI worker(LPVOID p)
                     g_ach_req = 0;
                     hint_flash(L"the game thread did not answer");
                 }
+                if (g_light_req) {
+                    /* one retry per tick until the game window answers; the
+                     * handler clears it, a lost message would keep it forever,
+                     * so give up after a few seconds of a stale request */
+                    if (++g_light_stale > 25) {
+                        g_light_stale = 0;
+                        g_light_req = 0;
+                        logmsg("lights: request dropped (no answer from the game window)");
+                    } else {
+                        light_post();
+                    }
+                } else {
+                    g_light_stale = 0;
+                }
                 ++ticks;
                 if (ticks % 15 == 0) report(ticks);
                 if (tick_noime++ % 10 == 0) {
@@ -3902,6 +6334,34 @@ static DWORD WINAPI worker(LPVOID p)
                     if (now - last_status >= 250) {
                         last_status = now;
                         panel_refresh();
+                        /* the map table is only valid while the multiplayer
+                         * save table is the loaded one, so the button follows
+                         * the live state; log each flip so a misfire in the
+                         * menu can be traced from unepic_mod.log */
+                        if (g_bt_mpunlock) {
+                            static int was = -1;
+                            int ok = mp_unlock_state_ok();
+                            EnableWindow(g_bt_mpunlock, ok);
+                            if (ok != was) {
+                                unsigned t = mp_table_mp();
+                                unsigned sl = 0xFFFFFFFFu, pr = 0;
+                                if (t && !IsBadReadPtr((void *)ADDR_MP_SLOT, 4)) {
+                                    sl = *(unsigned *)ADDR_MP_SLOT;
+                                    if (sl < 9)
+                                        pr = *(unsigned *)(size_t)(t + MP_MAP_PRESENT + sl * 4);
+                                }
+                                logmsg("mp unlock: button %s (mp=%d table=%08x"
+                                       " mode=%u slot=%u present=%u menu=%08x)",
+                                       ok ? "enabled" : "disabled",
+                                       game_is_mp() ? 1 : 0, t,
+                                       t ? *(unsigned *)(size_t)t : 0, sl, pr,
+                                       mp_menu_state());
+                                was = ok;
+                            }
+                        }
+                        /* Force save is single-player only; follow the mode live
+                         * so entering/leaving multiplayer cannot leave it on. */
+                        if (g_bt_force) EnableWindow(g_bt_force, !game_is_mp());
                     }
                 }
             }
@@ -3909,8 +6369,7 @@ static DWORD WINAPI worker(LPVOID p)
             DispatchMessageW(&msg);
         }
     }
-    if (g_kbd) { UnhookWindowsHookEx(g_kbd); g_kbd = NULL; }
-    if (g_mouse) { UnhookWindowsHookEx(g_mouse); g_mouse = NULL; }
+    buffs_close();          /* its class lives in this DLL, do not orphan it */
     if (g_hwnd) {
         KillTimer(g_hwnd, 1);
         DestroyWindow(g_hwnd);
@@ -3950,6 +6409,7 @@ static void cleanup_old_cores(void)
 /* optional: arm DR0 on an arbitrary address for write tracing
  * [debug] watch=DA8730   (hex, no 0x) - declared above, next to bag_diff */
 static int g_dumpdict;
+static int g_dumpmap;                  /* [debug] dumpmap: map/room recon, one-shot */
 static unsigned g_gtv[3];              /* [debug] givetest = type,count,ground */
 
 /* one-shot item test: [debug] givetest=6005,1,0 */
@@ -4133,20 +6593,238 @@ static int bp_hit_singlestep(EXCEPTION_POINTERS *ep)
     return 0;
 }
 
+/* ---- [debug] dumpmap=1: map / room reconnaissance (one-shot) -------------
+ * Everything here is read-only; the ini key is reset after it runs.  It logs
+ *
+ *   1. stats+0x17F00..0x17F9F.  The save loader fills +0x17F40..+0x17F50 with
+ *      six dwords read from its "WARP" chunk (0x0043D9E1..0x0043DA44), so the
+ *      map/room/position the game resumed from can be read straight off it.
+ *   2. The loaded level object (stats+0x17F7C): first 0x200 bytes as dwords,
+ *      then every printable run >= 4 chars in its first 0x4000 bytes.
+ *   3. Up to 12 "map_" strings in the whole process with 40 chars of context -
+ *      the loaded map file name, if the game keeps it around.
+ */
+static int dump_ascii_run(const unsigned char *p, int n, char *out, int cap)
+{
+    int i = 0, o = 0;
+    for (i = 0; i < n && o < cap - 1; i++) {
+        unsigned char c = p[i];
+        out[o++] = (c >= 0x20 && c < 0x7F) ? (char)c : '.';
+    }
+    out[o] = 0;
+    return o;
+}
+
+static void dump_file_raw(const char *name, const void *p, unsigned n)
+{
+    char ini[MAX_PATH], path[MAX_PATH], *s;
+    HANDLE h;
+    DWORD w = 0;
+    cfg_path(ini, sizeof ini);
+    s = strrchr(ini, '\\');
+    if (s) *s = 0;
+    _snprintf(path, sizeof path, "%s\\mod\\%s", ini, name);
+    h = CreateFileA(path, GENERIC_WRITE, 0, NULL, CREATE_ALWAYS,
+                    FILE_ATTRIBUTE_NORMAL, NULL);
+    if (h == INVALID_HANDLE_VALUE) {
+        logmsg("dumpmap: cannot write %s (err %lu)", path, GetLastError());
+        return;
+    }
+    WriteFile(h, p, n, &w, NULL);
+    CloseHandle(h);
+    logmsg("dumpmap: wrote %s (%u bytes)", path, n);
+}
+
+static void dump_map_info(void)
+{
+    static unsigned char buf[0x10000];
+    unsigned st = stats_addr(), lvl, a, i;
+    MEMORY_BASIC_INFORMATION mbi;
+    char line[128];
+    int hits = 0, runs = 0;
+
+    logmsg("dumpmap: ---- map/room recon ----");
+    if (!st || !readable((void *)(size_t)st, 0x18000)) {
+        logmsg("dumpmap: no stats object (not in game yet?)");
+        return;
+    }
+    for (i = 0x17F00; i <= 0x17F90; i += 0x10) {
+        unsigned *q = (unsigned *)(size_t)(st + i);
+        logmsg("dumpmap: stats+%05x: %08x %08x %08x %08x", i, q[0], q[1], q[2], q[3]);
+    }
+    lvl = *(unsigned *)(size_t)(st + OFF_LEVEL_OBJ);
+    logmsg("dumpmap: stats=%08x level=%08x entity=%08x",
+           st, lvl, *(unsigned *)(size_t)(st + OFF_ENTITY));
+
+    /* current map index: 0x00675174 holds index+1 (set at 0x00471CB0 by the
+     * map loader); the per-map table is *(0x00EE29E4), 32 bytes per entry */
+    {
+        unsigned idx = *(unsigned *)(size_t)0x675174u;
+        unsigned tab = *(unsigned *)(size_t)0xee29e4u;
+        logmsg("dumpmap: global[675174]=%u table[ee29e4]=%08x", idx, tab);
+        if (tab && readable((void *)(size_t)tab, 8 * 0x20)) {
+            for (i = 0; i < 8; i++) {
+                unsigned *q = (unsigned *)(size_t)(tab + i * 0x20);
+                logmsg("dumpmap: map[%u]: %08x %08x %08x %08x | %08x %08x %08x %08x",
+                       i, q[0], q[1], q[2], q[3], q[4], q[5], q[6], q[7]);
+            }
+        }
+    }
+    if (readable((void *)(size_t)st, 0x20000))
+        dump_file_raw("statsdump.bin", (void *)(size_t)st, 0x20000);
+    if (lvl && readable((void *)(size_t)lvl, 0x8000))
+        dump_file_raw("lvldump.bin", (void *)(size_t)lvl, 0x8000);
+
+    /* the player entity points at the loaded room: [ent+0x1038] is what the
+     * map loader / tile code works on (0x00471D5B, 0x00471E3A) */
+    {
+        unsigned ent = *(unsigned *)(size_t)(st + OFF_ENTITY);
+        if (ent && readable((void *)(size_t)(ent + 0x1030), 0x10)) {
+            unsigned room = *(unsigned *)(size_t)(ent + 0x1038);
+            unsigned other = *(unsigned *)(size_t)(ent + 0x1034);
+            logmsg("dumpmap: entity=%08x [ent+1034]=%08x [ent+1038]=%08x",
+                   ent, other, room);
+            if (room && readable((void *)(size_t)room, 0x200)) {
+                for (i = 0; i < 0x200; i += 0x10) {
+                    unsigned *q = (unsigned *)(size_t)(room + i);
+                    logmsg("dumpmap: room+%04x: %08x %08x %08x %08x",
+                           i, q[0], q[1], q[2], q[3]);
+                }
+                if (readable((void *)(size_t)room, 0x8000))
+                    dump_file_raw("roomdump.bin", (void *)(size_t)room, 0x8000);            }
+        }
+    }
+
+    if (lvl && readable((void *)(size_t)lvl, 0x200)) {
+        for (i = 0; i < 0x200; i += 0x10) {
+            unsigned *q = (unsigned *)(size_t)(lvl + i);
+            logmsg("dumpmap: lvl+%04x: %08x %08x %08x %08x", i, q[0], q[1], q[2], q[3]);
+        }
+        /* strings in the level object */
+        if (readable((void *)(size_t)lvl, 0x4000)) {
+            const unsigned char *p = (const unsigned char *)(size_t)lvl;
+            int n = 0;
+            for (i = 0; i < 0x4000 && runs < 16; ) {
+                if (p[i] >= 0x20 && p[i] < 0x7F) {
+                    for (n = 0; i + n < 0x4000 && p[i + n] >= 0x20 && p[i + n] < 0x7F; n++) ;
+                    if (n >= 4) {
+                        dump_ascii_run(p + i, n > 60 ? 60 : n, line, sizeof line);
+                        logmsg("dumpmap: lvl str +%04x: \"%s\"%s", i, line, n > 60 ? "..." : "");
+                        runs++;
+                    }
+                    i += n;
+                } else {
+                    i++;
+                }
+            }
+        }
+    } else {
+        logmsg("dumpmap: no level object (menu / loading screen)");
+    }
+
+    /* whole-process scan for "map_" - bounded, read-only */
+    a = 0x10000;
+    while (a < 0x7FFF0000 && hits < 12) {
+        unsigned base, size, off;
+        DWORD pr;
+        if (!VirtualQuery((void *)(size_t)a, &mbi, sizeof mbi)) break;
+        base = (unsigned)(size_t)mbi.BaseAddress;
+        size = (unsigned)mbi.RegionSize;
+        pr = mbi.Protect;
+        if (mbi.State == MEM_COMMIT && size && !(pr & PAGE_GUARD) &&
+            (pr & (PAGE_READONLY | PAGE_READWRITE | PAGE_WRITECOPY |
+                   PAGE_EXECUTE_READ | PAGE_EXECUTE_READWRITE | PAGE_EXECUTE_WRITECOPY))) {
+            for (off = 0; off < size && hits < 12; ) {
+                unsigned chunk = size - off;
+                if (chunk > sizeof buf) chunk = sizeof buf;
+                if (!IsBadReadPtr((void *)(size_t)(base + off), chunk)) {
+                    unsigned j;
+                    memcpy(buf, (void *)(size_t)(base + off), chunk);
+                    for (j = 0; j + 4 < chunk && hits < 12; j++) {
+                        if (buf[j] == 'm' && buf[j + 1] == 'a' &&
+                            buf[j + 2] == 'p' && buf[j + 3] == '_') {
+                            unsigned left = j > 16 ? j - 16 : 0;
+                            dump_ascii_run(buf + left, 56, line, sizeof line);
+                            logmsg("dumpmap: %08x: %s", base + off + left, line);
+                            hits++;
+                            j += 40;
+                        }
+                    }
+                }
+                off += chunk;
+            }
+        }
+        a = base + size;
+        if (a <= base) break;
+    }
+    logmsg("dumpmap: map_ scan: %d hit(s)", hits);
+    logmsg("dumpmap: ---- end ----");
+}
+
 static void read_debug_cfg(void)
 {
     char p[MAX_PATH], b[96];
     cfg_path(p, sizeof p);
     GetPrivateProfileStringA("debug", "watch", "", b, sizeof b, p);
     g_watch_addr = (unsigned)strtoul(b, NULL, 16);
+    GetPrivateProfileStringA("debug", "watchent", "", b, sizeof b, p);
+    g_watch_ent_off = (unsigned)strtoul(b, NULL, 16);
+    g_watch_rw = GetPrivateProfileIntA("debug", "watchrw", 0, p);
+    g_watch_net = GetPrivateProfileIntA("debug", "watchnet", 0, p);
+    g_netsync_on = GetPrivateProfileIntA("debug", "netsync", 0, p);
     g_dumpdict = GetPrivateProfileIntA("debug", "dumpdict", 0, p);
+    g_dumpmap  = GetPrivateProfileIntA("debug", "dumpmap", 0, p);
+    g_warp_id  = GetPrivateProfileIntA("debug", "warptest", -1, p);
+    g_roomwarp_cell = GetPrivateProfileIntA("debug", "roomwarp", -1, p);
+    GetPrivateProfileStringA("debug", "warpbyid", "", b, sizeof b, p);
+    if (sscanf(b, "%d,%d", &g_wb_zone, &g_wb_room) != 2) g_wb_zone = g_wb_room = -1;
+    g_nudge_x = g_nudge_y = 0.0f;
+    g_nudge_wait = 0;
+    g_nudge_ramp = GetPrivateProfileIntA("debug", "nudge_ramp", 0, p);
+    GetPrivateProfileStringA("debug", "nudge", "", b, sizeof b, p);
+    if (b[0] && sscanf(b, "%f,%f", &g_nudge_x, &g_nudge_y) >= 1 &&
+        (g_nudge_x || g_nudge_y)) {
+        g_nudge_wait = 12;
+        logmsg("cfg: nudge (%.1f,%.1f) pending, fires in about 2 s%s",
+               (double)g_nudge_x, (double)g_nudge_y, g_nudge_ramp ? " (ramp)" : "");
+    }
+    g_poke_addr = 0; g_poke_val = 0.0f; g_poke_wait = 0;
+    GetPrivateProfileStringA("debug", "poke", "", b, sizeof b, p);
+    if (b[0]) {
+        char *end = NULL;
+        unsigned long pa = strtoul(b, &end, 16);
+        float pv = 0.0f;
+        if (pa && end && sscanf(end, ",%f", &pv) == 1) {
+            g_poke_addr = (unsigned)pa;
+            g_poke_val  = pv;
+            g_poke_wait = 12;
+            logmsg("cfg: poke %08x = %.4f pending", (unsigned)pa, (double)pv);
+        } else {
+            logmsg("cfg: poke wants ADDR,FLOAT with a hex ADDR - got \"%s\"", b);
+        }
+    }
+    g_netwatch = GetPrivateProfileIntA("debug", "netwatch", 0, p);
+    g_vprobe = GetPrivateProfileIntA("debug", "vprobe", 0, p);
+    g_hpwatch = GetPrivateProfileIntA("debug", "hpwatch", 0, p);
+    g_pokenet_wait = 0;
+    g_pokenet_x = g_pokenet_y = 0.0f;
+    GetPrivateProfileStringA("debug", "pokenet", "", b, sizeof b, p);
+    if (b[0] && sscanf(b, "%f,%f", &g_pokenet_x, &g_pokenet_y) == 2) {
+        g_pokenet_wait = 12;
+        logmsg("cfg: pokenet (%.2f,%.2f) pending", (double)g_pokenet_x, (double)g_pokenet_y);
+    }
+    if (g_netwatch) logmsg("cfg: netwatch=1 (logs the net player position on change)");
     g_wpauto   = GetPrivateProfileIntA("debug", "wpauto", 0, p);
     GetPrivateProfileStringA("debug", "bp", "", b, sizeof b, p);
     bp_parse(b);
     GetPrivateProfileStringA("debug", "givetest", "", b, sizeof b, p);
     parse_givetest(b);
     if (g_watch_addr) logmsg("cfg: watch=%08x", g_watch_addr);
+    if (g_watch_ent_off) logmsg("cfg: watchent=+%x (game thread only)", g_watch_ent_off);
     if (g_dumpdict) logmsg("cfg: dumpdict=%d", g_dumpdict);
+    if (g_dumpmap)  logmsg("cfg: dumpmap=1 (one-shot)");
+    if (g_warp_id >= 0) logmsg("cfg: warptest=%d (one-shot)", g_warp_id);
+    if (g_roomwarp_cell >= 0) logmsg("cfg: roomwarp=%d (one-shot)", g_roomwarp_cell);
     if (g_nb) logmsg("cfg: %d breakpoint(s)", g_nb);
     if (g_gtv[1]) logmsg("cfg: givetest=%u,%u,%u", g_gtv[0], g_gtv[1], g_gtv[2]);
 }
@@ -4347,8 +7025,13 @@ static LRESULT CALLBACK game_wndproc(HWND h, UINT m, WPARAM w, LPARAM l)
         return 0;
     case WM_APP + 8: {   /* force save: full serializer on the game thread */
         typedef int (__attribute__((thiscall)) *ser_t)(void *self, int a, int b, int c);
-        int r = ((ser_t)0x0043E4C0u)((void *)0x00674EF8u,
-                                     *(int *)0x00675174u, 0, 0);
+        int r;
+        if (game_is_mp()) {
+            logmsg("force save: refused on the game thread (multiplayer)");
+            return 0;
+        }
+        r = ((ser_t)0x0043E4C0u)((void *)0x00674EF8u,
+                                 *(int *)0x00675174u, 0, 0);
         logmsg("force save: serializer ret=%d", r);
         if (g_hwnd) PostMessageW(g_hwnd, WM_APP + 9, (WPARAM)(r ? 1 : 0), 0);
         return 0;
@@ -4370,6 +7053,115 @@ static LRESULT CALLBACK game_wndproc(HWND h, UINT m, WPARAM w, LPARAM l)
             g_ach_req = 0;
         }
         return 0;
+    case WM_APP + 14: {     /* [debug] warptest: load another map */
+        typedef int (__attribute__((thiscall)) *warpt_t)(void *self, int id, int arg2);
+        int r = ((warpt_t)0x00471CA0u)((void *)0x17CA610u, g_warp_id, 0);
+        logmsg("warptest: loader(%d) ret=%d", g_warp_id, r);
+        g_warp_id = -1;
+        return 0;
+    }
+    case WM_APP + 15: {     /* [debug] roomwarp: jump to the room of a map cell */
+        typedef int (__attribute__((thiscall)) *goto_t)(void *self, int zone, int room, int arg3);
+        unsigned rec = 0x00B03008u + (unsigned)g_roomwarp_cell * 0x2D0u;
+        int room = *(int *)(size_t)(rec + 0x2B0);
+        int zone = *(int *)(size_t)(rec + 0x2B8);
+        unsigned st = stats_addr();
+        unsigned ent = st ? *(unsigned *)(size_t)(st + OFF_ENTITY) : 0;
+        int r = 0;
+        if (ent)
+            r = ((goto_t)0x00447080u)((void *)(size_t)ent, zone, room, 0);
+        logmsg("roomwarp: cell=%d zone=%d room=%d ret=%d ent=%08x",
+               g_roomwarp_cell, zone, room, r, ent);
+        g_roomwarp_cell = -1;
+        return 0;
+    }
+    case WM_APP + 16: {     /* warp request: [debug] warpbyid or map right-click */
+        typedef int (__attribute__((thiscall)) *goto_t)(void *self, int zone, int room, int arg3);
+        unsigned st;
+        unsigned ent;
+        float sx = 0, sy = 0;
+        int r = -1, have = 0;
+        if (g_wb_zone < 0 || g_wb_room < 0) return 0;
+        st = stats_addr();
+        ent = st ? *(unsigned *)(size_t)(st + OFF_ENTITY) : 0;
+        have = spot_find((unsigned)g_wb_zone, (unsigned)g_wb_room, &sx, &sy);
+        if (have)
+            logmsg("warpbyid: recorded spot for (%d,%d) is (%.1f,%.1f)",
+                   g_wb_zone, g_wb_room, (double)sx, (double)sy);
+        if (ent)
+            r = ((goto_t)0x00447080u)((void *)(size_t)ent, g_wb_zone, g_wb_room, 0);
+        if (st) {
+            /* the wrapper prepares the new room but does not re-point
+             * stats+0x17F7C; the caller does.  The player entity keeps the
+             * active level at +0x684 (level + 4), so mirror that. */
+            unsigned ent2 = *(unsigned *)(size_t)(st + OFF_ENTITY);
+            unsigned lvl2 = ent2 ? *(unsigned *)(size_t)(ent2 + 0x684) : 0;
+            unsigned lvlp = (lvl2 > 0x10000) ? lvl2 - 4 : 0;
+            unsigned cur = *(unsigned *)(size_t)(st + OFF_LEVEL_OBJ);
+            logmsg("warpbyid: player+684=%08x -> level %08x (was %08x)",
+                   lvl2, lvlp, cur);
+            if (lvlp) {
+                if (lvlp != cur)
+                    *(unsigned *)(size_t)(st + OFF_LEVEL_OBJ) = lvlp;
+                g_pend_lvl = lvlp;
+            }
+            if (!have && lvlp) {
+                /* fallback: land on a prop of the new room (type != 3 = player) */
+                int i, n = *(int *)(size_t)(lvlp + 0xBA98);
+                unsigned arr = *(unsigned *)(size_t)(lvlp + 0xBAA0);
+                for (i = 0; i < n && i < 64 && arr; i++) {
+                    unsigned e2 = *(unsigned *)(size_t)(arr + i * 4);
+                    float x2, y2;
+                    if (!e2 || !readable((void *)(size_t)(e2 + 0x524), 4)) continue;
+                    if (*(unsigned *)(size_t)(e2 + 0x50C) == 3) continue;
+                    x2 = *(float *)(size_t)(e2 + 0x520);
+                    y2 = *(float *)(size_t)(e2 + 0x524);
+                    if (x2 > 0 && x2 < 8192 && y2 > 0 && y2 < 8192) {
+                        sx = x2; sy = y2; have = 1;
+                        logmsg("warpbyid: fallback landing at entity[%d] (%.1f,%.1f)",
+                               i, (double)x2, (double)y2);
+                        break;
+                    }
+                }
+            }
+            if (have) {
+                g_pend_x = sx;
+                g_pend_y = sy;
+                g_pend_n = 5;
+                logmsg("warpbyid: holding level %08x pos (%.1f,%.1f) for 1 s",
+                       lvlp, (double)sx, (double)sy);
+            }
+        }
+        logmsg("warpbyid: zone=%d room=%d ret=%d ent=%08x",
+               g_wb_zone, g_wb_room, r, ent);
+        g_wb_zone = g_wb_room = -1;
+        return 0;
+    }
+    case WM_APP + 18: {   /* load a save slot: fill in the game's queued-load state */
+        int slot = (int)g_load_slot;
+        g_load_slot = -1;
+        if (slot < 0) return 0;
+        logmsg("load: queue slot %d (current=%d)", slot, *(int *)0x00675174u);
+        *(int *)0x00675174u = slot;   /* slot the loader will read */
+        *(int *)0x00639894u = 1;      /* pending load, consumed by the main loop */
+        return 0;
+    }
+    case WM_APP + 20: {   /* run the queued light request, game thread */
+        unsigned st2, lvl2;
+        LONG mode;
+        if (!g_light_req) return 0;
+        mode = g_light_req;
+        g_light_req = 0;
+        st2 = stats_addr();
+        lvl2 = st2 ? *(unsigned *)(size_t)(st2 + OFF_LEVEL_OBJ) : 0;
+        if (mode == 2 && !readable((void *)(size_t)0x00AFDFE0u, 8)) {
+            logmsg("lights: all-rooms request dropped (no zone tables)");
+            return 0;
+        }
+        if (mode == 2) room_lights_all_rooms(lvl2, st2);
+        else room_lights_apply(lvl2, st2);
+        return 0;
+    }
     }
     return CallWindowProcW(g_game_oldproc, h, m, w, l);
 }
@@ -4634,15 +7426,44 @@ EXP int CoreStart(void)
     cleanup_old_cores();
     g_veh_crash = AddVectoredExceptionHandler(1, crash_logger);
     read_debug_cfg();
+    spots_load();
+    buffs_cfg_load();
+    buffs_cfg_save();       /* create mod\buffs.ini with the defaults */
     if (g_nb) bp_install();
     if (g_dumpdict) dump_dictionaries();
-    if (g_watch_addr) {
+    if (g_dumpmap) {
+        char mp[MAX_PATH];
+        dump_map_info();
+        cfg_path(mp, sizeof mp);
+        WritePrivateProfileStringA("debug", "dumpmap", "0", mp);
+    }
+    if (g_watch_addr || g_watch_ent_off || g_watch_net) {
         g_veh = AddVectoredExceptionHandler(1, veh_handler);
-        set_dr_all(g_watch_addr, 0x000D0001u);
+        if (g_watch_addr) set_dr_all(g_watch_addr, g_watch_rw ? 0x000F0001u : 0x000D0001u);
     }
     items_load();
     desc_load();
     ime_guard();
+    if (g_warp_id >= 0) {
+        /* after ime_guard(): the WM_APP handler only exists once our window
+         * proc is installed */
+        char wp[MAX_PATH];
+        cfg_path(wp, sizeof wp);
+        WritePrivateProfileStringA("debug", "warptest", "-1", wp);
+        warp_test_fire();
+    }
+    if (g_roomwarp_cell >= 0) {
+        char wp[MAX_PATH];
+        cfg_path(wp, sizeof wp);
+        WritePrivateProfileStringA("debug", "roomwarp", "-1", wp);
+        roomwarp_fire();
+    }
+    if (g_wb_zone >= 0 && g_wb_room >= 0) {
+        char wp[MAX_PATH];
+        cfg_path(wp, sizeof wp);
+        WritePrivateProfileStringA("debug", "warpbyid", "", wp);
+        warpbyid_fire();
+    }
     if (g_gtv[1]) {
         char p[MAX_PATH];
         give_request(g_gtv[0], (int)g_gtv[1], (int)g_gtv[2]);
@@ -4657,7 +7478,10 @@ EXP int CoreStart(void)
     patch_attack_speed();
     logmsg("CoreStart: creating worker");
     g_worker = CreateThread(NULL, 0, worker, NULL, 0, NULL);
-    logmsg("CoreStart pid=%lu worker=%p", GetCurrentProcessId(), (void *)g_worker);
+    g_netsync = CreateThread(NULL, 0, net_sync_thread, NULL, 0, NULL);
+    g_godguard = CreateThread(NULL, 0, god_guard_thread, NULL, 0, NULL);
+    logmsg("CoreStart pid=%lu worker=%p netsync=%p godguard=%p", GetCurrentProcessId(),
+           (void *)g_worker, (void *)g_netsync, (void *)g_godguard);
     return g_worker != NULL;
 }
 
@@ -4665,6 +7489,17 @@ EXP void CoreStop(void)
 {
     logmsg("CoreStop requested");
     g_stopping = 1;
+    if (g_netsync) {
+        WaitForSingleObject(g_netsync, 1000);
+        CloseHandle(g_netsync);
+        g_netsync = NULL;
+    }
+    if (g_godguard) {
+        WaitForSingleObject(g_godguard, 1000);
+        CloseHandle(g_godguard);
+        g_godguard = NULL;
+    }
+    hooks_stop();               /* no callback may run while we unpatch below */
     if (g_wtid) PostThreadMessageW(g_wtid, WM_QUIT, 0, 0);
     if (g_worker) {
         WaitForSingleObject(g_worker, 3000);
@@ -4675,7 +7510,11 @@ EXP void CoreStop(void)
     bp_remove();
     unhook_steam_write();
     if (g_veh_crash) { RemoveVectoredExceptionHandler(g_veh_crash); g_veh_crash = NULL; }
-    if (g_watch_addr) { set_dr_all(0, 0); g_watch_addr = 0; }
+    if (g_watch_addr || g_watch_ent_off || g_watch_net) {
+        set_dr_all(0, 0);
+        g_watch_addr = 0;
+        g_watch_ent_off = 0;
+    }
     if (g_veh) { RemoveVectoredExceptionHandler(g_veh); g_veh = NULL; }
     logmsg("stop: unpatch %d sites", g_npatch);
     unpatch_all();
