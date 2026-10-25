@@ -6,10 +6,10 @@ managers, achievement tools and a few quality-of-life features.
 
 * Built for **Unepic v1.51.1 (build 15101), 32-bit, Steam version**. The mod uses
   fixed addresses inside that executable, so other game builds will not work.
-* **Single-player first; co-op support is tested but not exhaustive.** God/spike
+* **Single-player first; co-op support was tested as host only.** God/spike
   immunity, in-room teleport, Move speed, infinite jump, the MP saves window and the
-  session-only MP map unlock were tested in host and join sessions. Other multiplayer
-  modes and peer setups were not tested; use it in co-op at your own risk.
+  session-only MP map unlock were tested while hosting. Joining another player's game
+  and other multiplayer setups were not tested; use it in co-op at your own risk.
 * No network access, no installer beyond one script, no run key, no service, nothing
   that starts at boot. Uninstalling restores the game completely.
 
@@ -168,7 +168,7 @@ restart needed). The game's own camera also sits a little differently in each ro
 ~15 world units, i.e. 30-75 screen pixels), and it is not stored anywhere readable; a room
 that consistently lands slightly off can be nudged with the same two bias keys.
 In multiplayer the landing is written to both the player entity and the network player
-object the game draws from; this was tested in host and join sessions.
+object the game draws from; this was tested while hosting.
 
 **Infinite jump** - every press of the jump key refreshes the full jump impulse, in the
 air as well as on the ground. The MOD asks the same room grid whether there really is
